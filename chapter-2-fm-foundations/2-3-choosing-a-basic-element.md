@@ -3,7 +3,7 @@ title: "2.3 Choosing a Basic Element"
 parent: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 3
 status: draft
-last_reviewed: 2026-09-11
+last_reviewed: 2026-09-17
 redirect_from: /03-basic-elements.html
 ---
 
@@ -48,6 +48,8 @@ Applying the criterion to buildings gives a negative result worth stating plainl
 
 **(b) The thermal zone.** Physically motivated and composable, and the natural instinct for anyone from building simulation. But it fails the first requirement, for a reason this field already knows: **zoning is a modelling decision, not a property of the building.** The same building yields different zone layouts under different conventions, tools and levels of effort. A model trained across many zoned buildings partly learns the conventions of whoever zoned them.
 
+This is not an inference from the ML side. A systematic review of thermal zoning for building energy simulation finds multiple competing *definitions* of what a zone is, and concludes that a well-documented, accurate zoning method remains something future research still has to produce.[^shin2019zoning] **A basic element whose own community has not converged on a definition cannot be unambiguous in the sense the criterion requires** — and the absence of an agreed method is precisely what makes the ambiguity systematic rather than a matter of individual care.
+
 {: .note }
 This is the most persuasive entry point available when explaining the representation problem to a building simulation audience, because it is a debate they have lived rather than an ML abstraction they must take on trust.
 
@@ -82,7 +84,7 @@ Any building foundation model makes a deliberate trade-off among the four requir
 
 **R2 — Time series in segments, described by building attributes.** Hourly output cut into segments; attributes supplied alongside so the model reads the profile *in the light of* the building description (mechanism: cross-attention). Inherits the machinery of general time-series models. Carries temporal structure well, building structure partially.
 
-**R3 — Building as a network of connected parts.** Zones or components as nodes, thermal and hydraulic couplings as edges — closest to how building physics already models. Highest transfer potential, and pays the zoning ambiguity cost of §2.3.2(b) in full. **The more principled option, currently blocked by an unsolved problem belonging to the building simulation community rather than the ML one.**
+**R3 — Building as a network of connected parts.** Zones or components as nodes, thermal and hydraulic couplings as edges — closest to how building physics already models. Highest transfer potential, and pays the zoning ambiguity cost of §2.3.2(b) in full. **The more principled option, currently blocked by an unsolved problem belonging to the building simulation community rather than the ML one** — that community's own review literature names the missing zoning method as open research, not settled practice.[^shin2019zoning]
 
 **R4 — Building as an element of a stock.** Individual buildings as the basic element within a portfolio. Suits stock-level questions; gives up within-building resolution. See also [§4.2](../chapter-4-directions/4-2-fms-for-building-stocks.html) for FMs targeting whole building stocks specifically.
 
@@ -98,6 +100,8 @@ The analysis implies where the choice matters. Stated so they can be checked, wi
 
 {: .warning }
 **When this analysis would be wrong:** if P3 fails — if a plain attribute list transfers comfortably to unseen typologies — the case for a bespoke building foundation model weakens substantially. Stating the disconfirming condition is what separates a position from advocacy, and it should survive into any publication built on this material.
+
+[^shin2019zoning]: Shin, M., Haberl, J. S. (2019). [Thermal zoning for building HVAC design and energy simulation: A literature review](https://doi.org/10.1016/j.enbuild.2019.109429). *Energy and Buildings*, 203, 109429.
 
 ---
 [← Previous: 2.2 The Five Design Decisions](2-2-five-design-decisions.html) · [Next: 2.4 Existing FMs Relevant to Energy →](2-4-existing-fms-relevant-to-energy.html)

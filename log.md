@@ -331,3 +331,26 @@ The `longarini2026coldstart` finding is the one flagged as most useful here: acc
 **Scope held deliberately.** No claim that a hub FM follows from any of this; §2.4.3 ends by routing the reader to [§4.1](chapter-4-directions/4-1-off-the-shelf-fms.md) (use the forecast off the shelf) and explicitly says that is not a step toward a UES foundation model. Bibliography 93 → 97 entries. `last_reviewed` bumped to 2026-09-16.
 
 **Not verified in a browser.** Footnote rendering and the two new anchor links checked by grep against the target headings, not by a Jekyll build.
+
+## 2026-09-17 (extend §2.8 with the surrogate → FM migration path)
+
+Barton asked whether Kleinebrahm et al.'s *Joule* paper on European grid defection belonged in the surrogate section, and — the better half of the question — how a reader moves from a surrogate to an FM. [§2.8](chapter-2-fm-foundations/2-8-surrogates-vs-fms.md) said what the *difference* is (the four-row table) but never what to *do* about it. The only route it offered was one clause: "making the same class of model transferable across systems rather than rebuilt for each one" — the destination, not the path.
+
+**New subsection: a four-step path, ordered by when each constraint bites.**
+
+| Step | What changes | Routes to |
+| :--- | :--- | :--- |
+| 0 | Check the basic element — it can veto everything downstream | §2.3.1, §2.3.2 |
+| 1 | Widen training from one system to a population (mostly corpus work) | §2.5, §2.4 |
+| 2 | Make the transfer claim and test it on held-out *systems* | §2.9 |
+| 3 | Broaden from one task to several | §2.1 |
+
+Step 0 is first on purpose: §2.3.2's negative result for buildings means a surrogate on a failing element cannot be scaled into an FM, so the cheapest check gates the expensive ones. Step 1 is framed as corpus construction rather than modelling, consistent with §2.5 treating the missing corpus as the binding constraint.
+
+**Named the middle ground.** Steps 1–3 are separable, and a model taking only some is not a failed FM. Added *transferable surrogate* (Steps 1–2, not 3) as an honest label, with §2.4.3's renewable models as the worked instance — ~126k sites, genuinely zero-shot, but single-carrier and single-task. This gives the book a word for the category most real work lands in, instead of forcing a binary.
+
+**The Kleinebrahm citation, and what it is *not* used for.** Cited for one claim: work at continental building-stock scale is population-level in the sense Step 1 requires. Deliberately **not** cited as a surrogate, because the method could not be verified — the paper is paywalled and the abstract is absent from Crossref, OpenAlex, Semantic Scholar and Europe PMC. An earlier draft of this passage asserted the study "is not released as a model anyone else can apply" and that "Steps 2 and 3 are simply not attempted"; both were claims about a method the writer had not read, and were cut. The replacement argues the general point instead — *the distinction is the deliverable, not the scale* — which needs no unverifiable detail about this particular paper. Only the title, authors, venue and pagination are asserted, all from Crossref.
+
+**A wrong cross-reference fixed in passing.** §2.8 pointed at [§3.4](chapter-3-sim-opt/3-4-dispatch-optimisation.md) for "the break-even arithmetic". §3.4 itself says the arithmetic is developed in §3.5, and [§3.5](chapter-3-sim-opt/3-5-design-sizing-optimisation.md) is where the `N_train × t_sim < Σ(N_evaluations × t_sim)` inequality actually appears. Repointed.
+
+§2.8 had no footnotes before this; the definitions block is placed in house position, above the closing nav rule. Bibliography 99 → 100. `last_reviewed` bumped to 2026-09-17. All 14 links in the section verified to resolve, both anchors checked against the target headings. Not rendered in a browser.

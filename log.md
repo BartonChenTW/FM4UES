@@ -375,3 +375,24 @@ Added Shin & Haberl's systematic review (*Energy and Buildings* 203:109429, DOI 
 - **The glossary is one-sided.** 28 terms, roughly 23 ML-side to 5 UES-side, in a book whose stated audience is someone who knows UES well and ML less well *or vice versa*. Missing, with body usage counts: UBEM (21 — the most-used acronym in the book), OPF (16), MILP (14), LP (9), ESDL (8), CIM (6), GNN (6), LLM (5), CHP (4), DH (4), MINLP (3). DINO, SAM and ViT are all defined; UBEM is not.
 - **Chapter 4 stubs §4.1–4.4 remain uncited.** One directly fillable: "Systematic Evaluation of TabPFN-TS for Zero-Shot Probabilistic Heat Load Forecasting in District Heating Networks" (arXiv, 2026-08-20) is an off-the-shelf FM applied zero-shot to a UES carrier task — precisely §4.1's subject, covering district heating, which the book discusses but has no FM evidence for. TabPFN-TS is already threaded through §2.4.1 and §2.4.4.
 - **Not checked:** whether any *positive* claim has gone stale (§2.4.1's model roster is the likeliest casualty), and anything needing a Jekyll build.
+
+## 2026-09-19 (source §2.5's six negative claims)
+
+First item off last week's "findings not acted on" backlog. [§2.5](chapter-2-fm-foundations/2-5-what-does-not-exist-yet.md) asserted six "no FM exists for X" claims — 176 words, zero citations, zero dates — while Chapters 4, 5 and 6 all build on it being true. A negative claim with no stated search method can't be checked or age-verified; [§1.3](chapter-1-background/1-3-fm-landscape-by-domain.md) already does this correctly (dated Scopus search + citation), so the fix is the same pattern applied here.
+
+**Method.** A dated arXiv title/abstract search per claim, run 19 September 2026 — first attempt silently returned zero hits on every query including a known-good control (`"foundation model" AND "power grid"`, which should and does return 16 results); traced to `export.arxiv.org` 301-redirecting plain `curl` to an empty body. Fixed with `-L` before trusting any result.
+
+Two of the six claims turned up a genuine nearest-miss paper, both new to the bibliography:
+
+- **Multi-carrier operation.** The search returns exactly one paper: TabPFN-TS (an existing general time-series FM) evaluated zero-shot on district-heating load forecasting.[^spoek2026tabpfndh] This is the same paper flagged last week as the direct fill for [§4.1](chapter-4-directions/4-1-off-the-shelf-fms.md)'s stub — cited here for what it is *not*: single-carrier, forecasting-only, no conversion/storage/dispatch. The nearest miss confirms the gap.
+- **Representation/interchange format.** Beyond [§3.7](chapter-3-sim-opt/3-7-schemas-and-standards.md)'s existing ESDL/CIM treatment, added a June 2026 paper from *within* the multi-energy-systems research community itself — motivated by discussions at ECOS 2025, concluding that standardised case-study description "remains fragmented".[^vallee2026standardizing] Independent confirmation from outside ML that the same gap is felt domain-side.
+
+Two claims were cross-referenced to material the book already has rather than re-cited: the design/planning claim now points at the single-system surrogates in [§4.9.3](chapter-4-directions/4-9-3-methods-tier3.md) (`perera2019mlsurrogate`, `prina2024energyplan` — neither claims cross-system transfer), and the benchmark claim points at [G4](chapter-6-outlook/6-1-open-gaps.md#g4)'s existing `lin2024tsfmbuilding` citation rather than re-running that search.
+
+The basic-element claim needed no citation, only a pointer — [§2.3.2](chapter-2-fm-foundations/2-3-choosing-a-basic-element.md#232-basic-elements-for-buildings)/[§2.3.3](chapter-2-fm-foundations/2-3-choosing-a-basic-element.md#233-representation-strategies-and-testable-predictions) already argue it at length. The decision-space claim is the cleanest of the six: zero results, no near miss to report, cross-referenced to [G9](chapter-6-outlook/6-1-open-gaps.md#g9).
+
+Both new sources verified against arXiv metadata before use (title, full author list, date). Bibliography 101 → 103. `last_reviewed` bumped to 2026-09-19.
+
+[G9](chapter-6-outlook/6-1-open-gaps.md#g9) itself, which §2.5 cross-references, remains uncited on its own page — out of scope for this pass, one section at a time per CONTRIBUTING; flagged, not fixed.
+
+**Not rendered in a browser.** Footnote ref/def integrity and all nine cross-reference targets checked by grep against the file tree and existing anchor precedent elsewhere in the book, not by a Jekyll build. lychee clean (0 errors) — binary re-downloaded this session since the temp path from last week's session no longer existed.

@@ -66,13 +66,16 @@ References are tracked in Zotero and exported as BibTeX to
 Markdown footnotes:
 
 ```markdown
-Physics-informed models reduce data needs.[^raissi2019]
+Pretrained time-series models can forecast zero-shot.[^ansari2024chronos]
 
-[^raissi2019]: Raissi, M. et al. (2019). Physics-informed neural networks.
-  *J. Comput. Phys.*
+[^ansari2024chronos]: Ansari, A. F., Stella, L., Turkmen, C. et al. (2024).
+  [Chronos: Learning the language of time series](https://arxiv.org/abs/2403.07815).
+  *Transactions on Machine Learning Research*. arXiv:2403.07815.
 ```
 
-Use the same citation key as the `.bib` entry (e.g. `raissi2019`) as the
+Use the same citation key as the `.bib` entry (e.g. `ansari2024chronos`,
+following the `firstauthorYEARshortname` pattern in
+[`references/README.md`](references/README.md)) as the
 footnote name, so the two stay traceable to each other.
 
 **Do not add a reference to the bibliography alone.** A `.bib` entry with

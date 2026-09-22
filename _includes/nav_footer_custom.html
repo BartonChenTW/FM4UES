@@ -93,6 +93,12 @@
       for (var j = 0; j < all.length; j++) {
         updateButton(all[j], next);
       }
+      // Mermaid bakes its colours into each SVG, so swapping the
+      // stylesheet alone leaves diagrams in the old theme. Defined by
+      // _includes/mermaid_config.js; a no-op on pages with no diagrams.
+      if (typeof window.fmRerenderMermaid === 'function') {
+        window.fmRerenderMermaid(next);
+      }
     });
   })();
 </script>

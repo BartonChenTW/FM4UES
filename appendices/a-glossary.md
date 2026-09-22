@@ -20,7 +20,7 @@ redirect_from: /appendix-a-glossary.html
 | **Cell** | A single entry in a table, where one row meets one column; the basic element of tabular foundation models ([§2.4.4](../chapter-2-fm-foundations/2-4-4-tabular-fms.html)) |
 | **Cross-attention** | Mechanism by which one set of information (e.g. building attributes) modulates how another is interpreted (e.g. a demand profile), rather than simply being appended to it |
 | **DAE** | Differential-algebraic equations — the structure of Modelica-type models |
-| **Decision space** | The set of possible interventions on a system, as distinct from its state space; see [G9](../chapter-6-outlook/6-1-open-gaps.html#g9--representing-a-decision-space-alongside-a-state-space) |
+| **Decision space** | The set of possible interventions on a system, as distinct from its state space; see [G9](../chapter-6-outlook/6-1-open-gaps.html#g9) |
 | **DINO** (self-distillation with no labels) | Self-supervised vision transformer trained by having a student network match a teacher's output with no labelled data. See [§1.3](../chapter-1-background/1-3-fm-landscape-by-domain.html) |
 | **Energy hub** | Node converting/storing/dispatching multiple carriers via a coupling matrix ([§3.3](../chapter-3-sim-opt/3-3-energy-hub-formalism.html)) |
 | **Fine-tuning** | Adjusting a pretrained model to a specific case with a small amount of additional data — comparable to calibrating a model against measurements. See [§2.6](../chapter-2-fm-foundations/2-6-scaling-laws.html) |

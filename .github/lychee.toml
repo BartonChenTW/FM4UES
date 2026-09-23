@@ -146,6 +146,17 @@ exclude = [
   # Both URLs in index.md (main site and Urban Energy Systems Lab page)
   # verified to load correctly in a browser before excluding.
   '^https://www\.empa\.ch/',
+  # ASME (DOI prefix 10.1115) redirects to asmedigitalcollection.asme.org,
+  # which returns 403 Forbidden to lychee even with a browser user agent --
+  # the same bot-blocking as the publishers above, not a missing page.
+  # Excluded by prefix for consistency. Verified against the Crossref API
+  # before excluding, and the redirect target itself confirms the article:
+  #   10.1115/1.4056078 -- Wu & Wang (2022), "Generative Design for
+  #     Resilience of Interdependent Network Systems", Journal of
+  #     Mechanical Design 145(3), 031705 (section 4.4) -- title, both
+  #     authors and the volume/issue/article-number in the redirect URL
+  #     itself all match what the text cites.
+  '^https://doi\.org/10\.1115/',
   # This book's own GitHub Pages URL. Checked from README.md and
   # CONTRIBUTING.md. GitHub's runners sometimes get "Connection reset
   # by peer" (os error 104) against bartonchentw.github.io even though

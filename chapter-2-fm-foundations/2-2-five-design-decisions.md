@@ -41,8 +41,8 @@ How is a training example turned into something the architecture consumes?
 This is where domain-specific difficulty concentrates. Evidence from adjacent fields:
 
 - **Float-heavy data** needs purpose-built handling; GridFM-v0 adopts a specially designed float discretisation-and-tokenisation scheme, adapted from vision-language-action models, so that a transformer can process float-rich grid state alongside text.[^hamann2024foundation]
-- **Structured codes** break standard schemes: subword tokenisation optimised for natural language fails to capture the hierarchical and compositional structure of structured medical codes, and dedicated tokenisation recovers measurable performance.[^unistruct2024]
-- **Multi-domain data** risks structural loss: tokenisation strategies that combine incompatible spatial discretisations risk losing physical adjacency and introducing aliasing effects in attention layers.[^earthcoupling2026]
+- **Structured codes** break standard schemes: subword tokenisation optimised for natural language fails to capture the hierarchical and compositional structure of structured medical codes, and dedicated tokenisation recovers measurable performance.[^dwivedi2024unistruct]
+- **Multi-domain data** risks structural loss: tokenisation strategies that combine incompatible spatial discretisations risk losing physical adjacency and introducing aliasing effects in attention layers.[^kaselimi2026coupling]
 - **Multi-resolution data** needs explicit handling: Moirai pairs a multi-patch-size projection scheme handling minute-to-year-scale data with an any-variate attention mechanism that scales to arbitrary numbers of variables.[^woo2024moirai]
 
 **A representation is not one decision but at least four**, and this framing recurs whenever this book proposes a concrete representation (see [§5.2](../chapter-5-case-study/5-2-representation-problem.html)):
@@ -74,8 +74,8 @@ The reason is that low average error and physical validity are different propert
 
 **Neither result removes the evaluation burden — they relocate it.** Both are demonstrated on single-carrier power flow with a fixed constraint set, whereas a multi-carrier hub adds conversion relations, storage continuity across the horizon, and discrete on/off decisions, so "feasible" is a longer list of things to check and some of them are combinatorial. The practical consequence for this book is that a feasibility number is only meaningful alongside the constraint set it was measured against: see the six-metric reporting protocol in [§4.10.3](../chapter-4-directions/4-10-building-it.html) and dimension 4 of [§2.9](2-9-ues-fm-evaluation-criteria.html).
 
-[^unistruct2024]: [Representation Learning of Structured Data for Medical Foundation Models (UniStruct)](https://arxiv.org/abs/2410.13351). arXiv:2410.13351.
-[^earthcoupling2026]: [Toward AI-Enabled Earth System Coupling](https://arxiv.org/abs/2604.03289). arXiv:2604.03289.
+[^dwivedi2024unistruct]: Dwivedi, V. P., Schlegel, V., Liu, A. T. et al. (2024). [Representation Learning of Structured Data for Medical Foundation Models](https://arxiv.org/abs/2410.13351). *NeurIPS 2024 Workshop on Unifying Representations in Neural Models (UniReps)*. arXiv:2410.13351. Introduces the UniStruct model.
+[^kaselimi2026coupling]: Kaselimi, M. and Belehaki, A. (2026). [Toward Artificial Intelligence Enabled Earth System Coupling](https://arxiv.org/abs/2604.03289). arXiv:2604.03289.
 [^woo2024moirai]: Woo, G., Liu, C., Kumar, A. et al. (2024). [Unified training of universal time series forecasting transformers](https://arxiv.org/abs/2402.02592). ICML 2024. arXiv:2402.02592.
 [^hamann2024foundation]: Hamann, H. F., Gjorgiev, B., Brunschwiler, T. et al. (2024). [Foundation models for the electric power grid](https://doi.org/10.1016/j.joule.2024.11.002). *Joule*, 8(12), 3245–3258.
 [^dosovitskiy2020vit]: Dosovitskiy, A., Beyer, L., Kolesnikov, A. et al. (2020). [An image is worth 16x16 words: Transformers for image recognition at scale](https://arxiv.org/abs/2010.11929). arXiv:2010.11929.

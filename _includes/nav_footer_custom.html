@@ -23,6 +23,13 @@
   document.getElementById in whichever copy isn't first in the DOM, so
   every element below is selected by class within its own button's
   subtree instead.
+
+  Never write a literal HTML tag (e.g. "<script>") inside the JS below,
+  even in a // comment. Browsers ignore it, but lychee's HTML tokenizer
+  does not: a "<script>" in a comment here made it lose sync and
+  silently skip every link after the sidebar, on every page, which
+  hollows out .github/workflows/site-check.yml. This Liquid comment is
+  stripped at build time, so tags are safe up here.
 {%- endcomment -%}
 <button class="js-toggle-dark-mode fm-theme-toggle" type="button" aria-label="Toggle dark mode" style="display: flex; align-items: center; gap: 0.4em; background: none; border: 1px solid currentColor; opacity: 0.75; border-radius: 4px; padding: 0.35em 0.6em; margin-top: 0.5em; font-size: 0.8em; cursor: pointer; color: inherit;">
   <svg class="fm-theme-toggle-icon-light" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -65,7 +72,7 @@
       button.setAttribute('aria-pressed', String(isDark));
     }
 
-    // This include -- <script> tag and all -- renders twice per page
+    // This include -- script element and all -- renders twice per page
     // (desktop sidebar + mobile footer copy), so this whole IIFE runs
     // twice. Sync both button instances' icon/label state each time
     // (cheap, order-independent), but only attach the click listener
@@ -92,6 +99,12 @@
       var all = document.querySelectorAll('.fm-theme-toggle');
       for (var j = 0; j < all.length; j++) {
         updateButton(all[j], next);
+      }
+      // Mermaid bakes its colours into each SVG, so swapping the
+      // stylesheet alone leaves diagrams in the old theme. Defined by
+      // _includes/mermaid_config.js; a no-op on pages with no diagrams.
+      if (typeof window.fmRerenderMermaid === 'function') {
+        window.fmRerenderMermaid(next);
       }
     });
   })();

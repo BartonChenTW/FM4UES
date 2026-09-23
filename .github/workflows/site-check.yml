@@ -1,0 +1,81 @@
+name: Site build and internal links
+
+# Builds the site the way GitHub Pages does, then checks every internal
+# link and #anchor in the *built* HTML.
+#
+# This is the counterpart to link-check.yml, not a replacement. That
+# workflow checks external links against the raw Markdown, and has to
+# exclude every internal .html cross-link, because those only exist as
+# files once Jekyll has built the site (see .github/lychee.toml). So
+# until this workflow, nothing checked internal links or anchors, and a
+# broken Liquid tag or front-matter block surfaced only when the Pages
+# build failed after merge. Both classes of bug have happened here:
+# 89a76b1 fixed twelve dead #gN anchors, and in doing so broke two more
+# that no check could see.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Same Ruby minor as the current GitHub Pages build image. The
+      # Gemfile declares only `github-pages` (+ webrick), which pins
+      # Jekyll and every plugin to the versions Pages itself uses.
+      # Gemfile.lock is gitignored; with no lockfile, bundler-cache
+      # generates one with `bundle lock` before installing.
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      # Built into _site/FM4UES rather than _site: the theme emits
+      # root-relative links through relative_url (/FM4UES/assets/...,
+      # /FM4UES/chapter-1-background/...), and nesting the output under
+      # the baseurl lets --root-dir below resolve them exactly as the
+      # live site does. JEKYLL_ENV=production matches the Pages build;
+      # the token is only there so jekyll-github-metadata's API calls
+      # are authenticated rather than rate-limited.
+      - name: Build site
+        run: bundle exec jekyll build --destination _site/FM4UES
+        env:
+          JEKYLL_ENV: production
+          JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # --offline: local files only. External links stay the job of
+      #   link-check.yml, so a flaky publisher can't fail this check.
+      # --include-fragments: verify #anchors, not just that the page exists.
+      # --root-dir: resolve root-relative links against the built site.
+      #
+      # lychee is pinned to the version this was verified with: run
+      # locally against a mirror of the published site, it reported
+      # exactly the three internal breaks an independent crawl found
+      # (two dead #gN anchors and a link to the unbuilt log.md) and
+      # nothing else.
+      #
+      # If this ever passes suspiciously easily, check the link count in
+      # the summary. A literal HTML tag inside inline JS (even in a
+      # comment) makes lychee's tokenizer skip the rest of the page --
+      # see the warning in _includes/nav_footer_custom.html.
+      - name: Check internal links and anchors
+        uses: lycheeverse/lychee-action@v2
+        with:
+          lycheeVersion: v0.24.2
+          args: >-
+            --offline
+            --include-fragments
+            --root-dir ${{ github.workspace }}/_site
+            --no-progress
+            '_site/**/*.html'
+          fail: true

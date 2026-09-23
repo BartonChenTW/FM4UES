@@ -31,7 +31,7 @@ One page per section, nested by chapter using just-the-docs' `parent:` /
 | :--- | :--- |
 | `index.md` | Landing page and table of contents |
 | `chapter-1-background/` | §1.1–1.6 — what a UES contains, FMs in one page, the FM landscape, why UES/why now, scope of the book |
-| `chapter-2-fm-foundations/` | §2.1–2.8 — what defines an FM, the five design decisions, **Choosing a Basic Element** (the core argument), existing FMs relevant to energy, ML basics (self-supervision, transformers, GNNs, neural operators), surrogates vs FMs |
+| `chapter-2-fm-foundations/` | §2.1–2.9 — what defines an FM, the five design decisions, **Choosing a Basic Element** (the core argument), existing FMs relevant to energy, ML basics (self-supervision, transformers, GNNs, neural operators), surrogates vs FMs, evaluation criteria for UES FMs |
 | `chapter-3-sim-opt/` | §3.1–3.8 — task taxonomy, building simulation data, the energy hub formalism, dispatch and design/sizing optimisation as ML problems, the tool landscape, schemas, where cost lives |
 | `chapter-4-directions/` | §4.1–4.10 — a neutral survey: off-the-shelf FMs, building-stock FMs, LLM agents for simulation, generative design, screening, candidate sub-fields, methods by problem tier (Tier 1–3), building it |
 | `chapter-5-case-study/` | §5.1–5.8 — one concrete proposal: roadmap (Phases 0–5), the representation problem, data generation, a concrete representation, token schema, physics loss, module decomposition, risks |

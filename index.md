@@ -35,7 +35,7 @@ This is written for someone who knows urban energy systems well and machine lear
 The **[Methods by Problem Class](chapter-4-directions/4-9-methods-landing.html)** pages (§4.9) are the operational core of the directions survey: three tiers of increasing difficulty (single-hub dispatch → multi-hub multi-carrier dispatch → design and sizing optimisation), each with a concrete build path.
 
 {: .warning }
-**The field moves fast.** Publication counts on LLM-and-energy alone went from roughly 1 (2022) to 13 (2023) to 128 (2024) to 464 (2025), with 348 already indexed in the first half of 2026. Re-check anything that reads as a landscape or novelty claim before it is used to justify a proposal or paper.
+**The field moves fast.** Publication counts on LLM-and-energy alone went from roughly 1 (2022) to 13 (2023) to 128 (2024) to 464 (2025), with 348 already indexed in the first half of 2026 (a Scopus search run 11 July 2026 — query and source in [§1.3](chapter-1-background/1-3-fm-landscape-by-domain.html)). Re-check anything that reads as a landscape or novelty claim before it is used to justify a proposal or paper.
 
 ---
 
@@ -44,7 +44,7 @@ The **[Methods by Problem Class](chapter-4-directions/4-9-methods-landing.html)*
 | Chapter | Page | Covers |
 | :--- | :--- | :--- |
 | 1 | [Background: UES and FMs](chapter-1-background/index.html) | What the domain is, what FMs are, why the two should meet now |
-| 2 | [Foundation Knowledge of FMs](chapter-2-fm-foundations/index.html) | What makes a model a foundation model; [Choosing a Basic Element](chapter-2-fm-foundations/2-3-choosing-a-basic-element.html); the FM landscape today; ML basics (self-supervision, transformers, GNNs, neural operators); surrogates vs FMs |
+| 2 | [Foundation Knowledge of FMs](chapter-2-fm-foundations/index.html) | What makes a model a foundation model; [Choosing a Basic Element](chapter-2-fm-foundations/2-3-choosing-a-basic-element.html); the FM landscape today; ML basics (self-supervision, transformers, GNNs, neural operators); surrogates vs FMs; evaluation criteria for UES FMs |
 | 3 | [Simulation and Optimisation in UES](chapter-3-sim-opt/index.html) | Task taxonomy, building simulation data, the energy hub formalism, dispatch and design optimisation, the tool landscape, where cost lives |
 | 4 | [Directions for FMs in UES](chapter-4-directions/index.html) | A broad, neutral survey: off-the-shelf FMs, building-stock FMs, LLM agents, generative design, screening, and methods by problem tier |
 | 5 | [Case Study: A Foundation Model for Multi-Carrier Energy Hubs](chapter-5-case-study/index.html) | One concrete proposal — representation, token schema, module decomposition, a phased roadmap, risks |

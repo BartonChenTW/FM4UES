@@ -154,6 +154,15 @@ exclude = [
   # forgive it). Verified the URL is live before excluding. Do not
   # treat this as a licence to skip other github.io links.
   '^https://bartonchentw\.github\.io/FM4UES/?$',
+  # OTexts (otexts.com, publisher of Forecasting: Principles and
+  # Practice) returns 403 Forbidden to lychee's user agent but 200 to a
+  # browser one -- reproduced locally on 2026-09-23 with both UAs, so it
+  # is bot-blocking, not a dead page. Excluded by host since any further
+  # FPP chapter link would hit the same block. Verified the linked page
+  # is the right one: its title is "15 Foundation forecasting models --
+  # Forecasting: Principles and Practice, the Pythonic Way", cited in
+  # refs-to-add.md (A2).
+  '^https://otexts\.com/',
 ]
 
 # Skip files that aren't meant to be checked as published pages.

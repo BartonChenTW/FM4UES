@@ -6,8 +6,10 @@ redirect_from: /11-references.html
 
 # References (Zotero / BibTeX)
 
-`fm-for-ues.bib` is the master bibliography for this textbook, in BibTeX
-format.
+[`fm-for-ues.bib`](https://github.com/BartonChenTW/FM4UES/blob/main/references/fm-for-ues.bib)
+is the master bibliography for this textbook, in BibTeX format. It is
+not served by this site (see the last section below), so download it
+from the repository.
 
 ## Import into Zotero
 
@@ -22,7 +24,7 @@ format.
 Seeded from the categorised reference lists that used to live in
 `add/reference.md` and `11-references.md` — both removed in the 2026-09-11
 restructure, once their content was folded into per-page footnotes
-throughout the book (see [`log.md`](../log.md) for the restructure record).
+throughout the book (see [`log.md`](https://github.com/BartonChenTW/FM4UES/blob/main/log.md) for the restructure record).
 Limited to entries with a confirmed author list, venue, year, and link (DOI
 or arXiv ID); entries that were marked `[to confirm]` in those source files
 were not carried over.

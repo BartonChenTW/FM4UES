@@ -28,6 +28,7 @@ exclude:
   - log.md
   - notes-concept-paper.md
   - diagram-ideas.md
+  - refs-to-add.md
   - references/fm-for-ues.bib
   - Gemfile
   - Gemfile.lock

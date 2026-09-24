@@ -3,7 +3,7 @@ title: "2.3 Choosing a Basic Element"
 parent: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 3
 status: draft
-last_reviewed: 2026-09-17
+last_reviewed: 2026-09-24
 redirect_from: /03-basic-elements.html
 ---
 
@@ -24,7 +24,7 @@ If you read only one page in this book, read this one. It gives the criterion fo
 
 D1 — Unit of observation (what is one training example?) and D2 — Tokenisation/encoding (how is a training example turned into something the architecture consumes?), see [§2.2](2-2-five-design-decisions.html), are usually treated as implementation detail. They are not. The choice of basic element determines what transfers, and no amount of architecture or compute compensates for a bad one.
 
-**Why grid foundation models work.** Power networks supply their own basic element. A bus is a bus in Switzerland and in Texas, at 20 kV and at 380 kV. Two engineers decomposing the same network produce the same buses and lines. Networks are assembled from these elements by known rules. The model therefore learns *the element* and its interactions, and an unseen network is a new arrangement of familiar parts. Tokenisation is essentially given by the domain.
+**Why grid foundation models work.** Power networks supply their own basic element. A bus is a bus in Switzerland and in Texas, at 20 kV and at 380 kV. Two engineers decomposing the same network produce the same buses and lines. Networks are assembled from these elements by known rules. The model therefore learns *the element* and its interactions, and an unseen network is a new arrangement of familiar parts.[^donon2020gns] Tokenisation is essentially given by the domain — which is why the proposed grid foundation model is a graph neural network meant to learn across diverse grid data and topologies.[^hamann2024foundation]
 
 **Four requirements**, derived from that case. These are the criterion; they are stated in ordinary modelling language and can be applied to any proposed representation, including ones this document does not consider.
 
@@ -55,15 +55,15 @@ This is the most persuasive entry point available when explaining the representa
 
 **(c) The building component** — wall, window, heat pump. Unambiguous and composable. But the relationship between components and energy performance is neither local nor sparse: performance emerges from envelope, systems, climate and occupancy acting together. A component-level decomposition pushes essentially all the physics into the interaction terms, which is the hardest thing to learn from data.
 
-**(d) The time interval / patch.** A fixed-length slice of hourly output. Unambiguous, stable and scale-independent — this is what time-series foundation models use (see [§2.4.1](2-4-1-time-series-fms.html)). But it describes the *output*, not the object. A slice of a demand profile carries no information about the building that produced it, so building characteristics must be attached from outside.
+**(d) The time interval / patch.** A fixed-length slice of hourly output. Unambiguous, stable and scale-independent — this is what time-series foundation models use[^das2024timesfm] (see [§2.4.1](2-4-1-time-series-fms.html)), following the patches-as-input-tokens design introduced by PatchTST.[^nie2023patchtst] But it describes the *output*, not the object. A slice of a demand profile carries no information about the building that produced it, so building characteristics must be attached from outside.
 
-**(e) The cell.** A single entry in a table — where one row meets one column. Scores better against the four requirements than (a)–(d) and fails on time-resolved output. Treated in full in [§2.4.4](2-4-4-tabular-fms.html).
+**(e) The cell.** A single entry in a table — where one row meets one column. Scores better against the four requirements than (a)–(d) and fails on time-resolved output. It is the element of the tabular foundation model TabPFN, which gives each cell its own representation.[^hollmann2025tabpfnv2] Treated in full in [§2.4.4](2-4-4-tabular-fms.html).
 
 ### Two further difficulties specific to buildings
 
 **Mixed information types at one level.** A building description combines continuous quantities (floor area, U-values), categories (construction type, heating system), discrete choices (which retrofit measures, which technologies), and long continuous series (8760 hourly values). These do not naturally share a common form. Grid models, by contrast, handle uniformly numerical quantities.
 
-**The decision layer.** A model intended to support retrofit or investment decisions must represent not only what a building **is** but what could be **done to it** — insulation packages, heat pumps, PV, storage, and their combinations. This is a large, discrete, constraint-bound space with no counterpart in grid state representation. **A decision space is not a state space, and no existing energy foundation model represents one.** This is arguably the deepest structural difference from GridFM and is logged as [gap G9](../chapter-6-outlook/6-1-open-gaps.html#g9).
+**The decision layer.** A model intended to support retrofit or investment decisions must represent not only what a building **is** but what could be **done to it** — insulation packages, heat pumps, PV, storage, and their combinations. This is a large, discrete, constraint-bound space with no counterpart in grid state representation. **A decision space is not a state space, and no existing energy foundation model represents one** (see [§2.5](2-5-what-does-not-exist-yet.html) for the dated search behind that claim). This is arguably the deepest structural difference from GridFM and is logged as [gap G9](../chapter-6-outlook/6-1-open-gaps.html#g9).
 
 ### The resulting claim
 
@@ -80,7 +80,7 @@ Any building foundation model makes a deliberate trade-off among the four requir
 | **R3** Network of parts | ✗ | ✓ | ✓ | ✓ | ✓ |
 | **R4** Stock-level | ✓ | ✓ (stock) | ✓ (stock) | portfolio only | aggregate only |
 
-**R1 — Building as an attribute list.** The classical metamodel input: one fixed-length row per building. Simple, well understood, strong within the range it was fitted to. Nothing structural transfers to an unseen typology.
+**R1 — Building as an attribute list.** The classical metamodel input: one fixed-length row per building.[^westermann2019surrogate] Simple, well understood, strong within the range it was fitted to. Nothing structural transfers to an unseen typology.
 
 **R2 — Time series in segments, described by building attributes.** Hourly output cut into segments; attributes supplied alongside so the model reads the profile *in the light of* the building description (mechanism: cross-attention). Inherits the machinery of general time-series models. Carries temporal structure well, building structure partially.
 
@@ -101,6 +101,12 @@ The analysis implies where the choice matters. Stated so they can be checked, wi
 {: .warning }
 **When this analysis would be wrong:** if P3 fails — if a plain attribute list transfers comfortably to unseen typologies — the case for a bespoke building foundation model weakens substantially. Stating the disconfirming condition is what separates a position from advocacy, and it should survive into any publication built on this material.
 
+[^donon2020gns]: Donon, B., Clément, R., Donnot, B., Marot, A., Guyon, I. and Schoenauer, M. (2020). [Neural networks for power flow: Graph neural solver](https://doi.org/10.1016/j.epsr.2020.106547). *Electric Power Systems Research*, 189, 106547. A graph neural network that learns AC power flow by minimising the violation of Kirchhoff's law at each bus — the bus is literally the unit it learns at — and is robust to variations in injections, grid topology and line characteristics, demonstrated on the IEEE 9-, 14-, 30- and 118-bus cases. Evidence for element-level learning under topology change on standard test grids; the abstract does not claim that one trained model covers all four grids, nor real networks of national scale.
+[^hamann2024foundation]: Hamann, H. F., Gjorgiev, B., Brunschwiler, T. et al. (2024). [Foundation models for the electric power grid](https://doi.org/10.1016/j.joule.2024.11.002). *Joule*, 8(12), 3245–3258. A perspective arguing that a foundation model "learning from diverse grid data and topologies" could transform grid operation, and sketching GridFM, a concept based on graph neural networks. It states the design premise this section relies on; it is a proposal, not a trained, evaluated model.
+[^das2024timesfm]: Das, A., Kong, W., Sen, R. and Zhou, Y. (2024). [A decoder-only foundation model for time-series forecasting](https://arxiv.org/abs/2310.10688). ICML 2024. arXiv:2310.10688. TimesFM pretrains a patched-decoder attention model on a large time-series corpus, and its zero-shot accuracy comes close to supervised models trained on each dataset.
+[^nie2023patchtst]: Nie, Y., Nguyen, N. H., Sinthong, P. and Kalagnanam, J. (2023). [A time series is worth 64 words: Long-term forecasting with Transformers](https://arxiv.org/abs/2211.14730). ICLR 2023. arXiv:2211.14730. Introduces the segmentation of a time series into subseries-level patches "served as input tokens" to a Transformer — the time interval as basic element, in its now-standard form.
+[^hollmann2025tabpfnv2]: Hollmann, N., Müller, S., Purucker, L. et al. (2025). [Accurate predictions on small data with a tabular foundation model](https://doi.org/10.1038/s41586-024-08328-6). *Nature*, 637, 319–326. TabPFN v2 "assigns a separate representation to each cell in the table", with two-way attention: each cell attends across its row, then down its column (from the paper's architecture description). Treated in [§2.4.4](2-4-4-tabular-fms.html).
+[^westermann2019surrogate]: Westermann, P. and Evins, R. (2019). [Surrogate modelling for sustainable building design – A review](https://doi.org/10.1016/j.enbuild.2019.05.057). *Energy and Buildings*, 198, 170–186. Reviews surrogate (meta)modelling in building design — for conceptual design, sensitivity and uncertainty analysis, and optimisation — and tabulates 57 studies by objective, sampling strategy and surrogate type. Cited for the metamodel practice that R1 names; the abstract does not itself characterise input formats.
 [^shin2019zoning]: Shin, M., Haberl, J. S. (2019). [Thermal zoning for building HVAC design and energy simulation: A literature review](https://doi.org/10.1016/j.enbuild.2019.109429). *Energy and Buildings*, 203, 109429.
 
 ---

@@ -4,7 +4,7 @@ parent: "2.4 Existing FMs Relevant to Energy"
 grand_parent: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 4
 status: draft
-last_reviewed: 2026-09-11
+last_reviewed: 2026-09-24
 ---
 
 # 2.4.4 Tabular Foundation Models — the Cell as a Basic Element
@@ -20,7 +20,7 @@ A distinct family, and a distinct answer to the representation question. Worth u
 
 ---
 
-**What the cell is.** A cell is a single entry in a table — the value where one row meets one column (building #47's construction year, 1962). Most machine learning treats the **row** as the basic unit: a building becomes a feature vector read as one thing. Tabular FMs go one level finer. Each individual value gets its own representation, and the model attends in two directions — across the row (how does this building's construction year relate to its floor area and heating system?) and down the column (how does it compare to the construction years of all other buildings?). TabPFN assigns a representation to each table cell and applies row-wise and column-wise attention, making the model invariant to permutations of both rows and columns.[^hollmann2022tabpfn]
+**What the cell is.** A cell is a single entry in a table — the value where one row meets one column (building #47's construction year, 1962). Most machine learning treats the **row** as the basic unit: a building becomes a feature vector read as one thing. Tabular FMs go one level finer. Each individual value gets its own representation, and the model attends in two directions — across the row (how does this building's construction year relate to its floor area and heating system?) and down the column (how does it compare to the construction years of all other buildings?). TabPFN v2 assigns a representation to each table cell and applies row-wise and column-wise attention, which its authors report makes the architecture invariant to the order of both samples and features.[^hollmann2025tabpfnv2] The original TabPFN still took each training sample — a whole row — as one item of a set-valued input;[^hollmann2022tabpfn] the per-cell design arrived with v2.
 
 **Why it matters.** It removes the fixed schema. A conventional surrogate needs the same columns in the same order every time; change the input list and you refit. If the model reads cells and treats column order as arbitrary, a table with different columns is still readable — one pretrained model applied to a Swiss dataset, then a Dutch one recording different attributes, without retraining. TabPFN v2 introduced a randomised feature-token mechanism to handle heterogeneous feature spaces and support transfer across datasets with differing feature semantics, and is pretrained entirely on synthetic data generated from structural causal models rather than any real table.[^hollmann2025tabpfnv2] **This is a direct attack on the mixed-information-types problem** described in [§2.3.2](2-3-choosing-a-basic-element.html#232-basic-elements-for-buildings).
 

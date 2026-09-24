@@ -174,6 +174,17 @@ exclude = [
   # Forecasting: Principles and Practice, the Pythonic Way", cited in
   # refs-to-add.md (A2).
   '^https://otexts\.com/',
+  # Taylor & Francis (DOI prefix 10.1080) redirects to tandfonline.com,
+  # which returns 403 Forbidden to every scripted client tried -- lychee's
+  # UA and a browser UA alike -- the same bot-blocking as Wiley/Science
+  # above, not a missing page. Excluded by prefix, as for the other
+  # publishers. Verified against the Crossref API before excluding, and
+  # doi.org itself redirects to the matching tandfonline.com record:
+  #   10.1080/00401706.1979.10489755 -- McKay, Beckman & Conover (1979),
+  #     "A Comparison of Three Methods for Selecting Values of Input
+  #     Variables in the Analysis of Output from a Computer Code",
+  #     Technometrics 21(2):239-245 (section 4.10, Latin hypercube).
+  '^https://doi\.org/10\.1080/',
 ]
 
 # Skip files that aren't meant to be checked as published pages.

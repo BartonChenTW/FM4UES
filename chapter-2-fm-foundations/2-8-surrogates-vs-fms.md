@@ -3,7 +3,7 @@ title: "2.8 Surrogates vs Foundation Models"
 parent: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 8
 status: draft
-last_reviewed: 2026-09-17
+last_reviewed: 2026-09-24
 ---
 
 # 2.8 Surrogate Models vs Foundation Models
@@ -21,7 +21,7 @@ UES readers already know surrogates well. The contrast with a foundation model i
 
 ## What a surrogate is
 
-A surrogate model is a fast approximation of an expensive model — trained to reproduce the input-output behaviour of a simulator or optimiser without running it. Surrogates are already routine in this domain: a neural network trained to predict energy hub operating cost as a function of design variables, standing in for a full engineering simulation inside an outer sizing loop (see [§3.4](../chapter-3-sim-opt/3-4-dispatch-optimisation.html) and Family 1 in [§4.9.3](../chapter-4-directions/4-9-3-methods-tier3.html)).
+A surrogate model is a fast approximation of an expensive model — trained to reproduce the input-output behaviour of a simulator or optimiser without running it. Surrogates are already routine in this domain: a neural network trained to predict an energy hub's cost and other objectives as a function of design variables, standing in for a full engineering simulation inside an outer sizing loop[^perera2019mlsurrogate] (see [§3.4](../chapter-3-sim-opt/3-4-dispatch-optimisation.html) and Family 1 in [§4.9.3](../chapter-4-directions/4-9-3-methods-tier3.html)).
 
 ## The distinction, precisely
 
@@ -38,7 +38,7 @@ A surrogate that works beautifully on the system it was trained on, and is throw
 
 ## Why the existing multi-energy surrogate literature is not FM work
 
-The existing surrogate literature for multi-carrier energy hubs and districts is almost entirely bespoke: one surrogate per system, small training data, discarded at project end (see [§4.9.3](../chapter-4-directions/4-9-3-methods-tier3.html)). This is not a criticism of that literature — bespoke surrogates are often the right tool for a single study — but it means the foundation-model claim for this domain is essentially unmade so far. **The foundation-model contribution, where it exists, is making the same class of model transferable across systems rather than rebuilt for each one** — this is the throughline connecting [Chapter 4](../chapter-4-directions/index.html)'s survey to [Chapter 5](../chapter-5-case-study/index.html)'s specific proposal.
+The existing surrogate literature for multi-carrier energy hubs and districts is almost entirely bespoke: one surrogate per system, small training data, discarded at project end (see [§4.9.3](../chapter-4-directions/4-9-3-methods-tier3.html)). A 2025 study of surrogates for multi-energy system design reports that no prior work had tailored its machine-learning procedure to the design problem, that most predicted system cost and other objectives rather than the design itself, and sets out explicitly to improve performance on small datasets.[^ledee2025messurrogate] A typical case builds surrogates for one expensive, simulation-based problem — the energy system of a single building complex — and refines them as that one optimisation runs.[^aghaeipour2021interactive] The nearest thing to transfer is adaptation: an energy-system surrogate carried over to scenarios with different solar potential, wind speed and demand by transfer learning, rather than one model applied unchanged.[^perera2019mlsurrogate] This is not a criticism of that literature — bespoke surrogates are often the right tool for a single study — but it means the foundation-model claim for this domain is essentially unmade so far. **The foundation-model contribution, where it exists, is making the same class of model transferable across systems rather than rebuilt for each one** — this is the throughline connecting [Chapter 4](../chapter-4-directions/index.html)'s survey to [Chapter 5](../chapter-5-case-study/index.html)'s specific proposal.
 
 ## Moving from a surrogate to a foundation model
 
@@ -68,6 +68,9 @@ The economic case for paying the higher upfront cost of foundation-model trainin
 {: .warning }
 The amortisation arithmetic only holds if the model actually transfers. Where the basic element fails the criterion in [§2.3.1](2-3-choosing-a-basic-element.html#231-the-criterion), what looks like a foundation model is a collection of memorised cases, and the payback never arrives — it is a surrogate with foundation-model marketing. Check the representation before running the amortisation calculation.
 
+[^perera2019mlsurrogate]: Perera, A. T. D., Wickramasinghe, P. U., Nik, V. M. and Scartezzini, J.-L. (2019). [Machine learning methods to assist energy system optimization](https://doi.org/10.1016/j.apenergy.2019.03.202). *Applied Energy*, 243, 191–205. An artificial-neural-network surrogate replaces the engineering model in the Pareto optimisation of an energy system's design (objectives: net present value and grid-integration level); combined with the engineering model, it reaches Pareto solutions about 17 times faster than the engineering model alone. Transfer learning then adapts the surrogate to scenarios with notably different solar potential, wind speed and demand. That is adaptation to new *conditions* — the surrogate is re-fitted, not applied unchanged, and the abstract makes no claim of transfer across system configurations.
+[^ledee2025messurrogate]: Lédée, F., Crawford, C. and Evins, R. (2025). [Improved surrogate modeling for multi-energy system design: Model architecture, sampling and scaling choices](https://doi.org/10.1016/j.apenergy.2025.125812). *Applied Energy*, 390, 125812. Shows that a surrogate can directly predict optimal multi-energy system designs once the method is tailored to the problem: objective-oriented sampling, upsampling to balance the data, non-linear rescaling of outputs and a Mixture-of-Experts network, tested across climates, building types and decarbonisation goals. Its review of related work is the source of the landscape statements above. It remains surrogate work in this section's sense: the abstract makes no claim that one trained model transfers to unseen systems.
+[^aghaeipour2021interactive]: Aghaei Pour, P., Rodemann, T., Hakanen, J. and Miettinen, K. (2021). [Surrogate assisted interactive multiobjective optimization in energy system design of buildings](https://doi.org/10.1007/s11081-020-09587-8). *Optimization and Engineering*, 23(1), 303–327. Replaces expensive objective functions with surrogate models inside an interactive evolutionary method, updating the surrogates according to a decision maker's preferences, and demonstrates it by finding an optimal energy-system configuration for a heterogeneous business building complex. The surrogates exist to serve that one problem — the bespoke pattern this section describes, and the right tool for a single study.
 [^kleinebrahm2023griddefection]: Kleinebrahm, M., Weinand, J. M., Naber, E. et al. (2023). [Two million European single-family homes could abandon the grid by 2050](https://doi.org/10.1016/j.joule.2023.09.012). *Joule*, 7(11), 2485–2510.
 
 ---

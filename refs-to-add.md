@@ -19,6 +19,8 @@ that matters for UES, from the source itself.
 
 ### A1. Lédée, Crawford & Evins (2025): surrogates for multi-energy system design ★ high value
 
+> **Partly done 2026-09-24:** added to the `.bib` as `ledee2025messurrogate` and cited in §2.8 (the surrogate-literature paragraph). Not yet cited in §3.5 or §4.9.3 (below).
+
 - **Ref:** Lédée, F., Crawford, C. and Evins, R. (2025). Improved surrogate modeling for multi-energy system design: Model architecture, sampling and scaling choices. *Applied Energy*, 390, 125812. <https://doi.org/10.1016/j.apenergy.2025.125812>. Verified via Crossref; abstract read via OpenAlex.
 - **Suggested key:** `ledee2025messurrogate`
 - **What the abstract says:** ML surrogates that directly predict the *optimal design* of a multi-energy system. The authors say few prior works predict the design itself, as opposed to cost or other objectives, and those that do perform poorly. Design variables show "irregularities and sudden changes" that reduce learnability. Four things improve performance on small datasets: objective-oriented sample selection, upsampling to balance the data, non-linear rescaling of outputs, and a Mixture-of-Experts network. Tested across climates, building types and decarbonisation targets.

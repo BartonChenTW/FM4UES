@@ -420,3 +420,29 @@ New: `jung2026buildocc`, `wu2022generativeresilience`, `zhang2023solargan`. Reus
 `TODO.md`'s stub-sections item updated with a progress note rather than closed — none of the four sections has this book's own benchmark run, which is what "done" would actually require.
 
 Verified: footnote ref/def integrity on all four pages, bib key uniqueness, brace balance (808/808), all cross-reference targets checked to exist (one initial check gave a false "MISSING" for files just confirmed present by direct read — a shell-loop artifact in the verification script itself, not a real error; re-run with a simpler loop and all resolved), lychee clean (0 errors) across all four pages after the ASME exclusion. Not rendered in a browser. lychee binary re-downloaded again this session (the previous session's temp directory no longer exists, as expected for scratch storage).
+
+## 2026-09-23 (PRs #36 and #37 merged: review follow-ups, stub-citations branch)
+
+Recorded here after the fact; neither PR added its own entry, to avoid a `log.md` conflict between the two branches.
+
+**[#36](https://github.com/BartonChenTW/FM4UES/pull/36), review follow-ups.** Two dead `#gN` anchors created by the explicit-ID fix of 2026-09-17 (an explicit `{#g9}` replaces the auto-generated ID, so two links using the long form broke). Doc drift: §2.9 missing from README/index; the homepage's publication-count statistic now names its Scopus source and links to §1.3; §6.2's stub wording; a published page linking to the unbuilt `log.md`. Every footnote name now matches a `.bib` key. Mermaid diagrams follow the reader's light/dark theme (`_includes/mermaid_config.js`). New CI, `site-check.yml`, builds the site with the github-pages gem and checks every internal link and `#anchor` in the built HTML. Nothing checked these before, because `link-check.yml` must exclude internal links. It also fixed a literal `<script>` inside a JS comment, which made lychee's tokenizer skip every link after the sidebar and would have made the new check pass vacuously. Added [`refs-to-add.md`](refs-to-add.md). The new check passed on its first run; one external link (otexts.com, 403 to bots) needed a `lychee.toml` exclusion.
+
+**[#37](https://github.com/BartonChenTW/FM4UES/pull/37), stub citations.** The 2026-09-19 work below (§2.5's six negative claims; §4.1–4.4), merged after updating the branch with #36. Both checks passed.
+
+Branch cleanup the same day: `fix/review-followups`, `docs/2-5-source-negative-claims` and `docs/3-1-what-a-model-computes` deleted. The last had the same change as `f32ba65` on `main` (patch-equivalent, verified line by line), just under a different commit ID.
+
+## 2026-09-24 (source §2.8, §2.3 and §4.10)
+
+The three weakest pages by uncited literature claims per word: §2.8 (1 citation in 1,243 words), §2.3 (1 in 1,272, and the book's "read only one page" page), §4.10 (2 in 947). Chapter 5 (the case-study proposal), §4.5–4.7 (the book's own screening framework) and §6.2 (contributor guidance) also scored low but are not expected to cite heavily, so they were skipped.
+
+**§2.8.** The heading "Why the existing multi-energy surrogate literature is not FM work" characterised that literature without citing it. Now: `ledee2025messurrogate` for the landscape (its related-work review), `aghaeipour2021interactive` as a typical single-system case, and `perera2019mlsurrogate` (reused) as the nearest exception. Its transfer learning adapts a surrogate to new conditions, which is not one model across system configurations. No dedicated review of multi-energy surrogates was found. "Operating cost" became "cost and other objectives" to match Perera's actual objectives (NPV, grid integration).
+
+**§2.3.** Cited the basic element as it exists in current models. Grid buses: `donon2020gns` (bus-level graph solver, robust to topology change on IEEE 9–118-bus cases) and `hamann2024foundation` (reused, labelled as a proposal). Patches: `das2024timesfm` and `nie2023patchtst`, both reused. Cells: `hollmann2025tabpfnv2`, reused. Attribute-list metamodels: `westermann2019surrogate`. The decision-space claim links to §2.5's dated search instead of re-citing.
+
+**§2.4.4, found in passing.** The per-cell design was credited to TabPFN v1; it is v2's. v1's abstract describes samples as a set-valued input, and the Nature paper's architecture text describes the per-cell design. Fixed, and v1 kept for what it did.
+
+**§4.10.** Latin hypercube (`mckay1979lhs`), Sobol sequences (`sobol1967distribution`), deep imbalanced regression for the rare-regime advice (`yang2021dir`), exact MILP encoding of a ReLU network (`fischetti2018milp`), and physics-informed learning under limited data (`karniadakis2021piml`, reused). `lychee.toml` now excludes Taylor & Francis (`10.1080`), which returns 403 to every scripted client.
+
+**Not cited, on purpose.** §4.10's callout that FMs under-represent extremes and so degrade on high-impact events. The closest evidence (Olivetti & Messori 2024, *GMD*) *qualifies* it: data-driven weather models "can also compete" on extremes in most regions, varying by region, event and lead time. Left for the maintainer to judge rather than cited as support. Also unsourced still: §4.10's speedup-before/after-correction pattern, the NRMSE/CV(RMSE) note, and the cross-scale caution.
+
+Method: every new reference's metadata from Crossref (arXiv for `yang2021dir`); every claim written from the abstract (OpenAlex, Semantic Scholar, arXiv, Springer), plus full text where it mattered and was reachable: TabPFN v2 (Nature, open access). Lédée et al. is CC-BY but blocked to scripted access, so it is cited for its abstract only. Bibliography 108 → 116; footnote names 116, all matching. lychee 0 errors on every changed page. Not rendered in a browser.

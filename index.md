@@ -45,7 +45,7 @@ The **[Methods by Problem Class](chapter-4-directions/4-9-methods-landing.html)*
 | :--- | :--- | :--- |
 | 1 | [Background: UES and FMs](chapter-1-background/index.html) | What the domain is, what FMs are, why the two should meet now |
 | 2 | [Foundation Knowledge of FMs](chapter-2-fm-foundations/index.html) | What makes a model a foundation model; [Choosing a Basic Element](chapter-2-fm-foundations/2-3-choosing-a-basic-element.html); the FM landscape today; ML basics (self-supervision, transformers, GNNs, neural operators); surrogates vs FMs; evaluation criteria for UES FMs |
-| 3 | [Simulation and Optimisation in UES](chapter-3-sim-opt/index.html) | Task taxonomy, building simulation data, the energy hub formalism, dispatch and design optimisation, the tool landscape, where cost lives, building retrofit and whole-life carbon |
+| 3 | [Simulation and Optimisation in UES](chapter-3-sim-opt/index.html) | Task taxonomy, building simulation data, the energy hub formalism, dispatch and design optimisation, the tool landscape, where cost lives, building retrofit and whole-life carbon, social dimensions |
 | 4 | [Directions for FMs in UES](chapter-4-directions/index.html) | A broad, neutral survey: off-the-shelf FMs, building-stock FMs, LLM agents, generative design, screening, and methods by problem tier |
 | 5 | [Case Study: A Foundation Model for Multi-Carrier Energy Hubs](chapter-5-case-study/index.html) | One concrete proposal — representation, token schema, module decomposition, a phased roadmap, risks |
 | 6 | [Outlook](chapter-6-outlook/index.html) | Nine open gaps; how to contribute |

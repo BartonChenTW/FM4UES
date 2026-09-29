@@ -46,7 +46,7 @@ Viewed this way, many energy-system computations are structured mappings from in
 
 But they are not ordinary black-box prediction problems. They encode conservation laws, engineering constraints, operational limits, discrete decisions, objective functions, and assumptions about uncertain human behaviour. A foundation model here has to interact with that structure rather than merely fit an input–output relation. The recurring question, taken up as a screening test in [§4.6](../chapter-4-directions/4-6-screening-tasks.html), is **which parts of energy-system modelling can benefit from foundation-model approaches, and what structure must be preserved when they are learned or approximated.**
 
-## The ten tasks
+## The eleven tasks
 
 Each row is a distinct *task* with a distinct mathematical structure — and foundation-model potential differs sharply between them. This table is used again in [§4.6 Screening the Tasks](../chapter-4-directions/4-6-screening-tasks.html).
 
@@ -62,6 +62,7 @@ Each row is a distinct *task* with a distinct mathematical structure — and fou
 | T8 | **Scenario & pathway analysis** | What futures are plausible, under what assumptions? | recursive optimisation + narrative | hours–days |
 | T9 | **Impact assessment** | Emissions, cost, equity, comfort outcomes | post-processing / LCA | seconds–hours |
 | T10 | **Retrofit analysis & planning** | Which measures should this existing building (or stock) get, and when? | combinatorial, multi-objective search over a discrete measure set, T1 in the loop | minutes–days |
+| T11 | **Behaviour & adoption modelling** | How do people use buildings, and who adopts which technology, when? | agent-based simulation / behavioural models, calibrated to surveys and observed uptake | minutes–hours |
 
 ## Notes on each task's structure
 
@@ -76,9 +77,11 @@ T1 also carries a representation problem the other tasks do not, because the dec
 
 **T6 — Networks.** Electrical (AC/DC power flow), thermal (hydraulics + heat transfer, with transport delays), gas (pressure dynamics). These are where genuine PDE/DAE structure lives, and where runtimes explode.
 
-**T9 — Impact assessment.** Mostly post-processing: the flows computed by the other tasks, multiplied by cost and emission factors. For buildings, LCA adds a second axis — the embodied emissions of materials and equipment, which the operational tasks never see. Treated with T10 in [§3.9](3-9-retrofit-and-whole-life-carbon.html).
+**T9 — Impact assessment.** Mostly post-processing: the flows computed by the other tasks, multiplied by cost and emission factors. For buildings, LCA adds a second axis — the embodied emissions of materials and equipment, which the operational tasks never see. Treated with T10 in [§3.9](3-9-retrofit-and-whole-life-carbon.html). Its equity outcomes — who pays, who benefits, energy poverty — need outputs resolved per household and an explicit equity principle; see [§3.10](3-10-social-dimensions.html).
 
 **T10 — Retrofit.** A decision over which measures to apply to an existing building, evaluated by running T1 on each candidate and scored on cost, operational and embodied emissions (T9). At stock scale it turns into a T8 scenario question. It is the most concrete instance of the decision space in [gap G9](../chapter-6-outlook/6-1-open-gaps.html#g9). Treated in [§3.9](3-9-retrofit-and-whole-life-carbon.html).
+
+**T11 — Behaviour and adoption.** Models of the people in the system rather than the devices: occupant behaviour (an input to T1) and technology-adoption and investment decisions (an input to T8, and at stock level the rate at which T10's measures are actually taken up). Usually agent-based, calibrated to surveys and observed uptake. Unlike every other task here, there is no physics simulator to generate ground truth. Treated in [§3.10](3-10-social-dimensions.html).
 
 [^ferrando2020ubem]: Ferrando, M., Causone, F., Hong, T., Chen, Y. (2020). [Urban building energy modeling (UBEM) tools: A state-of-the-art review of bottom-up physics-based approaches](https://arxiv.org/abs/2103.01761). *Sustainable Cities and Society*, 62, 102408.
 [^doma2023occupant]: Doma, A., Ouf, M. (2023). [Modelling occupant behaviour for urban scale simulation: Review of available approaches and tools](https://doi.org/10.1007/s12273-022-0939-3). *Building Simulation*, 16, 169–184.

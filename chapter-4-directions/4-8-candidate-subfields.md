@@ -18,7 +18,7 @@ last_reviewed: 2026-09-29
 
 ## Already committed and well-justified
 
-- **Metadata-conditioned load FM** — cross-attending meter time series with building-register attributes and household survey covariates. Mature tooling (efficient time-series FMs as baselines — see [§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html)), EnergyBench as anchor dataset ([§3.2](../chapter-3-sim-opt/3-2-building-simulation-data.html)), simulator-paired labels (e.g. from CESAR-P) as differentiator.
+- **Metadata-conditioned load FM** — cross-attending meter time series with building-register attributes and household survey covariates (on why meter data and household attributes are entangled, see [§3.10](../chapter-3-sim-opt/3-10-social-dimensions.html#data-shapes)). Mature tooling (efficient time-series FMs as baselines — see [§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html)), EnergyBench as anchor dataset ([§3.2](../chapter-3-sim-opt/3-2-building-simulation-data.html)), simulator-paired labels (e.g. from CESAR-P) as differentiator.
 
 ## Novel intersections, in rough order of tractability
 

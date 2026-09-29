@@ -32,9 +32,10 @@ quadrantChart
     UBEM: [0.22, 0.62]
     Multi-carrier hub: [0.12, 0.16]
     Retrofit / whole-life carbon: [0.30, 0.10]
+    Behaviour and social outcomes: [0.40, 0.28]
 ```
 
-The chapter's argument is this screen, not the reading order. **Load** and **grid** already have a natural basic element and public (or physically simulated) pretraining data. **UBEM** has an element but is data-generation-bottlenecked. **Weather / microclimate** has abundant geospatial data that is not yet fused with load or grid. The **multi-carrier hub** fails both axes — which is why it is the [Chapter 5](../chapter-5-case-study/index.html) case study rather than a near-term product. **Retrofit / whole-life carbon** sits beside it: impact factors per material are published, but its basic element would have to carry a decision space as well as a state (see [§3.9](../chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html)). Task-level verdicts (T1–T10, including T4 dispatch as the strongest candidate) are in [§4.6](4-6-screening-tasks.html) and [§4.7](4-7-reading-the-screen.html).
+The chapter's argument is this screen, not the reading order. **Load** and **grid** already have a natural basic element and public (or physically simulated) pretraining data. **UBEM** has an element but is data-generation-bottlenecked. **Weather / microclimate** has abundant geospatial data that is not yet fused with load or grid. The **multi-carrier hub** fails both axes — which is why it is the [Chapter 5](../chapter-5-case-study/index.html) case study rather than a near-term product. **Retrofit / whole-life carbon** sits beside it: impact factors per material are published, but its basic element would have to carry a decision space as well as a state (see [§3.9](../chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html)). **Behaviour and social outcomes** have text data that language models already handle, but no simulator of people, so the direction is existing models used as checked tools (see [§3.10](../chapter-3-sim-opt/3-10-social-dimensions.html)). Task-level verdicts (T1–T11, including T4 dispatch as the strongest candidate) are in [§4.6](4-6-screening-tasks.html) and [§4.7](4-7-reading-the-screen.html).
 
 ## In this chapter
 
@@ -45,7 +46,7 @@ The chapter's argument is this screen, not the reading order. **Load** and **gri
 | 4.3 | [LLMs and agents that build or run simulation models](4-3-llm-agents-for-simulation.html) | Natural-language model setup; ties to gap G7 |
 | 4.4 | [Generative design](4-4-generative-design.html) | Generating candidate system designs rather than only evaluating them |
 | 4.5 | [Screening: which sub-fields fit the FM pattern](4-5-screening-fields.html) | The FM-pattern fit test, applied at sub-field level |
-| 4.6 | [Screening the tasks](4-6-screening-tasks.html) | The five-criterion screen applied to the T1–T10 taxonomy |
+| 4.6 | [Screening the tasks](4-6-screening-tasks.html) | The five-criterion screen applied to the T1–T11 taxonomy |
 | 4.7 | [Reading the screen](4-7-reading-the-screen.html) | What the screen implies for where to invest |
 | 4.8 | [Candidate sub-fields for a new FM](4-8-candidate-subfields.html) | Load FM, grid-load bridge, UBEM FM, weather-conditioned FM, hub FM |
 | 4.9 | [Methods by problem class](4-9-methods-landing.html) | Landing page for the three tiers below |

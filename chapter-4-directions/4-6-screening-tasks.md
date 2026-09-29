@@ -3,7 +3,7 @@ title: "4.6 Screening the Tasks"
 parent: Chapter 4 — Directions for FMs in UES
 nav_order: 6
 status: draft
-last_reviewed: 2026-09-11
+last_reviewed: 2026-09-29
 ---
 
 # 4.6 Screening the Tasks
@@ -16,7 +16,7 @@ last_reviewed: 2026-09-11
 
 ---
 
-Applying the five criteria from [§4.5](4-5-screening-fields.html) to the task taxonomy T1–T9 from [§3.1](../chapter-3-sim-opt/3-1-taxonomy-of-tasks.html):
+Applying the five criteria from [§4.5](4-5-screening-fields.html) to the task taxonomy T1–T10 from [§3.1](../chapter-3-sim-opt/3-1-taxonomy-of-tasks.html):
 
 | Task | S1 ground truth | S2 homogeneity | S3 transfer | S4 bottleneck | S5 evaluable | Verdict |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -29,6 +29,7 @@ Applying the five criteria from [§4.5](4-5-screening-fields.html) to the task t
 | T7 Control | ◐ | ◐ | ✔ | ✔ real-time | ◐ | Moderate — RL territory |
 | T8 Scenario/pathway | ✘ no ground truth | ✘ | ✔ | ✔ | ✘ | **Weak** — representation problem lives here instead |
 | T9 Impact assessment | ✔ | ✔ | ◐ | ✘ | ✔ | Weak — no bottleneck |
+| T10 Retrofit | ◐ simulator + LCA data per candidate; optimum needs a solver | ◐ shared measure library, instance-specific constraints | ✔ many buildings | ✔ combinatorial loop over T1 | ◐ per-candidate outcomes yes; "best plan" depends on objectives | **Promising, representation-blocked** — see [§4.7](4-7-reading-the-screen.html) |
 
 ---
 [← Previous: 4.5 Screening Sub-Fields](4-5-screening-fields.html) · [Next: 4.7 Reading the Screen →](4-7-reading-the-screen.html)

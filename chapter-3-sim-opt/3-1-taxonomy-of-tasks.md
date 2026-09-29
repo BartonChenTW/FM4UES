@@ -3,7 +3,7 @@ title: "3.1 Taxonomy of Modelling Tasks"
 parent: Chapter 3 — Simulation and Optimisation in UES
 nav_order: 1
 status: draft
-last_reviewed: 2026-09-14
+last_reviewed: 2026-09-29
 ---
 
 # 3.1 Taxonomy of Modelling Tasks
@@ -46,7 +46,7 @@ Viewed this way, many energy-system computations are structured mappings from in
 
 But they are not ordinary black-box prediction problems. They encode conservation laws, engineering constraints, operational limits, discrete decisions, objective functions, and assumptions about uncertain human behaviour. A foundation model here has to interact with that structure rather than merely fit an input–output relation. The recurring question, taken up as a screening test in [§4.6](../chapter-4-directions/4-6-screening-tasks.html), is **which parts of energy-system modelling can benefit from foundation-model approaches, and what structure must be preserved when they are learned or approximated.**
 
-## The nine tasks
+## The ten tasks
 
 Each row is a distinct *task* with a distinct mathematical structure — and foundation-model potential differs sharply between them. This table is used again in [§4.6 Screening the Tasks](../chapter-4-directions/4-6-screening-tasks.html).
 
@@ -61,6 +61,7 @@ Each row is a distinct *task* with a distinct mathematical structure — and fou
 | T7 | **Control** | What setpoints now, given uncertainty? | MPC / RL | real-time constraint |
 | T8 | **Scenario & pathway analysis** | What futures are plausible, under what assumptions? | recursive optimisation + narrative | hours–days |
 | T9 | **Impact assessment** | Emissions, cost, equity, comfort outcomes | post-processing / LCA | seconds–hours |
+| T10 | **Retrofit analysis & planning** | Which measures should this existing building (or stock) get, and when? | combinatorial, multi-objective search over a discrete measure set, T1 in the loop | minutes–days |
 
 ## Notes on each task's structure
 
@@ -74,6 +75,10 @@ T1 also carries a representation problem the other tasks do not, because the dec
 **T5 — Design/sizing.** The literature consolidates around deterministic programming (LP/MILP/MINLP) for transparent, reproducible co-optimisation of capacity investment and operational dispatch, alongside evolutionary and swarm methods for nonconvex, mixed-variable, simulation-driven sizing problems — while flagging the need for rigorous constraint handling and transparent reporting of computational budgets. Hybrid strategies that integrate global search with exact dispatch solvers, surrogate-assisted learning, decomposition and control–co-design are identified as the most promising direction. Treated in [§3.5](3-5-design-sizing-optimisation.html).
 
 **T6 — Networks.** Electrical (AC/DC power flow), thermal (hydraulics + heat transfer, with transport delays), gas (pressure dynamics). These are where genuine PDE/DAE structure lives, and where runtimes explode.
+
+**T9 — Impact assessment.** Mostly post-processing: the flows computed by the other tasks, multiplied by cost and emission factors. For buildings, LCA adds a second axis — the embodied emissions of materials and equipment, which the operational tasks never see. Treated with T10 in [§3.9](3-9-retrofit-and-whole-life-carbon.html).
+
+**T10 — Retrofit.** A decision over which measures to apply to an existing building, evaluated by running T1 on each candidate and scored on cost, operational and embodied emissions (T9). At stock scale it turns into a T8 scenario question. It is the most concrete instance of the decision space in [gap G9](../chapter-6-outlook/6-1-open-gaps.html#g9). Treated in [§3.9](3-9-retrofit-and-whole-life-carbon.html).
 
 [^ferrando2020ubem]: Ferrando, M., Causone, F., Hong, T., Chen, Y. (2020). [Urban building energy modeling (UBEM) tools: A state-of-the-art review of bottom-up physics-based approaches](https://arxiv.org/abs/2103.01761). *Sustainable Cities and Society*, 62, 102408.
 [^doma2023occupant]: Doma, A., Ouf, M. (2023). [Modelling occupant behaviour for urban scale simulation: Review of available approaches and tools](https://doi.org/10.1007/s12273-022-0939-3). *Building Simulation*, 16, 169–184.

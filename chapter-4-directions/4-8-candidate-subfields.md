@@ -3,7 +3,7 @@ title: "4.8 Candidate Sub-Fields for a New FM"
 parent: Chapter 4 — Directions for FMs in UES
 nav_order: 8
 status: draft
-last_reviewed: 2026-09-11
+last_reviewed: 2026-09-29
 ---
 
 # 4.8 Candidate Sub-Fields for a New Foundation Model
@@ -26,6 +26,7 @@ last_reviewed: 2026-09-11
 2. **Simulation-grounded UBEM FM** — formalise simulator-generated building→load pairs (e.g. from CESAR-P, see [§3.2](../chapter-3-sim-opt/3-2-building-simulation-data.html)) as a deliberate pretraining corpus for a conditional generative FM, rather than treating simulator output only as fine-tuning or evaluation data.
 3. **Weather / microclimate-conditioned building energy FM** — fuse a geospatial FM (see [§2.4.5](../chapter-2-fm-foundations/2-4-5-geospatial-weather-fms.html)) with load or UBEM data, since urban heat islands drive peak cooling load and grid stress simultaneously. No existing paired dataset at FM scale; you would build the corpus, not just the model.
 4. **Multi-carrier energy hub FM** — not yet FM-ready in the strict sense. No established basic element, no public data, and discrete decision structure resists replacement by a learned representation. Longer-horizon research question, and the subject of [Chapter 5](../chapter-5-case-study/index.html).
+5. **Retrofit and whole-life-carbon FM** — given a building, propose measure combinations scored on cost, operational and embodied emissions ([§3.9](../chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html)). Listed last because it needs both the building representation of [G8](../chapter-6-outlook/6-1-open-gaps.html#g8) and the decision-space representation of [G9](../chapter-6-outlook/6-1-open-gaps.html#g9). Its training data is generable — a stock simulator on one side, LCA impact factors on the other — but the quantity take-off linking the two is archetype-approximated.
 
 ---
 [← Previous: 4.7 Reading the Screen](4-7-reading-the-screen.html) · [Next: 4.9 Methods by Problem Class →](4-9-methods-landing.html)

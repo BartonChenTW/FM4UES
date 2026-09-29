@@ -14,6 +14,7 @@ redirect_from: /appendix-a-glossary.html
 
 | Term | Meaning |
 | :--- | :--- |
+| **Agent-based model (ABM)** | Simulation of many individual decision-makers, each with its own attributes and decision rule, interacting over time; the standard tool for technology adoption. See [§3.10](../chapter-3-sim-opt/3-10-social-dimensions.html) |
 | **Amortised optimisation** | Learning to produce optimisation solutions directly, paying training cost once |
 | **Any-variate attention** | Attention scaling to arbitrary numbers of input series |
 | **Basic element** | The unit a model treats as indivisible — the learned-model counterpart of an element in a discretised simulation. Judged against the four requirements in [§2.3.1](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#231-the-criterion) |
@@ -23,7 +24,10 @@ redirect_from: /appendix-a-glossary.html
 | **Decision space** | The set of possible interventions on a system, as distinct from its state space; see [G9](../chapter-6-outlook/6-1-open-gaps.html#g9) |
 | **DINO** (self-distillation with no labels) | Self-supervised vision transformer trained by having a student network match a teacher's output with no labelled data. See [§1.3](../chapter-1-background/1-3-fm-landscape-by-domain.html) |
 | **Embodied emissions** | Greenhouse-gas emissions from producing, transporting, installing, replacing and disposing of building materials and equipment, as opposed to operating the building. See [§3.9](../chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html) |
+| **Energy burden** | Share of a household's income spent on energy; a common quantitative indicator of energy poverty |
 | **Energy hub** | Node converting/storing/dispatching multiple carriers via a coupling matrix ([§3.3](../chapter-3-sim-opt/3-3-energy-hub-formalism.html)) |
+| **Energy justice** | Framework assessing energy systems on distributional, recognition and procedural justice. See [§3.10](../chapter-3-sim-opt/3-10-social-dimensions.html) |
+| **Energy poverty** | Inability of a household to attain a socially and materially necessary level of domestic energy services. See [§3.10](../chapter-3-sim-opt/3-10-social-dimensions.html) |
 | **EPD** (Environmental Product Declaration) | Product-specific declaration of life-cycle environmental impacts, structured by the EN 15804 information modules. See [§3.9](../chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html) |
 | **Fine-tuning** | Adjusting a pretrained model to a specific case with a small amount of additional data — comparable to calibrating a model against measurements. See [§2.6](../chapter-2-fm-foundations/2-6-scaling-laws.html) |
 | **Foundation model** | Pretrained on a broad distribution; transfers to unseen instances; serves multiple tasks |
@@ -38,6 +42,7 @@ redirect_from: /appendix-a-glossary.html
 | **ROM** | Reduced-order model — compresses high-dimensional state to a latent manifold |
 | **SAM** (Segment Anything Model) | Vision foundation model that segments any object in an image given a prompt (a point, box, or mask), pretrained on over a billion masks. See [§1.3](../chapter-1-background/1-3-fm-landscape-by-domain.html) |
 | **Self-supervised pretraining** | Training on labels manufactured from the input itself (masking, next-step prediction), rather than hand-labelled targets. See [§2.6](../chapter-2-fm-foundations/2-6-scaling-laws.html) |
+| **Silicon sample** | Synthetic survey respondents produced by conditioning a language model on demographic personas; averages can match real surveys while variance and relationships do not. See [§4.3](../chapter-4-directions/4-3-llm-agents-for-simulation.html) |
 | **Surrogate** | Fast approximation of an expensive model, usually system-specific. Contrasted with a foundation model in [§2.8](../chapter-2-fm-foundations/2-8-surrogates-vs-fms.html) |
 | **Tokenisation** | Deciding what the basic elements are; the learned-model equivalent of choosing a discretisation |
 | **Transformer** | Architecture built on attention, letting any token's representation be updated in light of any other. See [§2.7](../chapter-2-fm-foundations/2-7-architectures.html) |

@@ -3,7 +3,7 @@ title: "4.5 Screening: Which Sub-Fields Fit the FM Pattern"
 parent: Chapter 4 — Directions for FMs in UES
 nav_order: 5
 status: draft
-last_reviewed: 2026-09-11
+last_reviewed: 2026-09-29
 redirect_from: /05-screening.html
 ---
 
@@ -43,8 +43,9 @@ Before applying this screen task-by-task (done in [§4.6](4-6-screening-tasks.ht
 | **UBEM / simulator-grounded FM** | A building (envelope, geometry, HVAC, occupancy) paired with its simulated load | Conditional generation, attribute-to-profile mapping | Privately generable only | Not a found-data FM — simulator-grounded generative model |
 | **Urban microclimate / geospatial-energy FM** | Satellite pixel/patch over space-time | Masked spatiotemporal reconstruction | HLS, Sentinel-2, ERA5 | Emerging, adjacent, not yet fused with load or grid data — see [§2.4.5](../chapter-2-fm-foundations/2-4-5-geospatial-weather-fms.html) |
 | **District multi-energy hub** | Not yet defined | Not yet defined | Essentially none public | Immature — the subject of [Chapter 5](../chapter-5-case-study/index.html) |
+| **Retrofit / whole-life carbon** | Not yet defined — a building *plus* the set of measures feasible on it ([G9](../chapter-6-outlook/6-1-open-gaps.html#g9)) | Not yet defined | Impact factors per material are published (e.g. KBOB); paired building–measure–outcome corpora privately generable only | Immature — domain side in [§3.9](../chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html) |
 
-**Assessment.** Load FM and grid FM cleanly qualify: each has a natural atomic element, a natural masking-based pretext task, and either real or physically-simulated broad data. UBEM qualifies in spirit but is data-generation-bottlenecked rather than found-data-abundant. **The multi-carrier hub layer currently has no clean basic element** — which is itself the central finding motivating [Chapter 5](../chapter-5-case-study/index.html).
+**Assessment.** Load FM and grid FM cleanly qualify: each has a natural atomic element, a natural masking-based pretext task, and either real or physically-simulated broad data. UBEM qualifies in spirit but is data-generation-bottlenecked rather than found-data-abundant. **The multi-carrier hub layer currently has no clean basic element** — which is itself the central finding motivating [Chapter 5](../chapter-5-case-study/index.html). **Retrofit fails for a related reason**: its basic element has to carry a decision space as well as a state, which no existing energy FM does.
 
 ---
 [← Previous: 4.4 Generative Design](4-4-generative-design.html) · [Next: 4.6 Screening the Tasks →](4-6-screening-tasks.html)

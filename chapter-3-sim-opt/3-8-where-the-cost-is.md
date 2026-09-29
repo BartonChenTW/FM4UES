@@ -32,4 +32,4 @@ Order-of-magnitude brackets. The spread is the point.
 **Single runs are usually affordable. Loops are not.** Design optimisation, uncertainty quantification across weather years, and Monte Carlo risk assessment all call an inner model 10³–10⁶ times. That is where surrogates and foundation models earn their keep — and where the [amortisation argument](3-5-design-sizing-optimisation.html#the-amortisation-argument) applies.
 
 ---
-[← Previous: 3.7 Schemas and Data Standards](3-7-schemas-and-standards.html) · [Back to Chapter 3](index.html) · [Next: Chapter 4 — Directions for FMs in UES →](../chapter-4-directions/index.html)
+[← Previous: 3.7 Schemas and Data Standards](3-7-schemas-and-standards.html) · [Back to Chapter 3](index.html) · [Next: 3.9 Building Retrofit and Whole-Life Carbon →](3-9-retrofit-and-whole-life-carbon.html)

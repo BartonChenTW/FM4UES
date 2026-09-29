@@ -48,7 +48,7 @@ A particularly clean pattern worth studying: replace only the *physics constrain
 **For multi-energy design, Family 3 is the sensible default**, because design decisions carry investment consequences and silent infeasibility is unacceptable.
 
 {: .important }
-**Practical corollary for building retrofit.** A surrogate imitating a constrained optimiser inherits that optimiser's constraints only implicitly. It can therefore propose measures a specific instance cannot accept: PV without sufficient roof area, a heat pump beyond the electrical connection limit. This is a deployment risk rather than an academic nitpick, and any decision-support application needs a stated handling — post-hoc constraint filtering, inference-time masking, or reporting violation rate as a headline metric alongside accuracy.
+**Practical corollary for building retrofit.** A surrogate imitating a constrained optimiser inherits that optimiser's constraints only implicitly. It can therefore propose measures a specific instance cannot accept: PV without sufficient roof area, a heat pump beyond the electrical connection limit. This is a deployment risk rather than an academic nitpick, and any decision-support application needs a stated handling — post-hoc constraint filtering, inference-time masking, or reporting violation rate as a headline metric alongside accuracy. The retrofit task and its constraints are described in [§3.9](../chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html).
 
 ## Scaling behaviour
 

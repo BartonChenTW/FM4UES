@@ -586,3 +586,7 @@ Not tested in a browser: there is no JavaScript runtime on this machine, so the 
   - how it relates to Chapter 5
 - Each tier page (§4.9.1–4.9.3) opens with a one-line note placing it in the proposed path. Their `parent:` front matter follows the new title.
 - Updated how other pages describe §4.9: the Chapter 4 landing table and its "Chapter 4 vs Chapter 5" note (which now names §4.9 as the one marked exception), §4.8's next-link, the home page (two places), §1.6, and the README.
+
+## 2026-10-01 (§4.8: "Already committed" heading corrected)
+
+The §4.8 heading "Already committed and well-justified" was not accurate. The metadata-conditioned load FM has drawn interest but has not been started. The heading is now "Most promising near-term, limited by data licensing", and the entry ends by naming the limitation: licences on meter data paired with building and household attributes restrict pooling it into a training corpus. It also links to §3.2 on why measured data rarely comes paired with attributes. No page linked to the old heading anchor.

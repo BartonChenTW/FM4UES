@@ -551,3 +551,19 @@ Not tested in a browser: there is no JavaScript runtime on this machine, so the 
 - The version now has one source, `book_version` and `book_version_date` in `_config.yml`. Both the sidebar and the home page label read it.
 - `README.md` still states the version as literal text, because GitHub shows that file without Jekyll.
 - The release steps in `CONTRIBUTING.md` were updated to match.
+
+## 2026-10-01 (section links show the page title on hover)
+
+**Why.** Barton asked that a link like "§3.4" show the section's title when the pointer is over it.
+
+**Changes** in `_includes/footnote-tooltip.html`. It reuses the footnote and glossary hover box, so all three look and behave the same.
+- At build time, Liquid writes every page's URL and front-matter `title` into a JSON block (`fm-page-titles`). No fetch is needed when the page loads.
+- Links inside `#main-content` that point to another page of the book show that page's title, e.g. "3.4 Operation / Dispatch Optimisation".
+- **Skipped:**
+  - links whose text already contains the title (e.g. "Choosing a Basic Element", or the Previous/Next footers)
+  - in-page anchors, such as the table of contents
+  - footnote markers
+  - glossary-term links, which show the definition instead
+- The JSON block and the script contain no literal HTML tags, per the lychee warning in `nav_footer_custom.html`. The title text is escaped before it goes into the box.
+
+Not run in a browser: there is no JavaScript runtime here. After deploy, hover "§3.4" in §3.1 and check the JSON block on any page.

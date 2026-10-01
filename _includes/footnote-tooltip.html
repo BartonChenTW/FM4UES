@@ -22,6 +22,12 @@
   as <strong id="term">). That makes it a real anchor in the built page, so
   the link still lands on the right row on touch devices or when the fetch
   fails, and the link checker can resolve it.
+
+  Section links use the same tooltip too. A link to another page of the book
+  whose text doesn't already name that page (e.g. "§3.4", "Chapter 5",
+  "gap G9") shows the page's title on hover. The titles come from each page's
+  front matter, written into the fm-page-titles JSON block below at build
+  time, so no fetch is needed.
 {%- endcomment -%}
 
 <style>
@@ -159,6 +165,10 @@
   }
 </style>
 
+<script type="application/json" id="fm-page-titles">
+{ {%- for p in site.pages -%}{%- if p.title and p.url -%}{{ p.url | relative_url | jsonify }}: {{ p.title | jsonify }}, {% endif -%}{%- endfor -%} "": "" }
+</script>
+
 <script>
   (function () {
     'use strict';
@@ -214,6 +224,7 @@
     function init() {
       initFootnotes();
       initGlossaryLinks();
+      initSectionLinks();
     }
 
     // Shared tooltip element, created the first time a page needs one
@@ -325,6 +336,52 @@
         .catch(function () {
           // Leave the links as plain links to the glossary
         });
+    }
+
+    // --- Section links ----------------------------------------------------
+
+    // Page paths are compared without a trailing "index.html", so a link to
+    // "chapter-3-sim-opt/index.html" matches the page URL "chapter-3-sim-opt/".
+    function normalisePath(path) {
+      return path.replace(/index\.html$/, '');
+    }
+
+    function escapeText(text) {
+      var div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function initSectionLinks() {
+      var dataEl = document.getElementById('fm-page-titles');
+      var main = document.getElementById('main-content');
+      if (!dataEl || !main) { return; }
+
+      var titles;
+      try { titles = JSON.parse(dataEl.textContent); } catch (e) { return; }
+
+      var here = normalisePath(window.location.pathname);
+      var links = main.querySelectorAll('a[href]');
+      for (var i = 0; i < links.length; i++) {
+        var a = links[i];
+        if (a.hostname !== window.location.hostname) { continue; }
+        if (a.classList.contains('footnote') || a.classList.contains('gl-term')) { continue; }
+        if (a.closest('sup[id^="fnref:"]')) { continue; }
+        // Glossary term links get the definition instead (initGlossaryLinks)
+        if (isGlossaryPath(a.pathname) && a.hash.length > 1) { continue; }
+
+        var path = normalisePath(a.pathname);
+        if (path === here) { continue; } // in-page anchors, e.g. the TOC
+        var title = titles[path];
+        if (!title) { continue; }
+
+        // Skip links that already show the title, e.g. "Choosing a Basic
+        // Element" or the "Next: 3.2 Building Energy Simulation" footer
+        var name = title.replace(/^[0-9.]+\s+/, '').toLowerCase();
+        if (a.textContent.toLowerCase().indexOf(name) !== -1) { continue; }
+
+        attachTooltip(a, escapeText(title));
+      }
     }
 
     // --- Footnotes --------------------------------------------------------

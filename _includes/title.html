@@ -1,0 +1,13 @@
+{%- comment -%}
+  Overrides just-the-docs' _includes/title.html: the content of the
+  sidebar's site-title link (top left). Adds the current book version
+  under the title. The version comes from `book_version` in _config.yml,
+  the same value the home page shows; styled in _sass/custom/custom.scss.
+
+  The theme's own version also handles `site.logo`; this site has no
+  logo, so only the text title is kept.
+{%- endcomment -%}
+<span class="site-title-text">{{ site.title }}</span>
+{%- if site.book_version %}
+<span class="site-version">Version {{ site.book_version }}</span>
+{%- endif %}

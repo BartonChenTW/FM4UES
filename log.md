@@ -539,3 +539,15 @@ Not tested in a browser: there is no JavaScript runtime on this machine, so the 
 - `v2.0` → `3126662`, the last merge on 2026-09-11, so the restructure plus that day's rename and attribution fixes, as the book stood when "Version 2.0 — 11 September 2026" was its label.
 - `v2.1` goes on this PR's merge commit, once it merges.
 - Appendix C links to the Releases list rather than to each tag, so the PR's link check doesn't fail on `v2.1` before it exists.
+
+## 2026-10-01 (book version in the sidebar)
+
+**Released.** Tagged `v2.1` on the PR #42 merge commit (`50f83cd`) and published its GitHub Release, with notes from Appendix C. The repo now has releases v1.1, v2.0 and v2.1.
+
+**Why.** Barton asked to see the book's version at the top left of the site.
+
+**Changes.**
+- `_includes/title.html` overrides the theme's sidebar title to add "Version 2.1" under it, styled in `_sass/custom/custom.scss` (small, 70% opacity, so it works in both colour schemes).
+- The version now has one source, `book_version` and `book_version_date` in `_config.yml`. Both the sidebar and the home page label read it.
+- `README.md` still states the version as literal text, because GitHub shows that file without Jekyll.
+- The release steps in `CONTRIBUTING.md` were updated to match.

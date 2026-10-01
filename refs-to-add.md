@@ -93,6 +93,7 @@ named on the tool's own site) before citing.
 ## D. Existing citation to double-check
 
 - **Granite-GFM**, [§1.3](chapter-1-background/1-3-fm-landscape-by-domain.md) l.32. The sentence about Granite-GFM estimating land surface temperature (30 m, hourly, built on Prithvi-SWIN-L) is cited to `szwarcman2024prithvieo2`, the Prithvi-EO-2.0 paper. Check that this paper actually describes the Granite LST model. If not, find Granite-GFM's own source. Granite-GFM is also named uncited in the §1.3 table (l.27).
+  - **Resolved (2026-10-01).** The paper does not describe it, since Prithvi-EO-2.0 is a ViT released after the Granite model. Both §1.3 mentions now cite the IBM Hugging Face model card (`bhamjee2024granitelst`). Prithvi-SWIN-L cites `jakubik2023prithvi`, the paper that model card gives for its base model. [§2.4.5](chapter-2-fm-foundations/2-4-5-geospatial-weather-fms.md) l.24 had the same error ("Prithvi-EO-2.0 … underlies Granite-GFM") and is corrected the same way.
 
 ## E. Previously logged, still open
 

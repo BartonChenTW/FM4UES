@@ -21,7 +21,7 @@ A family that does not target energy systems directly but is a plausible input e
 
 **GraphCast** performs medium-range global weather forecasting with a graph neural network (encode-process-decode) operating on an icosahedral multi-mesh over the sphere.[^lam2023graphcast] It and similar models (FengWu, Aurora) demonstrate that physical fields on a spatiotemporal grid support the foundation-model pattern at global scale.
 
-**Prithvi** is a Vision Transformer masked-autoencoder pretrained over multispectral, multitemporal satellite patches, developed by NASA and IBM Research.[^jakubik2023prithvi] **Prithvi-EO-2.0** scales this up and underlies **Granite-GFM**, which uses a Swin Transformer backbone to estimate land surface temperature at 30 m resolution and hourly frequency for arbitrary cities.[^szwarcman2024prithvieo2]
+**Prithvi** is a Vision Transformer masked-autoencoder pretrained over multispectral, multitemporal satellite patches, developed by NASA and IBM Research.[^jakubik2023prithvi] **Prithvi-EO-2.0** scales this up.[^szwarcman2024prithvieo2] **Granite-GFM** is built on the Prithvi-SWIN-L Earth observation foundation model[^jakubik2023prithvi] and uses a Swin Transformer backbone to estimate land surface temperature at 30 m resolution and hourly frequency for arbitrary cities.[^bhamjee2024granitelst]
 
 **Relevance to urban energy systems.** Urban heat islands drive peak cooling load and grid stress simultaneously, which makes a weather- or microclimate-conditioned building energy model a plausible fusion target. No existing paired dataset couples geospatial/weather foundation model output with building load or UBEM data at foundation-model scale — this would need to be built as a corpus, not simply assembled from existing releases. This is flagged as a candidate direction in [§4.2](../chapter-4-directions/4-2-fms-for-building-stocks.html) and is one of the less mature intersections surveyed in this book.
 
@@ -31,6 +31,7 @@ This sub-section is intentionally brief: geospatial/weather FMs are adjacent rat
 [^lam2023graphcast]: Lam, R., Sanchez-Gonzalez, A., Willson, M. et al. (2023). [Learning skillful medium-range global weather forecasting](https://doi.org/10.1126/science.adi2336). *Science*, 382(6677), 1416–1421.
 [^jakubik2023prithvi]: Jakubik, J., Roy, S., Phillips, C. E. et al. (2023). [Foundation models for generalist geospatial artificial intelligence](https://arxiv.org/abs/2310.18660). arXiv:2310.18660.
 [^szwarcman2024prithvieo2]: Szwarcman, D., Roy, S., Fraccaro, P. et al. (2024). [Prithvi-EO-2.0: A versatile multi-temporal foundation model for Earth observation applications](https://arxiv.org/abs/2412.02732). arXiv:2412.02732.
+[^bhamjee2024granitelst]: Bhamjee, M., Gaffoor, Z., Govindasamy, T. et al. (2024). [granite-geospatial-land-surface-temperature](https://huggingface.co/ibm-granite/granite-geospatial-land-surface-temperature). IBM Research, Hugging Face model card, Apache-2.0.
 
 ---
 [← Previous: 2.4.4 Tabular FMs](2-4-4-tabular-fms.html) · [Next: 2.5 What Does Not Exist Yet →](2-5-what-does-not-exist-yet.html)

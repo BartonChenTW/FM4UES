@@ -24,19 +24,19 @@ The term and the underlying pattern were named and surveyed at length by the Sta
 | Vision | ViT (Vision Transformer), SAM/SAM2 (Segment Anything Model),[^kirillov2023sam] DINO (self-**DI**stillation with **NO** labels)[^caron2021dino] | Sequences of image patches |
 | Multimodal | Unified generation-and-understanding models, e.g. Janus[^wu2024janus] | Cross-modal alignment across text, image, audio |
 | Weather / climate | GraphCast,[^lam2023graphcast] FengWu,[^chen2023fengwu] Aurora[^bodnar2025aurora] | Physical fields on a spatiotemporal grid |
-| Geospatial / remote sensing | Prithvi,[^jakubik2023prithvi] ScaleMAE,[^reed2023scalemae] Granite-GFM | Satellite pixels and patches over space and time |
+| Geospatial / remote sensing | Prithvi,[^jakubik2023prithvi] ScaleMAE,[^reed2023scalemae] Granite-GFM[^bhamjee2024granitelst] | Satellite pixels and patches over space and time |
 | Time series | TimesFM,[^das2024timesfm] Chronos,[^ansari2024chronos] Moirai,[^woo2024moirai] TTM (Tiny Time Mixers),[^ekambaram2024ttm] Toto,[^cohen2025toto] TimeGPT[^garza2023timegpt] | Numeric sequences |
 | Graph-structured systems | Emerging graph FMs, GridFM-v0[^hamann2024foundation] | Node/edge-structured data |
 | Robotics / embodied | Vision-language-action models | Vision, language, touch, force, proprioception |
 
-Granite-GFM is built on the Prithvi-SWIN-L Earth observation foundation model and uses a Swin Transformer backbone to estimate land surface temperature at 30 m resolution and hourly frequency for arbitrary cities.[^szwarcman2024prithvieo2]
+Granite-GFM is built on the Prithvi-SWIN-L Earth observation foundation model[^jakubik2023prithvi] and uses a Swin Transformer backbone to estimate land surface temperature at 30 m resolution and hourly frequency for arbitrary cities.[^bhamjee2024granitelst]
 
 {: .warning }
 **The field moves fast.** Publication counts on LLM-and-energy alone went from roughly 1 (2022) to 13 (2023) to 128 (2024) to 464 (2025), with 348 already indexed in the first half of 2026 — a Scopus title/abstract/keyword search combining LLM and power-system terms, run 11 July 2026.[^naeem2026llmpower] Re-check anything in this table before it is used to justify a novelty claim.
 
 Two families are directly relevant to this book and get dedicated treatment: [time-series FMs](../chapter-2-fm-foundations/2-4-1-time-series-fms.html) and [power-grid FMs](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html), in [§2.4](../chapter-2-fm-foundations/index.html).
 
-[^szwarcman2024prithvieo2]: Szwarcman, D., Roy, S., Fraccaro, P. et al. (2024). [Prithvi-EO-2.0: A versatile multi-temporal foundation model for Earth observation applications](https://arxiv.org/abs/2412.02732). arXiv:2412.02732.
+[^bhamjee2024granitelst]: Bhamjee, M., Gaffoor, Z., Govindasamy, T. et al. (2024). [granite-geospatial-land-surface-temperature](https://huggingface.co/ibm-granite/granite-geospatial-land-surface-temperature). IBM Research, Hugging Face model card, Apache-2.0.
 [^kirillov2023sam]: Kirillov, A., Mintun, E., Ravi, N. et al. (2023). [Segment Anything](https://arxiv.org/abs/2304.02643). *ICCV 2023*. arXiv:2304.02643
 [^lam2023graphcast]: Lam, R., Sanchez-Gonzalez, A., Willson, M. et al. (2023). [Learning skillful medium-range global weather forecasting](https://doi.org/10.1126/science.adi2336). *Science*, 382(6677), 1416–1421.
 [^chen2023fengwu]: Chen, K., Han, T., Gong, J. et al. (2023). [FengWu: Pushing the skillful global medium-range weather forecast beyond 10 days lead](https://arxiv.org/abs/2304.02948). arXiv:2304.02948

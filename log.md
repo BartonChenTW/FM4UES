@@ -494,3 +494,13 @@ Verified: footnote integrity on every page, all footnote names match `.bib` keys
 **References (bib 135 → 136).** New: `pham2025chemgraph` (arXiv API; claim from abstract). Reused: `alfalouji2023cosimulation`, and `bodnar2025aurora` (already in the bib for §1.3/§2.2; re-checked on Crossref, claim written from its OpenAlex abstract — a duplicate entry was added by mistake and caught by the key-uniqueness check). **Considered and dropped:** HuggingGPT (Shen et al. 2023, arXiv:2303.17580) as the general "LLM as controller of specialist models" precedent — ChemGraph makes the same point in a physical-science setting with simulators in the loop, which is closer to UES (one citation per claim). No new open gap added: whether the interface problem deserves its own G10 is left to the maintainer (TODO).
 
 Verification as for §3.9/§3.10: footnote integrity, bib keys, braces, internal links and anchors, lychee on changed pages. Mermaid diagram not rendered.
+
+## 2026-10-01 (Granite-GFM and Prithvi-SWIN-L citations, §1.3 and §2.4.5)
+
+**Why.** Closes `refs-to-add.md` item D. The Granite-GFM sentence (land surface temperature, 30 m, hourly, Swin backbone on Prithvi-SWIN-L) was cited to `szwarcman2024prithvieo2`, the Prithvi-EO-2.0 paper. That paper does not describe the Granite model: Prithvi-EO-2.0 is a ViT released in December 2024, and the Granite LST model (v1, May 2024) builds on Prithvi-SWIN-L. §2.4.5 also said that Prithvi-EO-2.0 "underlies" Granite-GFM, which was wrong.
+
+**Changes.** §1.3: the Granite-GFM table row and sentence now cite `bhamjee2024granitelst`, and Prithvi-SWIN-L cites `jakubik2023prithvi`. The `szwarcman2024prithvieo2` footnote is no longer used there and was removed. §2.4.5: the sentence was split. Prithvi-EO-2.0 keeps `szwarcman2024prithvieo2`, and Granite-GFM is now attributed to Prithvi-SWIN-L with the same two citations as §1.3.
+
+**References (bib 136 → 137).** New: `bhamjee2024granitelst`, the IBM Hugging Face model card (authors, release date and licence taken from the card). No paper was found for the 30 m, hourly model itself, so the model card is the primary source, following the precedent of EnergyBench in §3.2. The card names `jakubik2023prithvi` as the paper for its Prithvi-SWIN-L base model. **Considered and dropped:** Bhamjee et al., IGARSS 2024 ("Detection and characterization of urban heat islands with machine learning"). It covers a different model (1 km, 2 m air temperature, Johannesburg). Kreismann (2025, arXiv:2509.16617) applies the model rather than describing it.
+
+Verified: footnote ref/def integrity on both pages, bib key unique.

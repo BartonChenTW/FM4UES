@@ -755,3 +755,7 @@ Barton found the paragraph hard to read. It leaned on another section's terms wi
 - why it is only a starting point for a hub model, but often the whole job for load forecasting
 
 No page linked to the old heading anchor.
+
+## 2026-10-02 (version 2.2)
+
+Release of version 2.2, covering PRs #43, #45, #46 and #49 since v2.1: §2.4.6, the multimodal subsection of §2.7, Appendix D, the revisions and corrections listed in Appendix C, and the site features. The entry is at the top of Appendix C. `book_version` / `book_version_date` in `_config.yml` and the README Status line now read 2.2, 2 October 2026. `v2.2` is tagged on this PR's merge commit, with a GitHub Release carrying the same notes.

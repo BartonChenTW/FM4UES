@@ -30,7 +30,7 @@ This page is the book's own synthesis, not a survey of one. A dated search (arXi
 | Layer | Component | Basic element | Status | In this book |
 | :--- | :--- | :--- | :--- | :--- |
 | Boundary conditions | Weather and Earth-system FMs; geospatial FMs | Cell of a physical field; satellite patch | Mature, not yet fused with UES data | [§2.4.5](../chapter-2-fm-foundations/2-4-5-geospatial-weather-fms.html) |
-| | Renewable-generation FMs | Generation site | Mature | [§2.4.3](../chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html) |
+| Boundary conditions | Renewable-generation FMs | Generation site | Mature | [§2.4.3](../chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html) |
 | Demand | Meter / load FMs; general time-series FMs zero-shot | Load time series | Mature | [§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html), [§2.4.2](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html), [§4.1](4-1-off-the-shelf-fms.html) |
 | Buildings and stocks | Simulator-grounded building FM; stock-level FM | Not settled ([G8](../chapter-6-outlook/6-1-open-gaps.html#g8)) | None exists | [§4.2](4-2-fms-for-building-stocks.html), [§4.8](4-8-candidate-subfields.html) |
 | Multi-carrier conversion | Hub / district FM | Not yet defined | None exists | [Chapter 5](../chapter-5-case-study/index.html) |

@@ -590,3 +590,7 @@ Not tested in a browser: there is no JavaScript runtime on this machine, so the 
 ## 2026-10-01 (§4.8: "Already committed" heading corrected)
 
 The §4.8 heading "Already committed and well-justified" was not accurate. The metadata-conditioned load FM has drawn interest but has not been started. The heading is now "Most promising near-term, limited by data licensing", and the entry ends by naming the limitation: licences on meter data paired with building and household attributes restrict pooling it into a training corpus. It also links to §3.2 on why measured data rarely comes paired with attributes. No page linked to the old heading anchor.
+
+## 2026-10-01 (§4.11: empty layer cell filled)
+
+In the §4.11 table "The components, by layer", the renewable-generation row left the Layer cell empty, meaning "same as above". It read as missing, so it now says "Boundary conditions".

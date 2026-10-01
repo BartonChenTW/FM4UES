@@ -13,6 +13,16 @@
     positions it near the reference on hover/focus.
   - On touch devices, the native click-to-jump behaviour is preserved.
   - Uses vanilla JS + CSS, no dependencies.
+
+  Glossary terms use the same tooltip. A link to a glossary row, written as
+  [term](../appendices/a-glossary.html#term), shows that row's definition on
+  hover. The glossary page is fetched once per page view, and only on pages
+  that have such a link. The glossary is a plain Markdown table, and table
+  rows can't carry an id in kramdown, so the anchor comes from the row's bold
+  term: lower-cased, with every run of other characters turned into "-"
+  ("Agent-based model (ABM)" -> "agent-based-model-abm"). The same rule gives
+  the rows their ids on the glossary page itself, so the link still jumps to
+  the right row on touch devices or when the fetch fails.
 {%- endcomment -%}
 
 <style>
@@ -131,6 +141,24 @@
     outline: 2px solid #0078ff;
     outline-offset: 2px;
   }
+
+  /* Glossary term links: dotted underline marks "hover for a definition" */
+  a.gl-term {
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 0.15em;
+  }
+
+  a.gl-term.fn-hover-active {
+    background-color: rgba(0, 120, 255, 0.1);
+    border-radius: 2px;
+  }
+
+  /* On the glossary page, highlight the row a term link jumped to */
+  tr.gl-row:target,
+  tr.gl-row.gl-landed {
+    background-color: rgba(0, 120, 255, 0.1);
+  }
 </style>
 
 <script>
@@ -186,6 +214,153 @@
     }
 
     function init() {
+      anchorGlossaryRows();
+      initFootnotes();
+      initGlossaryLinks();
+    }
+
+    // Shared tooltip element, created the first time a page needs one
+    var sharedTooltip = null;
+
+    function getTooltip() {
+      if (sharedTooltip) { return sharedTooltip; }
+
+      var tooltip = document.createElement('div');
+      tooltip.className = 'fn-tooltip';
+      tooltip.setAttribute('role', 'tooltip');
+      tooltip.setAttribute('aria-hidden', 'true');
+      tooltip._activeLink = null; // Track which link is active
+      document.body.appendChild(tooltip);
+
+      // Keep the tooltip open while the pointer or keyboard focus is inside
+      // it, so its text can be selected and its links clicked.
+      tooltip.addEventListener('mouseenter', cancelHide);
+      tooltip.addEventListener('mouseleave', scheduleHide);
+      tooltip.addEventListener('focusin', cancelHide);
+      tooltip.addEventListener('focusout', scheduleHide);
+
+      sharedTooltip = tooltip;
+      return tooltip;
+    }
+
+    function attachTooltip(link, content) {
+      link._fnContent = content;
+      link._fnTooltip = getTooltip();
+
+      // Mouse events
+      link.addEventListener('mouseenter', handleShow);
+      link.addEventListener('mouseleave', scheduleHide);
+
+      // Keyboard events
+      link.addEventListener('focus', handleShow);
+      link.addEventListener('blur', scheduleHide);
+    }
+
+    // --- Glossary ---------------------------------------------------------
+
+    function glossarySlug(text) {
+      return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    }
+
+    function isGlossaryPath(path) {
+      return /\/a-glossary(\.html)?$/.test(path);
+    }
+
+    // Read the glossary table out of a document: slug -> definition HTML.
+    // Sets each row's id as it goes. On the glossary page that is what
+    // makes "#term" links land on the row.
+    function readGlossary(doc, baseUrl) {
+      var map = {};
+      var rows = doc.querySelectorAll('table tbody tr');
+      for (var i = 0; i < rows.length; i++) {
+        var cells = rows[i].querySelectorAll('td');
+        if (cells.length < 2) { continue; }
+        var termEl = cells[0].querySelector('strong');
+        if (!termEl) { continue; }
+
+        var slug = glossarySlug(termEl.textContent);
+        if (!slug) { continue; }
+        rows[i].id = slug;
+        rows[i].classList.add('gl-row');
+
+        if (baseUrl) {
+          // Definitions link relative to the glossary page; make those links
+          // absolute so they still work when shown on another page.
+          var def = cells[1].cloneNode(true);
+          var links = def.querySelectorAll('a[href]');
+          for (var j = 0; j < links.length; j++) {
+            try {
+              links[j].setAttribute('href', new URL(links[j].getAttribute('href'), baseUrl).href);
+            } catch (e) { /* leave it as written */ }
+          }
+          // The term cell already carries its own bold
+          map[slug] = cells[0].innerHTML + ': ' + def.innerHTML;
+        }
+      }
+      return map;
+    }
+
+    function anchorGlossaryRows() {
+      if (!isGlossaryPath(window.location.pathname)) { return; }
+      readGlossary(document, null);
+
+      // The browser looked for the #term target before the rows had ids,
+      // so scroll to it now.
+      var hash = window.location.hash;
+      if (hash.length > 1) {
+        var target = document.getElementById(decodeURIComponent(hash.substring(1)));
+        if (target) {
+          target.scrollIntoView();
+          // :target was resolved before the id existed, so mark the row by
+          // hand. Later in-page jumps match :target normally.
+          target.classList.add('gl-landed');
+          window.addEventListener('hashchange', function () {
+            target.classList.remove('gl-landed');
+          }, { once: true });
+        }
+      }
+    }
+
+    function initGlossaryLinks() {
+      if (isGlossaryPath(window.location.pathname)) { return; }
+
+      var termLinks = [];
+      var anchors = document.querySelectorAll('a[href*="a-glossary"]');
+      for (var i = 0; i < anchors.length; i++) {
+        var a = anchors[i];
+        if (a.hostname !== window.location.hostname) { continue; }
+        if (!isGlossaryPath(a.pathname) || a.hash.length < 2) { continue; }
+        termLinks.push(a);
+      }
+      if (termLinks.length === 0) { return; }
+
+      var glossaryUrl = termLinks[0].href.split('#')[0];
+      if (!window.fetch || !window.DOMParser) { return; }
+
+      fetch(glossaryUrl)
+        .then(function (res) {
+          if (!res.ok) { throw new Error('HTTP ' + res.status); }
+          return res.text();
+        })
+        .then(function (html) {
+          var doc = new DOMParser().parseFromString(html, 'text/html');
+          var map = readGlossary(doc, glossaryUrl);
+          for (var k = 0; k < termLinks.length; k++) {
+            var link = termLinks[k];
+            var content = map[decodeURIComponent(link.hash.substring(1))];
+            if (!content) { continue; }
+            link.classList.add('gl-term');
+            attachTooltip(link, content);
+          }
+        })
+        .catch(function () {
+          // Leave the links as plain links to the glossary
+        });
+    }
+
+    // --- Footnotes --------------------------------------------------------
+
+    function initFootnotes() {
       // Check if there are any footnote references on this page
       var refs = document.querySelectorAll('sup[id^="fnref:"]');
       if (refs.length === 0) { return; }
@@ -217,14 +392,6 @@
         footnoteMap[id] = tempDiv.innerHTML;
       }
 
-      // Create tooltip element
-      var tooltip = document.createElement('div');
-      tooltip.className = 'fn-tooltip';
-      tooltip.setAttribute('role', 'tooltip');
-      tooltip.setAttribute('aria-hidden', 'true');
-      tooltip._activeLink = null; // Track which link is active
-      document.body.appendChild(tooltip);
-
       // Add hover/focus event listeners to each footnote reference
       for (var j = 0; j < refs.length; j++) {
         var ref = refs[j];
@@ -233,30 +400,13 @@
 
         var footnoteId = link.getAttribute('href');
         if (!footnoteId || footnoteId.charAt(0) !== '#') { continue; }
-        
+
         var targetId = footnoteId.substring(1); // Remove the #
         var content = footnoteMap[targetId];
         if (!content) { continue; }
 
-        // Store reference for this link
-        link._fnContent = content;
-        link._fnTooltip = tooltip;
-
-        // Mouse events
-        link.addEventListener('mouseenter', handleShow);
-        link.addEventListener('mouseleave', scheduleHide);
-
-        // Keyboard events
-        link.addEventListener('focus', handleShow);
-        link.addEventListener('blur', scheduleHide);
+        attachTooltip(link, content);
       }
-
-      // Keep the tooltip open while the pointer or keyboard focus is inside
-      // it, so its text can be selected and its links clicked.
-      tooltip.addEventListener('mouseenter', cancelHide);
-      tooltip.addEventListener('mouseleave', scheduleHide);
-      tooltip.addEventListener('focusin', cancelHide);
-      tooltip.addEventListener('focusout', scheduleHide);
 
       // Track if we're in a touch interaction
       var isTouch = 'ontouchstart' in window;
@@ -268,7 +418,7 @@
 
     function handleShow(e) {
       cancelHide();
-      var link = e.target;
+      var link = e.currentTarget;
       var tooltip = link._fnTooltip;
       var content = link._fnContent;
 
@@ -287,9 +437,10 @@
       tooltip.classList.add('visible');
       tooltip.setAttribute('aria-hidden', 'false');
       
-      // Mark the reference as active
-      var sup = link.closest('sup');
-      if (sup) { sup.classList.add('fn-hover-active'); }
+      // Mark the reference (footnote <sup> or glossary link) as active
+      var active = document.querySelector('.fn-hover-active');
+      if (active) { active.classList.remove('fn-hover-active'); }
+      (link.closest('sup') || link).classList.add('fn-hover-active');
     }
 
     // Grace period (ms) that lets the pointer travel from the footnote
@@ -329,8 +480,8 @@
       tooltip._activeLink = null;
 
       // Remove active state from whichever reference is highlighted
-      var activeSup = document.querySelector('sup.fn-hover-active');
-      if (activeSup) { activeSup.classList.remove('fn-hover-active'); }
+      var activeRef = document.querySelector('.fn-hover-active');
+      if (activeRef) { activeRef.classList.remove('fn-hover-active'); }
     }
 
     function positionTooltip(tooltip, link) {
@@ -387,7 +538,7 @@
       var tooltip = document.querySelector('.fn-tooltip.visible');
       if (!tooltip) { return; }
       if (tooltip.contains(e.target)) { return; }
-      if (e.target.closest && e.target.closest('sup[id^="fnref:"]')) { return; }
+      if (e.target.closest && e.target.closest('sup[id^="fnref:"], a.gl-term')) { return; }
       // Force the hide: a stale selection inside the tooltip must not keep it
       // pinned open once the reader has clicked elsewhere.
       hideTooltip(true);

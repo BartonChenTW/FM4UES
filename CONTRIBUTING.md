@@ -48,7 +48,12 @@ from the file's "Edit" (pencil) button.
 
 - Written for a reader who knows urban energy systems well and machine
   learning less well (or vice versa) — define jargon on first use, or link
-  to [`appendices/a-glossary.md`](appendices/a-glossary.md).
+  to [`appendices/a-glossary.md`](appendices/a-glossary.md). To link one
+  term, use its anchor, the bold term in lower case with every run of
+  other characters turned into `-`. For example,
+  `[multimodality](../appendices/a-glossary.html#multimodality)` or
+  `#agent-based-model-abm`. On the site, hovering such a link shows the
+  definition in a floating box.
 - Cite claims. See the references workflow below.
 - British English spelling, matching the existing text (e.g. "optimisation",
   "modelling").

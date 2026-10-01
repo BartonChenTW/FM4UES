@@ -504,3 +504,17 @@ Verification as for §3.9/§3.10: footnote integrity, bib keys, braces, internal
 **References (bib 136 → 137).** New: `bhamjee2024granitelst`, the IBM Hugging Face model card (authors, release date and licence taken from the card). No paper was found for the 30 m, hourly model itself, so the model card is the primary source, following the precedent of EnergyBench in §3.2. The card names `jakubik2023prithvi` as the paper for its Prithvi-SWIN-L base model. **Considered and dropped:** Bhamjee et al., IGARSS 2024 ("Detection and characterization of urban heat islands with machine learning"). It covers a different model (1 km, 2 m air temperature, Johannesburg). Kreismann (2025, arXiv:2509.16617) applies the model rather than describing it.
 
 Verified: footnote ref/def integrity on both pages, bib key unique.
+
+## 2026-10-01 (glossary hover definitions; "Multimodality")
+
+**Why.** The §1.4 bullet "Multimodality is becoming the default" used the term without defining it, and the glossary had no entry. Three options were weighed: a plain link to the glossary, kramdown abbreviations (`*[term]: …`, which give only the browser's own title tooltip, don't show on touch devices, and repeat the definition on each page), or a glossary link with a hover box. The hover box was chosen. The definition is written once, in the glossary, and the link still works without the box.
+
+**Changes.**
+- Glossary: new row **Multimodality**, linked to Cross-attention, §1.3 and §1.4.
+- §1.4: "Multimodality" now links to `a-glossary.html#multimodality`.
+- `_includes/footnote-tooltip.html`: the footnote hover box also works for glossary links. On pages with such a link it fetches the glossary once and shows the matching row's definition. Relative links in the definition are made absolute.
+- Glossary rows get ids from their bold term: lower-cased, with every run of other characters turned into `-`. This happens in the script, since kramdown can't put an id on a table row. On the glossary page the script also scrolls to and highlights the row named in the URL. All 41 slugs are unique.
+- `handleShow` now uses `currentTarget`, and the active-reference highlight works for links as well as `<sup>`.
+- `CONTRIBUTING.md`: the anchor rule, with an example.
+
+Not tested in a browser: there is no JavaScript runtime on this machine, so the script was only reviewed by reading. Check on the deployed site: hover "Multimodality" in §1.4, and open `a-glossary.html#multimodality` directly.

@@ -36,6 +36,7 @@ redirect_from: /appendix-a-glossary.html
 | **LCA** (life cycle assessment) | Quantifying a product's or building's environmental impacts across its life cycle, from raw materials to end of life. For buildings, standardised in EN 15978. See [§3.9](../chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html) |
 | **LCI database** (life-cycle inventory) | Background dataset of material and energy flows per process (e.g. ecoinvent) from which LCA impact factors are computed |
 | **MILP** | Mixed-integer linear program — LP plus discrete decisions |
+| **Multimodality** | A model's ability to take in or produce more than one kind of data (*modality*), such as text, images, time series or building attributes, and to learn how they relate. Usually done by encoding each modality separately and combining them with [cross-attention](#cross-attention). See [§1.3](../chapter-1-background/1-3-fm-landscape-by-domain.html), [§1.4](../chapter-1-background/1-4-fm-field-directions.html) |
 | **Neural operator** | Network learning mappings between function spaces rather than finite vectors. See [§2.7](../chapter-2-fm-foundations/2-7-architectures.html) |
 | **Patch** | A contiguous block of timesteps treated as one token |
 | **PFN (prior-data fitted network)** | Model pretrained across a distribution of synthetic tasks so that conditioning on a context approximates Bayesian inference under the learned prior |

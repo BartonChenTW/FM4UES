@@ -1,12 +1,12 @@
 ---
-title: "3.1 Taxonomy of Modelling Tasks"
+title: "3.1 Modelling Tasks"
 parent: Chapter 3 — Simulation and Optimisation in UES
 nav_order: 1
 status: draft
 last_reviewed: 2026-09-29
 ---
 
-# 3.1 Taxonomy of Modelling Tasks
+# 3.1 Modelling Tasks and Their Mathematical Structure
 {: .no_toc }
 
 {% include page-status.html %}
@@ -22,7 +22,7 @@ last_reviewed: 2026-09-29
 
 **System description + external conditions → model → system outcomes**
 
-The inputs may include building characteristics, technology parameters, weather, occupancy, energy prices, network characteristics, or technology availability. The outputs may include energy demand, generation, energy flows, temperatures, equipment operation, investment decisions, operating costs, or emissions. Which inputs and which outputs is exactly what distinguishes one task from another — and that is what the taxonomy below organises.
+The inputs may include building characteristics, technology parameters, weather, occupancy, energy prices, network characteristics, or technology availability. The outputs may include energy demand, generation, energy flows, temperatures, equipment operation, investment decisions, operating costs, or emissions. Which inputs and which outputs is exactly what distinguishes one task from another — and that is what the eleven tasks below are sorted by.
 
 ### Simulation and optimisation answer different questions
 

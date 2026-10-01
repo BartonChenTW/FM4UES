@@ -25,7 +25,7 @@ This is written for someone who knows urban energy systems well and machine lear
 
 **If you read only one page**, read [Choosing a Basic Element](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html) (§2.3) — it gives the criterion for deciding whether a foundation model is viable in a sub-domain at all, before any question of architecture or compute.
 
-The **[Methods by Problem Class](../chapter-4-directions/4-9-methods-landing.html)** pages (§4.9) are the operational core of the directions survey: three tiers of increasing difficulty (single-hub dispatch → multi-hub multi-carrier dispatch → design and sizing optimisation), each with a concrete build path.
+The **[proposed development path](../chapter-4-directions/4-9-methods-landing.html)** (§4.9) is the book's own proposal, set apart from the surrounding survey: three tiers of increasing difficulty (single-hub dispatch → multi-hub multi-carrier dispatch → design and sizing optimisation), each with a concrete build path.
 
 **Chapter 4 versus Chapter 5, explicitly.** Chapter 4 is a neutral survey: what the field as a whole knows about applying foundation models across UES sub-domains, without endorsing one direction over another. Chapter 5 is a specific, opinionated case study — one concrete proposal for a multi-carrier energy hub foundation model, including a token schema, module decomposition, and a phased roadmap. Readers who want "what does the field know" should read Chapter 4; readers who want "here is one worked proposal in full technical depth" should read Chapter 5. The two are kept deliberately separate so the reader can always tell what is established, what is being explored broadly, and what is one group's specific bet.
 

@@ -1,6 +1,6 @@
 ---
 title: "4.9.1 Tier 1 — Single Hub Dispatch"
-parent: "4.9 Methods by Problem Class"
+parent: "4.9 A Proposed Development Path"
 grand_parent: Chapter 4 — Directions for FMs in UES
 nav_order: 1
 status: draft
@@ -11,6 +11,9 @@ last_reviewed: 2026-09-11
 {: .no_toc }
 
 {% include page-status.html %}
+
+{: .note }
+Tier 1 of the book's proposed development path toward a multi-carrier foundation model ([§4.9](4-9-methods-landing.html)): a proposal, not a survey of established practice.
 
 1. TOC
 {:toc}

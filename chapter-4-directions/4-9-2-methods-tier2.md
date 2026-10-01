@@ -1,6 +1,6 @@
 ---
 title: "4.9.2 Tier 2 — Multi-Hub, Multi-Carrier"
-parent: "4.9 Methods by Problem Class"
+parent: "4.9 A Proposed Development Path"
 grand_parent: Chapter 4 — Directions for FMs in UES
 nav_order: 2
 status: draft
@@ -12,6 +12,9 @@ redirect_from: /07-methods-tier2.html
 {: .no_toc }
 
 {% include page-status.html %}
+
+{: .note }
+Tier 2 of the book's proposed development path toward a multi-carrier foundation model ([§4.9](4-9-methods-landing.html)): a proposal, not a survey of established practice.
 
 1. TOC
 {:toc}

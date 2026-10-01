@@ -29,4 +29,4 @@ last_reviewed: 2026-09-29
 5. **Retrofit and whole-life-carbon FM** — given a building, propose measure combinations scored on cost, operational and embodied emissions ([§3.9](../chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html)). Listed last because it needs both the building representation of [G8](../chapter-6-outlook/6-1-open-gaps.html#g8) and the decision-space representation of [G9](../chapter-6-outlook/6-1-open-gaps.html#g9). Its training data is generable — a stock simulator on one side, LCA impact factors on the other — but the quantity take-off linking the two is archetype-approximated.
 
 ---
-[← Previous: 4.7 Reading the Screen](4-7-reading-the-screen.html) · [Next: 4.9 Methods by Problem Class →](4-9-methods-landing.html)
+[← Previous: 4.7 Reading the Screen](4-7-reading-the-screen.html) · [Next: 4.9 A Proposed Development Path →](4-9-methods-landing.html)

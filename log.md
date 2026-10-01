@@ -572,3 +572,17 @@ Not tested in a browser: there is no JavaScript runtime on this machine, so the 
   - §2.4.4 and §4.9.1 (R1): the attribute list, one row per building
 - **G7 in §4.3:** later mentions now say "the verification question" or "gap G7 (verification of agent-built models)". "The categories G7 names" was also inaccurate, because the list of assumptions is §4.3's own, not §6.1's.
 - The gap labels G1–G9 are used on many other pages and are left as they are. Each first mention on a page links to §6.1.
+
+## 2026-10-01 (§4.9 marked as the book's proposed development path)
+
+**Why.** Barton asked that §4.9 say it is only a proposed path to a foundation model for multi-carrier (multi-vector) energy systems, and stand apart from the rest of Chapter 4. The chapter's own subtitle calls it "a broad, neutral survey… not one specific programme", while §4.9 is exactly that: a programme of three tiers, each with a build plan.
+
+**Changes.**
+- §4.9 renamed **"4.9 A Proposed Development Path"** in the sidebar, with the page heading "4.9 A Proposed Development Path: Methods by Problem Class". The URL is unchanged.
+- The subtitle now states the goal. A new `.important` callout, "A proposal, not a survey", gives:
+  - what the three tiers are
+  - what each one provides
+  - that the route has not been built or tested as a whole
+  - how it relates to Chapter 5
+- Each tier page (§4.9.1–4.9.3) opens with a one-line note placing it in the proposed path. Their `parent:` front matter follows the new title.
+- Updated how other pages describe §4.9: the Chapter 4 landing table and its "Chapter 4 vs Chapter 5" note (which now names §4.9 as the one marked exception), §4.8's next-link, the home page (two places), §1.6, and the README.

@@ -593,4 +593,12 @@ The §4.8 heading "Already committed and well-justified" was not accurate. The m
 
 ## 2026-10-01 (§4.11: empty layer cell filled)
 
-In the §4.11 table "The components, by layer", the renewable-generation row left the Layer cell empty, meaning "same as above". It read as missing, so it now says "Boundary conditions".
+In the §4.11 table "The components, by layer", the renewable-generation row left the Layer cell empty, meaning "same as above". It read as missing, so it now says "Boundary conditions". The same fix went into the §3.9 life-cycle table, where the B6/B7 row's Stage cell is now "B — use".
+
+The Status column of the §4.11 table now uses the theme's coloured labels on a four-step scale:
+- **Mature** (green): working models exist and are in use
+- **Emerging** (blue): first domain models exist
+- **Early** (yellow): only partial or single-case attempts
+- **None yet** (red): nothing built
+
+Each label keeps its qualifier, and a small legend sits under the table. The word inside each pill carries the meaning, so the table still reads without colour.

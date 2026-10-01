@@ -513,7 +513,7 @@ Verified: footnote ref/def integrity on both pages, bib key unique.
 - Glossary: new row **Multimodality**, linked to Cross-attention, §1.3 and §1.4.
 - §1.4: "Multimodality" now links to `a-glossary.html#multimodality`.
 - `_includes/footnote-tooltip.html`: the footnote hover box also works for glossary links. On pages with such a link it fetches the glossary once and shows the matching row's definition. Relative links in the definition are made absolute.
-- Glossary rows get ids from their bold term: lower-cased, with every run of other characters turned into `-`. This happens in the script, since kramdown can't put an id on a table row. On the glossary page the script also scrolls to and highlights the row named in the URL. All 41 slugs are unique.
+- Glossary anchors: every bold term now carries a kramdown span attribute, `**Term**{: #term}`, which renders as `<strong id="term">`. The id is the term in lower case, with every run of other characters turned into `-`. All 41 are unique. The first version made the ids in the script instead, and lychee failed on the PR with "Cannot find fragment", because it checks the built HTML without running JavaScript. Ids in the source fix that and need no script on the glossary page. CSS highlights the row whose term is the `:target`.
 - `handleShow` now uses `currentTarget`, and the active-reference highlight works for links as well as `<sup>`.
 - `CONTRIBUTING.md`: the anchor rule, with an example.
 

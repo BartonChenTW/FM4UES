@@ -17,12 +17,11 @@
   Glossary terms use the same tooltip. A link to a glossary row, written as
   [term](../appendices/a-glossary.html#term), shows that row's definition on
   hover. The glossary page is fetched once per page view, and only on pages
-  that have such a link. The glossary is a plain Markdown table, and table
-  rows can't carry an id in kramdown, so the anchor comes from the row's bold
-  term: lower-cased, with every run of other characters turned into "-"
-  ("Agent-based model (ABM)" -> "agent-based-model-abm"). The same rule gives
-  the rows their ids on the glossary page itself, so the link still jumps to
-  the right row on touch devices or when the fetch fails.
+  that have such a link. The anchor is written in the glossary source on the
+  row's bold term, as **Term**{: #term} (a kramdown span attribute, rendered
+  as <strong id="term">). That makes it a real anchor in the built page, so
+  the link still lands on the right row on touch devices or when the fetch
+  fails, and the link checker can resolve it.
 {%- endcomment -%}
 
 <style>
@@ -155,8 +154,7 @@
   }
 
   /* On the glossary page, highlight the row a term link jumped to */
-  tr.gl-row:target,
-  tr.gl-row.gl-landed {
+  tr:has(> td > strong:target) {
     background-color: rgba(0, 120, 255, 0.1);
   }
 </style>
@@ -214,7 +212,6 @@
     }
 
     function init() {
-      anchorGlossaryRows();
       initFootnotes();
       initGlossaryLinks();
     }
@@ -258,67 +255,39 @@
 
     // --- Glossary ---------------------------------------------------------
 
-    function glossarySlug(text) {
-      return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-    }
-
     function isGlossaryPath(path) {
       return /\/a-glossary(\.html)?$/.test(path);
     }
 
-    // Read the glossary table out of a document: slug -> definition HTML.
-    // Sets each row's id as it goes. On the glossary page that is what
-    // makes "#term" links land on the row.
+    // Read the fetched glossary table: anchor id -> definition HTML.
+    // Each row's anchor is the id on its bold term (<strong id="term">).
     function readGlossary(doc, baseUrl) {
       var map = {};
       var rows = doc.querySelectorAll('table tbody tr');
       for (var i = 0; i < rows.length; i++) {
         var cells = rows[i].querySelectorAll('td');
         if (cells.length < 2) { continue; }
-        var termEl = cells[0].querySelector('strong');
+        var termEl = cells[0].querySelector('strong[id]');
         if (!termEl) { continue; }
 
-        var slug = glossarySlug(termEl.textContent);
-        if (!slug) { continue; }
-        rows[i].id = slug;
-        rows[i].classList.add('gl-row');
+        // Drop the id from the copy, so the tooltip never adds a second
+        // element with that id to the page it is shown on.
+        var term = cells[0].cloneNode(true);
+        term.querySelector('strong[id]').removeAttribute('id');
 
-        if (baseUrl) {
-          // Definitions link relative to the glossary page; make those links
-          // absolute so they still work when shown on another page.
-          var def = cells[1].cloneNode(true);
-          var links = def.querySelectorAll('a[href]');
-          for (var j = 0; j < links.length; j++) {
-            try {
-              links[j].setAttribute('href', new URL(links[j].getAttribute('href'), baseUrl).href);
-            } catch (e) { /* leave it as written */ }
-          }
-          // The term cell already carries its own bold
-          map[slug] = cells[0].innerHTML + ': ' + def.innerHTML;
+        // Definitions link relative to the glossary page; make those links
+        // absolute so they still work when shown on another page.
+        var def = cells[1].cloneNode(true);
+        var links = def.querySelectorAll('a[href]');
+        for (var j = 0; j < links.length; j++) {
+          try {
+            links[j].setAttribute('href', new URL(links[j].getAttribute('href'), baseUrl).href);
+          } catch (e) { /* leave it as written */ }
         }
+        // The term cell already carries its own bold
+        map[termEl.id] = term.innerHTML + ': ' + def.innerHTML;
       }
       return map;
-    }
-
-    function anchorGlossaryRows() {
-      if (!isGlossaryPath(window.location.pathname)) { return; }
-      readGlossary(document, null);
-
-      // The browser looked for the #term target before the rows had ids,
-      // so scroll to it now.
-      var hash = window.location.hash;
-      if (hash.length > 1) {
-        var target = document.getElementById(decodeURIComponent(hash.substring(1)));
-        if (target) {
-          target.scrollIntoView();
-          // :target was resolved before the id existed, so mark the row by
-          // hand. Later in-page jumps match :target normally.
-          target.classList.add('gl-landed');
-          window.addEventListener('hashchange', function () {
-            target.classList.remove('gl-landed');
-          }, { once: true });
-        }
-      }
     }
 
     function initGlossaryLinks() {

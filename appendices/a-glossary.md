@@ -19,6 +19,7 @@ redirect_from: /appendix-a-glossary.html
 | **Any-variate attention** | Attention scaling to arbitrary numbers of input series |
 | **Basic element** | The unit a model treats as indivisible — the learned-model counterpart of an element in a discretised simulation. Judged against the four requirements in [§2.3.1](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#231-the-criterion) |
 | **Cell** | A single entry in a table, where one row meets one column; the basic element of tabular foundation models ([§2.4.4](../chapter-2-fm-foundations/2-4-4-tabular-fms.html)) |
+| **Co-simulation** | Running separate sub-models that exchange data at a coupling interface, rather than one integrated solver ([§3.6](../chapter-3-sim-opt/3-6-tool-landscape.html)); the template for coupling foundation models by physical quantities ([§4.11](../chapter-4-directions/4-11-ecosystem.html)) |
 | **Cross-attention** | Mechanism by which one set of information (e.g. building attributes) modulates how another is interpreted (e.g. a demand profile), rather than simply being appended to it |
 | **DAE** | Differential-algebraic equations — the structure of Modelica-type models |
 | **Decision space** | The set of possible interventions on a system, as distinct from its state space; see [G9](../chapter-6-outlook/6-1-open-gaps.html#g9) |

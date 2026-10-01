@@ -134,4 +134,4 @@ The anchored format matches the budget reality above: it does not depend on a tr
 [^chu2026snarenet]: Chu, Y.-C., Boukas, A., Udell, M. (2026). [SnareNet: Flexible repair layers for neural networks with hard constraints](https://arxiv.org/abs/2602.09317). arXiv:2602.09317
 
 ---
-[← Previous: 4.9.3 Tier 3](4-9-3-methods-tier3.html) · [Back to Chapter 4](index.html) · [Next: Chapter 5 — Case Study →](../chapter-5-case-study/index.html)
+[← Previous: 4.9.3 Tier 3](4-9-3-methods-tier3.html) · [Back to Chapter 4](index.html) · [Next: 4.11 A Future Ecosystem of UES FMs →](4-11-ecosystem.html)

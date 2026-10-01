@@ -51,7 +51,7 @@ Thousands of stochastic scenarios, reliability criteria, uncertainty quantificat
 
 ## Phase 5 (Year 6–10) — Multi-scale coupling
 
-Hub FM ↔ grid FM. Hub aggregate demand is the grid's boundary condition; grid constraints and nodal prices are the hub's boundary condition. Today these are solved in separate tools with hand-passed interfaces. A shared representation is the genuinely novel scientific claim, and the natural long-horizon convergence point of this roadmap with the grid-load bridge FM direction named in [§4.8](../chapter-4-directions/4-8-candidate-subfields.html).
+Hub FM ↔ grid FM. Hub aggregate demand is the grid's boundary condition; grid constraints and nodal prices are the hub's boundary condition. Today these are solved in separate tools with hand-passed interfaces. A shared representation is the genuinely novel scientific claim, and the natural long-horizon convergence point of this roadmap with the grid-load bridge FM direction named in [§4.8](../chapter-4-directions/4-8-candidate-subfields.html). Where this coupling sits among the other models a UES would need is sketched in [§4.11](../chapter-4-directions/4-11-ecosystem.html).
 
 ---
 [← Back to Chapter 5](index.html) · [Next: 5.2 The Representation Problem →](5-2-representation-problem.html)

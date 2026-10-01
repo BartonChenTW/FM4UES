@@ -27,8 +27,8 @@ Conventional supervised learning needs a human (or a solver) to label every trai
 
 Two common patterns:
 
-- **Masking.** Hide a random subset of the input (a word in a sentence, a patch in an image, a bus's state in a grid) and train the model to reconstruct it from context. This is how GridFM-v0 pretrains — see [§2.4.2](2-4-2-power-grid-fms.html).
-- **Next-step / autoregressive prediction.** Show the model a prefix and train it to predict what comes next (the next word, the next timestep). This is how Chronos and most language models pretrain.
+- **Masking.** Hide a random subset of the input (a word in a sentence, a patch in an image, a bus's state in a grid) and train the model to reconstruct it from context. This is how [GridFM-v0](../appendices/d-model-index.html#gridfm) pretrains — see [§2.4.2](2-4-2-power-grid-fms.html).
+- **Next-step / autoregressive prediction.** Show the model a prefix and train it to predict what comes next (the next word, the next timestep). This is how [Chronos](../appendices/d-model-index.html#chronos) and most language models pretrain.
 
 The point of self-supervision is not that it is free — pretraining runs are large and expensive in compute — but that it removes the *labelling* bottleneck, which lets pretraining scale to enormous, broad, cheaply-collected datasets in a way that supervised learning on hand-labelled data cannot.
 
@@ -54,7 +54,7 @@ A scaling law is an empirical relationship between a model's size (or its traini
 
 **Why this matters for judging any FM proposal, including the case study in [Chapter 5](../chapter-5-case-study/index.html):** a scaling law is not guaranteed to hold in a new domain. It has to be demonstrated, and demonstrating it early is cheap relative to committing to a large model. [§4.9.3 (Tier 3)](../chapter-4-directions/4-9-3-methods-tier3.html) recommends running a small scaling study — training on 10², 10³, 10⁴ samples and fitting the error curve — before committing to a large data-generation campaign, for exactly this reason.
 
-Time-series foundation models are a directly relevant recent example: Toto 2.0 is reported as the first time-series model to demonstrate classic scaling-law behaviour, with a single training recipe producing reliable forecast-quality improvements across a 625× range of model size (4M to 2.5B parameters).[^khwaja2026toto2] That this needed demonstrating, and was notable when it was, is itself informative — scaling behaviour in a new data modality is a finding, not an assumption.
+Time-series foundation models are a directly relevant recent example: [Toto 2.0](../appendices/d-model-index.html#toto-2-0) is reported as the first time-series model to demonstrate classic scaling-law behaviour, with a single training recipe producing reliable forecast-quality improvements across a 625× range of model size (4M to 2.5B parameters).[^khwaja2026toto2] That this needed demonstrating, and was notable when it was, is itself informative — scaling behaviour in a new data modality is a finding, not an assumption.
 
 **And "scale" does not only mean parameters.** An empirical study on commercial building energy consumption, spanning architectures from RNNs through fine-tuned open-source foundation models, reports that dataset heterogeneity and model architecture affected post-training forecasting performance more than parameter count did — isolated by comparing two curated ComStock subsets identical in size and region but differing in building-type diversity.[^bose2024rnnstofm] For this book that reframes the planning question in [§4.10.1](../chapter-4-directions/4-10-building-it.html#4101-data-generation-and-sampling-design): the open question for urban energy systems is not "how large a model" but **what kind of diversity in the training distribution actually produces transferable knowledge** — which is a sampling-design decision, made before any model is trained, not a budget decision made after.
 

@@ -41,7 +41,7 @@ The chapter's argument is this screen, not the reading order. **Load** and **gri
 
 | § | Page | Covers |
 | :--- | :--- | :--- |
-| 4.1 | [Using existing FMs off the shelf](4-1-off-the-shelf-fms.html) | Zero-shot load forecasting with Chronos/TimesFM — the most useful direction to practitioners today |
+| 4.1 | [Using existing FMs off the shelf](4-1-off-the-shelf-fms.html) | Zero-shot load forecasting with [Chronos](../appendices/d-model-index.html#chronos)/[TimesFM](../appendices/d-model-index.html#timesfm) — the most useful direction to practitioners today |
 | 4.2 | [FMs for whole building stocks](4-2-fms-for-building-stocks.html) | Stock-level rather than single-building representation |
 | 4.3 | [LLMs and agents that build or run simulation models](4-3-llm-agents-for-simulation.html) | Natural-language model setup; ties to gap G7 |
 | 4.4 | [Generative design](4-4-generative-design.html) | Generating candidate system designs rather than only evaluating them |

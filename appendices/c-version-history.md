@@ -53,4 +53,4 @@ The book restructured into six chapters, one page per numbered section: backgrou
 The first version published as a website: the original textbook in seven parts plus appendices.
 
 ---
-[← Previous: Appendix B — Pre-Project Checklist](b-checklist.html) · [Back to Appendices](index.html) · [Back to Home](../index.html)
+[← Previous: Appendix B — Pre-Project Checklist](b-checklist.html) · [Next: Appendix D — Model Index →](d-model-index.html) · [Back to Appendices](index.html) · [Back to Home](../index.html)

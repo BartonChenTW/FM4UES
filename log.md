@@ -552,6 +552,66 @@ Not tested in a browser: there is no JavaScript runtime on this machine, so the 
 - `README.md` still states the version as literal text, because GitHub shows that file without Jekyll.
 - The release steps in `CONTRIBUTING.md` were updated to match.
 
+## 2026-10-01 (section links show the page title on hover)
+
+**Why.** Barton asked that a link like "§3.4" show the section's title when the pointer is over it.
+
+**Changes** in `_includes/footnote-tooltip.html`. It reuses the footnote and glossary hover box, so all three look and behave the same.
+- At build time, Liquid writes every page's URL and front-matter `title` into a JSON block (`fm-page-titles`). No fetch is needed when the page loads.
+- Links inside `#main-content` that point to another page of the book show that page's title, e.g. "3.4 Operation / Dispatch Optimisation".
+- **Skipped:**
+  - links whose text already contains the title (e.g. "Choosing a Basic Element", or the Previous/Next footers)
+  - in-page anchors, such as the table of contents
+  - footnote markers
+  - glossary-term links, which show the definition instead
+- The JSON block and the script contain no literal HTML tags, per the lychee warning in `nav_footer_custom.html`. The title text is escaped before it goes into the box.
+
+Not run in a browser: there is no JavaScript runtime here. After deploy, hover "§3.4" in §3.1 and check the JSON block on any page.
+
+## 2026-10-01 (model index and model hover cards; Appendix D)
+
+**Why.** Barton asked that the models named across the book (e.g. "Chronos-2, TimesFM 2.5, Moirai 2.0, TabPFN-TS" in §4.1) show more on hover: full name, developer, a description, and links to the model and its source. The approach follows the glossary hover.
+
+**Changes.**
+- **`_data/models.yml`** is the single source, with 39 named models in four families:
+  - general time series: 20
+  - energy: 6
+  - weather and geospatial: 8
+  - vision and multimodal: 5
+
+  Every entry has its source URLs and notes.
+- **Appendix D — Model Index** (`appendices/d-model-index.md`) renders the data file as one table per family, with an anchor on each model's row.
+- **Hover script** (`_includes/footnote-tooltip.html`): a link to a row (`d-model-index.html#chronos-2`) shows a card with name, full name, developer and year, description, and Model and Paper links.
+  - The card data is written into a JSON block at build time, trimmed to the fields the card shows, so nothing is fetched.
+  - The card is built with DOM calls, so the script holds no literal HTML tags (lychee note).
+  - Section-title hovers skip model links.
+- **Links in the text:** the first mention of each model on each page links to its row, 101 links over 24 pages.
+  - Inserted by a script that skips headings, code and Mermaid blocks, footnote definitions, existing links, the glossary and the version history.
+  - Longer names match first, so "Chronos-2" is never read as "Chronos".
+  - §2.4.6 (PR #46) is not linked yet, because it is on another branch.
+- Wiring: Appendices landing, home contents, README structure table, Appendix C next-link, and `CONTRIBUTING.md` (how to link a model and add an entry).
+
+**How the data was checked.** Two research agents checked the models in parallel against arXiv, Crossref, GitHub and Hugging Face. Developers come from paper affiliations or official pages, and every URL was fetched. Descriptions were then edited for plain language.
+
+**Open issues found while checking** (not fixed here):
+- Chronos-2's model card calls it encoder-only, while §1.4 lists it among families that "converged on decoder-only architectures".
+- `jakubik2023prithvi`, cited for Prithvi-SWIN-L in §1.3 and §2.4.5 (as IBM's model card does), describes the ViT-based Prithvi-100M and mentions Swin only as future work.
+- TimesFM 2.5, TimeGPT-2 and NV-Tesseract (since renamed Kumo-TS) have no paper. Their entries link to the release pages, and the book cites none of them.
+- In §1.4, "IBM Granite" most likely means the TTM weights, which are published as granite-timeseries-ttm.
+
+## 2026-10-01 (diagrams: Enlarge and Open in new tab)
+
+**Why.** Barton found the §4.11 ecosystem diagram interesting but too small to read. Mermaid scales every diagram to the width of the text column, so large ones end up with tiny labels.
+
+**Change.** New `_includes/diagram-zoom.html`, included from `head_custom.html`, applies to every Mermaid diagram on the site.
+- **Enlarge** (or a click on the diagram) opens a full-window overlay at the drawing's natural size, or 90% of the window width if that is larger. It scrolls both ways, and closes with Escape, the × button or a click on the backdrop. Its background matches the page's light or dark mode.
+- **Open in new tab** saves the current drawing as a standalone SVG, which the browser can zoom freely.
+- The controls attach through a MutationObserver once the drawing appears, so they also survive the dark-mode re-render.
+- The copy keeps the original SVG id, because Mermaid's embedded styles are scoped to it.
+- The script has no literal HTML tags, per the lychee note.
+
+Not run in a browser. After deploy, try both buttons on §4.11, and on the Chapter 4 quadrant chart.
+
 ## 2026-10-01 (new §2.4.6: load and smart-meter forecasting FMs)
 
 **Why.** Barton pointed out how much work there is on demand forecasting with foundation models, especially from smart-meter data, and asked for a section on it. A check of the book found the topic scattered over six pages with no survey:
@@ -664,3 +724,34 @@ None of them explained what a modality is, how models combine several, or worked
 **Wiring.** The §2.7 intro sentence and its Chapter 2 contents row, the glossary "Multimodality" entry (now pointing to §2.7 for the worked example), and §1.4's multimodality bullet.
 
 **References (bib +1).** New: `radford2021clip` (arXiv API, plus the PMLR proceedings page for venue and pages). Reused: `wu2024janus`, with its claim from the arXiv abstract. The worked example is illustrative, not a cited result.
+
+## 2026-10-02 (problems found by the model-index check, fixed or flagged)
+
+Barton asked for the problems that came up while compiling Appendix D to be fixed, or at least flagged in the text.
+- **§1.4, "converged on decoder-only architectures".** This was wrong.
+  - The Chronos-2 paper (§3.2) says "Chronos-2 is an encoder-only transformer".
+  - TimeGPT's paper describes "an encoder-decoder structure".
+  - TTM is "based on the light-weight TSMixer architecture", an MLP-mixer.
+  - TiRex is recurrent.
+
+  The bullet now reads "Time series has matured" and states each model's architecture with a citation: TimesFM and Moirai 2.0 decoder-only, Chronos-2 encoder-only, TimeGPT encoder-decoder, TTM MLP-mixer, TiRex recurrent. The Chapter 1 contents row was changed to match.
+- **§1.4, models with no citation.** TimesFM 2.5, TimeGPT-2 and NV-Tesseract have no paper. Each now cites its release page, and the footnote says no paper exists:
+  - TimesFM 2.5: Hugging Face model card
+  - TimeGPT-2: Nixtla announcement
+  - NV-Tesseract: NVIDIA Technical Blog, 6 May 2025
+
+  NV-Tesseract is flagged as "since renamed Kumo-TS". "IBM Granite" became "IBM's TTM (released under IBM's Granite name)". New bib entries: `google2025timesfm25`, `nixtla2025timegpt2`, `nvidia2025nvtesseract`. The two blog pages were fetched to confirm their titles and dates.
+- **Prithvi-SWIN-L (§1.3, §2.4.5).** No paper describes it. The `jakubik2023prithvi` citation, taken from IBM's model card, covers the ViT Prithvi and mentions Swin only as future work.
+  - Both sentences now cite only the model card (`bhamjee2024granitelst`) and call Prithvi-SWIN-L "a Swin Transformer version of the Prithvi model".
+  - §2.4.5 adds a sentence saying so outright.
+  - `jakubik2023prithvi` still supports the separate claims about Prithvi itself.
+- The matching notes in `_data/models.yml` were updated.
+
+## 2026-10-02 (§4.1: "Why this belongs before any bespoke build" rewritten)
+
+Barton found the paragraph hard to read. It leaned on another section's terms without explaining them: "this", "Tier 1", "build path", "the cheapest available option", "warranted". It also packed two points into two long sentences. The heading is now "Why try existing models before building your own". The text says plainly:
+- why a zero-shot test comes first
+- where the book's proposed path (§4.9.1, Step 2) puts that test
+- why it is only a starting point for a hub model, but often the whole job for load forecasting
+
+No page linked to the old heading anchor.

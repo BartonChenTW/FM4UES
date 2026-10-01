@@ -22,6 +22,20 @@
   as <strong id="term">). That makes it a real anchor in the built page, so
   the link still lands on the right row on touch devices or when the fetch
   fails, and the link checker can resolve it.
+
+  Section links use the same tooltip too. A link to another page of the book
+  whose text doesn't already name that page (e.g. "§3.4", "Chapter 5",
+  "gap G9") shows the page's title on hover. The titles come from each page's
+  front matter, written into the fm-page-titles JSON block below at build
+  time, so no fetch is needed.
+
+  Models get a card the same way. A link to a row of the model index,
+  written as [Chronos-2](../appendices/d-model-index.html#chronos-2), shows
+  the model's full name, developer, a one-line description and links to the
+  model and its paper. The data is _data/models.yml, written into the
+  fm-models JSON block below at build time; Appendix D renders the same
+  file as a table, so the link still lands on the model's row without the
+  card.
 {%- endcomment -%}
 
 <style>
@@ -153,11 +167,39 @@
     border-radius: 2px;
   }
 
+  /* Model cards (initModelLinks) */
+  .fn-tooltip .model-card-meta {
+    opacity: 0.75;
+    font-size: 0.9em;
+    margin-top: 0.15em;
+  }
+
+  .fn-tooltip .model-card-desc {
+    margin-top: 0.4em;
+  }
+
+  .fn-tooltip .model-card-links {
+    margin-top: 0.4em;
+    display: flex;
+    gap: 0.9em;
+  }
+
   /* On the glossary page, highlight the row a term link jumped to */
-  tr:has(> td > strong:target) {
+  tr:has(> td > strong:target),
+  tr:target {
     background-color: rgba(0, 120, 255, 0.1);
   }
 </style>
+
+<script type="application/json" id="fm-page-titles">
+{ {%- for p in site.pages -%}{%- if p.title and p.url -%}{{ p.url | relative_url | jsonify }}: {{ p.title | jsonify }}, {% endif -%}{%- endfor -%} "": "" }
+</script>
+
+<script type="application/json" id="fm-models">
+[ {%- for m in site.data.models -%}
+{"id": {{ m.id | jsonify }}, "name": {{ m.name | jsonify }}, "full_name": {{ m.full_name | jsonify }}, "developer": {{ m.developer | jsonify }}, "year": {{ m.year | jsonify }}, "description": {{ m.description | jsonify }}, "url": {{ m.url | jsonify }}, "paper": {{ m.paper | jsonify }}}{% unless forloop.last %},{% endunless %}
+{%- endfor -%} ]
+</script>
 
 <script>
   (function () {
@@ -214,6 +256,8 @@
     function init() {
       initFootnotes();
       initGlossaryLinks();
+      initSectionLinks();
+      initModelLinks();
     }
 
     // Shared tooltip element, created the first time a page needs one
@@ -325,6 +369,130 @@
         .catch(function () {
           // Leave the links as plain links to the glossary
         });
+    }
+
+    // --- Section links ----------------------------------------------------
+
+    // Page paths are compared without a trailing "index.html", so a link to
+    // "chapter-3-sim-opt/index.html" matches the page URL "chapter-3-sim-opt/".
+    function normalisePath(path) {
+      return path.replace(/index\.html$/, '');
+    }
+
+    function escapeText(text) {
+      var div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function initSectionLinks() {
+      var dataEl = document.getElementById('fm-page-titles');
+      var main = document.getElementById('main-content');
+      if (!dataEl || !main) { return; }
+
+      var titles;
+      try { titles = JSON.parse(dataEl.textContent); } catch (e) { return; }
+
+      var here = normalisePath(window.location.pathname);
+      var links = main.querySelectorAll('a[href]');
+      for (var i = 0; i < links.length; i++) {
+        var a = links[i];
+        if (a.hostname !== window.location.hostname) { continue; }
+        if (a.classList.contains('footnote') || a.classList.contains('gl-term')) { continue; }
+        if (a.closest('sup[id^="fnref:"]')) { continue; }
+        // Glossary term links get the definition instead (initGlossaryLinks)
+        if (isGlossaryPath(a.pathname) && a.hash.length > 1) { continue; }
+        // Model links get the model card instead (initModelLinks)
+        if (isModelIndexPath(a.pathname) && a.hash.length > 1) { continue; }
+
+        var path = normalisePath(a.pathname);
+        if (path === here) { continue; } // in-page anchors, e.g. the TOC
+        var title = titles[path];
+        if (!title) { continue; }
+
+        // Skip links that already show the title, e.g. "Choosing a Basic
+        // Element" or the "Next: 3.2 Building Energy Simulation" footer
+        var name = title.replace(/^[0-9.]+\s+/, '').toLowerCase();
+        if (a.textContent.toLowerCase().indexOf(name) !== -1) { continue; }
+
+        attachTooltip(a, escapeText(title));
+      }
+    }
+
+    // --- Model cards ------------------------------------------------------
+
+    function isModelIndexPath(path) {
+      return /\/d-model-index(\.html)?$/.test(path);
+    }
+
+    // Build the card with DOM calls rather than an HTML string, so the
+    // script holds no literal tags (see the lychee note in
+    // nav_footer_custom.html) and every value is inserted as plain text.
+    function modelCardHtml(m) {
+      var box = document.createElement('div');
+
+      var head = document.createElement('div');
+      var name = document.createElement('strong');
+      name.textContent = m.name;
+      head.appendChild(name);
+      if (m.full_name && m.full_name !== m.name) {
+        head.appendChild(document.createTextNode(' (' + m.full_name + ')'));
+      }
+      box.appendChild(head);
+
+      var meta = [m.developer, m.year].filter(Boolean).join(', ');
+      if (meta) {
+        var metaEl = document.createElement('div');
+        metaEl.className = 'model-card-meta';
+        metaEl.textContent = meta;
+        box.appendChild(metaEl);
+      }
+
+      if (m.description) {
+        var desc = document.createElement('div');
+        desc.className = 'model-card-desc';
+        desc.textContent = m.description;
+        box.appendChild(desc);
+      }
+
+      var links = document.createElement('div');
+      links.className = 'model-card-links';
+      [['Model', m.url], ['Paper', m.paper]].forEach(function (pair) {
+        if (!pair[1]) { return; }
+        var a = document.createElement('a');
+        a.href = pair[1];
+        a.textContent = pair[0];
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        links.appendChild(a);
+      });
+      if (links.childNodes.length) { box.appendChild(links); }
+
+      return box.innerHTML;
+    }
+
+    function initModelLinks() {
+      var dataEl = document.getElementById('fm-models');
+      var main = document.getElementById('main-content');
+      if (!dataEl || !main) { return; }
+
+      var list;
+      try { list = JSON.parse(dataEl.textContent); } catch (e) { return; }
+      if (!list || !list.length) { return; }
+
+      var byId = {};
+      for (var i = 0; i < list.length; i++) { byId[list[i].id] = list[i]; }
+
+      var anchors = main.querySelectorAll('a[href*="d-model-index"]');
+      for (var j = 0; j < anchors.length; j++) {
+        var a = anchors[j];
+        if (a.hostname !== window.location.hostname) { continue; }
+        if (!isModelIndexPath(a.pathname) || a.hash.length < 2) { continue; }
+        var m = byId[decodeURIComponent(a.hash.substring(1))];
+        if (!m) { continue; }
+        a.classList.add('gl-term');
+        attachTooltip(a, modelCardHtml(m));
+      }
     }
 
     // --- Footnotes --------------------------------------------------------

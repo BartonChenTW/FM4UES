@@ -60,6 +60,12 @@ exclude = [
   # real file in the source tree, so excluding all file:// ... .html
   # links is correct site-wide, not just for some of them.
   '^file://.*\.html(#[^\s)]*)?$',
+  # Liquid placeholders in the raw Markdown, e.g. href="{{ m.url }}" in
+  # appendices/d-model-index.md, which builds its table from
+  # _data/models.yml. lychee reads them as relative file paths
+  # (URL-encoded as %7B%7B). The real URLs exist only in the built page,
+  # where site-check.yml checks the internal ones.
+  '%7B%7B',
   # `exclude` matches the URL as it appears in the Markdown source, not
   # the resolved redirect target -- a pattern on science.org/wiley.com
   # (where these actually redirect to) never matches, because lychee

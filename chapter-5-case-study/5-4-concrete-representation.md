@@ -26,7 +26,7 @@ An edge has exactly two endpoints, so a CHP (gas in → electricity *and* heat o
 ## 5.4.2 What makes this different from GridFM, not a relabelling
 
 1. **Carrier quality is not fungible.** Heat at 80 °C and heat at 35 °C are different commodities with an ordering between them. Electricity has no analogue. The physics loss must forbid free upgrading, and the quality ordering can be encoded structurally as a directed edge. See [§5.6](5-6-physics-loss.html).
-2. **The token must carry a time window, not a snapshot.** GridFM-v0 is snapshot-based — one solved power flow per sample. Hubs are inherently inter-temporal because of storage, and seasonal storage means the year cannot be chopped into independent windows. See the temporal hierarchy in [§5.5](5-5-token-schema.html).
+2. **The token must carry a time window, not a snapshot.** [GridFM-v0](../appendices/d-model-index.html#gridfm) is snapshot-based — one solved power flow per sample. Hubs are inherently inter-temporal because of storage, and seasonal storage means the year cannot be chopped into independent windows. See the temporal hierarchy in [§5.5](5-5-token-schema.html).
 
 ## 5.4.3 Worked example — a 50-building district
 
@@ -56,7 +56,7 @@ An edge has exactly two endpoints, so a CHP (gas in → electricity *and* heat o
 
 **Quality edges:** B3 → B4 permitted (downgrade via load and mixing); B4 → B3 forbidden without a device. This one-way relation has no analogue in GridFM and is the clearest illustration of why multi-carrier systems need a different token from a grid bus (see [§2.4.2](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html)).
 
-**The numbers work.** A 50-building district with ~30 carrier-buses and ~40 devices is 70 node tokens. Per year that is 365 × 70 ≈ 25,000 tokens — within reach given TimesFM 2.5 already runs 16 k context at 200 M parameters,[^das2024timesfm] and cross-day attention only needs to be dense for the handful of storage nodes (see the temporal hierarchy in [§5.5](5-5-token-schema.html)). The flat alternative is 8760 × 70 ≈ 613,000 tokens, which is not tractable.
+**The numbers work.** A 50-building district with ~30 carrier-buses and ~40 devices is 70 node tokens. Per year that is 365 × 70 ≈ 25,000 tokens — within reach given [TimesFM 2.5](../appendices/d-model-index.html#timesfm-2-5) already runs 16 k context at 200 M parameters,[^das2024timesfm] and cross-day attention only needs to be dense for the handful of storage nodes (see the temporal hierarchy in [§5.5](5-5-token-schema.html)). The flat alternative is 8760 × 70 ≈ 613,000 tokens, which is not tractable.
 
 [^das2024timesfm]: Das, A., Kong, W., Sen, R., Zhou, Y. (2024). [A decoder-only foundation model for time-series forecasting](https://arxiv.org/abs/2310.10688). ICML 2024. arXiv:2310.10688. TimesFM 2.5's 16k-context, 200M-parameter release is a later version documented at the [project repository](https://github.com/google-research/timesfm), not in the original paper.
 

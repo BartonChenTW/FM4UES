@@ -40,20 +40,20 @@ How is a training example turned into something the architecture consumes?
 
 This is where domain-specific difficulty concentrates. Evidence from adjacent fields:
 
-- **Float-heavy data** needs purpose-built handling; GridFM-v0 adopts a specially designed float discretisation-and-tokenisation scheme, adapted from vision-language-action models, so that a transformer can process float-rich grid state alongside text.[^hamann2024foundation]
+- **Float-heavy data** needs purpose-built handling; [GridFM-v0](../appendices/d-model-index.html#gridfm) adopts a specially designed float discretisation-and-tokenisation scheme, adapted from vision-language-action models, so that a transformer can process float-rich grid state alongside text.[^hamann2024foundation]
 - **Structured codes** break standard schemes: subword tokenisation optimised for natural language fails to capture the hierarchical and compositional structure of structured medical codes, and dedicated tokenisation recovers measurable performance.[^dwivedi2024unistruct]
 - **Multi-domain data** risks structural loss: tokenisation strategies that combine incompatible spatial discretisations risk losing physical adjacency and introducing aliasing effects in attention layers.[^kaselimi2026coupling]
-- **Multi-resolution data** needs explicit handling: Moirai pairs a multi-patch-size projection scheme handling minute-to-year-scale data with an any-variate attention mechanism that scales to arbitrary numbers of variables.[^woo2024moirai]
+- **Multi-resolution data** needs explicit handling: [Moirai](../appendices/d-model-index.html#moirai) pairs a multi-patch-size projection scheme handling minute-to-year-scale data with an any-variate attention mechanism that scales to arbitrary numbers of variables.[^woo2024moirai]
 
 **A representation is not one decision but at least four**, and this framing recurs whenever this book proposes a concrete representation (see [§5.2](../chapter-5-case-study/5-2-representation-problem.html)):
 
 | Family | Atomic unit | Structure | Discrete/continuous | Invariance |
 | :--- | :--- | :--- | :--- | :--- |
 | LLM | Subword token | 1D sequence position | Discrete, ~50–200 k vocab | None; order is meaning |
-| ViT[^dosovitskiy2020vit] / SAM[^kirillov2023sam] | 16×16 patch, linearly projected | 2D grid position | Continuous | Weak translation |
-| TimesFM / PatchTST[^nie2023patchtst] / TTM[^ekambaram2024ttm] | Patch of N consecutive values, instance-normalised | 1D position | Continuous | Scale, via normalisation |
-| Chronos[^ansari2024chronos] | A quantized value bin | 1D sequence | Discrete codebook | Scale |
-| GraphCast[^lam2023graphcast] / Aurora[^bodnar2025aurora] | Grid cell, all variables at all pressure levels | Icosahedral multi-mesh | Continuous | Spherical geometry |
+| [ViT](../appendices/d-model-index.html#vit)[^dosovitskiy2020vit] / [SAM](../appendices/d-model-index.html#sam)[^kirillov2023sam] | 16×16 patch, linearly projected | 2D grid position | Continuous | Weak translation |
+| [TimesFM](../appendices/d-model-index.html#timesfm) / PatchTST[^nie2023patchtst] / [TTM](../appendices/d-model-index.html#ttm)[^ekambaram2024ttm] | Patch of N consecutive values, instance-normalised | 1D position | Continuous | Scale, via normalisation |
+| [Chronos](../appendices/d-model-index.html#chronos)[^ansari2024chronos] | A quantized value bin | 1D sequence | Discrete codebook | Scale |
+| [GraphCast](../appendices/d-model-index.html#graphcast)[^lam2023graphcast] / [Aurora](../appendices/d-model-index.html#aurora)[^bodnar2025aurora] | Grid cell, all variables at all pressure levels | Icosahedral multi-mesh | Continuous | Spherical geometry |
 | GridFM-v0[^hamann2024foundation] | A bus carrying (p, q, v, δ) | Graph; lines and transformers as edges | Continuous | Permutation over buses |
 
 ## D3 — Architecture

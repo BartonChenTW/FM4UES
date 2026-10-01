@@ -551,3 +551,75 @@ Not tested in a browser: there is no JavaScript runtime on this machine, so the 
 - The version now has one source, `book_version` and `book_version_date` in `_config.yml`. Both the sidebar and the home page label read it.
 - `README.md` still states the version as literal text, because GitHub shows that file without Jekyll.
 - The release steps in `CONTRIBUTING.md` were updated to match.
+
+## 2026-10-01 (§3.1 retitled)
+
+§3.1 "Taxonomy of Modelling Tasks" is renamed. Barton asked for an alternative to "Taxonomy", and the page does more than classify: it says what a model computes, then gives each task's mathematical structure, which Chapter 4 relies on when it screens the tasks.
+- Sidebar title: **3.1 Modelling Tasks**.
+- Page heading: **3.1 Modelling Tasks and Their Mathematical Structure**, following the short/long pattern of §3.10.
+- The file name and URL (`3-1-taxonomy-of-tasks`) are kept, so existing links and bookmarks still work.
+- Updated the visible wording in the Chapter 3 landing table and diagram, §3.2's previous-link, §4.6 and the Chapter 4 landing page ("task taxonomy T1–T11" → "modelling tasks T1–T11"), and the README and home contents.
+- In §3.1's own text, "the taxonomy below" became "the eleven tasks below".
+- Other uses of "taxonomy" in the book (the UBEM scale taxonomy in §1.1, the co-simulation "taxonomic review", the PIML taxonomy in §2.9, §4.10's "a taxonomy with consequences") refer to other works or the general idea, and are unchanged.
+
+## 2026-10-01 (spell out internal labels outside their home section)
+
+**Why.** Barton found "R4 in §2.3.3" in §4.2 and "the assumption categories G7 names" in §4.3 hard to follow: each is a label defined on another page.
+- **R labels:** R1–R4 now appear only in §2.3.3, where its table defines them. Elsewhere the text says what each one is:
+  - §4.2 (R4, twice): the building as an element of a stock
+  - §4.9.2 (R3, twice): the building as a network of connected parts
+  - §6.1 (R3): already spelled out; the redundant "(R3)" is dropped
+  - §2.4.4 and §4.9.1 (R1): the attribute list, one row per building
+- **G7 in §4.3:** later mentions now say "the verification question" or "gap G7 (verification of agent-built models)". "The categories G7 names" was also inaccurate, because the list of assumptions is §4.3's own, not §6.1's.
+- The gap labels G1–G9 are used on many other pages and are left as they are. Each first mention on a page links to §6.1.
+
+## 2026-10-01 (§4.9 marked as the book's proposed development path)
+
+**Why.** Barton asked that §4.9 say it is only a proposed path to a foundation model for multi-carrier (multi-vector) energy systems, and stand apart from the rest of Chapter 4. The chapter's own subtitle calls it "a broad, neutral survey… not one specific programme", while §4.9 is exactly that: a programme of three tiers, each with a build plan.
+
+**Changes.**
+- §4.9 renamed **"4.9 A Proposed Development Path"** in the sidebar, with the page heading "4.9 A Proposed Development Path: Methods by Problem Class". The URL is unchanged.
+- The subtitle now states the goal. A new `.important` callout, "A proposal, not a survey", gives:
+  - what the three tiers are
+  - what each one provides
+  - that the route has not been built or tested as a whole
+  - how it relates to Chapter 5
+- Each tier page (§4.9.1–4.9.3) opens with a one-line note placing it in the proposed path. Their `parent:` front matter follows the new title.
+- Updated how other pages describe §4.9: the Chapter 4 landing table and its "Chapter 4 vs Chapter 5" note (which now names §4.9 as the one marked exception), §4.8's next-link, the home page (two places), §1.6, and the README.
+
+## 2026-10-01 (§4.8: "Already committed" heading corrected)
+
+The §4.8 heading "Already committed and well-justified" was not accurate. The metadata-conditioned load FM has drawn interest but has not been started. The heading is now "Most promising near-term, limited by data licensing", and the entry ends by naming the limitation: licences on meter data paired with building and household attributes restrict pooling it into a training corpus. It also links to §3.2 on why measured data rarely comes paired with attributes. No page linked to the old heading anchor.
+
+## 2026-10-01 (§4.11: empty layer cell filled)
+
+In the §4.11 table "The components, by layer", the renewable-generation row left the Layer cell empty, meaning "same as above". It read as missing, so it now says "Boundary conditions". The same fix went into the §3.9 life-cycle table, where the B6/B7 row's Stage cell is now "B — use".
+
+The Status column of the §4.11 table now uses the theme's coloured labels on a four-step scale:
+- **Mature** (green): working models exist and are in use
+- **Emerging** (blue): first domain models exist
+- **Early** (yellow): only partial or single-case attempts
+- **None yet** (red): nothing built
+
+Each label keeps its qualifier, and a small legend sits under the table. The word inside each pill carries the meaning, so the table still reads without colour.
+
+## 2026-10-01 (§2.7: new "Multimodal models" subsection)
+
+**Why.** Barton asked whether the book explains multimodality with an example anywhere. It didn't. The idea appeared in about ten places, each in a line or two:
+- the glossary, §1.3, §1.4
+- cross-attention in §2.7 and §2.3.3
+- §2.4.3, §4.8, §5.1, §5.7, §4.11
+
+None of them explained what a modality is, how models combine several, or worked an example.
+
+**New subsection** in §2.7, before "The common thread":
+- what a modality is in UES terms: time series, attributes, fields, graphs, text
+- one encoder per modality
+- three ways to combine them: a shared space (CLIP), cross-attention, and one token stream (Janus)
+- a worked example: forecasting one building's next-day load from meter history, register attributes and the weather forecast, with what each modality contributes
+- three practical difficulties: different rates, missing modalities, and paired data
+- pointers to every place the book uses the idea
+
+**Wiring.** The §2.7 intro sentence and its Chapter 2 contents row, the glossary "Multimodality" entry (now pointing to §2.7 for the worked example), and §1.4's multimodality bullet.
+
+**References (bib +1).** New: `radford2021clip` (arXiv API, plus the PMLR proceedings page for venue and pages). Reused: `wu2024janus`, with its claim from the arXiv abstract. The worked example is illustrative, not a cited result.

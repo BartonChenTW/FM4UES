@@ -16,7 +16,7 @@ The domain side, framed for an ML reader: what gets computed, with which tools, 
 
 ```mermaid
 flowchart LR
-    A["3.1 Taxonomy of tasks"] --> B["3.2 Building simulation"]
+    A["3.1 Modelling tasks"] --> B["3.2 Building simulation"]
     A --> C["3.3 Multi-carrier hub formalism"]
     B --> D["3.4 Dispatch optimisation"]
     C --> D
@@ -34,7 +34,7 @@ flowchart LR
 
 | § | Page | Covers |
 | :--- | :--- | :--- |
-| 3.1 | [Taxonomy of modelling tasks](3-1-taxonomy-of-tasks.html) | Eleven tasks, their mathematical structure, typical runtime |
+| 3.1 | [Modelling tasks and their mathematical structure](3-1-taxonomy-of-tasks.html) | Eleven tasks, their mathematical structure, typical runtime |
 | 3.2 | [Building energy simulation: loads, datasets, benchmarks](3-2-building-simulation-data.html) | What's learnable, data shapes, benchmarks |
 | 3.3 | [Multi-carrier energy hub formalism](3-3-energy-hub-formalism.html) | The formalism a hub FM must subsume or interoperate with |
 | 3.4 | [Operation / dispatch optimisation](3-4-dispatch-optimisation.html) | LP/MILP dispatch as an ML problem shape |

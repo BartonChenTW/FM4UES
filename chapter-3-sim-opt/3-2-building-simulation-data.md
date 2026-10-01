@@ -49,4 +49,4 @@ Public building load collections mostly provide profiles without ground-truth at
 [^energybench]: AI-IoT Lab, IISc Bangalore. [EnergyBench](https://huggingface.co/datasets/ai-iot/EnergyBench). Hugging Face dataset, CC-BY-SA-4.0.
 
 ---
-[← Previous: 3.1 Taxonomy of Modelling Tasks](3-1-taxonomy-of-tasks.html) · [Next: 3.3 Multi-Carrier Energy Hub Formalism →](3-3-energy-hub-formalism.html)
+[← Previous: 3.1 Modelling Tasks and Their Mathematical Structure](3-1-taxonomy-of-tasks.html) · [Next: 3.3 Multi-Carrier Energy Hub Formalism →](3-3-energy-hub-formalism.html)

@@ -1,6 +1,6 @@
 ---
 title: "4.9.1 Tier 1 — Single Hub Dispatch"
-parent: "4.9 Methods by Problem Class"
+parent: "4.9 A Proposed Development Path"
 grand_parent: Chapter 4 — Directions for FMs in UES
 nav_order: 1
 status: draft
@@ -11,6 +11,9 @@ last_reviewed: 2026-09-11
 {: .no_toc }
 
 {% include page-status.html %}
+
+{: .note }
+Tier 1 of the book's proposed development path toward a multi-carrier foundation model ([§4.9](4-9-methods-landing.html)): a proposal, not a survey of established practice.
 
 1. TOC
 {:toc}
@@ -86,7 +89,7 @@ A single fixed patch size cannot serve all of these. The reference solution is *
 
 Run this **before** committing to a large data-generation campaign or an architecture. It is roughly a week of work and it either validates the framing or redirects it while redirection is still cheap. Keep it scoped: it is a reference point, not a research programme.
 
-**Step 2 — Zero-shot TSFM evaluation.** Chronos-2, Moirai 2.0, TimesFM 2.5, TabPFN-TS. Prioritise the covariate-aware ones — Chronos-2 and TabPFN-TS model target and covariates jointly; TabPFN-TS is the one that also ingests static metadata, which maps onto your installed capacities. (See [§2.4.4](../chapter-2-fm-foundations/2-4-4-tabular-fms.html) — a tabular FM here is also the strongest available instance of the R1 baseline, so this step doubles as part of Step 1. See also [§4.1](4-1-off-the-shelf-fms.html) for this same move applied to pure forecasting.)
+**Step 2 — Zero-shot TSFM evaluation.** Chronos-2, Moirai 2.0, TimesFM 2.5, TabPFN-TS. Prioritise the covariate-aware ones — Chronos-2 and TabPFN-TS model target and covariates jointly; TabPFN-TS is the one that also ingests static metadata, which maps onto your installed capacities. (See [§2.4.4](../chapter-2-fm-foundations/2-4-4-tabular-fms.html) — a tabular FM here is also the strongest available version of the attribute-list baseline, one row of attributes per building ([§2.3.3](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#233-representation-strategies-and-testable-predictions)), so this step doubles as part of Step 1. See also [§4.1](4-1-off-the-shelf-fms.html) for this same move applied to pure forecasting.)
 
 **Step 3 — Fine-tune.** Chronos-2 ships in five sizes from 9M to 710M parameters, so this fits a modest compute budget comfortably. Lag-Llama[^rasul2023laglama] is architecturally identical to LLMs, so LoRA/PEFT tooling applies directly (see [§2.6](../chapter-2-fm-foundations/2-6-scaling-laws.html)) and it is the easiest to fine-tune on a large set of proprietary series.
 

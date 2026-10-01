@@ -59,7 +59,7 @@ No single architecture suits all of them, so a multimodal model usually gives ea
 
 - **A shared space.** Separate encoders are trained so that matching inputs land close together. CLIP trains an image encoder and a text encoder to predict which caption goes with which image, on 400 million pairs, and can then classify images it was never trained on by comparing them with text descriptions.[^radford2021clip]
 - **Cross-attention.** One modality's tokens attend to another's, so the second changes how the first is read (see the transformer section above). This is the pattern this book proposes most often.
-- **One token stream.** All modalities are turned into tokens and processed together by a single transformer. Janus does this for images and text, with separate visual encoders for understanding an image and for generating one, both feeding one shared transformer.[^wu2024janus]
+- **One token stream.** All modalities are turned into tokens and processed together by a single transformer. [Janus](../appendices/d-model-index.html#janus) does this for images and text, with separate visual encoders for understanding an image and for generating one, both feeding one shared transformer.[^wu2024janus]
 
 **A worked example from this domain.** Suppose the task is to forecast one building's electricity use for the next day. Three modalities are available:
 

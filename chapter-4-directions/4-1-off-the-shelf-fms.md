@@ -46,7 +46,7 @@ One caveat worth carrying forward: TabPFN-TS is pretrained on **synthetic** data
 
 ## What would still need to be added here
 
-- The comparison above is for one carrier (heat) on two networks. A UES practitioner working with electricity, gas, or a different demand profile has no equivalent published number yet to anchor expectations against.
+- The comparison above is for one carrier (heat) on two networks. Published numbers for electricity, from single households to whole grids, are collected in [§2.4.6](../chapter-2-fm-foundations/2-4-6-load-forecasting-fms.html). They show zero-shot models doing well on aggregated load and less reliably for a single building.
 - Notes on which covariates (weather, calendar, building metadata) each model can actually ingest zero-shot beyond the ambient-temperature case above, referencing the covariate-handling differences in [§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html).
 - This book's own benchmark run, rather than a citation of someone else's — see the caveat in the note above.
 

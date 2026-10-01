@@ -27,7 +27,7 @@ Before roughly 2018, a typical machine learning project trained one model for on
 
 Since around 2018, a different recipe has taken over large parts of AI: train one very large model on a very large, broad collection of data, using a self-supervised objective — the model learns by predicting parts of its own input that were deliberately hidden from it (a missing word, a masked patch, the next value in a sequence), rather than needing a human to label every example. This pretraining run is expensive, but it is done once. The resulting model is then **adapted** — with a small amount of additional data, or sometimes none at all — to many different downstream uses.
 
-This is the **foundation model** (FM) recipe: broad pretraining, transfer to new instances, reuse across many tasks. GPT-class language models, image models like SAM,[^kirillov2023sam] and weather models like GraphCast[^lam2023graphcast] are all instances of the same underlying pattern applied to different kinds of data.
+This is the **foundation model** (FM) recipe: broad pretraining, transfer to new instances, reuse across many tasks. GPT-class language models, image models like [SAM](../appendices/d-model-index.html#sam),[^kirillov2023sam] and weather models like [GraphCast](../appendices/d-model-index.html#graphcast)[^lam2023graphcast] are all instances of the same underlying pattern applied to different kinds of data.
 
 ## Why this matters for a domain expert
 

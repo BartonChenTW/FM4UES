@@ -55,6 +55,13 @@ from the file's "Edit" (pencil) button.
   `-` (e.g. `#agent-based-model-abm`). Link to it as
   `[multimodality](../appendices/a-glossary.html#multimodality)`. On the
   site, hovering such a link shows the definition in a floating box.
+- Named models work the same way. Each one has an entry in
+  [`_data/models.yml`](_data/models.yml), which feeds both
+  [Appendix D](appendices/d-model-index.md) and a hover card. Link a
+  model's first mention on a page to its entry, as
+  `[Chronos-2](../appendices/d-model-index.html#chronos-2)`. To add a
+  model, add an entry with every field filled from the model's paper or
+  official page, and list the pages you checked under `sources`.
 - Cite claims. See the references workflow below.
 - British English spelling, matching the existing text (e.g. "optimisation",
   "modelling").

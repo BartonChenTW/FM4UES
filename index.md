@@ -52,3 +52,4 @@ The **[Methods by Problem Class](chapter-4-directions/4-9-methods-landing.html)*
 | — | [Glossary](appendices/a-glossary.html) | Plain-language definitions of every ML term used |
 | — | [Pre-Project Checklist](appendices/b-checklist.html) | Thirteen questions to ask before starting |
 | — | [Version History](appendices/c-version-history.html) | What changed in each version; how to trace changes to a page |
+| — | [Model Index](appendices/d-model-index.html) | Every named model in the book, with developer and links |

@@ -567,3 +567,34 @@ Not tested in a browser: there is no JavaScript runtime on this machine, so the 
 - The JSON block and the script contain no literal HTML tags, per the lychee warning in `nav_footer_custom.html`. The title text is escaped before it goes into the box.
 
 Not run in a browser: there is no JavaScript runtime here. After deploy, hover "§3.4" in §3.1 and check the JSON block on any page.
+
+## 2026-10-01 (model index and model hover cards; Appendix D)
+
+**Why.** Barton asked that the models named across the book (e.g. "Chronos-2, TimesFM 2.5, Moirai 2.0, TabPFN-TS" in §4.1) show more on hover: full name, developer, a description, and links to the model and its source. The approach follows the glossary hover.
+
+**Changes.**
+- **`_data/models.yml`** is the single source, with 39 named models in four families:
+  - general time series: 20
+  - energy: 6
+  - weather and geospatial: 8
+  - vision and multimodal: 5
+
+  Every entry has its source URLs and notes.
+- **Appendix D — Model Index** (`appendices/d-model-index.md`) renders the data file as one table per family, with an anchor on each model's row.
+- **Hover script** (`_includes/footnote-tooltip.html`): a link to a row (`d-model-index.html#chronos-2`) shows a card with name, full name, developer and year, description, and Model and Paper links.
+  - The card data is written into a JSON block at build time, trimmed to the fields the card shows, so nothing is fetched.
+  - The card is built with DOM calls, so the script holds no literal HTML tags (lychee note).
+  - Section-title hovers skip model links.
+- **Links in the text:** the first mention of each model on each page links to its row, 101 links over 24 pages.
+  - Inserted by a script that skips headings, code and Mermaid blocks, footnote definitions, existing links, the glossary and the version history.
+  - Longer names match first, so "Chronos-2" is never read as "Chronos".
+  - §2.4.6 (PR #46) is not linked yet, because it is on another branch.
+- Wiring: Appendices landing, home contents, README structure table, Appendix C next-link, and `CONTRIBUTING.md` (how to link a model and add an entry).
+
+**How the data was checked.** Two research agents checked the models in parallel against arXiv, Crossref, GitHub and Hugging Face. Developers come from paper affiliations or official pages, and every URL was fetched. Descriptions were then edited for plain language.
+
+**Open issues found while checking** (not fixed here):
+- Chronos-2's model card calls it encoder-only, while §1.4 lists it among families that "converged on decoder-only architectures".
+- `jakubik2023prithvi`, cited for Prithvi-SWIN-L in §1.3 and §2.4.5 (as IBM's model card does), describes the ViT-based Prithvi-100M and mentions Swin only as future work.
+- TimesFM 2.5, TimeGPT-2 and NV-Tesseract (since renamed Kumo-TS) have no paper. Their entries link to the release pages, and the book cites none of them.
+- In §1.4, "IBM Granite" most likely means the TTM weights, which are published as granite-timeseries-ttm.

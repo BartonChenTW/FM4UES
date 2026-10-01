@@ -24,7 +24,7 @@ The most useful direction to a practitioner today, and the one requiring the lea
 
 ## The direction
 
-Before building anything bespoke, the cheapest and most immediately useful thing a UES practitioner can do is evaluate an already-pretrained, general-purpose time-series foundation model **zero-shot** on their own forecasting problem — no training, no fine-tuning, just point the model at the series and read off a forecast. The current generation of these models (Chronos-2, TimesFM 2.5, Moirai 2.0, TabPFN-TS — see [§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html)) is production-grade and free or cheap to run.
+Before building anything bespoke, the cheapest and most immediately useful thing a UES practitioner can do is evaluate an already-pretrained, general-purpose time-series foundation model **zero-shot** on their own forecasting problem — no training, no fine-tuning, just point the model at the series and read off a forecast. The current generation of these models ([Chronos-2](../appendices/d-model-index.html#chronos-2), [TimesFM 2.5](../appendices/d-model-index.html#timesfm-2-5), [Moirai 2.0](../appendices/d-model-index.html#moirai-2-0), [TabPFN-TS](../appendices/d-model-index.html#tabpfn-ts) — see [§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html)) is production-grade and free or cheap to run.
 
 This is directly applicable to **load forecasting** — predicting building or district electricity, heat, or cooling demand a few hours to days ahead (T3 in [§3.1](../chapter-3-sim-opt/3-1-taxonomy-of-tasks.html)) — which is already flagged as a task with mature, off-the-shelf solutions in [§4.7](4-7-reading-the-screen.html).
 

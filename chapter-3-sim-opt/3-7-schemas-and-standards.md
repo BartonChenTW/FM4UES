@@ -30,7 +30,7 @@ Both schemas were designed for **interoperability between software tools**, not 
 - Neither carries a canonical tokenisation or normalisation convention — two ESDL files describing equivalent systems are not guaranteed to be numerically comparable without additional processing.
 - Neither preserves the *assumptions* behind a value alongside the value itself (see [gap G6](../chapter-6-outlook/6-1-open-gaps.html#g6)) — a schema can record a device's rated capacity, but not why that capacity was chosen or what scenario it was studied under.
 
-This is the schema-level version of the "MATPOWER moment" gap: power systems had MATPOWER and the bus abstraction decades before GridFM; multi-carrier urban energy systems have ESDL and CIM, but neither plays the equivalent role for a learned model. Closing this gap — a schema, a canonical benchmark set, and a data-generation library analogous to `gridfm-datakit` — is Phase 0 of the roadmap in [§5.1](../chapter-5-case-study/5-1-roadmap.html).
+This is the schema-level version of the "MATPOWER moment" gap: power systems had MATPOWER and the bus abstraction decades before [GridFM](../appendices/d-model-index.html#gridfm); multi-carrier urban energy systems have ESDL and CIM, but neither plays the equivalent role for a learned model. Closing this gap — a schema, a canonical benchmark set, and a data-generation library analogous to `gridfm-datakit` — is Phase 0 of the roadmap in [§5.1](../chapter-5-case-study/5-1-roadmap.html).
 
 [^tno2026esdl]: TNO. [ESDL — Energy System Description Language](https://www.esdl.nl/en/).
 [^iec61970]: International Electrotechnical Commission. [IEC 61970 — Energy management system application program interface (EMS-API)](https://webstore.iec.ch/en/publication/6208).

@@ -31,7 +31,7 @@ Do not build one model. Build an encoder stack, a pretraining task suite, and a 
 
 ## Pretraining tasks (self-supervised, no solver labels)
 
-- **P1 — Masked carrier-flow reconstruction.** The direct GridFM analogue and workhorse objective. Corresponds to M1 in [§5.5.3](5-5-token-schema.html#553-masking-tasks-mapped-onto-the-tokens).
+- **P1 — Masked carrier-flow reconstruction.** The direct [GridFM](../appendices/d-model-index.html#gridfm) analogue and workhorse objective. Corresponds to M1 in [§5.5.3](5-5-token-schema.html#553-masking-tasks-mapped-onto-the-tokens).
 - **P2 — Masked device-attribute inference.** Hide a converter's capacity or efficiency, infer from observed flows. Corresponds to M3.
 - **P3 — Rollout / next-window prediction.** Trains inter-temporal structure. Corresponds to M5.
 - **P4 — Masked topology completion.** Which device connects these two carrier-buses. Corresponds to M4.

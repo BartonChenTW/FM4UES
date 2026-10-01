@@ -21,15 +21,15 @@ The term and the underlying pattern were named and surveyed at length by the Sta
 | Domain | Representative models | What they learn |
 | :--- | :--- | :--- |
 | Language | GPT-5-class, Gemini, Claude, Llama | Sequences of text tokens |
-| Vision | ViT (Vision Transformer), SAM/SAM2 (Segment Anything Model),[^kirillov2023sam] DINO (self-**DI**stillation with **NO** labels)[^caron2021dino] | Sequences of image patches |
-| Multimodal | Unified generation-and-understanding models, e.g. Janus[^wu2024janus] | Cross-modal alignment across text, image, audio |
-| Weather / climate | GraphCast,[^lam2023graphcast] FengWu,[^chen2023fengwu] Aurora[^bodnar2025aurora] | Physical fields on a spatiotemporal grid |
-| Geospatial / remote sensing | Prithvi,[^jakubik2023prithvi] ScaleMAE,[^reed2023scalemae] Granite-GFM[^bhamjee2024granitelst] | Satellite pixels and patches over space and time |
-| Time series | TimesFM,[^das2024timesfm] Chronos,[^ansari2024chronos] Moirai,[^woo2024moirai] TTM (Tiny Time Mixers),[^ekambaram2024ttm] Toto,[^cohen2025toto] TimeGPT[^garza2023timegpt] | Numeric sequences |
-| Graph-structured systems | Emerging graph FMs, GridFM-v0[^hamann2024foundation] | Node/edge-structured data |
+| Vision | [ViT](../appendices/d-model-index.html#vit) (Vision Transformer), [SAM](../appendices/d-model-index.html#sam)/[SAM2](../appendices/d-model-index.html#sam-2) (Segment Anything Model),[^kirillov2023sam] [DINO](../appendices/d-model-index.html#dino) (self-**DI**stillation with **NO** labels)[^caron2021dino] | Sequences of image patches |
+| Multimodal | Unified generation-and-understanding models, e.g. [Janus](../appendices/d-model-index.html#janus)[^wu2024janus] | Cross-modal alignment across text, image, audio |
+| Weather / climate | [GraphCast](../appendices/d-model-index.html#graphcast),[^lam2023graphcast] [FengWu](../appendices/d-model-index.html#fengwu),[^chen2023fengwu] [Aurora](../appendices/d-model-index.html#aurora)[^bodnar2025aurora] | Physical fields on a spatiotemporal grid |
+| Geospatial / remote sensing | [Prithvi](../appendices/d-model-index.html#prithvi),[^jakubik2023prithvi] [ScaleMAE](../appendices/d-model-index.html#scale-mae),[^reed2023scalemae] [Granite-GFM](../appendices/d-model-index.html#granite-gfm)[^bhamjee2024granitelst] | Satellite pixels and patches over space and time |
+| Time series | [TimesFM](../appendices/d-model-index.html#timesfm),[^das2024timesfm] [Chronos](../appendices/d-model-index.html#chronos),[^ansari2024chronos] [Moirai](../appendices/d-model-index.html#moirai),[^woo2024moirai] [TTM](../appendices/d-model-index.html#ttm) (Tiny Time Mixers),[^ekambaram2024ttm] [Toto](../appendices/d-model-index.html#toto),[^cohen2025toto] [TimeGPT](../appendices/d-model-index.html#timegpt)[^garza2023timegpt] | Numeric sequences |
+| Graph-structured systems | Emerging graph FMs, [GridFM-v0](../appendices/d-model-index.html#gridfm)[^hamann2024foundation] | Node/edge-structured data |
 | Robotics / embodied | Vision-language-action models | Vision, language, touch, force, proprioception |
 
-Granite-GFM is built on the Prithvi-SWIN-L Earth observation foundation model[^jakubik2023prithvi] and uses a Swin Transformer backbone to estimate land surface temperature at 30 m resolution and hourly frequency for arbitrary cities.[^bhamjee2024granitelst]
+Granite-GFM is built on the [Prithvi-SWIN-L](../appendices/d-model-index.html#prithvi-swin-l) Earth observation foundation model[^jakubik2023prithvi] and uses a Swin Transformer backbone to estimate land surface temperature at 30 m resolution and hourly frequency for arbitrary cities.[^bhamjee2024granitelst]
 
 {: .warning }
 **The field moves fast.** Publication counts on LLM-and-energy alone went from roughly 1 (2022) to 13 (2023) to 128 (2024) to 464 (2025), with 348 already indexed in the first half of 2026 — a Scopus title/abstract/keyword search combining LLM and power-system terms, run 11 July 2026.[^naeem2026llmpower] Re-check anything in this table before it is used to justify a novelty claim.

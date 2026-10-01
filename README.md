@@ -36,7 +36,7 @@ One page per section, nested by chapter using just-the-docs' `parent:` /
 | `chapter-4-directions/` | §4.1–4.11 — a neutral survey: off-the-shelf FMs, building-stock FMs, LLM agents for simulation, generative design, screening, candidate sub-fields, methods by problem tier (Tier 1–3), building it, and how the pieces could fit together as an ecosystem |
 | `chapter-5-case-study/` | §5.1–5.8 — one concrete proposal: roadmap (Phases 0–5), the representation problem, data generation, a concrete representation, token schema, physics loss, module decomposition, risks |
 | `chapter-6-outlook/` | §6.1–6.2 — nine open gaps (G1–G9), how to contribute |
-| `appendices/` | Glossary (A), pre-project checklist (B), version history (C) |
+| `appendices/` | Glossary (A), pre-project checklist (B), version history (C), model index (D, generated from `_data/models.yml`) |
 | `references/` | `fm-for-ues.bib` (Zotero import) and its README |
 
 ## Status

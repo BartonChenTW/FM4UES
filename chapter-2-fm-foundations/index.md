@@ -39,6 +39,7 @@ flowchart TD
 | 2.4.3 | [— Clean-energy forecasting FMs](2-4-3-clean-energy-forecasting-fms.html) | Multi-modal fusion for renewables forecasting |
 | 2.4.4 | [— Tabular FMs](2-4-4-tabular-fms.html) | The cell as a basic element |
 | 2.4.5 | [— Geospatial & weather FMs](2-4-5-geospatial-weather-fms.html) | GraphCast, Prithvi, and relevance to urban microclimate |
+| 2.4.6 | [— Load & smart-meter forecasting FMs](2-4-6-load-forecasting-fms.html) | Load-pretrained models (BuildingsBench, EnergyFM, PowerPM) and general FMs tested on load, from single buildings to whole grids |
 | 2.5 | [What does not exist yet](2-5-what-does-not-exist-yet.html) | The gaps this book is written into |
 | 2.6 | [Self-supervised pretraining, fine-tuning, scaling laws](2-6-scaling-laws.html) | ML basics for readers without an ML background |
 | 2.7 | [Architectures: transformers, GNNs, neural operators](2-7-architectures.html) | ML basics, continued |

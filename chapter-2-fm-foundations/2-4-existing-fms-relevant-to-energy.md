@@ -28,6 +28,7 @@ This section surveys foundation models that already exist and bear directly on u
 - [2.4.3 — Clean-energy forecasting foundation models](2-4-3-clean-energy-forecasting-fms.html) (mature)
 - [2.4.4 — Tabular foundation models](2-4-4-tabular-fms.html) — the cell as a basic element
 - [2.4.5 — Geospatial & weather foundation models](2-4-5-geospatial-weather-fms.html)
+- [2.4.6 — Load & smart-meter forecasting foundation models](2-4-6-load-forecasting-fms.html) (mature for aggregated load)
 
 Read together with [§2.5](2-5-what-does-not-exist-yet.html), which states what does **not** exist yet among these families — the gap this book is written into.
 

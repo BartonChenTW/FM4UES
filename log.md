@@ -551,3 +551,13 @@ Not tested in a browser: there is no JavaScript runtime on this machine, so the 
 - The version now has one source, `book_version` and `book_version_date` in `_config.yml`. Both the sidebar and the home page label read it.
 - `README.md` still states the version as literal text, because GitHub shows that file without Jekyll.
 - The release steps in `CONTRIBUTING.md` were updated to match.
+
+## 2026-10-01 (§3.1 retitled)
+
+§3.1 "Taxonomy of Modelling Tasks" is renamed. Barton asked for an alternative to "Taxonomy", and the page does more than classify: it says what a model computes, then gives each task's mathematical structure, which Chapter 4 relies on when it screens the tasks.
+- Sidebar title: **3.1 Modelling Tasks**.
+- Page heading: **3.1 Modelling Tasks and Their Mathematical Structure**, following the short/long pattern of §3.10.
+- The file name and URL (`3-1-taxonomy-of-tasks`) are kept, so existing links and bookmarks still work.
+- Updated the visible wording in the Chapter 3 landing table and diagram, §3.2's previous-link, §4.6 and the Chapter 4 landing page ("task taxonomy T1–T11" → "modelling tasks T1–T11"), and the README and home contents.
+- In §3.1's own text, "the taxonomy below" became "the eleven tasks below".
+- Other uses of "taxonomy" in the book (the UBEM scale taxonomy in §1.1, the co-simulation "taxonomic review", the PIML taxonomy in §2.9, §4.10's "a taxonomy with consequences") refer to other works or the general idea, and are unchanged.

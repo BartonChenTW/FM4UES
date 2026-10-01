@@ -1,18 +1,21 @@
 {% comment %}
-  Renders a small status / last-reviewed badge from page front matter.
+  Renders a small status / last-reviewed badge from page front matter,
+  followed by a link to the page's change history on GitHub.
   Usage: add `{% include page-status.html %}` right after the page's
-  first H1, on any page that sets `status` and/or `last_reviewed` in
-  its front matter. Both fields are optional — the include renders
-  nothing if neither is set, so it's safe to add everywhere.
+  first H1. Every field is optional, so it's safe to add everywhere.
 
   Front matter fields:
     status: draft | reviewed
     last_reviewed: 2026-09-11   (YYYY-MM-DD)
+
+  "Last reviewed" is set by hand when someone has checked the page's
+  content. "Page history" is automatic: it links to the GitHub commit list
+  for this page's source file (repository and branch from _config.yml), so
+  every edit, its date and its diff are traceable without upkeep.
 {% endcomment %}
-{% if page.status or page.last_reviewed %}
+{% capture page_history_url %}{{ site.gh_edit_repository }}/commits/{{ site.gh_edit_branch }}/{{ page.path }}{% endcapture %}
 <div class="page-status" style="font-size: 0.8em; color: #6a737d; margin: -0.5em 0 1.5em 0;">
-  {% if page.status %}<strong>Status:</strong> {{ page.status }}{% endif %}
-  {% if page.status and page.last_reviewed %} · {% endif %}
-  {% if page.last_reviewed %}<strong>Last reviewed:</strong> {{ page.last_reviewed }}{% endif %}
+  {% if page.status %}<strong>Status:</strong> {{ page.status }} · {% endif %}
+  {% if page.last_reviewed %}<strong>Last reviewed:</strong> {{ page.last_reviewed }} · {% endif %}
+  {% if site.gh_edit_repository and page.path %}<a href="{{ page_history_url }}">Page history</a>{% endif %}
 </div>
-{% endif %}

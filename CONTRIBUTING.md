@@ -130,6 +130,24 @@ Saying what you considered and **rejected**, and why, is welcome in the
 pull request description. It shows restraint and gives the maintainer a
 backlog.
 
+## Versions and releases
+
+Contributors don't need to do anything here. Every page links to its own
+change history automatically, from `_includes/page-status.html`.
+
+The maintainer releases a numbered version of the whole book from time to
+time. The numbering rule is in
+[Appendix C](appendices/c-version-history.md): a new major version means a
+restructure, and a new minor version means new sections or site features.
+To release:
+
+1. In a pull request, add the version's entry at the top of
+   `appendices/c-version-history.md`, and update the version line in
+   `index.md` and in `README.md`'s Status section.
+2. After it merges, tag the merge commit on `main` and publish a GitHub
+   Release with the same notes:
+   `gh release create vX.Y --target main --title "Version X.Y" --notes-file notes.md`
+
 ## Local build
 
 ```bash

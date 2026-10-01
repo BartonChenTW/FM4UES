@@ -10,7 +10,7 @@ nav_order: 1
 A working textbook: what gets simulated, what could be learned, and how to build it.
 {: .fs-6 .fw-300 }
 
-Version 2.0 — 11 September 2026
+[Version 2.1 — 1 October 2026](appendices/c-version-history.html)
 {: .label }
 
 Initiated by [Barton Chen](https://github.com/BartonChenTW) from the [Urban Energy Systems Lab](https://www.empa.ch/web/s313) at [Empa](https://www.empa.ch/) — open for anyone to contribute. See [how to contribute](chapter-6-outlook/6-2-how-to-contribute.html). Most content was drafted and edited with AI assistance under Barton Chen's direction and review.
@@ -51,3 +51,4 @@ The **[Methods by Problem Class](chapter-4-directions/4-9-methods-landing.html)*
 | 6 | [Outlook](chapter-6-outlook/index.html) | Nine open gaps; how to contribute |
 | — | [Glossary](appendices/a-glossary.html) | Plain-language definitions of every ML term used |
 | — | [Pre-Project Checklist](appendices/b-checklist.html) | Thirteen questions to ask before starting |
+| — | [Version History](appendices/c-version-history.html) | What changed in each version; how to trace changes to a page |

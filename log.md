@@ -561,3 +561,14 @@ Not tested in a browser: there is no JavaScript runtime on this machine, so the 
 - Updated the visible wording in the Chapter 3 landing table and diagram, §3.2's previous-link, §4.6 and the Chapter 4 landing page ("task taxonomy T1–T11" → "modelling tasks T1–T11"), and the README and home contents.
 - In §3.1's own text, "the taxonomy below" became "the eleven tasks below".
 - Other uses of "taxonomy" in the book (the UBEM scale taxonomy in §1.1, the co-simulation "taxonomic review", the PIML taxonomy in §2.9, §4.10's "a taxonomy with consequences") refer to other works or the general idea, and are unchanged.
+
+## 2026-10-01 (spell out internal labels outside their home section)
+
+**Why.** Barton found "R4 in §2.3.3" in §4.2 and "the assumption categories G7 names" in §4.3 hard to follow: each is a label defined on another page.
+- **R labels:** R1–R4 now appear only in §2.3.3, where its table defines them. Elsewhere the text says what each one is:
+  - §4.2 (R4, twice): the building as an element of a stock
+  - §4.9.2 (R3, twice): the building as a network of connected parts
+  - §6.1 (R3): already spelled out; the redundant "(R3)" is dropped
+  - §2.4.4 and §4.9.1 (R1): the attribute list, one row per building
+- **G7 in §4.3:** later mentions now say "the verification question" or "gap G7 (verification of agent-built models)". "The categories G7 names" was also inaccurate, because the list of assumptions is §4.3's own, not §6.1's.
+- The gap labels G1–G9 are used on many other pages and are left as they are. Each first mention on a page links to §6.1.

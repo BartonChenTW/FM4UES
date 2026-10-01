@@ -518,3 +518,24 @@ Verified: footnote ref/def integrity on both pages, bib key unique.
 - `CONTRIBUTING.md`: the anchor rule, with an example.
 
 Not tested in a browser: there is no JavaScript runtime on this machine, so the script was only reviewed by reading. Check on the deployed site: hover "Multimodality" in §1.4, and open `a-glossary.html#multimodality` directly.
+
+## 2026-10-01 (version history and per-page history links; version 2.1)
+
+**Why.** Barton asked how readers can trace changes to the site's content: book versions, or a revision date on each page. Both are now done, since they answer different questions.
+
+**Per page.** `_includes/page-status.html` now ends with a **Page history** link to the GitHub commit list for that page's source file, built from `page.path` and new `gh_edit_repository` / `gh_edit_branch` settings in `_config.yml`.
+- It is automatic, so it can't go stale. The usual way to print a "last modified" date is the `jekyll-last-modified-at` plugin, which the standard GitHub Pages build doesn't allow. Using it would mean moving deployment to an Actions workflow.
+- `last_reviewed` stays as it was, set by hand, because it records that someone checked the content, which git can't.
+- The badge now renders even on a page with no `status` or `last_reviewed`, since the history link is always there.
+- Also turned on just-the-docs' built-in "Edit this page on GitHub" footer link (`gh_edit_link`), which suits a community-edited book.
+
+**Book versions.** New public page `appendices/c-version-history.md` (Appendix C). It gives the numbering rule (major = restructure; minor = new sections, substantial rewrites or site features; corrections are not numbered) and an entry for each version: 2.1 (this release), 2.0 and 1.1.
+- 2.1 summarises the private log since 11 September: §2.9, §3.9, §3.10 and §4.11 new; §2.4.3, §2.8, §3.1 and §4.1–4.4 extended; references 54 → 137; site features.
+- Version line bumped to 2.1 in `index.md` (now linking to Appendix C) and `README.md`. Appendix C added to the Appendices landing page, the home contents table, the README structure table, and Appendix B's next-link.
+- `CONTRIBUTING.md`: new "Versions and releases" section with the release steps.
+
+**Tags and releases.** No tags existed before this.
+- `v1.1` → `2a3938b`, the first Jekyll site, 2026-09-10.
+- `v2.0` → `3126662`, the last merge on 2026-09-11, so the restructure plus that day's rename and attribution fixes, as the book stood when "Version 2.0 — 11 September 2026" was its label.
+- `v2.1` goes on this PR's merge commit, once it merges.
+- Appendix C links to the Releases list rather than to each tag, so the PR's link check doesn't fail on `v2.1` before it exists.

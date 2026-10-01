@@ -39,6 +39,15 @@ back_to_top_text: "Back to top"
 
 footer_content: "Working textbook, actively revised. Corrections and additions welcome via issue or PR."
 
+# Source repository: just-the-docs uses these for the "Edit this page on
+# GitHub" footer link, and _includes/page-status.html uses them for each
+# page's "Page history" link (the GitHub commit list for that file).
+gh_edit_link: true
+gh_edit_link_text: "Edit this page on GitHub"
+gh_edit_repository: "https://github.com/BartonChenTW/FM4UES"
+gh_edit_branch: "main"
+gh_edit_view_mode: "edit"
+
 callouts:
   note:
     title: Note

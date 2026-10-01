@@ -27,4 +27,4 @@ redirect_from: /appendix-b-checklist.html
 13. Has someone already done this in power systems? *(Frequently, yes — check [§2.4.2](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html) first.)*
 
 ---
-[← Previous: Appendix A — Glossary](a-glossary.html) · [Back to Appendices](index.html) · [Back to Home](../index.html)
+[← Previous: Appendix A — Glossary](a-glossary.html) · [Next: Appendix C — Version History →](c-version-history.html) · [Back to Appendices](index.html) · [Back to Home](../index.html)

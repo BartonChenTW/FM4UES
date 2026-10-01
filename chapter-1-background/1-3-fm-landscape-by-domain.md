@@ -29,7 +29,7 @@ The term and the underlying pattern were named and surveyed at length by the Sta
 | Graph-structured systems | Emerging graph FMs, [GridFM-v0](../appendices/d-model-index.html#gridfm)[^hamann2024foundation] | Node/edge-structured data |
 | Robotics / embodied | Vision-language-action models | Vision, language, touch, force, proprioception |
 
-Granite-GFM is built on the [Prithvi-SWIN-L](../appendices/d-model-index.html#prithvi-swin-l) Earth observation foundation model[^jakubik2023prithvi] and uses a Swin Transformer backbone to estimate land surface temperature at 30 m resolution and hourly frequency for arbitrary cities.[^bhamjee2024granitelst]
+Granite-GFM is built on [Prithvi-SWIN-L](../appendices/d-model-index.html#prithvi-swin-l), a Swin Transformer version of IBM's Prithvi Earth-observation model, and estimates land surface temperature at 30 m resolution and hourly frequency for arbitrary cities.[^bhamjee2024granitelst]
 
 {: .warning }
 **The field moves fast.** Publication counts on LLM-and-energy alone went from roughly 1 (2022) to 13 (2023) to 128 (2024) to 464 (2025), with 348 already indexed in the first half of 2026 — a Scopus title/abstract/keyword search combining LLM and power-system terms, run 11 July 2026.[^naeem2026llmpower] Re-check anything in this table before it is used to justify a novelty claim.

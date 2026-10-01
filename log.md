@@ -683,3 +683,25 @@ None of them explained what a modality is, how models combine several, or worked
 **Wiring.** The §2.7 intro sentence and its Chapter 2 contents row, the glossary "Multimodality" entry (now pointing to §2.7 for the worked example), and §1.4's multimodality bullet.
 
 **References (bib +1).** New: `radford2021clip` (arXiv API, plus the PMLR proceedings page for venue and pages). Reused: `wu2024janus`, with its claim from the arXiv abstract. The worked example is illustrative, not a cited result.
+
+## 2026-10-02 (problems found by the model-index check, fixed or flagged)
+
+Barton asked for the problems that came up while compiling Appendix D to be fixed, or at least flagged in the text.
+- **§1.4, "converged on decoder-only architectures".** This was wrong.
+  - The Chronos-2 paper (§3.2) says "Chronos-2 is an encoder-only transformer".
+  - TimeGPT's paper describes "an encoder-decoder structure".
+  - TTM is "based on the light-weight TSMixer architecture", an MLP-mixer.
+  - TiRex is recurrent.
+
+  The bullet now reads "Time series has matured" and states each model's architecture with a citation: TimesFM and Moirai 2.0 decoder-only, Chronos-2 encoder-only, TimeGPT encoder-decoder, TTM MLP-mixer, TiRex recurrent. The Chapter 1 contents row was changed to match.
+- **§1.4, models with no citation.** TimesFM 2.5, TimeGPT-2 and NV-Tesseract have no paper. Each now cites its release page, and the footnote says no paper exists:
+  - TimesFM 2.5: Hugging Face model card
+  - TimeGPT-2: Nixtla announcement
+  - NV-Tesseract: NVIDIA Technical Blog, 6 May 2025
+
+  NV-Tesseract is flagged as "since renamed Kumo-TS". "IBM Granite" became "IBM's TTM (released under IBM's Granite name)". New bib entries: `google2025timesfm25`, `nixtla2025timegpt2`, `nvidia2025nvtesseract`. The two blog pages were fetched to confirm their titles and dates.
+- **Prithvi-SWIN-L (§1.3, §2.4.5).** No paper describes it. The `jakubik2023prithvi` citation, taken from IBM's model card, covers the ViT Prithvi and mentions Swin only as future work.
+  - Both sentences now cite only the model card (`bhamjee2024granitelst`) and call Prithvi-SWIN-L "a Swin Transformer version of the Prithvi model".
+  - §2.4.5 adds a sentence saying so outright.
+  - `jakubik2023prithvi` still supports the separate claims about Prithvi itself.
+- The matching notes in `_data/models.yml` were updated.

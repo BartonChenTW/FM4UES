@@ -34,4 +34,4 @@ This sub-section is intentionally brief: geospatial/weather FMs are adjacent rat
 [^bhamjee2024granitelst]: Bhamjee, M., Gaffoor, Z., Govindasamy, T. et al. (2024). [granite-geospatial-land-surface-temperature](https://huggingface.co/ibm-granite/granite-geospatial-land-surface-temperature). IBM Research, Hugging Face model card, Apache-2.0.
 
 ---
-[← Previous: 2.4.4 Tabular FMs](2-4-4-tabular-fms.html) · [Next: 2.5 What Does Not Exist Yet →](2-5-what-does-not-exist-yet.html)
+[← Previous: 2.4.4 Tabular FMs](2-4-4-tabular-fms.html) · [Next: 2.4.6 Load & Smart-Meter Forecasting FMs →](2-4-6-load-forecasting-fms.html)

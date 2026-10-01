@@ -42,4 +42,4 @@ This is the gap the rest of this book is written into: [Chapter 4](../chapter-4-
 [^vallee2026standardizing]: Vallee, M., Schischke, E., Widl, E. et al. (2026). [Standardizing case study descriptions for multi-energy systems and networks modeling](https://arxiv.org/abs/2606.31343). arXiv:2606.31343.
 
 ---
-[← Previous: 2.4.5 Geospatial & Weather FMs](2-4-5-geospatial-weather-fms.html) · [Next: 2.6 Self-Supervised Pretraining, Fine-Tuning, Scaling Laws →](2-6-scaling-laws.html)
+[← Previous: 2.4.6 Load & Smart-Meter Forecasting FMs](2-4-6-load-forecasting-fms.html) · [Next: 2.6 Self-Supervised Pretraining, Fine-Tuning, Scaling Laws →](2-6-scaling-laws.html)

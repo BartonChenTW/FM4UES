@@ -552,6 +552,47 @@ Not tested in a browser: there is no JavaScript runtime on this machine, so the 
 - `README.md` still states the version as literal text, because GitHub shows that file without Jekyll.
 - The release steps in `CONTRIBUTING.md` were updated to match.
 
+## 2026-10-01 (new §2.4.6: load and smart-meter forecasting FMs)
+
+**Why.** Barton pointed out how much work there is on demand forecasting with foundation models, especially from smart-meter data, and asked for a section on it. A check of the book found the topic scattered over six pages with no survey:
+- EnergyFM sat under the grid models in §2.4.2.
+- §2.4.3 covers generation only.
+- §4.5 rated "Load / smart-meter FM" mature without naming any models.
+
+**New page** [`chapter-2-fm-foundations/2-4-6-load-forecasting-fms.md`](chapter-2-fm-foundations/2-4-6-load-forecasting-fms.md), placed after §2.4.5 so nothing is renumbered. Its argument: both routes (load-pretrained models and general TSFMs used zero-shot) use the patch element of §2.3.2(d), which describes the output and not the building. That predicts the pattern the literature shows: zero-shot models do well on aggregated load and unreliably for a single building.
+- **Load-pretrained models:** BuildingsBench, EnergyFM, PowerPM, and a natural-gas demand FM.
+- **General TSFMs tested on load:** a table of ten evaluations sorted by aggregation level.
+- **Reading the evidence:** aggregated load close to solved, with national load mixed; single buildings not solved; covariates the open question.
+- **Limits:** forecasts consumption, not the building; mostly electricity; evaluations hard to compare.
+
+**Dated search** (arXiv, 2026-10-01), reported on the page:
+- abstracts with "foundation model" × {load forecasting, smart meter, demand forecasting} → 28
+- titles with "load forecasting" × abstracts with {foundation model, zero-shot, pretrained} → 15
+- "foundation model" × {heat, heating, district heating, gas, cooling} demand → 6
+- OpenAlex relevance searches for journal versions.
+
+**Wiring.**
+- §2.4 landing list and Chapter 2 contents table; §2.4.5 next-link and §2.5 previous-link.
+- §2.4.2: EnergyFM keeps its paragraph, which argues the grid/demand/hub gap, plus a pointer to §2.4.6.
+- §4.5: the "Mature" verdict now links to §2.4.6.
+- §4.1: the "no equivalent published number for electricity" bullet now points to §2.4.6.
+- §3.1: new T3 note, one of the four tasks without one.
+
+**References (bib 137 → 148).**
+- New:
+  - Crossref-verified journal and proceedings versions: `tu2024powerpm` (NeurIPS 2024), `obermeier2026fets` (*Energy and AI*), `meyer2025household` (*IEEE Access*), `liao2025timegpt` (*Applied Energy*), `park2025buildingtsfm` (*Energy and Buildings*), `mulayim2026bem` (*Data-Centric Engineering*).
+  - arXiv API: `zhou2024gasfm`, `hertel2026gridlevels`, `kaas2026lvpeak`, `cheong2026exogenous` (AAAI'26 workshop), `bose2024comstock` (NeurIPS'24 workshop).
+- Reused: `emami2023buildingsbench`, `arjunan2026energyfm`, `spoek2026tabpfndh`.
+- Claims written from abstracts (Liao from its OpenAlex abstract).
+- **Considered and dropped:**
+  - Dai et al. 2026 "foundational thermal model": building thermal dynamics, not load.
+  - Simeone 2026 consumer-hardware benchmark: one more zero-shot benchmark, no new finding.
+  - Saravanan et al. BuildSys 2024 and Lin et al. 2024: zero-shot STLF comparisons that the table's studies already cover.
+  - Zhao et al. 2026 review (*JMPCE*): a review, where the primary studies serve better.
+  - Sartipi 2025: smart-meter imputation, not forecasting.
+
+Verified: footnote ref/def integrity on every page, all footnote keys in the bib, no duplicate keys, braces balanced (1174/1174), internal page links on the new page resolve. The §2.4.2 heading anchor and the build are left to `site-check.yml`.
+
 ## 2026-10-01 (§3.1 retitled)
 
 §3.1 "Taxonomy of Modelling Tasks" is renamed. Barton asked for an alternative to "Taxonomy", and the page does more than classify: it says what a model computes, then gives each task's mathematical structure, which Chapter 4 relies on when it screens the tasks.

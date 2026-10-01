@@ -10,7 +10,7 @@ nav_order: 1
 A working textbook: what gets simulated, what could be learned, and how to build it.
 {: .fs-6 .fw-300 }
 
-[Version 2.1 — 1 October 2026](appendices/c-version-history.html)
+[Version {{ site.book_version }} — {{ site.book_version_date }}](appendices/c-version-history.html)
 {: .label }
 
 Initiated by [Barton Chen](https://github.com/BartonChenTW) from the [Urban Energy Systems Lab](https://www.empa.ch/web/s313) at [Empa](https://www.empa.ch/) — open for anyone to contribute. See [how to contribute](chapter-6-outlook/6-2-how-to-contribute.html). Most content was drafted and edited with AI assistance under Barton Chen's direction and review.

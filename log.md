@@ -602,3 +602,24 @@ The Status column of the §4.11 table now uses the theme's coloured labels on a 
 - **None yet** (red): nothing built
 
 Each label keeps its qualifier, and a small legend sits under the table. The word inside each pill carries the meaning, so the table still reads without colour.
+
+## 2026-10-01 (§2.7: new "Multimodal models" subsection)
+
+**Why.** Barton asked whether the book explains multimodality with an example anywhere. It didn't. The idea appeared in about ten places, each in a line or two:
+- the glossary, §1.3, §1.4
+- cross-attention in §2.7 and §2.3.3
+- §2.4.3, §4.8, §5.1, §5.7, §4.11
+
+None of them explained what a modality is, how models combine several, or worked an example.
+
+**New subsection** in §2.7, before "The common thread":
+- what a modality is in UES terms: time series, attributes, fields, graphs, text
+- one encoder per modality
+- three ways to combine them: a shared space (CLIP), cross-attention, and one token stream (Janus)
+- a worked example: forecasting one building's next-day load from meter history, register attributes and the weather forecast, with what each modality contributes
+- three practical difficulties: different rates, missing modalities, and paired data
+- pointers to every place the book uses the idea
+
+**Wiring.** The §2.7 intro sentence and its Chapter 2 contents row, the glossary "Multimodality" entry (now pointing to §2.7 for the worked example), and §1.4's multimodality bullet.
+
+**References (bib +1).** New: `radford2021clip` (arXiv API, plus the PMLR proceedings page for venue and pages). Reused: `wu2024janus`, with its claim from the arXiv abstract. The worked example is illustrative, not a cited result.

@@ -705,3 +705,12 @@ Barton asked for the problems that came up while compiling Appendix D to be fixe
   - §2.4.5 adds a sentence saying so outright.
   - `jakubik2023prithvi` still supports the separate claims about Prithvi itself.
 - The matching notes in `_data/models.yml` were updated.
+
+## 2026-10-02 (§4.1: "Why this belongs before any bespoke build" rewritten)
+
+Barton found the paragraph hard to read. It leaned on another section's terms without explaining them: "this", "Tier 1", "build path", "the cheapest available option", "warranted". It also packed two points into two long sentences. The heading is now "Why try existing models before building your own". The text says plainly:
+- why a zero-shot test comes first
+- where the book's proposed path (§4.9.1, Step 2) puts that test
+- why it is only a starting point for a hub model, but often the whole job for load forecasting
+
+No page linked to the old heading anchor.

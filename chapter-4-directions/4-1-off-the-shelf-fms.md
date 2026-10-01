@@ -28,9 +28,11 @@ Before building anything bespoke, the cheapest and most immediately useful thing
 
 This is directly applicable to **load forecasting** — predicting building or district electricity, heat, or cooling demand a few hours to days ahead (T3 in [§3.1](../chapter-3-sim-opt/3-1-taxonomy-of-tasks.html)) — which is already flagged as a task with mature, off-the-shelf solutions in [§4.7](4-7-reading-the-screen.html).
 
-## Why this belongs before any bespoke build
+## Why try existing models before building your own
 
-The build path recommended for Tier 1 dispatch modelling in [§4.9.1](4-9-1-methods-tier1.html) already makes this argument formally as "Step 2 — Zero-shot TSFM evaluation," and the baseline discipline in the same section makes the general case: **run the cheapest available option first, because it tells you whether anything more elaborate is warranted at all.** For pure load forecasting (as opposed to dispatch, which additionally needs energy-balance and storage-state handling), zero-shot evaluation is frequently sufficient on its own and does not need the rest of the Tier 1 build path.
+Building and training a model of your own is a large project. Testing an existing one zero-shot needs no training at all, and the result tells you whether the larger project is worth starting. If a pretrained model already forecasts your load well enough, you can stop there.
+
+The book's proposed development path puts this test second in its first tier, predicting how a single energy hub operates ([§4.9.1](4-9-1-methods-tier1.html), "Step 2"), right after setting up simple baselines. For a hub, the test is only a starting point: a hub model must also keep energy in balance and track how full the storage is, which a forecaster does not do. For load forecasting alone, the zero-shot test is often the whole job.
 
 ## A worked example: zero-shot heat-load forecasting in district heating
 

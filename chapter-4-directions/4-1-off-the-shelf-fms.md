@@ -24,7 +24,7 @@ The most useful direction to a practitioner today, and the one requiring the lea
 
 ## The direction
 
-Before building anything bespoke, the cheapest and most immediately useful thing a UES practitioner can do is evaluate an already-pretrained, general-purpose time-series foundation model **zero-shot** on their own forecasting problem — no training, no fine-tuning, just point the model at the series and read off a forecast. The current generation of these models ([Chronos-2](../appendices/d-model-index.html#chronos-2), [TimesFM 2.5](../appendices/d-model-index.html#timesfm-2-5), [Moirai 2.0](../appendices/d-model-index.html#moirai-2-0), [TabPFN-TS](../appendices/d-model-index.html#tabpfn-ts) — see [§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html)) is production-grade and free or cheap to run.
+Before building anything bespoke, the cheapest and most immediately useful thing a UES practitioner can do is evaluate an already-pretrained, general-purpose time-series foundation model **[zero-shot](../appendices/a-glossary.html#zero-shot)** on their own forecasting problem — no training, no [fine-tuning](../appendices/a-glossary.html#fine-tuning), just point the model at the series and read off a forecast. The current generation of these models ([Chronos-2](../appendices/d-model-index.html#chronos-2), [TimesFM 2.5](../appendices/d-model-index.html#timesfm-2-5), [Moirai 2.0](../appendices/d-model-index.html#moirai-2-0), [TabPFN-TS](../appendices/d-model-index.html#tabpfn-ts) — see [§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html)) is production-grade and free or cheap to run.
 
 This is directly applicable to **load forecasting** — predicting building or district electricity, heat, or cooling demand a few hours to days ahead (T3 in [§3.1](../chapter-3-sim-opt/3-1-taxonomy-of-tasks.html)) — which is already flagged as a task with mature, off-the-shelf solutions in [§4.7](4-7-reading-the-screen.html).
 
@@ -32,7 +32,7 @@ This is directly applicable to **load forecasting** — predicting building or d
 
 Building and training a model of your own is a large project. Testing an existing one zero-shot needs no training at all, and the result tells you whether the larger project is worth starting. If a pretrained model already forecasts your load well enough, you can stop there.
 
-The book's proposed development path puts this test second in its first tier, predicting how a single energy hub operates ([§4.9.1](4-9-1-methods-tier1.html), "Step 2"), right after setting up simple baselines. For a hub, the test is only a starting point: a hub model must also keep energy in balance and track how full the storage is, which a forecaster does not do. For load forecasting alone, the zero-shot test is often the whole job.
+The book's proposed development path puts this test second in its first tier, predicting how a single [energy hub](../appendices/a-glossary.html#energy-hub) operates ([§4.9.1](4-9-1-methods-tier1.html), "Step 2"), right after setting up simple baselines. For a hub, the test is only a starting point: a hub model must also keep energy in balance and track how full the storage is, which a forecaster does not do. For load forecasting alone, the zero-shot test is often the whole job.
 
 ## A worked example: zero-shot heat-load forecasting in district heating
 

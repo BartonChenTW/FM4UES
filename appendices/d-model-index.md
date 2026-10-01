@@ -16,7 +16,7 @@ Every named model the book discusses, with who built it, what it is, and where t
 1. TOC
 {:toc}
 
-{% assign families = "General time series|Energy|Weather and geospatial|Vision and multimodal" | split: "|" %}
+{% assign families = "General time series|Energy|Weather and geospatial|Vision and multimodal|Language" | split: "|" %}
 {% for family in families %}
 ## {{ family }}
 

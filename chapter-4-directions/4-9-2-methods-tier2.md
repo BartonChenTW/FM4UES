@@ -14,7 +14,7 @@ redirect_from: /07-methods-tier2.html
 {% include page-status.html %}
 
 {: .note }
-Tier 2 of the book's proposed development path toward a multi-carrier foundation model ([§4.9](4-9-methods-landing.html)): a proposal, not a survey of established practice.
+Tier 2 of the book's proposed development path toward a multi-carrier [foundation model](../appendices/a-glossary.html#foundation-model) ([§4.9](4-9-methods-landing.html)): a proposal, not a survey of established practice.
 
 1. TOC
 {:toc}
@@ -31,9 +31,9 @@ The learning problem becomes: *given a graph and boundary conditions, predict th
 
 The power-systems community has developed this thoroughly and the lessons transfer directly. See [§2.7](../chapter-2-fm-foundations/2-7-architectures.html) for what a graph neural network is, if you have not met one before.
 
-**Heterogeneous message passing is the right default.** Recent work proposes a hybrid heterogeneous graph neural network combined with a scalable transformer for AC-OPF that explicitly models power system components as distinct node and edge types, specifically to address topology adaptability and scalability.[^arowolo2026gnnopf] In multi-carrier systems the heterogeneity is even more pronounced — a heat pipe and a power line are not the same edge type in any useful sense.
+**Heterogeneous message passing is the right default.** Recent work proposes a hybrid heterogeneous graph neural network combined with a scalable [transformer](../appendices/a-glossary.html#transformer) for AC-OPF that explicitly models power system components as distinct node and edge types, specifically to address topology adaptability and scalability.[^arowolo2026gnnopf] In multi-carrier systems the heterogeneity is even more pronounced — a heat pipe and a power line are not the same edge type in any useful sense.
 
-**Local message passing plus global attention.** A representative design (LG-HGNN) performs type-specific local message passing over heterogeneous graphs and applies a global Transformer only on bus nodes, capturing system-wide correlations efficiently.[^wen2026lghgnn] This hybrid pattern is worth copying: message passing handles local physics, attention handles system-wide coupling.
+**Local message passing plus global attention.** A representative design ([LG-HGNN](../appendices/d-model-index.html#lg-hgnn)) performs type-specific local message passing over heterogeneous graphs and applies a global Transformer only on bus nodes, capturing system-wide correlations efficiently.[^wen2026lghgnn] This hybrid pattern is worth copying: message passing handles local physics, attention handles system-wide coupling.
 
 **Positional encoding matters and should be physical.** Effective-resistance positional encodings and resistance-biased attention enhance electrical awareness in this setting.[^wen2026lghgnn] The multi-carrier analogue is an open question — what is the "effective resistance" of a heat network? Thermal transport delay and pipe conductance are candidates.
 
@@ -62,11 +62,11 @@ For district multi-carrier systems with slow thermal transport, spatial-then-tem
 
 ## The alternative: neural operators
 
-If the network physics is genuinely continuous — thermal transport in pipes, pressure dynamics — **operator learning** is the other credible family (see [§2.7](../chapter-2-fm-foundations/2-7-architectures.html)). DeepONet learns solution operators of governing equations and solves a family of parametric PDEs, rather than a single instance; Fourier Neural Operators learn mappings between function spaces rather than finite-dimensional mappings.
+If the network physics is genuinely continuous — thermal transport in pipes, pressure dynamics — **operator learning** is the other credible family (see [§2.7](../chapter-2-fm-foundations/2-7-architectures.html)). DeepONet learns solution operators of governing equations and solves a family of parametric PDEs, rather than a single instance; Fourier [Neural Operators](../appendices/a-glossary.html#neural-operator) learn mappings between function spaces rather than finite-dimensional mappings.
 
 Reported performance in adjacent thermal problems is strong: a physics-informed Fourier neural operator predicting tunnel-fire temperature fields reports maximum errors below 5% with prediction times at the second level, a two-to-four-order-of-magnitude acceleration versus CFD.[^gao2026tunnelfno]
 
-A practically important pattern: **latent operator learning**. High-dimensional simulation data contains redundant features that induce the curse of dimensionality; because physical constraints confine the data to a lower-dimensional manifold, a reduced-order model can extract essential features first, with the operator learned in the compact latent space. Combining an autoencoder with DeepONet (L-DeepONet) is the concrete realisation.[^kontolati2023latentdeeponet]
+A practically important pattern: **latent operator learning**. High-dimensional simulation data contains redundant features that induce the curse of dimensionality; because physical constraints confine the data to a lower-dimensional manifold, a [reduced-order model](../appendices/a-glossary.html#rom) can extract essential features first, with the operator learned in the compact latent space. Combining an autoencoder with DeepONet (L-DeepONet) is the concrete realisation.[^kontolati2023latentdeeponet]
 
 **When to choose which:** GNN if the object is genuinely a discrete network with device-level decisions; neural operator if the object is a continuous field (temperature along pipes, pressure). District heating with detailed hydraulics is arguably both, and hybrids are an open research direction.
 

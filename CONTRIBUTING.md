@@ -62,6 +62,12 @@ from the file's "Edit" (pencil) button.
   `[Chronos-2](../appendices/d-model-index.html#chronos-2)`. To add a
   model, add an entry with every field filled from the model's paper or
   official page, and list the pages you checked under `sources`.
+- After adding a page, a glossary term or a model, run
+  `python3 scripts/link_glossary.py` and
+  `python3 scripts/link_models.py _data/models.yml` from the repository
+  root. Each links the first mention on every page and skips what is
+  already linked; add `--dry` to see the changes first. A new glossary
+  term also needs a line in the `TERMS` list of `link_glossary.py`.
 - Cite claims. See the references workflow below.
 - British English spelling, matching the existing text (e.g. "optimisation",
   "modelling").

@@ -44,7 +44,7 @@ The two are closely related but not interchangeable. A simulation *evaluates* a 
 
 Viewed this way, many energy-system computations are structured mappings from inputs to outputs, which is what makes them candidates for learned approximation at all — replacing an expensive simulation, or amortising a repeatedly-called solver ([§1.5](../chapter-1-background/1-5-why-ues-why-now.html)).
 
-But they are not ordinary black-box prediction problems. They encode conservation laws, engineering constraints, operational limits, discrete decisions, objective functions, and assumptions about uncertain human behaviour. A foundation model here has to interact with that structure rather than merely fit an input–output relation. The recurring question, taken up as a screening test in [§4.6](../chapter-4-directions/4-6-screening-tasks.html), is **which parts of energy-system modelling can benefit from foundation-model approaches, and what structure must be preserved when they are learned or approximated.**
+But they are not ordinary black-box prediction problems. They encode conservation laws, engineering constraints, operational limits, discrete decisions, objective functions, and assumptions about uncertain human behaviour. A [foundation model](../appendices/a-glossary.html#foundation-model) here has to interact with that structure rather than merely fit an input–output relation. The recurring question, taken up as a screening test in [§4.6](../chapter-4-directions/4-6-screening-tasks.html), is **which parts of energy-system modelling can benefit from foundation-model approaches, and what structure must be preserved when they are learned or approximated.**
 
 ## The eleven tasks
 
@@ -52,15 +52,15 @@ Each row is a distinct *task* with a distinct mathematical structure — and fou
 
 | # | Task | Question answered | Mathematical object | Typical runtime |
 | :--- | :--- | :--- | :--- | :--- |
-| T1 | **Demand modelling (UBEM)** | How much energy does this building stock need, when? | DAE / RC networks / statistical regression | minutes–hours (stock) |
+| T1 | **Demand modelling (UBEM)** | How much energy does this building stock need, when? | [DAE](../appendices/a-glossary.html#dae) / RC networks / statistical regression | minutes–hours (stock) |
 | T2 | **Renewable resource assessment** | How much PV/solar/wind is available here? | geometric + radiative computation | seconds–hours |
 | T3 | **Forecasting** | What will demand/generation be in the next hours–days? | time-series regression | milliseconds–seconds |
-| T4 | **Dispatch / operation optimisation** | Given a fixed system, how should it run? | LP / MILP | sub-second–hours |
+| T4 | **Dispatch / operation optimisation** | Given a fixed system, how should it run? | LP / [MILP](../appendices/a-glossary.html#milp) | sub-second–hours |
 | T5 | **Design / sizing optimisation** | What should we build, and how big? | MILP / MINLP / bilevel | minutes–days |
 | T6 | **Network simulation** | Do flows, pressures, temperatures and voltages hold? | nonlinear algebraic / PDE / DAE | seconds–hours |
 | T7 | **Control** | What setpoints now, given uncertainty? | MPC / RL | real-time constraint |
 | T8 | **Scenario & pathway analysis** | What futures are plausible, under what assumptions? | recursive optimisation + narrative | hours–days |
-| T9 | **Impact assessment** | Emissions, cost, equity, comfort outcomes | post-processing / LCA | seconds–hours |
+| T9 | **Impact assessment** | Emissions, cost, equity, comfort outcomes | post-processing / [LCA](../appendices/a-glossary.html#lca) | seconds–hours |
 | T10 | **Retrofit analysis & planning** | Which measures should this existing building (or stock) get, and when? | combinatorial, multi-objective search over a discrete measure set, T1 in the loop | minutes–days |
 | T11 | **Behaviour & adoption modelling** | How do people use buildings, and who adopts which technology, when? | agent-based simulation / behavioural models, calibrated to surveys and observed uptake | minutes–hours |
 
@@ -79,9 +79,9 @@ T1 also carries a representation problem the other tasks do not, because the dec
 
 **T6 — Networks.** Electrical (AC/DC power flow), thermal (hydraulics + heat transfer, with transport delays), gas (pressure dynamics). These are where genuine PDE/DAE structure lives, and where runtimes explode.
 
-**T9 — Impact assessment.** Mostly post-processing: the flows computed by the other tasks, multiplied by cost and emission factors. For buildings, LCA adds a second axis — the embodied emissions of materials and equipment, which the operational tasks never see. Treated with T10 in [§3.9](3-9-retrofit-and-whole-life-carbon.html). Its equity outcomes — who pays, who benefits, energy poverty — need outputs resolved per household and an explicit equity principle; see [§3.10](3-10-social-dimensions.html).
+**T9 — Impact assessment.** Mostly post-processing: the flows computed by the other tasks, multiplied by cost and emission factors. For buildings, LCA adds a second axis — the [embodied emissions](../appendices/a-glossary.html#embodied-emissions) of materials and equipment, which the operational tasks never see. Treated with T10 in [§3.9](3-9-retrofit-and-whole-life-carbon.html). Its equity outcomes — who pays, who benefits, [energy poverty](../appendices/a-glossary.html#energy-poverty) — need outputs resolved per household and an explicit equity principle; see [§3.10](3-10-social-dimensions.html).
 
-**T10 — Retrofit.** A decision over which measures to apply to an existing building, evaluated by running T1 on each candidate and scored on cost, operational and embodied emissions (T9). At stock scale it turns into a T8 scenario question. It is the most concrete instance of the decision space in [gap G9](../chapter-6-outlook/6-1-open-gaps.html#g9). Treated in [§3.9](3-9-retrofit-and-whole-life-carbon.html).
+**T10 — Retrofit.** A decision over which measures to apply to an existing building, evaluated by running T1 on each candidate and scored on cost, operational and embodied emissions (T9). At stock scale it turns into a T8 scenario question. It is the most concrete instance of the [decision space](../appendices/a-glossary.html#decision-space) in [gap G9](../chapter-6-outlook/6-1-open-gaps.html#g9). Treated in [§3.9](3-9-retrofit-and-whole-life-carbon.html).
 
 **T11 — Behaviour and adoption.** Models of the people in the system rather than the devices: occupant behaviour (an input to T1) and technology-adoption and investment decisions (an input to T8, and at stock level the rate at which T10's measures are actually taken up). Usually agent-based, calibrated to surveys and observed uptake. Unlike every other task here, there is no physics simulator to generate ground truth. Treated in [§3.10](3-10-social-dimensions.html).
 

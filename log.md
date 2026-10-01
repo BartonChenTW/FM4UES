@@ -759,3 +759,39 @@ No page linked to the old heading anchor.
 ## 2026-10-02 (version 2.2)
 
 Release of version 2.2, covering PRs #43, #45, #46 and #49 since v2.1: §2.4.6, the multimodal subsection of §2.7, Appendix D, the revisions and corrections listed in Appendix C, and the site features. The entry is at the top of Appendix C. `book_version` / `book_version_date` in `_config.yml` and the README Status line now read 2.2, 2 October 2026. `v2.2` is tagged on this PR's merge commit, with a GitHub Release carrying the same notes.
+
+## 2026-10-02 (every glossary term and model linked; linking scripts; TODO refreshed)
+
+**Released v2.2** (tag on the #50 merge commit, GitHub Release with the Appendix C notes).
+
+**Why.** Barton asked that every glossary term and model in the book have its hyperlink.
+
+**Model index.** Eight entries added (39 → 47), each checked against arXiv, Crossref, PMLR or the official page:
+- PatchTST
+- BuildingsBench (its pretrained models)
+- LG-HGNN
+- CLIP
+- a new "Language" family for the models named in the §1.3 table: GPT-5 (system card), Gemini (arXiv technical report), Claude (Anthropic announcement, 14 March 2023) and Llama (arXiv)
+
+Left out: "DLinear-class" (a generic baseline type), XGBoost (a library), AgentHomeID (an agent-based simulation) and ChemGraph (an agent framework). 13 model links added. Every model in the index is now linked from at least one page, 128 page–model links in all.
+
+**Glossary.** 235 links added: the first mention of each term on every page.
+- Plural and lowercase forms count. Abbreviations (ABM, LCA, MILP, EPD, DAE, TSFM, PFN, ROM) match exactly, and "reduced-order model" counts as ROM.
+- DINO, SAM, ViT and TTM are left to their model cards.
+- "Cell" is linked only in §2.3 and §2.4.4, where it means a table cell.
+- Not linked:
+  - "foundation model" or "transformer" inside a longer name (e.g. "time-series foundation model", "Swin Transformer")
+  - "Stanford Center for Research on Foundation Models"
+  - quoted search strings
+  - the three electrical-transformer mentions (§4.5, §5.2, §5.4)
+- The glossary's "Patch" definition now covers image patches as well as timesteps, since the book uses both senses.
+- Every term except the four model-card ones is now linked from at least one page.
+
+**Scripts.** `scripts/link_glossary.py` and `scripts/link_models.py` (excluded from the site build) do the linking. Each links the first mention on every page and skips what is already linked, so re-running only adds what is missing; both report 0 on a second run. `CONTRIBUTING.md` says when to run them.
+
+**TODO.** The review of 2026-10-02 is added under Next:
+- the three weakest Chapter 4 sections (§4.9.1, §4.6–4.7, §4.10.3–4.10.4)
+- smaller items
+- a browser check of the new site features
+
+The Mermaid-pin item is marked done (the diagrams render on the deployed site), and the references-workflow question is marked decided (hand-written footnotes keyed to the bib).

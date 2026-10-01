@@ -39,11 +39,11 @@ Pretrain the masking task suite (see [§5.7](5-7-module-decomposition.html)) on 
 
 ## Phase 2 (Year 2–4) — Multimodal conditioning
 
-Fuse demand, weather, technology, and market encoders (see [§5.7](5-7-module-decomposition.html)). Zero-shot transfer to unseen hub topologies becomes the headline metric, mirroring how grid foundation models evaluate on unseen grids ([§2.4.2](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html), [§4.9.2](../chapter-4-directions/4-9-2-methods-tier2.html)). This is where a load FM (candidate sub-field in [§4.8](../chapter-4-directions/4-8-candidate-subfields.html)) stops being a separate project and becomes a component.
+Fuse demand, weather, technology, and market encoders (see [§5.7](5-7-module-decomposition.html)). [Zero-shot](../appendices/a-glossary.html#zero-shot) transfer to unseen hub topologies becomes the headline metric, mirroring how grid foundation models evaluate on unseen grids ([§2.4.2](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html), [§4.9.2](../chapter-4-directions/4-9-2-methods-tier2.html)). This is where a load FM (candidate sub-field in [§4.8](../chapter-4-directions/4-8-candidate-subfields.html)) stops being a separate project and becomes a component.
 
 ## Phase 3 (Year 3–6) — Amortised optimisation
 
-Not replacing the MILP. Predicting warm starts, likely-active binaries, and reduced candidate technology sets, then handing them to the solver — Family 3 in [§4.9.3](../chapter-4-directions/4-9-3-methods-tier3.html). The metric is **solve-time reduction at a guaranteed optimality gap**, which is defensible to a power systems audience in a way that "our surrogate says 4% cheaper" never will be, and which structurally avoids design search adversarially exploiting surrogate error.
+Not replacing the [MILP](../appendices/a-glossary.html#milp). Predicting warm starts, likely-active binaries, and reduced candidate technology sets, then handing them to the solver — Family 3 in [§4.9.3](../chapter-4-directions/4-9-3-methods-tier3.html). The metric is **solve-time reduction at a guaranteed optimality gap**, which is defensible to a power systems audience in a way that "our surrogate says 4% cheaper" never will be, and which structurally avoids design search adversarially exploiting [surrogate](../appendices/a-glossary.html#surrogate) error.
 
 ## Phase 4 (Year 4–7) — The things MILP cannot do
 

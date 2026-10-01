@@ -11,7 +11,7 @@ last_reviewed: 2026-09-11
 
 {% include page-status.html %}
 
-Orientation for a UES reader: what the domain is, what foundation models (FMs) are at a glance, and why the two fields should meet now.
+Orientation for a UES reader: what the domain is, what [foundation models](../appendices/a-glossary.html#foundation-model) (FMs) are at a glance, and why the two fields should meet now.
 {: .fs-6 .fw-300 }
 
 ```mermaid
@@ -27,7 +27,7 @@ flowchart LR
 
 | § | Page | Covers |
 | :--- | :--- | :--- |
-| 1.1 | [What an urban energy system contains](1-1-what-is-ues.html) | Scales, carriers, the energy hub abstraction |
+| 1.1 | [What an urban energy system contains](1-1-what-is-ues.html) | Scales, carriers, the [energy hub](../appendices/a-glossary.html#energy-hub) abstraction |
 | 1.2 | [FMs in one page](1-2-fms-in-one-page.html) | What changed in AI since ~2018, in non-technical terms |
 | 1.3 | [The FM landscape today, by domain](1-3-fm-landscape-by-domain.html) | Where foundation models exist across language, vision, weather, time series, graphs |
 | 1.4 | [Directions the FM field is moving](1-4-fm-field-directions.html) | Maturing time-series models, scaling laws, efficiency, synthetic pretraining |

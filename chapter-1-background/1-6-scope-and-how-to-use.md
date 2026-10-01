@@ -20,8 +20,8 @@ This is written for someone who knows urban energy systems well and machine lear
 
 1. **Map the domain** — what actually gets modelled and simulated in urban energy systems, what mathematical object each task is, and which tools do it. [Chapter 3](../chapter-3-sim-opt/index.html).
 2. **Give the FM toolkit** — the conceptual grounding needed to judge any foundation-model proposal in this space, including basic machine learning concepts for readers without that background. [Chapter 2](../chapter-2-fm-foundations/index.html).
-3. **Survey the directions** — of all the tasks in the domain, which could plausibly support a foundation model, broadly and neutrally, without committing to one specific programme. [Chapter 4](../chapter-4-directions/index.html).
-4. **Work through one case study in depth** — a specific, concrete proposal for a foundation model for multi-carrier energy hubs: representation, roadmap, module decomposition, and risks. [Chapter 5](../chapter-5-case-study/index.html).
+3. **Survey the directions** — of all the tasks in the domain, which could plausibly support a [foundation model](../appendices/a-glossary.html#foundation-model), broadly and neutrally, without committing to one specific programme. [Chapter 4](../chapter-4-directions/index.html).
+4. **Work through one case study in depth** — a specific, concrete proposal for a foundation model for multi-carrier [energy hubs](../appendices/a-glossary.html#energy-hub): representation, roadmap, module decomposition, and risks. [Chapter 5](../chapter-5-case-study/index.html).
 
 **If you read only one page**, read [Choosing a Basic Element](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html) (§2.3) — it gives the criterion for deciding whether a foundation model is viable in a sub-domain at all, before any question of architecture or compute.
 

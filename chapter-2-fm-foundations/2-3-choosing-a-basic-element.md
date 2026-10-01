@@ -12,7 +12,7 @@ redirect_from: /03-basic-elements.html
 
 {% include page-status.html %}
 
-If you read only one page in this book, read this one. It gives the criterion for deciding whether a foundation model is viable in a given sub-domain at all — before any question of architecture, data volume, or compute.
+If you read only one page in this book, read this one. It gives the criterion for deciding whether a [foundation model](../appendices/a-glossary.html#foundation-model) is viable in a given sub-domain at all — before any question of architecture, data volume, or compute.
 {: .fs-6 .fw-300 }
 
 1. TOC
@@ -22,7 +22,7 @@ If you read only one page in this book, read this one. It gives the criterion fo
 
 ## 2.3.1 The criterion
 
-D1 — Unit of observation (what is one training example?) and D2 — Tokenisation/encoding (how is a training example turned into something the architecture consumes?), see [§2.2](2-2-five-design-decisions.html), are usually treated as implementation detail. They are not. The choice of basic element determines what transfers, and no amount of architecture or compute compensates for a bad one.
+D1 — [Unit of observation](../appendices/a-glossary.html#unit-of-observation) (what is one training example?) and D2 — [Tokenisation](../appendices/a-glossary.html#tokenisation)/encoding (how is a training example turned into something the architecture consumes?), see [§2.2](2-2-five-design-decisions.html), are usually treated as implementation detail. They are not. The choice of [basic element](../appendices/a-glossary.html#basic-element) determines what transfers, and no amount of architecture or compute compensates for a bad one.
 
 **Why grid foundation models work.** Power networks supply their own basic element. A bus is a bus in Switzerland and in Texas, at 20 kV and at 380 kV. Two engineers decomposing the same network produce the same buses and lines. Networks are assembled from these elements by known rules. The model therefore learns *the element* and its interactions, and an unseen network is a new arrangement of familiar parts.[^donon2020gns] Tokenisation is essentially given by the domain — which is why the proposed grid foundation model is a graph neural network meant to learn across diverse grid data and topologies.[^hamann2024foundation]
 
@@ -55,15 +55,15 @@ This is the most persuasive entry point available when explaining the representa
 
 **(c) The building component** — wall, window, heat pump. Unambiguous and composable. But the relationship between components and energy performance is neither local nor sparse: performance emerges from envelope, systems, climate and occupancy acting together. A component-level decomposition pushes essentially all the physics into the interaction terms, which is the hardest thing to learn from data.
 
-**(d) The time interval / patch.** A fixed-length slice of hourly output. Unambiguous, stable and scale-independent — this is what time-series foundation models use[^das2024timesfm] (see [§2.4.1](2-4-1-time-series-fms.html)), following the patches-as-input-tokens design introduced by PatchTST.[^nie2023patchtst] But it describes the *output*, not the object. A slice of a demand profile carries no information about the building that produced it, so building characteristics must be attached from outside.
+**(d) The time interval / [patch](../appendices/a-glossary.html#patch).** A fixed-length slice of hourly output. Unambiguous, stable and scale-independent — this is what time-series foundation models use[^das2024timesfm] (see [§2.4.1](2-4-1-time-series-fms.html)), following the patches-as-input-tokens design introduced by [PatchTST](../appendices/d-model-index.html#patchtst).[^nie2023patchtst] But it describes the *output*, not the object. A slice of a demand profile carries no information about the building that produced it, so building characteristics must be attached from outside.
 
-**(e) The cell.** A single entry in a table — where one row meets one column. Scores better against the four requirements than (a)–(d) and fails on time-resolved output. It is the element of the tabular foundation model [TabPFN](../appendices/d-model-index.html#tabpfn-v2), which gives each cell its own representation.[^hollmann2025tabpfnv2] Treated in full in [§2.4.4](2-4-4-tabular-fms.html).
+**(e) The [cell](../appendices/a-glossary.html#cell).** A single entry in a table — where one row meets one column. Scores better against the four requirements than (a)–(d) and fails on time-resolved output. It is the element of the tabular foundation model [TabPFN](../appendices/d-model-index.html#tabpfn-v2), which gives each cell its own representation.[^hollmann2025tabpfnv2] Treated in full in [§2.4.4](2-4-4-tabular-fms.html).
 
 ### Two further difficulties specific to buildings
 
-**Mixed information types at one level.** A building description combines continuous quantities (floor area, U-values), categories (construction type, heating system), discrete choices (which retrofit measures, which technologies), and long continuous series (8760 hourly values). These do not naturally share a common form. Grid models, by contrast, handle uniformly numerical quantities.
+**Mixed information types at one level.** A building description combines continuous quantities (floor area, U-values), categories (construction type, heating system), discrete choices (which [retrofit measures](../appendices/a-glossary.html#retrofit-measure), which technologies), and long continuous series (8760 hourly values). These do not naturally share a common form. Grid models, by contrast, handle uniformly numerical quantities.
 
-**The decision layer.** A model intended to support retrofit or investment decisions must represent not only what a building **is** but what could be **done to it** — insulation packages, heat pumps, PV, storage, and their combinations. This is a large, discrete, constraint-bound space with no counterpart in grid state representation. **A decision space is not a state space, and no existing energy foundation model represents one** (see [§2.5](2-5-what-does-not-exist-yet.html) for the dated search behind that claim). This is arguably the deepest structural difference from [GridFM](../appendices/d-model-index.html#gridfm) and is logged as [gap G9](../chapter-6-outlook/6-1-open-gaps.html#g9). How retrofit decisions are made today, and how the embodied carbon of the measures enters them, is in [§3.9](../chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html).
+**The decision layer.** A model intended to support retrofit or investment decisions must represent not only what a building **is** but what could be **done to it** — insulation packages, heat pumps, PV, storage, and their combinations. This is a large, discrete, constraint-bound space with no counterpart in grid state representation. **A [decision space](../appendices/a-glossary.html#decision-space) is not a state space, and no existing energy foundation model represents one** (see [§2.5](2-5-what-does-not-exist-yet.html) for the dated search behind that claim). This is arguably the deepest structural difference from [GridFM](../appendices/d-model-index.html#gridfm) and is logged as [gap G9](../chapter-6-outlook/6-1-open-gaps.html#g9). How retrofit decisions are made today, and how the embodied carbon of the measures enters them, is in [§3.9](../chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html).
 
 ### The resulting claim
 
@@ -82,9 +82,9 @@ Any building foundation model makes a deliberate trade-off among the four requir
 
 **R1 — Building as an attribute list.** The classical metamodel input: one fixed-length row per building.[^westermann2019surrogate] Simple, well understood, strong within the range it was fitted to. Nothing structural transfers to an unseen typology.
 
-**R2 — Time series in segments, described by building attributes.** Hourly output cut into segments; attributes supplied alongside so the model reads the profile *in the light of* the building description (mechanism: cross-attention). Inherits the machinery of general time-series models. Carries temporal structure well, building structure partially.
+**R2 — Time series in segments, described by building attributes.** Hourly output cut into segments; attributes supplied alongside so the model reads the profile *in the light of* the building description (mechanism: [cross-attention](../appendices/a-glossary.html#cross-attention)). Inherits the machinery of general time-series models. Carries temporal structure well, building structure partially.
 
-**R3 — Building as a network of connected parts.** Zones or components as nodes, thermal and hydraulic couplings as edges — closest to how building physics already models. Highest transfer potential, and pays the zoning ambiguity cost of §2.3.2(b) in full. **The more principled option, currently blocked by an unsolved problem belonging to the building simulation community rather than the ML one** — that community's own review literature names the missing zoning method as open research, not settled practice.[^shin2019zoning]
+**R3 — Building as a network of connected parts.** Zones or components as nodes, thermal and hydraulic couplings as edges — closest to how building physics already models. Highest transfer potential, and pays the [zoning ambiguity](../appendices/a-glossary.html#zoning-ambiguity) cost of §2.3.2(b) in full. **The more principled option, currently blocked by an unsolved problem belonging to the building simulation community rather than the ML one** — that community's own review literature names the missing zoning method as open research, not settled practice.[^shin2019zoning]
 
 **R4 — Building as an element of a stock.** Individual buildings as the basic element within a portfolio. Suits stock-level questions; gives up within-building resolution. See also [§4.2](../chapter-4-directions/4-2-fms-for-building-stocks.html) for FMs targeting whole building stocks specifically.
 

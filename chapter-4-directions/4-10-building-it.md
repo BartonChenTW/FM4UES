@@ -29,7 +29,7 @@ Since ground truth comes from a simulator, **the training distribution is a desi
 
 ### Sampling methods
 
-The sampling plan is a design decision the building-surrogate literature already records: a review of 57 building-design surrogate studies tabulates each one's sampling strategy alongside its objective and surrogate type.[^westermann2019surrogate]
+The sampling plan is a design decision the building-surrogate literature already records: a review of 57 building-design [surrogate](../appendices/a-glossary.html#surrogate) studies tabulates each one's sampling strategy alongside its objective and surrogate type.[^westermann2019surrogate]
 
 | Method | Use |
 | :--- | :--- |
@@ -41,7 +41,7 @@ The sampling plan is a design decision the building-surrogate literature already
 ### The rare-regime trap
 
 {: .important }
-**Take this seriously.** Foundation models inherit statistical biases from their training datasets, including under-representation of extremes and rare regimes, which distorts performance precisely on high-impact events.
+**Take this seriously.** [Foundation models](../appendices/a-glossary.html#foundation-model) inherit statistical biases from their training datasets, including under-representation of extremes and rare regimes, which distorts performance precisely on high-impact events.
 
 In energy systems the rare regimes are the ones that matter most: cold snaps driving peak heat demand, Dunkelflaute, storage fully depleted, network constraints binding. Uniform sampling of the design space will under-represent all of them. **Stratify deliberately.** Learning continuous targets where some values have far fewer observations is a recognised machine-learning problem in its own right — deep imbalanced regression — with dedicated methods.[^yang2021dir]
 
@@ -62,7 +62,7 @@ Four mechanisms, in increasing order of strength and cost:
 | **Soft penalty** | add constraint violation to loss | none | free |
 | **Architectural** | design outputs so constraints hold by construction (bounded decoders, softmax splits) | exact for what is encoded | low |
 | **Projection / repair** | post-process onto feasible set | exact | moderate |
-| **Exact encoding in solver** | encode NN as MILP constraints[^fischetti2018milp] | exact + optimality | high |
+| **Exact encoding in solver** | encode NN as [MILP](../appendices/a-glossary.html#milp) constraints[^fischetti2018milp] | exact + optimality | high |
 
 Notes from practice:
 
@@ -104,7 +104,7 @@ At roughly CHF 30k/year materials:
 
 | Feasible | Not feasible |
 | :--- | :--- |
-| Fine-tuning models in the 10M–500M parameter range | Pretraining a large model from scratch |
+| [Fine-tuning](../appendices/a-glossary.html#fine-tuning) models in the 10M–500M parameter range | Pretraining a large model from scratch |
 | 10³–10⁵ simulator runs for training data | 10⁷+ runs |
 | Small scaling studies | Large architecture sweeps |
 | Releasing a benchmark and dataset | Sustained large-scale compute |

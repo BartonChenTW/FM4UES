@@ -12,7 +12,7 @@ last_reviewed: 2026-09-19
 {% include page-status.html %}
 
 {: .note }
-**Still a stub, but now a checked one.** A dated search (below) confirms no stock-level foundation model has been published; the nearest empirical result is discussed and cited for what it does and does not establish.
+**Still a stub, but now a checked one.** A dated search (below) confirms no stock-level [foundation model](../appendices/a-glossary.html#foundation-model) has been published; the nearest empirical result is discussed and cited for what it does and does not establish.
 
 1. TOC
 {:toc}
@@ -21,7 +21,7 @@ last_reviewed: 2026-09-19
 
 ## The direction
 
-Everything in [§2.3](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html) and most of this book's case study in [Chapter 5](../chapter-5-case-study/index.html) treats a single building or a single hub as the unit of interest. A different and complementary direction treats the **building stock** — a whole city or region's worth of buildings — as the object, with the individual building as the basic element: the "building as an element of a stock" representation in [§2.3.3](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#233-representation-strategies-and-testable-predictions).
+Everything in [§2.3](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html) and most of this book's case study in [Chapter 5](../chapter-5-case-study/index.html) treats a single building or a single hub as the unit of interest. A different and complementary direction treats the **building stock** — a whole city or region's worth of buildings — as the object, with the individual building as the [basic element](../appendices/a-glossary.html#basic-element): the "building as an element of a stock" representation in [§2.3.3](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#233-representation-strategies-and-testable-predictions).
 
 This changes the questions that are answerable. Instead of "what will this building's demand be," the target becomes portfolio-level: aggregate demand under a retrofit policy ([§3.9](../chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html)), stock-wide emissions trajectories, or which archetypes in a city-scale stock are under-represented in a training corpus. Large physics-based stock models — **ResStock**[^wilson2022resstock] and **ComStock**[^parker2023comstock] (NREL) — already generate the kind of fully-labelled, large-N corpora (see [§3.2](../chapter-3-sim-opt/3-2-building-simulation-data.html)) that a stock-level foundation model would pretrain on.
 

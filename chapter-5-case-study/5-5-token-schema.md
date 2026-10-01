@@ -58,7 +58,7 @@ EDGE TYPES
 **Two choices worth defending explicitly:**
 
 - **Storage is a device subtype, not a fourth node type.** Keeps the vocabulary at two, and `state_active` tells the attention mechanism which nodes need cross-day routing.
-- **Two-channel normalisation** — normalised profile plus explicit log-magnitude. This is the direct fix for the information-deletion problem in [§5.2.1(f)](5-2-representation-problem.html#521-the-causal-chain-representation--data--capability). Carry both from the start; magnitude cannot be recovered later by fine-tuning.
+- **Two-channel normalisation** — normalised profile plus explicit log-magnitude. This is the direct fix for the information-deletion problem in [§5.2.1(f)](5-2-representation-problem.html#521-the-causal-chain-representation--data--capability). Carry both from the start; magnitude cannot be recovered later by [fine-tuning](../appendices/a-glossary.html#fine-tuning).
 
 ## 5.5.2 Temporal hierarchy
 
@@ -115,7 +115,7 @@ Ship this first, prove the premise, then add:
 - M1 and M2 only
 - Fixed device vocabulary of ~8 classes
 
-If that does not beat a tuned reduced-order model on held-out device configurations, the representation is wrong — learned in months rather than years. See [risk 5](5-8-risks.html#581-five-risks-most-likely-to-kill-the-programme).
+If that does not beat a tuned [reduced-order model](../appendices/a-glossary.html#rom) on held-out device configurations, the representation is wrong — learned in months rather than years. See [risk 5](5-8-risks.html#581-five-risks-most-likely-to-kill-the-programme).
 
 ---
 [← Previous: 5.4 A Concrete Proposed Representation](5-4-concrete-representation.html) · [Next: 5.6 Physics Loss →](5-6-physics-loss.html)

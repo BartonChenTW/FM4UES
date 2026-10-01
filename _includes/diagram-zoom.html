@@ -1,0 +1,243 @@
+{%- comment -%}
+  Enlarge and open-in-new-tab controls for every Mermaid diagram.
+
+  Mermaid scales each diagram down to the width of the text column, so a
+  large one (e.g. the ecosystem diagram in 4.11) ends up with unreadably
+  small labels. Under each diagram this adds two buttons:
+  - "Enlarge" (or a click on the diagram itself) opens it in a full-window
+    overlay at readable size, scrollable in both directions. Escape, the
+    close button or a click on the backdrop closes it.
+  - "Open in new tab" opens the diagram as a standalone SVG file, which the
+    browser can zoom freely.
+
+  The diagrams are rendered client-side by just-the-docs' Mermaid module
+  (and re-rendered by the dark-mode toggle, see mermaid_config.js), so a
+  MutationObserver attaches the controls once the drawing appears, and the
+  buttons always act on the diagram's current drawing.
+
+  As in nav_footer_custom.html, the script below must not contain a
+  literal HTML tag, even in a comment: lychee's tokenizer loses sync on
+  one. Elements are built with createElement.
+{%- endcomment -%}
+<style>
+  .fm-diagram-tools {
+    display: flex;
+    gap: 0.5em;
+    justify-content: flex-end;
+    margin: -0.5em 0 1em 0;
+  }
+
+  .fm-diagram-tools button {
+    font-size: 0.75em;
+    padding: 0.25em 0.6em;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    background: none;
+    color: inherit;
+    opacity: 0.75;
+    cursor: pointer;
+  }
+
+  .fm-diagram-tools button:hover,
+  .fm-diagram-tools button:focus-visible {
+    opacity: 1;
+  }
+
+  .language-mermaid svg {
+    cursor: zoom-in;
+  }
+
+  .fm-diagram-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vh 2vw;
+  }
+
+  .fm-diagram-overlay[hidden] {
+    display: none;
+  }
+
+  .fm-diagram-panel {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    border-radius: 6px;
+    padding: 2.5em 1.5em 1.5em 1.5em;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  .fm-diagram-panel svg {
+    display: block;
+    max-width: none;
+    height: auto;
+  }
+
+  .fm-diagram-close {
+    position: sticky;
+    top: 0;
+    float: right;
+    margin: -2em -0.75em 0 0;
+    font-size: 1.4em;
+    line-height: 1;
+    padding: 0.1em 0.4em;
+    border: none;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  (function () {
+    'use strict';
+
+    var overlay = null;
+    var panel = null;
+    var lastFocus = null;
+
+    function currentSvg(el) {
+      return el.querySelector('svg');
+    }
+
+    // Natural width of a Mermaid drawing: Mermaid writes it as the SVG's
+    // max-width; fall back to the viewBox.
+    function naturalWidth(svg) {
+      var mw = parseFloat(svg.style.maxWidth);
+      if (mw) { return mw; }
+      var vb = svg.viewBox && svg.viewBox.baseVal;
+      return vb && vb.width ? vb.width : svg.getBoundingClientRect().width;
+    }
+
+    function ensureOverlay() {
+      if (overlay) { return; }
+      overlay = document.createElement('div');
+      overlay.className = 'fm-diagram-overlay';
+      overlay.hidden = true;
+      overlay.setAttribute('role', 'dialog');
+      overlay.setAttribute('aria-modal', 'true');
+      overlay.setAttribute('aria-label', 'Enlarged diagram');
+
+      panel = document.createElement('div');
+      panel.className = 'fm-diagram-panel';
+
+      var close = document.createElement('button');
+      close.className = 'fm-diagram-close';
+      close.type = 'button';
+      close.setAttribute('aria-label', 'Close');
+      close.textContent = '×';
+      close.addEventListener('click', closeOverlay);
+
+      panel.appendChild(close);
+      overlay.appendChild(panel);
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) { closeOverlay(); }
+      });
+      document.addEventListener('keydown', function (e) {
+        if (!overlay.hidden && (e.key === 'Escape' || e.key === 'Esc')) { closeOverlay(); }
+      });
+      document.body.appendChild(overlay);
+    }
+
+    function openOverlay(el) {
+      var svg = currentSvg(el);
+      if (!svg) { return; }
+      ensureOverlay();
+
+      var old = panel.querySelector('svg');
+      if (old) { old.remove(); }
+
+      // The copy keeps the original's id: Mermaid's embedded styles are
+      // scoped to it, so the copy would lose its colours without it.
+      var copy = svg.cloneNode(true);
+      var w = Math.max(naturalWidth(svg), window.innerWidth * 0.9);
+      copy.style.maxWidth = 'none';
+      copy.style.width = w + 'px';
+      copy.removeAttribute('height');
+      panel.appendChild(copy);
+
+      // Match the page's own background, which follows light/dark mode
+      var bodyStyle = window.getComputedStyle(document.body);
+      panel.style.backgroundColor = bodyStyle.backgroundColor;
+      panel.style.color = bodyStyle.color;
+
+      lastFocus = document.activeElement;
+      overlay.hidden = false;
+      document.body.style.overflow = 'hidden';
+      panel.querySelector('.fm-diagram-close').focus();
+    }
+
+    function closeOverlay() {
+      if (!overlay || overlay.hidden) { return; }
+      overlay.hidden = true;
+      document.body.style.overflow = '';
+      if (lastFocus && lastFocus.focus) { lastFocus.focus(); }
+    }
+
+    function openInNewTab(el) {
+      var svg = currentSvg(el);
+      if (!svg) { return; }
+      var copy = svg.cloneNode(true);
+      copy.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+      copy.style.maxWidth = 'none';
+      copy.setAttribute('width', naturalWidth(svg));
+      copy.removeAttribute('height');
+      // Give the standalone file the page's background so dark-mode text
+      // stays readable
+      copy.style.backgroundColor = window.getComputedStyle(document.body).backgroundColor;
+      var blob = new Blob([new XMLSerializer().serializeToString(copy)], { type: 'image/svg+xml' });
+      var url = URL.createObjectURL(blob);
+      window.open(url, '_blank', 'noopener');
+      setTimeout(function () { URL.revokeObjectURL(url); }, 60000);
+    }
+
+    function addTools(el) {
+      if (el.getAttribute('data-fm-zoom')) { return; }
+      el.setAttribute('data-fm-zoom', '1');
+
+      var host = el.closest('pre') || el;
+      var tools = document.createElement('div');
+      tools.className = 'fm-diagram-tools';
+
+      var enlarge = document.createElement('button');
+      enlarge.type = 'button';
+      enlarge.textContent = 'Enlarge';
+      enlarge.addEventListener('click', function () { openOverlay(el); });
+
+      var newTab = document.createElement('button');
+      newTab.type = 'button';
+      newTab.textContent = 'Open in new tab';
+      newTab.addEventListener('click', function () { openInNewTab(el); });
+
+      tools.appendChild(enlarge);
+      tools.appendChild(newTab);
+      host.parentNode.insertBefore(tools, host.nextSibling);
+
+      el.addEventListener('click', function (e) {
+        if (e.target.closest && e.target.closest('a')) { return; }
+        openOverlay(el);
+      });
+    }
+
+    function scan() {
+      var diagrams = document.querySelectorAll('.language-mermaid');
+      for (var i = 0; i < diagrams.length; i++) {
+        if (currentSvg(diagrams[i])) { addTools(diagrams[i]); }
+      }
+    }
+
+    function start() {
+      if (!document.querySelector('.language-mermaid')) { return; }
+      scan();
+      new MutationObserver(scan).observe(document.body, { childList: true, subtree: true });
+    }
+
+    if (document.readyState !== 'loading') { start(); }
+    else { document.addEventListener('DOMContentLoaded', start); }
+  })();
+</script>

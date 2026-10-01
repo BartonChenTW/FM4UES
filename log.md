@@ -598,3 +598,16 @@ Not run in a browser: there is no JavaScript runtime here. After deploy, hover "
 - `jakubik2023prithvi`, cited for Prithvi-SWIN-L in §1.3 and §2.4.5 (as IBM's model card does), describes the ViT-based Prithvi-100M and mentions Swin only as future work.
 - TimesFM 2.5, TimeGPT-2 and NV-Tesseract (since renamed Kumo-TS) have no paper. Their entries link to the release pages, and the book cites none of them.
 - In §1.4, "IBM Granite" most likely means the TTM weights, which are published as granite-timeseries-ttm.
+
+## 2026-10-01 (diagrams: Enlarge and Open in new tab)
+
+**Why.** Barton found the §4.11 ecosystem diagram interesting but too small to read. Mermaid scales every diagram to the width of the text column, so large ones end up with tiny labels.
+
+**Change.** New `_includes/diagram-zoom.html`, included from `head_custom.html`, applies to every Mermaid diagram on the site.
+- **Enlarge** (or a click on the diagram) opens a full-window overlay at the drawing's natural size, or 90% of the window width if that is larger. It scrolls both ways, and closes with Escape, the × button or a click on the backdrop. Its background matches the page's light or dark mode.
+- **Open in new tab** saves the current drawing as a standalone SVG, which the browser can zoom freely.
+- The controls attach through a MutationObserver once the drawing appears, so they also survive the dark-mode re-render.
+- The copy keeps the original SVG id, because Mermaid's embedded styles are scoped to it.
+- The script has no literal HTML tags, per the lychee note.
+
+Not run in a browser. After deploy, try both buttons on §4.11, and on the Chapter 4 quadrant chart.

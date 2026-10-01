@@ -480,3 +480,41 @@ Verified: footnote ref/def integrity on every page, all footnote names match `.b
 **References (bib 124 → 135).** `krumm2022social`, `rai2015abm`, `bouzarovski2015energypoverty`, `jenkins2016energyjustice`, `vagero2023justice`, `beckel2014household`, `argyle2023silicon`, `bisbee2024synthetic` (Crossref-verified, full author lists), `ganal2026agenthomeid`, `faiud2026llmabm`, `jadhav2026eqgrid` (arXiv API-verified). `doma2023occupant` reused. Claims written from abstracts: OpenAlex (Bouzarovski, Argyle, Bisbee), Semantic Scholar (Jenkins, Krumm, Vågerö), RePEc/EconPapers (Beckel), arXiv (the three preprints); Rai & Robinson from a search summary of its abstract only (flagged in TODO). **Considered and dropped:** Rai & Henry 2016 (*Nature Climate Change*, ABMs of consumer energy choices) — a perspective making the same point as Rai & Robinson's primary result. **Dated search** (arXiv, 2026-09-29), reported in §3.10: "foundation model" × {energy poverty, energy justice, energy equity} → 0; LLM × {energy poverty, energy justice, energy burden} → 2, 1 relevant (EqGrid); LLM × agent-based × adoption × energy → 1 (Faiud et al.); "foundation model" × occupant behaviour → 0 (not reported on the page).
 
 Verified: footnote integrity on every page, all footnote names match `.bib` keys, no duplicate keys, braces balanced (1058/1058), every internal link and anchor resolves; lychee 0 errors across Chapters 3–4, glossary, README and `index.md`. Not built with Jekyll and not rendered in a browser — `site-check.yml` covers the build on the PR.
+
+## 2026-09-29 (new §4.11: a future ecosystem of UES FMs)
+
+**Why.** Picked up the key TODO item: Chapter 4 surveyed directions one at a time and never said how they fit together; the coupling idea lived only in Chapter 5 (Phase 5 hub ↔ grid, D5 flexibility envelope), §4.8's grid-load bridge, and the private concept-paper notes (planned section "Coupling to adjacent FMs" and an "FM ecosystem" figure).
+
+**New page** [`chapter-4-directions/4-11-ecosystem.md`](chapter-4-directions/4-11-ecosystem.md), placed last in Chapter 4 as its synthesis (after §4.10, so nothing is renumbered). Argument: basic elements differ by layer (§2.3, §2.4), so expect several FMs connected at interfaces rather than one. Contents: component table by layer with element and status ("the ends exist and the middle does not"); a Mermaid diagram of components and what flows between them; three interface types (physical quantities, shared learned representations, language/tool calls) with their trade-offs, anchored on co-simulation as today's practice; the concrete UES interfaces and what stands behind each; three shapes (one multimodal FM — conditional on a shared element, Aurora as the precedent that shows why; a federation coupled by physical quantities — the near-term default; an orchestrating agent — ChemGraph as precedent, G7 as the obstacle), with the book's reading that they are complementary; ecosystem-level needs (interface schema, uncertainty across interfaces, chain-level evaluation, constraint authority, shared data engines). Labelled as the book's own synthesis.
+
+**Dated search** (arXiv, 2026-09-29), reported on the page: "foundation model" × ecosystem × {energy, grid} → 11 results, none on coupling energy-system FMs; "foundation model(s)" × {coupling, interoperab*, composable} × {power system, energy system} → 1, unrelated; "multiple foundation models" × {energy, grid} → 1, unrelated (not reported).
+
+**Wiring.** Chapter 4 landing (table row; pointer sentence), §4.10 next-link, §4.8 grid-load bridge → §4.11, §5.1 Phase 5 → §4.11, README and `index.md` contents, glossary "Co-simulation".
+
+**References (bib 135 → 136).** New: `pham2025chemgraph` (arXiv API; claim from abstract). Reused: `alfalouji2023cosimulation`, and `bodnar2025aurora` (already in the bib for §1.3/§2.2; re-checked on Crossref, claim written from its OpenAlex abstract — a duplicate entry was added by mistake and caught by the key-uniqueness check). **Considered and dropped:** HuggingGPT (Shen et al. 2023, arXiv:2303.17580) as the general "LLM as controller of specialist models" precedent — ChemGraph makes the same point in a physical-science setting with simulators in the loop, which is closer to UES (one citation per claim). No new open gap added: whether the interface problem deserves its own G10 is left to the maintainer (TODO).
+
+Verification as for §3.9/§3.10: footnote integrity, bib keys, braces, internal links and anchors, lychee on changed pages. Mermaid diagram not rendered.
+
+## 2026-10-01 (Granite-GFM and Prithvi-SWIN-L citations, §1.3 and §2.4.5)
+
+**Why.** Closes `refs-to-add.md` item D. The Granite-GFM sentence (land surface temperature, 30 m, hourly, Swin backbone on Prithvi-SWIN-L) was cited to `szwarcman2024prithvieo2`, the Prithvi-EO-2.0 paper. That paper does not describe the Granite model: Prithvi-EO-2.0 is a ViT released in December 2024, and the Granite LST model (v1, May 2024) builds on Prithvi-SWIN-L. §2.4.5 also said that Prithvi-EO-2.0 "underlies" Granite-GFM, which was wrong.
+
+**Changes.** §1.3: the Granite-GFM table row and sentence now cite `bhamjee2024granitelst`, and Prithvi-SWIN-L cites `jakubik2023prithvi`. The `szwarcman2024prithvieo2` footnote is no longer used there and was removed. §2.4.5: the sentence was split. Prithvi-EO-2.0 keeps `szwarcman2024prithvieo2`, and Granite-GFM is now attributed to Prithvi-SWIN-L with the same two citations as §1.3.
+
+**References (bib 136 → 137).** New: `bhamjee2024granitelst`, the IBM Hugging Face model card (authors, release date and licence taken from the card). No paper was found for the 30 m, hourly model itself, so the model card is the primary source, following the precedent of EnergyBench in §3.2. The card names `jakubik2023prithvi` as the paper for its Prithvi-SWIN-L base model. **Considered and dropped:** Bhamjee et al., IGARSS 2024 ("Detection and characterization of urban heat islands with machine learning"). It covers a different model (1 km, 2 m air temperature, Johannesburg). Kreismann (2025, arXiv:2509.16617) applies the model rather than describing it.
+
+Verified: footnote ref/def integrity on both pages, bib key unique.
+
+## 2026-10-01 (glossary hover definitions; "Multimodality")
+
+**Why.** The §1.4 bullet "Multimodality is becoming the default" used the term without defining it, and the glossary had no entry. Three options were weighed: a plain link to the glossary, kramdown abbreviations (`*[term]: …`, which give only the browser's own title tooltip, don't show on touch devices, and repeat the definition on each page), or a glossary link with a hover box. The hover box was chosen. The definition is written once, in the glossary, and the link still works without the box.
+
+**Changes.**
+- Glossary: new row **Multimodality**, linked to Cross-attention, §1.3 and §1.4.
+- §1.4: "Multimodality" now links to `a-glossary.html#multimodality`.
+- `_includes/footnote-tooltip.html`: the footnote hover box also works for glossary links. On pages with such a link it fetches the glossary once and shows the matching row's definition. Relative links in the definition are made absolute.
+- Glossary anchors: every bold term now carries a kramdown span attribute, `**Term**{: #term}`, which renders as `<strong id="term">`. The id is the term in lower case, with every run of other characters turned into `-`. All 41 are unique. The first version made the ids in the script instead, and lychee failed on the PR with "Cannot find fragment", because it checks the built HTML without running JavaScript. Ids in the source fix that and need no script on the glossary page. CSS highlights the row whose term is the `:target`.
+- `handleShow` now uses `currentTarget`, and the active-reference highlight works for links as well as `<sup>`.
+- `CONTRIBUTING.md`: the anchor rule, with an example.
+
+Not tested in a browser: there is no JavaScript runtime on this machine, so the script was only reviewed by reading. Check on the deployed site: hover "Multimodality" in §1.4, and open `a-glossary.html#multimodality` directly.

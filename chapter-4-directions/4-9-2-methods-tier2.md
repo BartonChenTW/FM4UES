@@ -43,7 +43,7 @@ Also relevant: topology-informed GNNs are described as very friendly to transfer
 **For multi-carrier systems this has not been done.** That is the gap [Chapter 5](../chapter-5-case-study/index.html) addresses.
 
 {: .note }
-This is R3 (see [§2.3.3](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#233-representation-strategies-and-testable-predictions)) applied at network scale, and it works here precisely because the network element is unambiguous. The same strategy applied *within* a building runs into the zoning problem of [§2.3.2(b)](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#232-basic-elements-for-buildings), which is why R3 is more principled and less available at building scale than at district scale.
+This is the "building as a network of connected parts" representation of [§2.3.3](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#233-representation-strategies-and-testable-predictions), applied at network scale, and it works here precisely because the network element is unambiguous. The same strategy applied *within* a building runs into the zoning problem of [§2.3.2(b)](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#232-basic-elements-for-buildings), which is why that representation is more principled and less available at building scale than at district scale.
 
 ## Time and graph together
 

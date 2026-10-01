@@ -16,7 +16,7 @@ last_reviewed: 2026-09-29
 
 ---
 
-Applying the five criteria from [§4.5](4-5-screening-fields.html) to the task taxonomy T1–T11 from [§3.1](../chapter-3-sim-opt/3-1-taxonomy-of-tasks.html):
+Applying the five criteria from [§4.5](4-5-screening-fields.html) to the modelling tasks T1–T11 from [§3.1](../chapter-3-sim-opt/3-1-taxonomy-of-tasks.html):
 
 | Task | S1 ground truth | S2 homogeneity | S3 transfer | S4 bottleneck | S5 evaluable | Verdict |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |

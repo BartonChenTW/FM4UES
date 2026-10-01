@@ -42,8 +42,8 @@ footer_content: "Working textbook, actively revised. Corrections and additions w
 # Current book version, shown under the site title in the sidebar
 # (_includes/title.html) and on the home page. Change it here, and in
 # README.md's Status section, when releasing a version (CONTRIBUTING.md).
-book_version: "2.1"
-book_version_date: "1 October 2026"
+book_version: "2.2"
+book_version_date: "2 October 2026"
 
 # Source repository: just-the-docs uses these for the "Edit this page on
 # GitHub" footer link, and _includes/page-status.html uses them for each

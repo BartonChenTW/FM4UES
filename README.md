@@ -41,7 +41,7 @@ One page per section, nested by chapter using just-the-docs' `parent:` /
 
 ## Status
 
-Version 2.1 (1 October 2026) — actively revised. Each version is a tagged
+Version 2.2 (2 October 2026) — actively revised. Each version is a tagged
 [GitHub Release](https://github.com/BartonChenTW/FM4UES/releases), summarised in
 [Appendix C](appendices/c-version-history.md). Each page on the site links to its own
 change history. Corrections and additions welcome via issue or pull request.

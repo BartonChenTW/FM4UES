@@ -3,7 +3,7 @@ title: Appendix C — Version History
 parent: Appendices
 nav_order: 3
 status: draft
-last_reviewed: 2026-10-01
+last_reviewed: 2026-10-02
 ---
 
 # Appendix C — Version History
@@ -21,6 +21,31 @@ This book is revised continuously, so there are two ways to trace what changed:
 "Last reviewed" on each page is a separate signal. It is set by hand when someone has checked the page's content, so it can be older than the page's most recent edit.
 
 ---
+
+## 2.2 — 2 October 2026
+
+55 section pages, 152 references, 39 models in the model index.
+
+**New**
+- [§2.4.6](../chapter-2-fm-foundations/2-4-6-load-forecasting-fms.html) Load and smart-meter forecasting foundation models: models pretrained on load data, ten evaluations of general models sorted by aggregation level, and why aggregated load is close to solved while single buildings are not
+- [§2.7](../chapter-2-fm-foundations/2-7-architectures.html#multimodal-models) Multimodal models, with a worked example from this domain
+- [Appendix D](d-model-index.html) Model index: every named model with its developer, a one-line description and links to the model and its paper
+
+**Revised**
+- §1.4 no longer says time-series models converged on one architecture, and cites a source for every model it names
+- §3.1 retitled "Modelling Tasks and Their Mathematical Structure", with a note for task T3
+- §4.1's case for testing existing models first, rewritten in plain terms
+- §4.8 states the actual status of the metadata-conditioned load model: promising, limited by data licensing
+- §4.9 renamed "A Proposed Development Path" and marked as the book's own proposal rather than part of the survey
+- §4.11's component table colour-codes each layer's maturity
+- Labels defined on one page (R1–R4, G7) are spelled out where other pages use them
+
+**Corrections.** Prithvi-SWIN-L is no longer cited to a paper about a different model (§1.3, §2.4.5).
+
+**Site**
+- The book's version under the site title
+- Hover cards on section links, glossary terms and model names
+- Enlarge and Open in new tab buttons on every diagram
 
 ## 2.1 — 1 October 2026
 

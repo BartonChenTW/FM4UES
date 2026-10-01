@@ -41,7 +41,7 @@ flowchart TD
 | 2.4.5 | [— Geospatial & weather FMs](2-4-5-geospatial-weather-fms.html) | [GraphCast](../appendices/d-model-index.html#graphcast), [Prithvi](../appendices/d-model-index.html#prithvi), and relevance to urban microclimate |
 | 2.5 | [What does not exist yet](2-5-what-does-not-exist-yet.html) | The gaps this book is written into |
 | 2.6 | [Self-supervised pretraining, fine-tuning, scaling laws](2-6-scaling-laws.html) | ML basics for readers without an ML background |
-| 2.7 | [Architectures: transformers, GNNs, neural operators](2-7-architectures.html) | ML basics, continued |
+| 2.7 | [Architectures: transformers, GNNs, neural operators](2-7-architectures.html) | ML basics, continued; how multimodal models combine several kinds of data |
 | 2.8 | [Surrogates vs foundation models](2-8-surrogates-vs-fms.html) | The contrast UES readers already understand half of |
 | 2.9 | [Evaluation criteria for UES foundation models](2-9-ues-fm-evaluation-criteria.html) | Seven dimensions for judging a UES-FM proposal beyond the generic three-property test |
 

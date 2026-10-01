@@ -16,9 +16,9 @@ last_reviewed: 2026-09-29
 
 ---
 
-## Already committed and well-justified
+## Most promising near-term, limited by data licensing
 
-- **Metadata-conditioned load FM** — cross-attending meter time series with building-register attributes and household survey covariates (on why meter data and household attributes are entangled, see [§3.10](../chapter-3-sim-opt/3-10-social-dimensions.html#data-shapes)). Mature tooling (efficient time-series FMs as baselines — see [§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html)), EnergyBench as anchor dataset ([§3.2](../chapter-3-sim-opt/3-2-building-simulation-data.html)), simulator-paired labels (e.g. from CESAR-P) as differentiator.
+- **Metadata-conditioned load FM** — cross-attending meter time series with building-register attributes and household survey covariates (on why meter data and household attributes are entangled, see [§3.10](../chapter-3-sim-opt/3-10-social-dimensions.html#data-shapes)). Mature tooling (efficient time-series FMs as baselines — see [§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html)), EnergyBench as anchor dataset ([§3.2](../chapter-3-sim-opt/3-2-building-simulation-data.html)), simulator-paired labels (e.g. from CESAR-P) as differentiator. The method is within reach; the limitation is data. Meter readings paired with building and household attributes are usually held under licences that restrict pooling them into a shared training corpus, and measured data rarely comes paired with building attributes in the first place ([§3.2](../chapter-3-sim-opt/3-2-building-simulation-data.html)).
 
 ## Novel intersections, in rough order of tractability
 
@@ -29,4 +29,4 @@ last_reviewed: 2026-09-29
 5. **Retrofit and whole-life-carbon FM** — given a building, propose measure combinations scored on cost, operational and embodied emissions ([§3.9](../chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html)). Listed last because it needs both the building representation of [G8](../chapter-6-outlook/6-1-open-gaps.html#g8) and the decision-space representation of [G9](../chapter-6-outlook/6-1-open-gaps.html#g9). Its training data is generable — a stock simulator on one side, LCA impact factors on the other — but the quantity take-off linking the two is archetype-approximated.
 
 ---
-[← Previous: 4.7 Reading the Screen](4-7-reading-the-screen.html) · [Next: 4.9 Methods by Problem Class →](4-9-methods-landing.html)
+[← Previous: 4.7 Reading the Screen](4-7-reading-the-screen.html) · [Next: 4.9 A Proposed Development Path →](4-9-methods-landing.html)

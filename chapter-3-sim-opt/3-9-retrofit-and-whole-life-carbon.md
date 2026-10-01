@@ -46,7 +46,7 @@ Operational energy is only part of a building's emissions. The European standard
 | :--- | :--- | :--- | :--- |
 | A — product and construction | A1–A3 raw materials, transport, manufacturing; A4–A5 transport to site, construction | Embodied | LCA database or EPD |
 | B — use | B1–B5 use, maintenance, repair, replacement, refurbishment | Embodied | LCA database or EPD |
-| | **B6 operational energy use**; B7 operational water use | Operational | **B6 is the output of T1 / T4** |
+| B — use | **B6 operational energy use**; B7 operational water use | Operational | **B6 is the output of T1 / T4** |
 | C — end of life | C1–C4 deconstruction, transport, waste processing, disposal | Embodied | LCA database |
 | D — beyond the system boundary | Reuse, recovery and recycling potential | Reported separately | LCA database |
 

@@ -242,3 +242,21 @@ than text.
 *Compiled from working conversations. Nothing here is peer-reviewed; the
 numbered risks, unresolved questions, and venue/coalition notes are the
 parts most likely to change or go stale.*
+
+---
+
+## Publication format (moved from §4.10.4, 2026-10-03)
+
+Moved here from the public §4.10 because it is paper-writing strategy rather than a survey of how to build a model.
+
+### Publication format follows from the budget (original text)
+
+The same logic applies to papers. For a novel concept with limited empirical results, three formats are available:
+
+- **Pure empirical** — a benchmark, a baseline, a measurement. Safe with reviewers; low ceiling. Competent and rarely cited.
+- **Pure concept / position** — argument only. High ceiling, but at an engineering venue it reads as a proposal unless it does real analytical work: a criterion others can apply, a taxonomy with consequences, falsifiable predictions, a benchmark specification.
+- **Anchored concept paper (recommended)** — argument-led, with one demonstrative empirical result. Roughly three-quarters argument, one-quarter evidence. The argument carries the paper; a single result converts the central claim from assertion to demonstration.
+
+The anchored format matches the budget reality above: it does not depend on a trained model existing by the deadline, and it fails gracefully — if training slips, the paper still stands; if it succeeds, a results subsection is added without restructuring.
+
+**Audience translation is part of the format choice.** Writing FM concepts for a domain audience means introducing every ML idea through its domain counterpart ([§2.3.1](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#231-the-criterion) does this with discretisation), avoiding unexplained vocabulary, and including a short glossary. The test: if a paragraph requires ML background to parse, rewrite it.

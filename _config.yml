@@ -23,6 +23,7 @@ mermaid:
 
 # Files kept in the repo but not built into the site
 exclude:
+  - scripts/
   - TODO.md
   - outline.md
   - log.md

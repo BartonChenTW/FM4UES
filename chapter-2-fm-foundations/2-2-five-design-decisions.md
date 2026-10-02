@@ -16,11 +16,11 @@ last_reviewed: 2026-09-11
 
 ---
 
-Every foundation model, in any domain, is defined by five choices. Getting these explicit is most of the intellectual work.
+Every [foundation model](../appendices/a-glossary.html#foundation-model), in any domain, is defined by five choices. Getting these explicit is most of the intellectual work.
 
 ## D1 — Unit of observation
 
-What is *one training example*? Language: a token sequence. Vision: a patch grid. Weather: a gridded state at time t.
+What is *one training example*? Language: a token sequence. Vision: a [patch](../appendices/a-glossary.html#patch) grid. Weather: a gridded state at time t.
 
 For energy systems this is genuinely unresolved for planning models, and only obvious for some operational ones. Candidates at system level:
 
@@ -36,14 +36,14 @@ Listing candidates is not the same as choosing between them. [§2.3 Choosing a B
 
 How is a training example turned into something the architecture consumes?
 
-**A useful framing for domain readers:** tokenisation is a discretisation choice. Every simulation begins by deciding what the object is made of — zones, nodes, cells — and that choice fixes what the model can represent, what it must approximate, and how well it carries to a different case. A learned model faces the identical decision. This analogy is the most effective way to explain the problem to a building simulation or energy systems audience, because they have argued about discretisation for decades.
+**A useful framing for domain readers:** [tokenisation](../appendices/a-glossary.html#tokenisation) is a discretisation choice. Every simulation begins by deciding what the object is made of — zones, nodes, cells — and that choice fixes what the model can represent, what it must approximate, and how well it carries to a different case. A learned model faces the identical decision. This analogy is the most effective way to explain the problem to a building simulation or energy systems audience, because they have argued about discretisation for decades.
 
 This is where domain-specific difficulty concentrates. Evidence from adjacent fields:
 
-- **Float-heavy data** needs purpose-built handling; [GridFM-v0](../appendices/d-model-index.html#gridfm) adopts a specially designed float discretisation-and-tokenisation scheme, adapted from vision-language-action models, so that a transformer can process float-rich grid state alongside text.[^hamann2024foundation]
+- **Float-heavy data** needs purpose-built handling; [GridFM-v0](../appendices/d-model-index.html#gridfm) adopts a specially designed float discretisation-and-tokenisation scheme, adapted from vision-language-action models, so that a [transformer](../appendices/a-glossary.html#transformer) can process float-rich grid state alongside text.[^hamann2024foundation]
 - **Structured codes** break standard schemes: subword tokenisation optimised for natural language fails to capture the hierarchical and compositional structure of structured medical codes, and dedicated tokenisation recovers measurable performance.[^dwivedi2024unistruct]
 - **Multi-domain data** risks structural loss: tokenisation strategies that combine incompatible spatial discretisations risk losing physical adjacency and introducing aliasing effects in attention layers.[^kaselimi2026coupling]
-- **Multi-resolution data** needs explicit handling: [Moirai](../appendices/d-model-index.html#moirai) pairs a multi-patch-size projection scheme handling minute-to-year-scale data with an any-variate attention mechanism that scales to arbitrary numbers of variables.[^woo2024moirai]
+- **Multi-resolution data** needs explicit handling: [Moirai](../appendices/d-model-index.html#moirai) pairs a multi-patch-size projection scheme handling minute-to-year-scale data with an [any-variate attention](../appendices/a-glossary.html#any-variate-attention) mechanism that scales to arbitrary numbers of variables.[^woo2024moirai]
 
 **A representation is not one decision but at least four**, and this framing recurs whenever this book proposes a concrete representation (see [§5.2](../chapter-5-case-study/5-2-representation-problem.html)):
 
@@ -51,20 +51,20 @@ This is where domain-specific difficulty concentrates. Evidence from adjacent fi
 | :--- | :--- | :--- | :--- | :--- |
 | LLM | Subword token | 1D sequence position | Discrete, ~50–200 k vocab | None; order is meaning |
 | [ViT](../appendices/d-model-index.html#vit)[^dosovitskiy2020vit] / [SAM](../appendices/d-model-index.html#sam)[^kirillov2023sam] | 16×16 patch, linearly projected | 2D grid position | Continuous | Weak translation |
-| [TimesFM](../appendices/d-model-index.html#timesfm) / PatchTST[^nie2023patchtst] / [TTM](../appendices/d-model-index.html#ttm)[^ekambaram2024ttm] | Patch of N consecutive values, instance-normalised | 1D position | Continuous | Scale, via normalisation |
+| [TimesFM](../appendices/d-model-index.html#timesfm) / [PatchTST](../appendices/d-model-index.html#patchtst)[^nie2023patchtst] / [TTM](../appendices/d-model-index.html#ttm)[^ekambaram2024ttm] | Patch of N consecutive values, instance-normalised | 1D position | Continuous | Scale, via normalisation |
 | [Chronos](../appendices/d-model-index.html#chronos)[^ansari2024chronos] | A quantized value bin | 1D sequence | Discrete codebook | Scale |
 | [GraphCast](../appendices/d-model-index.html#graphcast)[^lam2023graphcast] / [Aurora](../appendices/d-model-index.html#aurora)[^bodnar2025aurora] | Grid cell, all variables at all pressure levels | Icosahedral multi-mesh | Continuous | Spherical geometry |
 | GridFM-v0[^hamann2024foundation] | A bus carrying (p, q, v, δ) | Graph; lines and transformers as edges | Continuous | Permutation over buses |
 
 ## D3 — Architecture
 
-Transformer, graph neural network, neural operator, state-space model, or hybrid. Determined largely by what structure the data has (sequence? graph? function?). See [§2.7](2-7-architectures.html) for what each of these architecture families actually does, aimed at readers without an ML background.
+Transformer, graph neural network, [neural operator](../appendices/a-glossary.html#neural-operator), state-space model, or hybrid. Determined largely by what structure the data has (sequence? graph? function?). See [§2.7](2-7-architectures.html) for what each of these architecture families actually does, aimed at readers without an ML background.
 
 **State-space models** are the one family [§2.7](2-7-architectures.html) does not cover, and they matter here for a specific reason: they process a sequence in time linear in its length rather than quadratic, by carrying a recurrent state instead of attending to every pair of positions.[^gu2022s4] Selective state-space models make that state input-dependent, recovering much of the modelling power attention provides.[^gu2023mamba] The relevance to this domain is the seasonal-storage problem — an 8760-hour year at hourly resolution is long enough that quadratic attention cost is a real constraint (see the timescale table in [§4.9.1](../chapter-4-directions/4-9-1-methods-tier1.html)). **What this does not resolve** is the multi-carrier coupling that motivates cross-variate attention in the first place: a cheaper way to handle length says nothing about how carriers exchange information, so the two decisions have to be made separately.
 
 ## D4 — Pretraining objective
 
-Next-step prediction, masked reconstruction, supervised imitation of a solver, or self-supervised contrastive. For simulation surrogates this is usually supervised regression on solver output; for sequence models, next-token or next-patch prediction. See [§2.6](2-6-scaling-laws.html) for what "self-supervised" means in practice.
+Next-step prediction, masked reconstruction, supervised imitation of a solver, or [self-supervised](../appendices/a-glossary.html#self-supervised-pretraining) contrastive. For simulation [surrogates](../appendices/a-glossary.html#surrogate) this is usually supervised regression on solver output; for sequence models, next-token or next-patch prediction. See [§2.6](2-6-scaling-laws.html) for what "self-supervised" means in practice.
 
 ## D5 — Evaluation
 

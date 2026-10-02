@@ -27,7 +27,7 @@ Conventional supervised learning needs a human (or a solver) to label every trai
 
 Two common patterns:
 
-- **Masking.** Hide a random subset of the input (a word in a sentence, a patch in an image, a bus's state in a grid) and train the model to reconstruct it from context. This is how [GridFM-v0](../appendices/d-model-index.html#gridfm) pretrains — see [§2.4.2](2-4-2-power-grid-fms.html).
+- **Masking.** Hide a random subset of the input (a word in a sentence, a [patch](../appendices/a-glossary.html#patch) in an image, a bus's state in a grid) and train the model to reconstruct it from context. This is how [GridFM-v0](../appendices/d-model-index.html#gridfm) pretrains — see [§2.4.2](2-4-2-power-grid-fms.html).
 - **Next-step / autoregressive prediction.** Show the model a prefix and train it to predict what comes next (the next word, the next timestep). This is how [Chronos](../appendices/d-model-index.html#chronos) and most language models pretrain.
 
 The point of self-supervision is not that it is free — pretraining runs are large and expensive in compute — but that it removes the *labelling* bottleneck, which lets pretraining scale to enormous, broad, cheaply-collected datasets in a way that supervised learning on hand-labelled data cannot.
@@ -37,7 +37,7 @@ In this book's domain, simulators are an alternative to both: a simulator can ge
 
 ## Fine-tuning
 
-Fine-tuning takes a pretrained model and adjusts it — usually with a comparatively small amount of additional, task-specific data — so that it performs well on a narrower target. The pretrained weights are not thrown away; they are the starting point, and typically only a modest number of additional gradient updates are needed to specialise.
+[Fine-tuning](../appendices/a-glossary.html#fine-tuning) takes a pretrained model and adjusts it — usually with a comparatively small amount of additional, task-specific data — so that it performs well on a narrower target. The pretrained weights are not thrown away; they are the starting point, and typically only a modest number of additional gradient updates are needed to specialise.
 
 **The domain analogy that works well here:** fine-tuning is comparable to calibrating a general model against local measurements. A building simulation model built from generic assumptions about materials and occupancy becomes more accurate for one specific building once it is calibrated against a few months of that building's actual meter data. Fine-tuning is the same move applied to a learned model: the broad pretraining supplies general structure, and a small amount of local data adapts it.
 
@@ -46,7 +46,7 @@ Two adaptation regimes worth distinguishing:
 - **Full fine-tuning** updates all of the model's parameters. Most accurate, most compute, and the risk of forgetting general capability while over-fitting to the small local set.
 - **Parameter-efficient fine-tuning (PEFT)**, such as LoRA (Low-Rank Adaptation, which injects small trainable rank-decomposition matrices into each layer instead of updating the full weight matrices),[^hu2021lora] updates only a small additional set of parameters while freezing the pretrained ones. Cheaper, faster, and the usual practical choice at modest compute budgets — see [§4.9.1](../chapter-4-directions/4-9-1-methods-tier1.html) for where this is recommended in this book's build paths.
 
-**Zero-shot** means using the pretrained model on a new instance with no additional training at all — the strongest form of transfer, and the first thing worth trying before any fine-tuning effort (see [§4.1](../chapter-4-directions/4-1-off-the-shelf-fms.html)).
+**[Zero-shot](../appendices/a-glossary.html#zero-shot)** means using the pretrained model on a new instance with no additional training at all — the strongest form of transfer, and the first thing worth trying before any fine-tuning effort (see [§4.1](../chapter-4-directions/4-1-off-the-shelf-fms.html)).
 
 ## Scaling laws
 
@@ -56,7 +56,7 @@ A scaling law is an empirical relationship between a model's size (or its traini
 
 Time-series foundation models are a directly relevant recent example: [Toto 2.0](../appendices/d-model-index.html#toto-2-0) is reported as the first time-series model to demonstrate classic scaling-law behaviour, with a single training recipe producing reliable forecast-quality improvements across a 625× range of model size (4M to 2.5B parameters).[^khwaja2026toto2] That this needed demonstrating, and was notable when it was, is itself informative — scaling behaviour in a new data modality is a finding, not an assumption.
 
-**And "scale" does not only mean parameters.** An empirical study on commercial building energy consumption, spanning architectures from RNNs through fine-tuned open-source foundation models, reports that dataset heterogeneity and model architecture affected post-training forecasting performance more than parameter count did — isolated by comparing two curated ComStock subsets identical in size and region but differing in building-type diversity.[^bose2024rnnstofm] For this book that reframes the planning question in [§4.10.1](../chapter-4-directions/4-10-building-it.html#4101-data-generation-and-sampling-design): the open question for urban energy systems is not "how large a model" but **what kind of diversity in the training distribution actually produces transferable knowledge** — which is a sampling-design decision, made before any model is trained, not a budget decision made after.
+**And "scale" does not only mean parameters.** An empirical study on commercial building energy consumption, spanning architectures from RNNs through fine-tuned open-source [foundation models](../appendices/a-glossary.html#foundation-model), reports that dataset heterogeneity and model architecture affected post-training forecasting performance more than parameter count did — isolated by comparing two curated ComStock subsets identical in size and region but differing in building-type diversity.[^bose2024rnnstofm] For this book that reframes the planning question in [§4.10.1](../chapter-4-directions/4-10-building-it.html#4101-data-generation-and-sampling-design): the open question for urban energy systems is not "how large a model" but **what kind of diversity in the training distribution actually produces transferable knowledge** — which is a sampling-design decision, made before any model is trained, not a budget decision made after.
 
 [^khwaja2026toto2]: Khwaja, E., Lettieri, C., Woo, G. et al. (2026). [Toto 2.0: Time series forecasting enters the scaling era](https://arxiv.org/abs/2605.20119). arXiv:2605.20119.
 [^kaplan2020scaling]: Kaplan, J., McCandlish, S., Henighan, T. et al. (2020). [Scaling laws for neural language models](https://arxiv.org/abs/2001.08361). arXiv:2001.08361.

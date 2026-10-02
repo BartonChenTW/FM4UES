@@ -26,7 +26,7 @@ Do not build one model. Build an encoder stack, a pretraining task suite, and a 
 | Demand encoder | Building and district load profiles | Off-the-shelf time-series FM encoders plug in directly (see [§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html), [§4.1](../chapter-4-directions/4-1-off-the-shelf-fms.html)) |
 | Weather and climate encoder | Irradiance, temperature, climate years | Adapt a geospatial FM (see [§2.4.5](../chapter-2-fm-foundations/2-4-5-geospatial-weather-fms.html)) |
 | Technology encoder | Device class and parameters | Needs building — a device vocabulary (see [§5.5.1](5-5-token-schema.html#551-token-schema)) |
-| Topology encoder | The bipartite hub graph | Heterogeneous graph transformer, GridFM-adjacent (see [§2.7](../chapter-2-fm-foundations/2-7-architectures.html), [§4.9.2](../chapter-4-directions/4-9-2-methods-tier2.html)) |
+| Topology encoder | The bipartite hub graph | Heterogeneous graph [transformer](../appendices/a-glossary.html#transformer), GridFM-adjacent (see [§2.7](../chapter-2-fm-foundations/2-7-architectures.html), [§4.9.2](../chapter-4-directions/4-9-2-methods-tier2.html)) |
 | Market and policy encoder | Tariffs, carbon price, regulatory constraints | Needs building |
 
 ## Pretraining tasks (self-supervised, no solver labels)

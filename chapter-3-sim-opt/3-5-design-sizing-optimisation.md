@@ -28,7 +28,7 @@ outer:  choose capacities x  →  minimise  investment(x) + operating_cost(x)
 inner:                              operating_cost(x) = min over dispatch, subject to physics
 ```
 
-The inner problem — dispatch, from [§3.4](3-4-dispatch-optimisation.html) — is called once per candidate design. With evolutionary or many-objective outer search, that is 10³–10⁶ dispatch solves. **This is the single most expensive loop in the domain and the clearest justification for surrogate and foundation-model work.**
+The inner problem — dispatch, from [§3.4](3-4-dispatch-optimisation.html) — is called once per candidate design. With evolutionary or many-objective outer search, that is 10³–10⁶ dispatch solves. **This is the single most expensive loop in the domain and the clearest justification for [surrogate](../appendices/a-glossary.html#surrogate) and foundation-model work.**
 
 ## The amortisation argument
 
@@ -36,7 +36,7 @@ The inner problem — dispatch, from [§3.4](3-4-dispatch-optimisation.html) —
 
 Building a training set costs *N* simulator runs. If *N* = 10,000 and each run takes a minute, that is roughly a week of compute before anything is returned. A surrogate for **one** system used within **one** study rarely repays this — which is precisely why the existing multi-energy surrogate literature is bespoke, small-data and discarded at project end (see [§2.8](../chapter-2-fm-foundations/2-8-surrogates-vs-fms.html)).
 
-A foundation model changes the arithmetic: the cost is paid once, across a distribution of systems, and amortised over every subsequent study. Formally, it pays back when
+A [foundation model](../appendices/a-glossary.html#foundation-model) changes the arithmetic: the cost is paid once, across a distribution of systems, and amortised over every subsequent study. Formally, it pays back when
 
 ```
 N_train × t_sim  <  Σ over future studies ( N_evaluations × t_sim )
@@ -45,7 +45,7 @@ N_train × t_sim  <  Σ over future studies ( N_evaluations × t_sim )
 **Corollary that matters institutionally:** this is also the succession argument. A model that speeds up every future study creates ongoing dependence, which is the strongest mechanism by which research infrastructure survives its author.
 
 {: .warning }
-**Caveat.** The arithmetic only holds if the model actually transfers. Amortisation assumes reuse across systems, and reuse depends on the basic element satisfying [§2.3.1](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#231-the-criterion). Where it does not, what looks like a foundation model is a collection of memorised cases and the payback never arrives. **Check the representation before running the amortisation calculation.**
+**Caveat.** The arithmetic only holds if the model actually transfers. Amortisation assumes reuse across systems, and reuse depends on the [basic element](../appendices/a-glossary.html#basic-element) satisfying [§2.3.1](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#231-the-criterion). Where it does not, what looks like a foundation model is a collection of memorised cases and the payback never arrives. **Check the representation before running the amortisation calculation.**
 
 ## Where this is developed further
 

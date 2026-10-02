@@ -16,23 +16,23 @@ last_reviewed: 2026-09-11
 
 ---
 
-Not exhaustive, but covering the families you will meet. The point of this table is that **each family produces a different data structure**, which determines what a foundation model could consume.
+Not exhaustive, but covering the families you will meet. The point of this table is that **each family produces a different data structure**, which determines what a [foundation model](../appendices/a-glossary.html#foundation-model) could consume.
 
 | Family | Representative tools | Task coverage | Output structure |
 | :--- | :--- | :--- | :--- |
 | **Building simulation** | EnergyPlus, TRNSYS, IDA-ICE, ESP-r | T1, T7 | time series per zone/building |
 | **UBEM** | CitySim, UMI, SimStadt, TEASER, CityBES, City Energy Analyst, CESAR-P | T1, T2 | building-resolved time series + geometry |
-| **Equation-based dynamic** | Modelica (Buildings, IBPSA, DisHeatLib), Dymola, OpenModelica | T1, T6, T7 | DAE trajectories, high resolution |
+| **Equation-based dynamic** | Modelica (Buildings, IBPSA, DisHeatLib), Dymola, OpenModelica | T1, T6, T7 | [DAE](../appendices/a-glossary.html#dae) trajectories, high resolution |
 | **District/urban platforms** | PyCity, City Energy Analyst, eNeuron | T1, T4, T6 | multi-building energy flows |
 | **Energy-system optimisation** | oemof, Calliope, PyPSA, SpineOpt, TIMES/MARKAL, EnergyPLAN, OSeMOSYS | T4, T5, T8 | dispatch + capacity decisions |
 | **Energy-hub / multi-carrier** | ehubX, eNeuron, hub formulations in Calliope/oemof | T4, T5 | carrier-resolved dispatch |
 | **Power system** | pandapower, PowerModels, MATPOWER,[^zimmerman2011matpower] PyPSA[^brown2018pypsa] | T4, T6 | bus/line-resolved states |
-| **Co-simulation** | FMI/FMU, mosaik, HELICS | cross-task | coupled trajectories |
+| **[Co-simulation](../appendices/a-glossary.html#co-simulation)** | FMI/FMU, mosaik, HELICS | cross-task | coupled trajectories |
 
 A taxonomic review of co-simulation practice for buildings and smart energy systems surveys exactly this landscape of coupled, tool-spanning approaches.[^alfalouji2023cosimulation] The distinction that matters for foundation models: **integrated** approaches (one solver, one formulation) produce coherent single-object outputs, while **co-simulation** approaches (separate sub-models exchanging data at a coupling interface) produce multiple loosely-coupled streams.
 
 {: .note }
-A second and more consequential way to read this table is **by the basic element each family commits to** — whole building, thermal zone, component, node/bus, or time series. That grouping, not the tool family, determines what a foundation model trained on the output can transfer. See [§2.3 Choosing a Basic Element](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html).
+A second and more consequential way to read this table is **by the [basic element](../appendices/a-glossary.html#basic-element) each family commits to** — whole building, thermal zone, component, node/bus, or time series. That grouping, not the tool family, determines what a foundation model trained on the output can transfer. See [§2.3 Choosing a Basic Element](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html).
 
 ## MATPOWER as the reference point
 

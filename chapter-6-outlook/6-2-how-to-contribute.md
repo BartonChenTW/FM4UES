@@ -16,7 +16,7 @@ last_reviewed: 2026-09-11
 
 ---
 
-This is a living knowledge base — corrections, references, and new sections are welcome from anyone in the urban energy systems (UES) or foundation model (FM) communities. Full contribution mechanics (issue templates, style notes, the references workflow) live in `CONTRIBUTING.md` in the repository root; this page summarises where a contribution is most likely to land well, given the structure of this book.
+This is a living knowledge base — corrections, references, and new sections are welcome from anyone in the urban energy systems (UES) or [foundation model](../appendices/a-glossary.html#foundation-model) (FM) communities. Full contribution mechanics (issue templates, style notes, the references workflow) live in `CONTRIBUTING.md` in the repository root; this page summarises where a contribution is most likely to land well, given the structure of this book.
 
 ## Where a contribution is likely to matter most
 

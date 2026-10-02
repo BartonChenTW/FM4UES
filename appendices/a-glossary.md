@@ -38,7 +38,7 @@ redirect_from: /appendix-a-glossary.html
 | **MILP**{: #milp} | Mixed-integer linear program — LP plus discrete decisions |
 | **Multimodality**{: #multimodality} | A model's ability to take in or produce more than one kind of data (*modality*), such as text, images, time series or building attributes, and to learn how they relate. Usually done by encoding each modality separately and combining them with [cross-attention](#cross-attention). Explained with a worked example in [§2.7](../chapter-2-fm-foundations/2-7-architectures.html#multimodal-models) |
 | **Neural operator**{: #neural-operator} | Network learning mappings between function spaces rather than finite vectors. See [§2.7](../chapter-2-fm-foundations/2-7-architectures.html) |
-| **Patch**{: #patch} | A contiguous block of timesteps treated as one token |
+| **Patch**{: #patch} | A contiguous block of input treated as one token: consecutive timesteps in a time series, or a square of pixels in an image |
 | **PFN (prior-data fitted network)**{: #pfn-prior-data-fitted-network} | Model pretrained across a distribution of synthetic tasks so that conditioning on a context approximates Bayesian inference under the learned prior |
 | **Retrofit measure**{: #retrofit-measure} | One intervention on an existing building — envelope insulation, window replacement, heating-system replacement, PV — chosen from a shared library but constrained per building. See [§3.9](../chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html) |
 | **ROM**{: #rom} | Reduced-order model — compresses high-dimensional state to a latent manifold |

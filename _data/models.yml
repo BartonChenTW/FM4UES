@@ -321,6 +321,22 @@
     - "https://huggingface.co/nvidia/Kumo-Forecast"
   notes: "The book mentions it only in chapter 1.4, with no citation. Introduced in an NVIDIA developer blog post on 6 May 2025. The project has since been renamed Kumo-TS - github.com/NVIDIA/NV-Tesseract and huggingface.co/nvidia/nv-tesseract-forecasting now redirect to NVIDIA/Kumo-TS and nvidia/Kumo-Forecast (open weights released 7 Apr 2026 per the model card). The HF card cites two IEEE papers (ieeexplore 11402442, 11402385) that were not verified, so paper is left empty."
 
+- id: "patchtst"
+  name: "PatchTST"
+  full_name: "PatchTST"
+  family: "General time series"
+  developer: "Princeton University and IBM Research"
+  year: 2022
+  description: "Transformer forecaster that splits each series into patches used as input tokens, and models each channel independently."
+  url: "https://github.com/yuqinie98/PatchTST"
+  paper: "https://arxiv.org/abs/2211.14730"
+  bib_key: "nie2023patchtst"
+  sources:
+    - "https://export.arxiv.org/api/query?id_list=2211.14730"
+    - "https://arxiv.org/html/2211.14730"
+    - "https://github.com/yuqinie98/PatchTST"
+  notes: "Not pretrained across domains; listed because the book names it as the origin of patch tokens."
+
 # --- Energy ---
 - id: "gridfm"
   name: "GridFM"
@@ -415,6 +431,35 @@
     - "https://arxiv.org/html/2502.10307"
     - "https://github.com/surya-ravindra06/SPIRIT-Official"
   notes: ">- Repo is a personal account; it is the code link printed in the paper. The README says the work was accepted at the AAAI 2026 Workshop on AI for Environmental Science (the bib entry gives no venue). The full_name capitalisation follows the arXiv title."
+
+- id: "buildingsbench"
+  name: "BuildingsBench"
+  full_name: "BuildingsBench"
+  family: "Energy"
+  developer: "National Renewable Energy Laboratory (NREL)"
+  year: 2023
+  description: "Benchmark of 900,000 simulated U.S. buildings with pretrained transformer load forecasters, evaluated zero-shot on over 1,900 real buildings."
+  url: "https://github.com/NREL/BuildingsBench"
+  paper: "https://arxiv.org/abs/2307.00142"
+  bib_key: "emami2023buildingsbench"
+  sources:
+    - "https://export.arxiv.org/api/query?id_list=2307.00142"
+    - "https://github.com/NREL/BuildingsBench"
+  notes: "A dataset and benchmark as well as models."
+
+- id: "lg-hgnn"
+  name: "LG-HGNN"
+  full_name: "Heterogeneous graph neural network with local and global message passing"
+  family: "Energy"
+  developer: "Guangdong Power Grid Electric Power Research Institute and South China University of Technology"
+  year: 2026
+  description: "Graph neural network for AC optimal power flow that combines type-specific local message passing with global attention over bus nodes."
+  url: ""
+  paper: "https://doi.org/10.3390/asi9010018"
+  bib_key: "wen2026lghgnn"
+  sources:
+    - "https://api.crossref.org/works/10.3390/asi9010018"
+  notes: "No public code found. Not a foundation model; named in section 4.9.2 as a design example."
 
 # --- Weather and geospatial ---
 - id: "graphcast"
@@ -620,3 +665,75 @@
     - "https://arxiv.org/html/2410.13848"
     - "https://github.com/deepseek-ai/Janus"
   notes: ">- The repo now hosts the whole Janus series (Janus, JanusFlow, Janus-Pro)."
+- id: "clip"
+  name: "CLIP"
+  full_name: "Contrastive Language-Image Pre-training"
+  family: "Vision and multimodal"
+  developer: "OpenAI"
+  year: 2021
+  description: "Image and text encoders trained together to predict which caption goes with which image, on 400 million pairs, enabling zero-shot image classification."
+  url: "https://github.com/openai/CLIP"
+  paper: "https://arxiv.org/abs/2103.00020"
+  bib_key: "radford2021clip"
+  sources:
+    - "https://export.arxiv.org/api/query?id_list=2103.00020"
+    - "https://proceedings.mlr.press/v139/radford21a.html"
+    - "https://github.com/openai/CLIP"
+  notes: ""
+
+# --- Language ---
+- id: "gpt-5"
+  name: "GPT-5"
+  full_name: "GPT-5"
+  family: "Language"
+  developer: "OpenAI"
+  year: 2025
+  description: "OpenAI's GPT-5 family of large language models."
+  url: "https://platform.openai.com/docs/models/gpt-5"
+  paper: "https://cdn.openai.com/gpt-5-system-card.pdf"
+  bib_key: ""
+  sources:
+    - "https://cdn.openai.com/gpt-5-system-card.pdf"
+    - "https://platform.openai.com/docs/models/gpt-5"
+  notes: "No paper; the system card is dated 13 August 2025."
+- id: "gemini"
+  name: "Gemini"
+  full_name: "Gemini"
+  family: "Language"
+  developer: "Google DeepMind"
+  year: 2023
+  description: "Family of multimodal models (Ultra, Pro and Nano at launch) that handle image, audio, video and text."
+  url: "https://deepmind.google/technologies/gemini/"
+  paper: "https://arxiv.org/abs/2312.11805"
+  bib_key: ""
+  sources:
+    - "https://export.arxiv.org/api/query?id_list=2312.11805"
+    - "https://deepmind.google/technologies/gemini/"
+  notes: ""
+- id: "claude"
+  name: "Claude"
+  full_name: "Claude"
+  family: "Language"
+  developer: "Anthropic"
+  year: 2023
+  description: "Anthropic's family of large language models, first introduced in March 2023."
+  url: "https://www.anthropic.com/news/introducing-claude"
+  paper: ""
+  bib_key: ""
+  sources:
+    - "https://www.anthropic.com/news/introducing-claude"
+  notes: "Introduced 14 March 2023."
+- id: "llama"
+  name: "Llama"
+  full_name: "LLaMA"
+  family: "Language"
+  developer: "Meta AI"
+  year: 2023
+  description: "Meta's family of openly released language models; the first release ranged from 7B to 65B parameters, trained only on public data."
+  url: "https://github.com/meta-llama/llama"
+  paper: "https://arxiv.org/abs/2302.13971"
+  bib_key: ""
+  sources:
+    - "https://export.arxiv.org/api/query?id_list=2302.13971"
+    - "https://github.com/meta-llama/llama"
+  notes: ""

@@ -29,7 +29,7 @@ Applying the five criteria from [§4.5](4-5-screening-fields.html) to the modell
 | T7 Control | ◐ | ◐ | ✔ | ✔ real-time | ◐ | Moderate — RL territory |
 | T8 Scenario/pathway | ✘ no ground truth | ✘ | ✔ | ✔ | ✘ | **Weak** — representation problem lives here instead |
 | T9 Impact assessment | ✔ | ✔ | ◐ | ✘ | ✔ | Weak — no bottleneck |
-| T10 Retrofit | ◐ simulator + LCA data per candidate; optimum needs a solver | ◐ shared measure library, instance-specific constraints | ✔ many buildings | ✔ combinatorial loop over T1 | ◐ per-candidate outcomes yes; "best plan" depends on objectives | **Promising, representation-blocked** — see [§4.7](4-7-reading-the-screen.html) |
+| T10 Retrofit | ◐ simulator + [LCA](../appendices/a-glossary.html#lca) data per candidate; optimum needs a solver | ◐ shared measure library, instance-specific constraints | ✔ many buildings | ✔ combinatorial loop over T1 | ◐ per-candidate outcomes yes; "best plan" depends on objectives | **Promising, representation-blocked** — see [§4.7](4-7-reading-the-screen.html) |
 | T11 Behaviour/adoption | ✘ no simulator of people; observational only | ◐ | ✔ many households | ◐ Monte Carlo over seeds and scenarios | ◐ one observed history; equity is normative | **Weak as an FM target** — LLMs as bounded tools instead (see [§4.7](4-7-reading-the-screen.html)) |
 
 ---

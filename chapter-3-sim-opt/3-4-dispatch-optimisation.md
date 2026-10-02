@@ -18,7 +18,7 @@ last_reviewed: 2026-09-11
 
 ## The problem
 
-Given a fixed system configuration — devices, capacities, topology — and boundary conditions (weather, demand, prices, carbon intensity), decide how the system should run: device outputs, storage states, imports/exports, cost, emissions (T4 in [§3.1](3-1-taxonomy-of-tasks.html)). Usually formulated as a linear program (LP) if conversion efficiencies are linear and no on/off decisions are needed, or a mixed-integer linear program (MILP) once unit commitment, minimum part-load, or discrete states enter.
+Given a fixed system configuration — devices, capacities, topology — and boundary conditions (weather, demand, prices, carbon intensity), decide how the system should run: device outputs, storage states, imports/exports, cost, emissions (T4 in [§3.1](3-1-taxonomy-of-tasks.html)). Usually formulated as a linear program (LP) if conversion efficiencies are linear and no on/off decisions are needed, or a mixed-integer linear program ([MILP](../appendices/a-glossary.html#milp)) once unit commitment, minimum part-load, or discrete states enter.
 
 This is the workhorse task of the domain: it is the inner object called repeatedly by design optimisation (T5, [§3.5](3-5-design-sizing-optimisation.html)), control (T7), and scenario analysis (T8).
 
@@ -32,7 +32,7 @@ This is the workhorse task of the domain: it is the inner object called repeated
 - **Static covariates** = installed capacities, efficiencies, storage sizes
 - **Target** = operational trajectory
 
-This is a well-studied shape in machine learning — see [§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html) for the foundation models that already target exactly this shape. Framed this way, dispatch as a learning target means choosing and adapting an architecture, not inventing one.
+This is a well-studied shape in machine learning — see [§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html) for the [foundation models](../appendices/a-glossary.html#foundation-model) that already target exactly this shape. Framed this way, dispatch as a learning target means choosing and adapting an architecture, not inventing one.
 
 **Why this matters for the amortisation argument.** Because dispatch is called so many times inside outer loops (design search, scenario evaluation, uncertainty quantification), even a modest per-call speedup compounds. This is where the amortisation argument first becomes concrete: paying a one-off training cost to replace a repeatedly-called solver call with a learned approximation. The full arithmetic, and its caveats, is developed in [§3.5](3-5-design-sizing-optimisation.html) and revisited for the case study in [Chapter 5](../chapter-5-case-study/index.html).
 

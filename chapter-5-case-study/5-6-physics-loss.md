@@ -18,7 +18,7 @@ last_reviewed: 2026-09-11
 
 Applying the general physics-enforcement mechanisms from [§4.10.2](../chapter-4-directions/4-10-building-it.html#4102-enforcing-physics) to the token schema of [§5.5](5-5-token-schema.html), the physics loss for this representation covers:
 
-- Per-carrier nodal balance at every bus and patch
+- Per-carrier nodal balance at every bus and [patch](../appendices/a-glossary.html#patch)
 - Conversion relations, `out = η(part-load, boundary conditions) × in`, with temperature-dependent COP
 - Storage continuity with self-discharge and cyclic / seasonal boundary conditions
 - Capacity, ramp, and minimum-uptime bounds

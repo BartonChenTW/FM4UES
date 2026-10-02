@@ -30,13 +30,13 @@ Building energy simulation (T1 in [§3.1](3-1-taxonomy-of-tasks.html)) produces,
 
 ## Datasets and benchmarks
 
-- **BuildingsBench** (NREL) — a large-scale dataset of 900K buildings and benchmark for short-term load forecasting, derived from NREL's End-Use Load Profiles database.[^emami2023buildingsbench] Provides profiles without paired ground-truth building attributes, which limits its use for representation studies specifically (see the limitation below) while making it a strong forecasting benchmark in its own right.
+- **[BuildingsBench](../appendices/d-model-index.html#buildingsbench)** (NREL) — a large-scale dataset of 900K buildings and benchmark for short-term load forecasting, derived from NREL's End-Use Load Profiles database.[^emami2023buildingsbench] Provides profiles without paired ground-truth building attributes, which limits its use for representation studies specifically (see the limitation below) while making it a strong forecasting benchmark in its own right.
 - **EnergyBench** (AI-IoT Lab, IISc Bangalore) — a Hugging Face dataset release of roughly 78,000 real buildings (commercial and residential) plus synthetic tiers, around 1.26 billion hourly electricity-consumption readings, CC-BY-SA-4.0.[^energybench]
 - **ResStock / ComStock** (NREL) — large-scale, physics-based housing and commercial building stock models producing simulated hourly load data with full building metadata, widely used as pretraining or benchmarking corpora for building-stock-scale work (see [§4.2](../chapter-4-directions/4-2-fms-for-building-stocks.html)).
 - **CESAR-P** (Empa) — a dynamic urban building energy simulation tool used as a simulator-grounded data generator, producing building-attribute-to-load-profile pairs.[^orehounig2022cesarp]
 
 {: .important }
-**The sample-granularity trap.** EnergyBench's ~78,000 buildings can be read as ~28 million samples (building-days), 78,000 samples (building-years), or roughly 200 samples (district-years) depending on what you call one example — identical underlying data, entirely different regime. The first supports pretraining; the third supports fine-tuning at best. This decision alone can determine whether a corpus is viable for a given training objective, and it recurs directly in the case study's token-schema design (see [§5.5](../chapter-5-case-study/5-5-token-schema.html)).
+**The sample-granularity trap.** EnergyBench's ~78,000 buildings can be read as ~28 million samples (building-days), 78,000 samples (building-years), or roughly 200 samples (district-years) depending on what you call one example — identical underlying data, entirely different regime. The first supports pretraining; the third supports [fine-tuning](../appendices/a-glossary.html#fine-tuning) at best. This decision alone can determine whether a corpus is viable for a given training objective, and it recurs directly in the case study's token-schema design (see [§5.5](../chapter-5-case-study/5-5-token-schema.html)).
 
 ## The core limitation: measured data without attributes
 

@@ -26,7 +26,7 @@ How to represent carriers whose characteristic times span minutes to seasons in 
 
 ### G2 — Cross-configuration transfer for multi-energy operation {#g2}
 
-Existing surrogates are bespoke; no work tailors the ML procedure to multi-energy properties, and small-data regimes dominate. Power systems has made this move ([§2.4.2](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html)); multi-carrier urban systems have not.
+Existing [surrogates](../appendices/a-glossary.html#surrogate) are bespoke; no work tailors the ML procedure to multi-energy properties, and small-data regimes dominate. Power systems has made this move ([§2.4.2](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html)); multi-carrier urban systems have not.
 
 ### G3 — Constrained state variables over long horizons {#g3}
 
@@ -56,7 +56,7 @@ No building decomposition satisfies the four requirements of [§2.3.1](../chapte
 
 ### G9 — Representing a decision space alongside a state space {#g9}
 
-Every existing energy foundation model represents what a system *is* or *does*. None represents what could be *done to it* — the discrete, combinatorial, constraint-bound space of possible interventions. This is required for any FM targeting retrofit, investment or design support (Tier 3, [§4.9.3](../chapter-4-directions/4-9-3-methods-tier3.html)), has no counterpart in the grid literature to borrow from, and is the least developed question in this book. See also [§4.4 Generative Design](../chapter-4-directions/4-4-generative-design.html), and [§3.9](../chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html) for the domain side: how retrofit measures are chosen today and how embodied carbon enters the trade-off.
+Every existing energy foundation model represents what a system *is* or *does*. None represents what could be *done to it* — the discrete, combinatorial, constraint-bound space of possible interventions. This is required for any FM targeting retrofit, investment or design support (Tier 3, [§4.9.3](../chapter-4-directions/4-9-3-methods-tier3.html)), has no counterpart in the grid literature to borrow from, and is the least developed question in this book. See also [§4.4 Generative Design](../chapter-4-directions/4-4-generative-design.html), and [§3.9](../chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html) for the domain side: how [retrofit measures](../appendices/a-glossary.html#retrofit-measure) are chosen today and how embodied carbon enters the trade-off.
 
 [^lin2024tsfmbuilding]: Lin, X., Prabowo, A., Razzak, I. et al. (2024). [Exploring capabilities of time series foundation models in building analytics](https://arxiv.org/abs/2411.08888). arXiv:2411.08888.
 [^shin2019zoning]: Shin, M., Haberl, J. S. (2019). [Thermal zoning for building HVAC design and energy simulation: A literature review](https://doi.org/10.1016/j.enbuild.2019.109429). *Energy and Buildings*, 203, 109429.

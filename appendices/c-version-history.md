@@ -11,16 +11,24 @@ last_reviewed: 2026-10-02
 
 {% include page-status.html %}
 
-This book is revised continuously, so there are two ways to trace what changed:
+These notes are revised continuously, so there are two ways to trace what changed:
 
 - **Every page** has a *Page history* link under its title. It opens the list of every change made to that page on GitHub, with the date, the author and the exact edit.
-- **The whole book** is released in numbered versions, listed below. Each one is a tagged [GitHub Release](https://github.com/BartonChenTW/FM4UES/releases), so you can open the book exactly as it stood at that version. Cite a version number when you need a citation to point at fixed text.
+- **The notes as a whole** are released in numbered versions, listed below. Each one is a tagged [GitHub Release](https://github.com/BartonChenTW/FM4UES/releases), so you can open the notes exactly as they stood at that version. Cite a version number when you need a citation to point at fixed text.
 
-**Numbering.** A new major version (2.0, 3.0) means the book was restructured: chapters or section numbers changed. A new minor version (2.1, 2.2) means new sections, substantial rewrites, or new site features, with existing section numbers kept. Corrections and new citations between versions are not numbered separately; the page history records them.
+**Numbering.** A new major version (2.0, 3.0) means the notes were restructured: chapters or section numbers changed. A new minor version (2.1, 2.2) means new sections, substantial rewrites, or new site features, with existing section numbers kept. Corrections and new citations between versions are not numbered separately; the page history records them.
 
 "Last reviewed" on each page is a separate signal. It is set by hand when someone has checked the page's content, so it can be older than the page's most recent edit.
 
 ---
+
+## 2.3 — 2 October 2026
+
+Renamed from a "working textbook" to **Working Notes**, which describes the project more accurately: a record of learning the field, sourced but not peer-reviewed. Section numbers and URLs are unchanged.
+
+- The site description, home page, README, sidebar and contribution guide now call the project working notes. [§1.6](../chapter-1-background/1-6-scope-and-how-to-use.html) opens with "What these notes are", which says where the notes argue for something of their own.
+- Every glossary term and every model in the [model index](d-model-index.html) is now linked from its first mention on each page. The model index grew from 39 to 47 entries, with PatchTST, BuildingsBench, LG-HGNN, CLIP and the language models named in §1.3.
+- The glossary's "Patch" now covers image patches as well as timesteps.
 
 ## 2.2 — 2 October 2026
 
@@ -36,14 +44,14 @@ This book is revised continuously, so there are two ways to trace what changed:
 - §3.1 retitled "Modelling Tasks and Their Mathematical Structure", with a note for task T3
 - §4.1's case for testing existing models first, rewritten in plain terms
 - §4.8 states the actual status of the metadata-conditioned load model: promising, limited by data licensing
-- §4.9 renamed "A Proposed Development Path" and marked as the book's own proposal rather than part of the survey
+- §4.9 renamed "A Proposed Development Path" and marked as the notes' own proposal rather than part of the survey
 - §4.11's component table colour-codes each layer's maturity
 - Labels defined on one page (R1–R4, G7) are spelled out where other pages use them
 
 **Corrections.** Prithvi-SWIN-L is no longer cited to a paper about a different model (§1.3, §2.4.5).
 
 **Site**
-- The book's version under the site title
+- The version number under the site title
 - Hover cards on section links, glossary terms and model names
 - Enlarge and Open in new tab buttons on every diagram
 

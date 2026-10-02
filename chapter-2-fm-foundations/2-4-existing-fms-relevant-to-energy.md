@@ -30,7 +30,7 @@ This section surveys [foundation models](../appendices/a-glossary.html#foundatio
 - [2.4.5 — Geospatial & weather foundation models](2-4-5-geospatial-weather-fms.html)
 - [2.4.6 — Load & smart-meter forecasting foundation models](2-4-6-load-forecasting-fms.html) (mature for aggregated load)
 
-Read together with [§2.5](2-5-what-does-not-exist-yet.html), which states what does **not** exist yet among these families — the gap this book is written into.
+Read together with [§2.5](2-5-what-does-not-exist-yet.html), which states what does **not** exist yet among these families — the gap these notes are written into.
 
 ---
 [← Previous: 2.3 Choosing a Basic Element](2-3-choosing-a-basic-element.html) · [Next: 2.4.1 Time-Series FMs →](2-4-1-time-series-fms.html)

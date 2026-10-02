@@ -11,7 +11,7 @@ last_reviewed: 2026-10-01
 
 {% include page-status.html %}
 
-Every named model the book discusses, with who built it, what it is, and where to find it. Hover over a model's name anywhere in the book to see the same card. Each fact is taken from the model's paper or its official page; the page that discusses a model carries the full citation in its footnotes.
+Every named model the notes discuss, with who built it, what it is, and where to find it. Hover over a model's name anywhere in the notes to see the same card. Each fact is taken from the model's paper or its official page; the page that discusses a model carries the full citation in its footnotes.
 
 1. TOC
 {:toc}

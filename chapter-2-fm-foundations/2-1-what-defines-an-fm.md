@@ -17,7 +17,7 @@ redirect_from: /02-fm-fundamentals.html
 
 ---
 
-The term was coined to describe models trained on broad data at scale that can be adapted to a wide range of downstream tasks.[^bommasani2021opportunities] The pattern has since been surveyed at length across text, image, graph and other modalities.[^zhou2023pfmsurvey] This book uses three properties, all required, as the operational version of that idea:
+The term was coined to describe models trained on broad data at scale that can be adapted to a wide range of downstream tasks.[^bommasani2021opportunities] The pattern has since been surveyed at length across text, image, graph and other modalities.[^zhou2023pfmsurvey] These notes use three properties, all required, as the operational version of that idea:
 
 1. **Pretrained on a broad distribution**, not on the single instance it will be used on.
 2. **Transfers** — it is useful on instances it has never seen, [zero-shot](../appendices/a-glossary.html#zero-shot) or with light adaptation.

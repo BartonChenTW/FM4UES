@@ -37,7 +37,7 @@ Order-of-magnitude brackets on typical runtimes in this domain. The spread is th
 
 Three things converged only recently:
 
-1. **The recipe has been validated in an adjacent, structurally similar domain.** Power-grid foundation models now exist,[^hamann2024foundation] demonstrating that a physical network domain with hard constraints can support the foundation-model pattern. This is the single most important reference point for this book — see [§2.4.2](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html).
+1. **The recipe has been validated in an adjacent, structurally similar domain.** Power-grid foundation models now exist,[^hamann2024foundation] demonstrating that a physical network domain with hard constraints can support the foundation-model pattern. This is the single most important reference point for these notes — see [§2.4.2](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html).
 2. **Time-series foundation models have matured to production grade.** Off-the-shelf [zero-shot](../appendices/a-glossary.html#zero-shot) forecasting is now a viable starting point rather than a research artefact — see [§4.1](../chapter-4-directions/4-1-off-the-shelf-fms.html).
 3. **Simulation tooling for this domain is mature enough to act as a cheap, unlimited label generator.** Building energy simulation, UBEM, and energy-hub optimisation tools (surveyed in [Chapter 3](../chapter-3-sim-opt/index.html)) can synthesise arbitrarily large, fully-labelled training corpora — something real measured data essentially never offers in this domain (see [§3.2](../chapter-3-sim-opt/3-2-building-simulation-data.html)).
 
@@ -46,4 +46,4 @@ What has **not** converged yet is a [basic element](../appendices/a-glossary.htm
 [^hamann2024foundation]: Hamann, H. F., Gjorgiev, B., Brunschwiler, T. et al. (2024). [Foundation models for the electric power grid](https://doi.org/10.1016/j.joule.2024.11.002). *Joule*, 8(12), 3245–3258.
 
 ---
-[← Previous: 1.4 Directions the Field Is Moving](1-4-fm-field-directions.html) · [Next: 1.6 Scope of This Book →](1-6-scope-and-how-to-use.html)
+[← Previous: 1.4 Directions the Field Is Moving](1-4-fm-field-directions.html) · [Next: 1.6 Scope of These Notes →](1-6-scope-and-how-to-use.html)

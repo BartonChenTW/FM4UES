@@ -1,8 +1,8 @@
 # Contributing
 
-📖 Read the book: **https://bartonchentw.github.io/FM4UES/**
+📖 Read the notes: **https://bartonchentw.github.io/FM4UES/**
 
-This is a living, open-contribution knowledge base — started by
+These are living, open-contribution working notes — started by
 [Barton Chen](https://github.com/BartonChenTW), but corrections, references,
 and new sections are welcome from anyone in the urban energy systems (UES)
 or foundation model (FM) communities.
@@ -37,7 +37,7 @@ from the file's "Edit" (pencil) button.
   enough) and a one-line note on which section it belongs to. See
   [references/](references/) for how the bibliography is organised.
 - **Propose a new section or restructuring** — open an issue first to
-  discuss scope before writing, since this book has an explicit outline
+  discuss scope before writing, since these notes have an explicit outline
   (chapters are numbered and cross-referenced).
 - **Fix a typo or small wording issue** — a pull request directly is fine,
   no need to open an issue first.
@@ -148,15 +148,15 @@ backlog.
 Contributors don't need to do anything here. Every page links to its own
 change history automatically, from `_includes/page-status.html`.
 
-The maintainer releases a numbered version of the whole book from time to
+The maintainer releases a numbered version of the notes as a whole from time to
 time. The numbering rule is in
 [Appendix C](appendices/c-version-history.md): a new major version means a
 restructure, and a new minor version means new sections or site features.
 To release:
 
 1. In a pull request, add the version's entry at the top of
-   `appendices/c-version-history.md`. Update `book_version` and
-   `book_version_date` in `_config.yml` (the sidebar and home page read
+   `appendices/c-version-history.md`. Update `notes_version` and
+   `notes_version_date` in `_config.yml` (the sidebar and home page read
    them) and the version line in `README.md`'s Status section.
 2. After it merges, tag the merge commit on `main` and publish a GitHub
    Release with the same notes:

@@ -1,6 +1,6 @@
 title: Foundation Models for Urban Energy Systems
 description: >-
-  A working textbook on what gets simulated in urban energy systems,
+  Working notes on what gets simulated in urban energy systems,
   what could plausibly be learned by a foundation model, and how to build it.
 baseurl: "/FM4UES"
 url: ""
@@ -38,13 +38,13 @@ exclude:
 back_to_top: true
 back_to_top_text: "Back to top"
 
-footer_content: "Working textbook, actively revised. Corrections and additions welcome via issue or PR."
+footer_content: "Working notes, actively revised. Corrections and additions welcome via issue or PR."
 
-# Current book version, shown under the site title in the sidebar
+# Current version of the notes, shown under the site title in the sidebar
 # (_includes/title.html) and on the home page. Change it here, and in
 # README.md's Status section, when releasing a version (CONTRIBUTING.md).
-book_version: "2.2"
-book_version_date: "2 October 2026"
+notes_version: "2.3"
+notes_version_date: "2 October 2026"
 
 # Source repository: just-the-docs uses these for the "Edit this page on
 # GitHub" footer link, and _includes/page-status.html uses them for each

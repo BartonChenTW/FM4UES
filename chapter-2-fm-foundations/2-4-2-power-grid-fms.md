@@ -19,7 +19,7 @@ last_reviewed: 2026-09-11
 
 The power-systems community has already made the move this document is about. Grid foundation models for benchmarking AC-OPF [surrogate](../appendices/a-glossary.html#surrogate) learning now exist,[^hamann2024foundation] alongside work on scaling laws of machine learning for optimal power flow,[^liu2026scalingopf] and work on data scaling laws for multi-task electric energy system intelligence with limited [fine-tuning](../appendices/a-glossary.html#fine-tuning).[^liu2025multitask]
 
-**This is the single most important reference point.** It means (a) the concept is validated, and (b) the analogous work for urban *multi-carrier* systems is conspicuously absent — which is the gap this book's [case study in Chapter 5](../chapter-5-case-study/index.html) addresses.
+**This is the single most important reference point.** It means (a) the concept is validated, and (b) the analogous work for urban *multi-carrier* systems is conspicuously absent — which is the gap these notes' [case study in Chapter 5](../chapter-5-case-study/index.html) addresses.
 
 {: .note }
 Read together with [§2.3.1](2-3-choosing-a-basic-element.html#231-the-criterion): what makes this domain tractable is not that power systems had more data, but that the bus supplies a [basic element](../appendices/a-glossary.html#basic-element) satisfying all four requirements. Sub-domains without such an element should not expect the same recipe to work.

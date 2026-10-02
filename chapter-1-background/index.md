@@ -20,7 +20,7 @@ flowchart LR
     B["1.2 FMs in one page"] --> E
     C["1.3 The FM landscape by domain"] --> E
     D["1.4 Directions the field is moving"] --> E
-    E --> F["1.6 Scope and how to use this book"]
+    E --> F["1.6 Scope and how to use these notes"]
 ```
 
 ## In this chapter
@@ -32,7 +32,7 @@ flowchart LR
 | 1.3 | [The FM landscape today, by domain](1-3-fm-landscape-by-domain.html) | Where foundation models exist across language, vision, weather, time series, graphs |
 | 1.4 | [Directions the FM field is moving](1-4-fm-field-directions.html) | Maturing time-series models, scaling laws, efficiency, synthetic pretraining |
 | 1.5 | [Why UES, why now](1-5-why-ues-why-now.html) | The cost argument for bringing FMs to this domain |
-| 1.6 | [Scope of this book and how to use it](1-6-scope-and-how-to-use.html) | What the book does and does not try to do |
+| 1.6 | [Scope of these notes and how to use them](1-6-scope-and-how-to-use.html) | What the notes do and do not try to do |
 
 ---
 [Back to Home](../index.html) · [Next: Chapter 2 — Foundation Knowledge of FMs →](../chapter-2-fm-foundations/index.html)

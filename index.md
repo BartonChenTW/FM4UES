@@ -7,11 +7,14 @@ nav_order: 1
 # Foundation Models for Urban Energy Systems
 {: .fs-9 }
 
-A working textbook: what gets simulated, what could be learned, and how to build it.
+Working notes: what gets simulated, what could be learned, and how one might build it.
 {: .fs-6 .fw-300 }
 
-[Version {{ site.book_version }} — {{ site.book_version_date }}](appendices/c-version-history.html)
+[Version {{ site.notes_version }} — {{ site.notes_version_date }}](appendices/c-version-history.html)
 {: .label }
+
+These are notes from a learning process: written while working out what foundation models could do for urban energy systems, and shared in case they help others doing the same. Every claim cites a checkable source and is open to correction, but nothing here is peer-reviewed.
+{: .fs-4 }
 
 Initiated by [Barton Chen](https://github.com/BartonChenTW) from the [Urban Energy Systems Lab](https://www.empa.ch/web/s313) at [Empa](https://www.empa.ch/) — open for anyone to contribute. See [how to contribute](chapter-6-outlook/6-2-how-to-contribute.html). Most content was drafted and edited with AI assistance under Barton Chen's direction and review.
 {: .fs-3 }
@@ -23,7 +26,7 @@ Drafted and edited with AI assistance (Claude Opus 5 and Claude Sonnet 5, Anthro
 
 ## How to use this document
 
-This is written for someone who knows urban energy systems well and machine learning less well (or vice versa). It has four jobs:
+These notes are written for someone who knows urban energy systems well and machine learning less well (or vice versa). They have four jobs:
 
 1. **Map the domain** — what actually gets modelled and simulated in urban energy systems, what mathematical object each task is, and which tools do it.
 2. **Give the FM toolkit** — the conceptual grounding needed to judge any foundation-model proposal, including basic ML concepts for readers without that background.
@@ -32,7 +35,7 @@ This is written for someone who knows urban energy systems well and machine lear
 
 **If you read only one page**, read [Choosing a Basic Element](chapter-2-fm-foundations/2-3-choosing-a-basic-element.html) (§2.3) — it gives the criterion for deciding whether a foundation model is viable in a sub-domain at all, before any question of architecture or compute.
 
-The **[proposed development path](chapter-4-directions/4-9-methods-landing.html)** (§4.9) is the book's own proposal, set apart from the surrounding survey: three tiers of increasing difficulty (single-hub dispatch → multi-hub multi-carrier dispatch → design and sizing optimisation), each with a concrete build path.
+The **[proposed development path](chapter-4-directions/4-9-methods-landing.html)** (§4.9) is the notes' own proposal, set apart from the surrounding survey: three tiers of increasing difficulty (single-hub dispatch → multi-hub multi-carrier dispatch → design and sizing optimisation), each with a concrete build path.
 
 {: .warning }
 **The field moves fast.** Publication counts on LLM-and-energy alone went from roughly 1 (2022) to 13 (2023) to 128 (2024) to 464 (2025), with 348 already indexed in the first half of 2026 (a Scopus search run 11 July 2026 — query and source in [§1.3](chapter-1-background/1-3-fm-landscape-by-domain.html)). Re-check anything that reads as a landscape or novelty claim before it is used to justify a proposal or paper.
@@ -52,4 +55,4 @@ The **[proposed development path](chapter-4-directions/4-9-methods-landing.html)
 | — | [Glossary](appendices/a-glossary.html) | Plain-language definitions of every ML term used |
 | — | [Pre-Project Checklist](appendices/b-checklist.html) | Thirteen questions to ask before starting |
 | — | [Version History](appendices/c-version-history.html) | What changed in each version; how to trace changes to a page |
-| — | [Model Index](appendices/d-model-index.html) | Every named model in the book, with developer and links |
+| — | [Model Index](appendices/d-model-index.html) | Every named model in the notes, with developer and links |

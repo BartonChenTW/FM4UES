@@ -27,7 +27,7 @@ The reason this family matured early is worth stating plainly, because it is the
 
 **Solar.** **[SPIRIT](../appendices/d-model-index.html#spirit)** addresses the cold-start case — a new PV farm with no operating history, where the conventional approach needs five or more years of site-specific irradiance data — and reports roughly 70% improvement over prior state of the art in zero-shot transfer, improving further with [fine-tuning](../appendices/a-glossary.html#fine-tuning) as local data accumulates.[^mishra2025spirit] A complementary result takes the opposite route: rather than a domain-pretrained model, it generates a *synthetic* production history from plant metadata and weather covariates, then conditions general-purpose [TSFMs](../appendices/a-glossary.html#tsfm) on it at inference time. Across 440 PV sites in four climate regimes, covariate-aware general models ([TabPFN-TS](../appendices/d-model-index.html#tabpfn-ts), [Chronos-2](../appendices/d-model-index.html#chronos-2) — see [§2.4.1](2-4-1-time-series-fms.html)) beat classical baselines by 1.7–2×, and performance was largely insensitive to which generator produced the synthetic history.[^longarini2026coldstart]
 
-That last finding is the useful one for this book's purposes: what mattered was the availability of plausible temporal context, not the fidelity of the thing that produced it.
+That last finding is the useful one for these notes' purposes: what mattered was the availability of plausible temporal context, not the fidelity of the thing that produced it.
 
 ## What this family does not settle
 

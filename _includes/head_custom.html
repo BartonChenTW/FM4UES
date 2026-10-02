@@ -35,7 +35,7 @@
 {%- comment -%}
   Open external links in a new tab, leaving internal navigation alone.
 
-  Why a script rather than editing every link: the book's citations are
+  Why a script rather than editing every link: the notes' citations are
   Markdown footnotes written as [Title](https://doi.org/...), and Markdown
   has no syntax for target="_blank". Adding raw <a target="_blank"> to each
   of the ~90 external links would make the source far less readable and be
@@ -44,7 +44,7 @@
 
   Internal links (chapter pages, anchors, the glossary) deliberately stay
   in the same tab -- opening a new tab for each step of normal navigation
-  through the book would litter the reader's tab bar.
+  through the notes would litter the reader's tab bar.
 
   rel="noopener noreferrer" is set alongside target="_blank": without
   noopener, the opened page gets a reference to this one via window.opener

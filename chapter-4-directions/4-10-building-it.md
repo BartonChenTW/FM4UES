@@ -70,7 +70,7 @@ Notes from practice:
 - Physics-informed approaches embedding multi-physics dynamic constraints in the loss enable physically consistent solutions with limited training samples and improve accuracy under sparse data — a valuable property when simulator runs are expensive.[^karniadakis2021piml]
 - Feasibility-restoration layers are an active area; repair layers for networks with hard constraints are being developed as reusable components.[^chu2026snarenet]
 
-**Recommendation for multi-carrier energy systems:** architectural enforcement of per-carrier energy balance (make the outputs sum correctly by construction), plus soft penalties for inequality constraints, plus a projection step if hard feasibility is required downstream. See also [§5.6](../chapter-5-case-study/5-6-physics-loss.html) for the physics-loss inventory attached to this book's specific case-study representation.
+**Recommendation for multi-carrier energy systems:** architectural enforcement of per-carrier energy balance (make the outputs sum correctly by construction), plus soft penalties for inequality constraints, plus a projection step if hard feasibility is required downstream. See also [§5.6](../chapter-5-case-study/5-6-physics-loss.html) for the physics-loss inventory attached to these notes' specific case-study representation.
 
 ## 4.10.3 Evaluation protocol
 

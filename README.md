@@ -1,13 +1,15 @@
-# Foundation Models for Urban Energy Systems — A Working Textbook
+# Foundation Models for Urban Energy Systems — Working Notes
 
-**📖 Read it here: https://bartonchentw.github.io/FM4UES/**
+**📖 Read online: https://bartonchentw.github.io/FM4UES/**
 
-A working textbook on what gets simulated in urban energy systems, what could plausibly be
+Working notes on what gets simulated in urban energy systems, what could plausibly be
 learned by a foundation model, and how to build it. Written for someone who knows urban
 energy systems well and machine learning less well.
 
-**An open, community-editable textbook.** Started by [Barton Chen](https://github.com/BartonChenTW)
-as its initiator and current maintainer, but the intent is that anyone in the UES or FM
+These are notes from a learning process: written while working out what foundation models could do for urban energy systems, and shared in case they help others doing the same. Every claim cites a checkable source and is open to correction, but nothing here is peer-reviewed.
+
+**Open, community-editable notes.** Started by [Barton Chen](https://github.com/BartonChenTW)
+as their initiator and current maintainer, but the intent is that anyone in the UES or FM
 communities can contribute — corrections, references, new sections. Contributions go
 through a pull request (fork → branch → PR); see [`CONTRIBUTING.md`](CONTRIBUTING.md) for
 the full guide.
@@ -18,7 +20,7 @@ against source material, and final sign-off are his. Citations are meant to trac
 checkable sources (see the references workflow in `CONTRIBUTING.md`); if you spot a claim
 that doesn't, please flag it via issue.
 
-**Read it as Markdown instead:** every page is a plain `.md` file in this repo, starting at
+**Read them as Markdown instead:** every page is a plain `.md` file in this repo, starting at
 [`index.md`](index.md).
 
 ## Structure
@@ -30,7 +32,7 @@ One page per section, nested by chapter using just-the-docs' `parent:` /
 | Folder / file | Contents |
 | :--- | :--- |
 | `index.md` | Landing page and table of contents |
-| `chapter-1-background/` | §1.1–1.6 — what a UES contains, FMs in one page, the FM landscape, why UES/why now, scope of the book |
+| `chapter-1-background/` | §1.1–1.6 — what a UES contains, FMs in one page, the FM landscape, why UES/why now, scope of the notes |
 | `chapter-2-fm-foundations/` | §2.1–2.9 — what defines an FM, the five design decisions, **Choosing a Basic Element** (the core argument), existing FMs relevant to energy, ML basics (self-supervision, transformers, GNNs, neural operators), surrogates vs FMs, evaluation criteria for UES FMs |
 | `chapter-3-sim-opt/` | §3.1–3.10 — modelling tasks and their mathematical structure, building simulation data, the energy hub formalism, dispatch and design/sizing optimisation as ML problems, the tool landscape, schemas, where cost lives, building retrofit and whole-life carbon, social dimensions (behaviour, adoption, energy poverty and justice) |
 | `chapter-4-directions/` | §4.1–4.11 — a neutral survey: off-the-shelf FMs, building-stock FMs, LLM agents for simulation, generative design, screening, candidate sub-fields, a proposed three-tier development path (§4.9, the one non-survey section), building it, and how the pieces could fit together as an ecosystem |
@@ -41,7 +43,7 @@ One page per section, nested by chapter using just-the-docs' `parent:` /
 
 ## Status
 
-Version 2.2 (2 October 2026) — actively revised. Each version is a tagged
+Version 2.3 (2 October 2026) — actively revised. Each version is a tagged
 [GitHub Release](https://github.com/BartonChenTW/FM4UES/releases), summarised in
 [Appendix C](appendices/c-version-history.md). Each page on the site links to its own
 change history. Corrections and additions welcome via issue or pull request.

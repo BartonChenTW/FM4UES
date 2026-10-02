@@ -13,7 +13,7 @@ last_reviewed: 2026-09-11
 {% include page-status.html %}
 
 {: .note }
-Tier 1 of the book's proposed development path toward a multi-carrier [foundation model](../appendices/a-glossary.html#foundation-model) ([§4.9](4-9-methods-landing.html)): a proposal, not a survey of established practice.
+Tier 1 of the notes' proposed development path toward a multi-carrier [foundation model](../appendices/a-glossary.html#foundation-model) ([§4.9](4-9-methods-landing.html)): a proposal, not a survey of established practice.
 
 1. TOC
 {:toc}

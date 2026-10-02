@@ -31,11 +31,11 @@ This is the **foundation model** (FM) recipe: broad pretraining, transfer to new
 
 ## Why this matters for a domain expert
 
-Three consequences follow directly from the recipe, and they are the reason this book exists:
+Three consequences follow directly from the recipe, and they are the reason these notes exist:
 
 1. **The unit of learning changes.** A foundation model needs something to pretrain on that is plentiful, comparable across instances, and assembles into whole systems — a *[basic element](../appendices/a-glossary.html#basic-element)*. Text has the word/subword token; images have the patch; power grids have the bus. Finding (or failing to find) this element for a given domain is the central technical question, not an implementation detail. [Chapter 2](../chapter-2-fm-foundations/index.html) develops this in full.
 
-2. **The economics change.** A model trained once and reused across many future studies has a fundamentally different cost structure from a bespoke model trained and discarded within a single project. This is the amortisation argument that recurs throughout the book (see [§3.4](../chapter-3-sim-opt/3-4-dispatch-optimisation.html) and [Chapter 5](../chapter-5-case-study/index.html)).
+2. **The economics change.** A model trained once and reused across many future studies has a fundamentally different cost structure from a bespoke model trained and discarded within a single project. This is the amortisation argument that recurs throughout the notes (see [§3.4](../chapter-3-sim-opt/3-4-dispatch-optimisation.html) and [Chapter 5](../chapter-5-case-study/index.html)).
 
 3. **What "understanding" means changes.** A foundation model does not need to be told the equations governing a system to produce useful output — it infers regularities from data. This is powerful where equations are known but expensive to solve (a plausible substitute), and risky where the model must extrapolate beyond what it has seen, because nothing forces it to respect physics it was never shown examples of. [§15](../chapter-5-case-study/5-6-physics-loss.html) and related sections return to how this risk is managed.
 

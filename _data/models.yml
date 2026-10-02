@@ -1,4 +1,4 @@
-# Named models in the book: the source for Appendix D (appendices/d-model-index.md)
+# Named models in the notes: the source for Appendix D (appendices/d-model-index.md)
 # and for the hover cards on model links (_includes/footnote-tooltip.html).
 # Every field comes from the model's paper or official page; `sources` lists
 # the pages checked. Leave a field empty rather than guess. Entries were
@@ -35,7 +35,7 @@
     - "https://huggingface.co/amazon/chronos-bolt-base"
     - "https://github.com/amazon-science/chronos-forecasting"
     - "https://aws.amazon.com/blogs/machine-learning/fast-and-accurate-zero-shot-forecasting-with-chronos-bolt-and-autogluon/"
-  notes: "The book does not mention Chronos-Bolt anywhere (no chapter text, footnote or bib entry). No dedicated paper exists; it is documented in the HF model card, the Chronos README (released 26 Nov 2024) and an AWS blog post dated 2 Dec 2024. Sizes 9M-205M parameters."
+  notes: "The notes do not mention Chronos-Bolt anywhere (no chapter text, footnote or bib entry). No dedicated paper exists; it is documented in the HF model card, the Chronos README (released 26 Nov 2024) and an AWS blog post dated 2 Dec 2024. Sizes 9M-205M parameters."
 - id: "chronos-2"
   name: "Chronos-2"
   full_name: "Chronos-2"
@@ -81,7 +81,7 @@
   sources:
     - "https://huggingface.co/google/timesfm-2.5-200m-pytorch"
     - "https://github.com/google-research/timesfm"
-  notes: "No dedicated paper; the repo README announces the release (15 Sept 2025) and lists the 200M/16k/quantile-head details, with XReg covariate support added 29 Oct 2025. The book's chapter 5.4 footnote cites das2024timesfm (the 2023/2024 original paper) and says the 2.5 details come from the repository, not the paper."
+  notes: "No dedicated paper; the repo README announces the release (15 Sept 2025) and lists the 200M/16k/quantile-head details, with XReg covariate support added 29 Oct 2025. The notes' chapter 5.4 footnote cites das2024timesfm (the 2023/2024 original paper) and says the 2.5 details come from the repository, not the paper."
 - id: "moirai"
   name: "Moirai"
   full_name: "Masked Encoder-based Universal Time Series Forecasting Transformer"
@@ -129,7 +129,7 @@
     - "https://www.nature.com/articles/s41586-024-08328-6"
     - "https://github.com/PriorLabs/TabPFN"
     - "https://huggingface.co/Prior-Labs/TabPFN-v2-reg"
-  notes: "Book spells it \"TabPFN v2\" (also \"TabPFN-v2\"). Nature lists Machine Learning Lab, University of Freiburg (most authors) and Prior Labs, plus ELLIS Institute Tübingen, Charité Berlin and Freiburg Medical Center. Published online 8 Jan 2025. The description wording (millions of synthetic datasets, in-context learning, a separate representation per cell, two-way attention) was checked against the nature.com article text."
+  notes: "The notes spell it \"TabPFN v2\" (also \"TabPFN-v2\"). Nature lists Machine Learning Lab, University of Freiburg (most authors) and Prior Labs, plus ELLIS Institute Tübingen, Charité Berlin and Freiburg Medical Center. Published online 8 Jan 2025. The description wording (millions of synthetic datasets, in-context learning, a separate representation per cell, two-way attention) was checked against the nature.com article text."
 - id: "tabpfn-ts"
   name: "TabPFN-TS"
   full_name: "TabPFN for Time Series"
@@ -178,7 +178,7 @@
     - "https://arxiv.org/html/2407.07874"
     - "https://github.com/DataDog/toto"
     - "https://huggingface.co/Datadog/Toto-Open-Base-1.0"
-  notes: "First released as a Datadog technical report, arXiv:2407.07874 (10 Jul 2024), hence year 2024. The book cites the 2025 open-weights paper (arXiv:2505.14766, Datadog AI Research), which also introduces the BOOM benchmark. The bib note records the earlier report."
+  notes: "First released as a Datadog technical report, arXiv:2407.07874 (10 Jul 2024), hence year 2024. The notes cite the 2025 open-weights paper (arXiv:2505.14766, Datadog AI Research), which also introduces the BOOM benchmark. The bib note records the earlier report."
 - id: "toto-2-0"
   name: "Toto 2.0"
   full_name: "Toto 2.0"
@@ -224,7 +224,7 @@
     - "https://www.nixtla.io/blog/timegpt-2-announcement"
     - "https://www.nixtla.io/blog/timegpt-2-1-announcement"
     - "https://github.com/Nixtla/nixtla"
-  notes: "The book mentions it only in chapter 1.4, with no citation. No paper or architecture details are public; the announcement (14 Oct 2025) was a private preview. TimeGPT-2.1 (multivariate) was announced 10 Dec 2025. Nixtla's own claims (e.g. \"up to 60% accuracy improvement\") were deliberately left out of the description."
+  notes: "The notes mention it only in chapter 1.4, with no citation. No paper or architecture details are public; the announcement (14 Oct 2025) was a private preview. TimeGPT-2.1 (multivariate) was announced 10 Dec 2025. Nixtla's own claims (e.g. \"up to 60% accuracy improvement\") were deliberately left out of the description."
 - id: "lag-llama"
   name: "Lag-Llama"
   full_name: "Lag-Llama"
@@ -319,7 +319,7 @@
     - "https://developer.nvidia.com/blog/new-nvidia-nv-tesseract-time-series-models-advance-dataset-processing-and-anomaly-detection"
     - "https://github.com/NVIDIA/Kumo-TS"
     - "https://huggingface.co/nvidia/Kumo-Forecast"
-  notes: "The book mentions it only in chapter 1.4, with no citation. Introduced in an NVIDIA developer blog post on 6 May 2025. The project has since been renamed Kumo-TS - github.com/NVIDIA/NV-Tesseract and huggingface.co/nvidia/nv-tesseract-forecasting now redirect to NVIDIA/Kumo-TS and nvidia/Kumo-Forecast (open weights released 7 Apr 2026 per the model card). The HF card cites two IEEE papers (ieeexplore 11402442, 11402385) that were not verified, so paper is left empty."
+  notes: "The notes mention it only in chapter 1.4, with no citation. Introduced in an NVIDIA developer blog post on 6 May 2025. The project has since been renamed Kumo-TS - github.com/NVIDIA/NV-Tesseract and huggingface.co/nvidia/nv-tesseract-forecasting now redirect to NVIDIA/Kumo-TS and nvidia/Kumo-Forecast (open weights released 7 Apr 2026 per the model card). The HF card cites two IEEE papers (ieeexplore 11402442, 11402385) that were not verified, so paper is left empty."
 
 - id: "patchtst"
   name: "PatchTST"
@@ -335,7 +335,7 @@
     - "https://export.arxiv.org/api/query?id_list=2211.14730"
     - "https://arxiv.org/html/2211.14730"
     - "https://github.com/yuqinie98/PatchTST"
-  notes: "Not pretrained across domains; listed because the book names it as the origin of patch tokens."
+  notes: "Not pretrained across domains; listed because the notes name it as the origin of patch tokens."
 
 # --- Energy ---
 - id: "gridfm"
@@ -354,7 +354,7 @@
     - "https://arxiv.org/html/2407.09434v2"
     - "https://github.com/gridfm/gridfm-graphkit"
     - "https://lfenergy.org/projects/opengridfm/"
-  notes: ">- The book writes both \"GridFM\" and \"GridFM-v0\". In the cited Joule paper (arXiv 2407.09434) GridFM-v0 is a proposed near-term roadmap model (MAE pre-training on masked node features, loss = scaled cosine error + power-flow term); the paper does not release weights. The implementation is gridfm-graphkit (GitHub org \"gridfm\", first release v0.0.1 June 2025), whose README now asks users to cite a different paper, GENCO (arXiv 2608.09921), which is not in the bib. No Hugging Face page named \"GridFM-v0\" was found; HF org \"gridfm\" hosts 2026 GENCO checkpoints. Crossref has no affiliations for this DOI; developer is taken from the arXiv v2 author block (most frequent: Hydro-Québec, IBM Research, NREL, ETH Zürich, Argonne). The book's specific claim (2-2-five-design-decisions.md) that GridFM-v0 uses a float discretisation-and-tokenisation scheme from vision-language-action models was not checked here."
+  notes: ">- The notes write both \"GridFM\" and \"GridFM-v0\". In the cited Joule paper (arXiv 2407.09434) GridFM-v0 is a proposed near-term roadmap model (MAE pre-training on masked node features, loss = scaled cosine error + power-flow term); the paper does not release weights. The implementation is gridfm-graphkit (GitHub org \"gridfm\", first release v0.0.1 June 2025), whose README now asks users to cite a different paper, GENCO (arXiv 2608.09921), which is not in the bib. No Hugging Face page named \"GridFM-v0\" was found; HF org \"gridfm\" hosts 2026 GENCO checkpoints. Crossref has no affiliations for this DOI; developer is taken from the arXiv v2 author block (most frequent: Hydro-Québec, IBM Research, NREL, ETH Zürich, Argonne). The notes' specific claim (2-2-five-design-decisions.md) that GridFM-v0 uses a float discretisation-and-tokenisation scheme from vision-language-action models was not checked here."
 - id: "energyfm"
   name: "EnergyFM"
   full_name: "EnergyFM"
@@ -478,7 +478,7 @@
     - "https://arxiv.org/html/2212.12794"
     - "https://github.com/google-deepmind/weathernext"
     - "https://deepmind.google/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/"
-  notes: ">- First released as arXiv 2212.12794 (Dec 2022); the book cites the Science 2023 version. The original repo github.com/deepmind/graphcast (named in the arXiv comment) now redirects to github.com/google-deepmind/weathernext, which hosts GraphCast as \"WeatherNext Graph\". The Science DOI returns HTTP 403 to scripted clients; it was confirmed through Crossref."
+  notes: ">- First released as arXiv 2212.12794 (Dec 2022); the notes cite the Science 2023 version. The original repo github.com/deepmind/graphcast (named in the arXiv comment) now redirects to github.com/google-deepmind/weathernext, which hosts GraphCast as \"WeatherNext Graph\". The Science DOI returns HTTP 403 to scripted clients; it was confirmed through Crossref."
 - id: "fengwu"
   name: "FengWu"
   full_name: "FengWu"
@@ -509,7 +509,7 @@
     - "https://export.arxiv.org/api/query?id_list=2405.13063"
     - "https://arxiv.org/html/2405.13063"
     - "https://github.com/microsoft/aurora"
-  notes: ">- First released as arXiv 2405.13063 (May 2024); the book cites the Nature 2025 paper. Crossref has no affiliations; developer is from the arXiv author block (\"Primary affiliation: Microsoft Research, AI for Science\"; some authors also list other institutions)."
+  notes: ">- First released as arXiv 2405.13063 (May 2024); the notes cite the Nature 2025 paper. Crossref has no affiliations; developer is from the arXiv author block (\"Primary affiliation: Microsoft Research, AI for Science\"; some authors also list other institutions)."
 - id: "prithvi"
   name: "Prithvi"
   full_name: "Prithvi (Prithvi-EO-1.0-100M)"
@@ -556,7 +556,7 @@
     - "https://huggingface.co/ibm-granite/granite-geospatial-land-surface-temperature/raw/main/config.yaml"
     - "https://github.com/IBM/terratorch/blob/main/terratorch/models/backbones/prithvi_swin.py"
     - "https://arxiv.org/html/2310.18660"
-  notes: ">- Weakest entry. No standalone model card, weights release or paper found. The only sources are the granite LST model card (\"the IBM Earth Observation Foundation Model, 'Prithvi-SWIN-L'\") and the TerraTorch backbone registration (prithvi_swin_L, six HLS bands); the TerraTorch URL now redirects to github.com/torchgeo/terratorch. The book (and the model card) cite jakubik2023prithvi / arXiv 2310.18660 for it, but that paper describes the ViT Prithvi-100M and mentions Swin only as future work, so bib_key and paper are left empty. Sections 1.3 and 2.4.5 now cite the model card for it and say no paper describes it (2026-10-02). Release year not confirmed. Developer comes from the card's \"IBM\" wording; whether NASA took part is not confirmed."
+  notes: ">- Weakest entry. No standalone model card, weights release or paper found. The only sources are the granite LST model card (\"the IBM Earth Observation Foundation Model, 'Prithvi-SWIN-L'\") and the TerraTorch backbone registration (prithvi_swin_L, six HLS bands); the TerraTorch URL now redirects to github.com/torchgeo/terratorch. The notes (and the model card) cite jakubik2023prithvi / arXiv 2310.18660 for it, but that paper describes the ViT Prithvi-100M and mentions Swin only as future work, so bib_key and paper are left empty. Sections 1.3 and 2.4.5 now cite the model card for it and say no paper describes it (2026-10-02). Release year not confirmed. Developer comes from the card's \"IBM\" wording; whether NASA took part is not confirmed."
 - id: "granite-gfm"
   name: "Granite-GFM"
   full_name: "granite-geospatial-land-surface-temperature"
@@ -571,7 +571,7 @@
     - "https://huggingface.co/ibm-granite/granite-geospatial-land-surface-temperature"
     - "https://huggingface.co/api/models/ibm-granite/granite-geospatial-land-surface-temperature"
     - "https://github.com/ibm-granite/granite-geospatial-land-surface-temperature"
-  notes: ">- \"Granite-GFM\" is the book's label; IBM's model id is granite-geospatial-land-surface-temperature (HF release tag v1, 2024-11-05; Apache-2.0). bhamjee2024granitelst cites the HF model card, not a paper. The card links a precursor UHI paper (https://ieeexplore.ieee.org/document/10641750, which returned HTTP 202 and was not read) and the Prithvi paper 2310.18660 as the \"foundation model\" paper, so paper is left empty. Code at https://github.com/ibm-granite/granite-geospatial-land-surface-temperature."
+  notes: ">- \"Granite-GFM\" is the notes' label; IBM's model id is granite-geospatial-land-surface-temperature (HF release tag v1, 2024-11-05; Apache-2.0). bhamjee2024granitelst cites the HF model card, not a paper. The card links a precursor UHI paper (https://ieeexplore.ieee.org/document/10641750, which returned HTTP 202 and was not read) and the Prithvi paper 2310.18660 as the \"foundation model\" paper, so paper is left empty. Code at https://github.com/ibm-granite/granite-geospatial-land-surface-temperature."
 - id: "scale-mae"
   name: "Scale-MAE"
   full_name: "Scale-aware masked autoencoder"
@@ -586,7 +586,7 @@
     - "https://export.arxiv.org/api/query?id_list=2212.14532"
     - "https://arxiv.org/html/2212.14532"
     - "https://github.com/bair-climate-initiative/scale-mae"
-  notes: ">- The book writes both \"ScaleMAE\" (table) and \"Scale-MAE\" (footnote); the paper uses \"Scale-MAE\". arXiv first version is Dec 2022; published at ICCV 2023 (the bib uses 2023). Per its README the repo is a reimplementation, not the original training code."
+  notes: ">- The notes write both \"ScaleMAE\" (table) and \"Scale-MAE\" (footnote); the paper uses \"Scale-MAE\". arXiv first version is Dec 2022; published at ICCV 2023 (the bib uses 2023). Per its README the repo is a reimplementation, not the original training code."
 
 # --- Vision and multimodal ---
 - id: "vit"
@@ -634,7 +634,7 @@
     - "https://arxiv.org/html/2408.00714"
     - "https://github.com/facebookresearch/sam2"
     - "https://ai.meta.com/sam2"
-  notes: ">- The book writes \"SAM/SAM2\" (1-3 table) and cites only kirillov2023sam. The SAM 2 paper (Ravi et al. 2024, arXiv 2408.00714) is not in references/fm-for-ues.bib on main or any remote branch, so a bib entry is needed if the index cites it. Official spelling is \"SAM 2\". Project page https://ai.meta.com/sam2 redirects to https://ai.meta.com/research/sam2/."
+  notes: ">- The notes write \"SAM/SAM2\" (1-3 table) and cite only kirillov2023sam. The SAM 2 paper (Ravi et al. 2024, arXiv 2408.00714) is not in references/fm-for-ues.bib on main or any remote branch, so a bib entry is needed if the index cites it. Official spelling is \"SAM 2\". Project page https://ai.meta.com/sam2 redirects to https://ai.meta.com/research/sam2/."
 - id: "dino"
   name: "DINO"
   full_name: "Self-distillation with no labels"

@@ -14,7 +14,7 @@ redirect_from: /08-methods-tier3.html
 {% include page-status.html %}
 
 {: .note }
-Tier 3 of the book's proposed development path toward a multi-carrier [foundation model](../appendices/a-glossary.html#foundation-model) ([§4.9](4-9-methods-landing.html)): a proposal, not a survey of established practice.
+Tier 3 of the notes' proposed development path toward a multi-carrier [foundation model](../appendices/a-glossary.html#foundation-model) ([§4.9](4-9-methods-landing.html)): a proposal, not a survey of established practice.
 
 1. TOC
 {:toc}
@@ -28,7 +28,7 @@ Tiers 1 and 2 approximate a **simulation**: given inputs, predict outputs. Tier 
 Characteristically, evaluating the value function and gradient of the inner-loop optimisation is computationally expensive — which is the general statement of the difficulty.
 
 {: .note }
-Tier 3 is also where the decision layer of [§2.3.2](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#232-basic-elements-for-buildings) becomes unavoidable. The model must represent the space of possible designs, not only system states. This is logged as [G9](../chapter-6-outlook/6-1-open-gaps.html#g9) and is the least-developed representation question in this book — see also [§4.4 Generative Design](4-4-generative-design.html).
+Tier 3 is also where the decision layer of [§2.3.2](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#232-basic-elements-for-buildings) becomes unavoidable. The model must represent the space of possible designs, not only system states. This is logged as [G9](../chapter-6-outlook/6-1-open-gaps.html#g9) and is the least-developed representation question in these notes — see also [§4.4 Generative Design](4-4-generative-design.html).
 
 ## Three families of method
 

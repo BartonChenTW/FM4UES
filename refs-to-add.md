@@ -42,7 +42,7 @@ that matters for UES, from the source itself.
 - **Ref:** Scutari, M. (2010). Learning Bayesian Networks with the bnlearn R Package. *Journal of Statistical Software*, 35(3). <https://doi.org/10.18637/jss.v035.i03>. Verified via Crossref. Examples page: <https://www.bnlearn.com/examples/>.
 - **Suggested key:** `scutari2010bnlearn`
 - **Barton's note:** used in practice. Worked, but slow, probably because it's R (although much of it is written in C).
-- **Blocker, needs a decision:** the book currently says nothing about Bayesian networks (0 mentions). This reference needs a home first. Options:
+- **Blocker, needs a decision:** the notes currently say nothing about Bayesian networks (0 mentions). This reference needs a home first. Options:
   1. A short paragraph on probabilistic and causal graphical models as a non-FM baseline, e.g. in [§2.8](chapter-2-fm-foundations/2-8-surrogates-vs-fms.md) or next to the uncertainty dimension in [§2.9](chapter-2-fm-foundations/2-9-ues-fm-evaluation-criteria.md);
   2. A "further reading / tools" entry only.
 - The speed observation is first-hand experience, not a published result. If it goes in the text, phrase it as practitioner experience, or find a benchmark to cite.
@@ -59,9 +59,9 @@ that matters for UES, from the source itself.
 
 ---
 
-## B. Tools and models named in the book without any citation
+## B. Tools and models named in the notes without any citation
 
-Found by a sweep for named tools, models and datasets in body text that no footnote anywhere in the book mentions. All DOIs below were verified via Crossref on 2026-09-23.
+Found by a sweep for named tools, models and datasets in body text that no footnote anywhere in the notes mentions. All DOIs below were verified via Crossref on 2026-09-23.
 
 | Named in | Where | Candidate reference | DOI / link |
 | :--- | :--- | :--- | :--- |

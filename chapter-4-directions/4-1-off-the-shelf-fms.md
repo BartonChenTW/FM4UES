@@ -15,7 +15,7 @@ The most useful direction to a practitioner today, and the one requiring the lea
 {: .fs-6 .fw-300 }
 
 {: .note }
-**Partial.** A worked example with reported numbers is now below, from a published evaluation rather than a run of this book's own. What is still missing is this book's own benchmark run — the numbers below are one group's result on their network, not a reproduction.
+**Partial.** A worked example with reported numbers is now below, from a published evaluation rather than a run of these notes' own. What is still missing is these notes' own benchmark run — the numbers below are one group's result on their network, not a reproduction.
 
 1. TOC
 {:toc}
@@ -32,7 +32,7 @@ This is directly applicable to **load forecasting** — predicting building or d
 
 Building and training a model of your own is a large project. Testing an existing one zero-shot needs no training at all, and the result tells you whether the larger project is worth starting. If a pretrained model already forecasts your load well enough, you can stop there.
 
-The book's proposed development path puts this test second in its first tier, predicting how a single [energy hub](../appendices/a-glossary.html#energy-hub) operates ([§4.9.1](4-9-1-methods-tier1.html), "Step 2"), right after setting up simple baselines. For a hub, the test is only a starting point: a hub model must also keep energy in balance and track how full the storage is, which a forecaster does not do. For load forecasting alone, the zero-shot test is often the whole job.
+The notes' proposed development path puts this test second in its first tier, predicting how a single [energy hub](../appendices/a-glossary.html#energy-hub) operates ([§4.9.1](4-9-1-methods-tier1.html), "Step 2"), right after setting up simple baselines. For a hub, the test is only a starting point: a hub model must also keep energy in balance and track how full the storage is, which a forecaster does not do. For load forecasting alone, the zero-shot test is often the whole job.
 
 ## A worked example: zero-shot heat-load forecasting in district heating
 
@@ -42,13 +42,13 @@ A published evaluation carries out exactly this exercise for one UES carrier. Ta
 - **Accuracy:** TabPFN-TS reached CVRMSE 13.06% against Chronos-2's 12.48% on the main dataset — close enough to sit within the critical-difference threshold on daily-rank comparison, though Chronos-2 had the lower full-year aggregate error. TabPFN-TS was better calibrated, which matters more than point accuracy for the uncertainty-awareness criterion in [§2.9](../chapter-2-fm-foundations/2-9-ues-fm-evaluation-criteria.html) (dimension 6).
 - **Transferability actually tested, not assumed:** the configuration was validated on a second, different network — precisely what [§2.9](../chapter-2-fm-foundations/2-9-ues-fm-evaluation-criteria.html) (dimension 2) asks for and what a single-network evaluation cannot show.
 
-One caveat worth carrying forward: TabPFN-TS is pretrained on **synthetic** data rather than real time series, which sidesteps train/test leakage but leaves open whether its learned prior actually captures district-heating dynamics specifically, or transfers on general time-series structure alone — the same synthetic-vs-real question this book raises for its own corpus in [§4.10.1](4-10-building-it.html#4101-data-generation-and-sampling-design).
+One caveat worth carrying forward: TabPFN-TS is pretrained on **synthetic** data rather than real time series, which sidesteps train/test leakage but leaves open whether its learned prior actually captures district-heating dynamics specifically, or transfers on general time-series structure alone — the same synthetic-vs-real question these notes raise for their own corpus in [§4.10.1](4-10-building-it.html#4101-data-generation-and-sampling-design).
 
 ## What would still need to be added here
 
 - The comparison above is for one carrier (heat) on two networks. Published numbers for electricity, from single households to whole grids, are collected in [§2.4.6](../chapter-2-fm-foundations/2-4-6-load-forecasting-fms.html). They show zero-shot models doing well on aggregated load and less reliably for a single building.
 - Notes on which covariates (weather, calendar, building metadata) each model can actually ingest zero-shot beyond the ambient-temperature case above, referencing the covariate-handling differences in [§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html).
-- This book's own benchmark run, rather than a citation of someone else's — see the caveat in the note above.
+- These notes' own benchmark run, rather than a citation of someone else's — see the caveat in the note above.
 
 [^spoek2026tabpfndh]: Spoek, B., Ben Hicham, K. K., Derzsi, K. et al. (2026). [Systematic evaluation of TabPFN-TS for zero-shot probabilistic heat load forecasting in district heating networks](https://arxiv.org/abs/2608.20024). arXiv:2608.20024.
 

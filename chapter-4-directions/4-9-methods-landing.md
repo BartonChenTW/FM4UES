@@ -13,7 +13,7 @@ redirect_from: /06-methods-tier1.html
 
 {% include page-status.html %}
 
-The book's own proposal for how a [foundation model](../appendices/a-glossary.html#foundation-model) for multi-carrier (multi-vector) energy systems could be developed, in three tiers of increasing difficulty.
+The notes' own proposal for how a [foundation model](../appendices/a-glossary.html#foundation-model) for multi-carrier (multi-vector) energy systems could be developed, in three tiers of increasing difficulty.
 {: .fs-6 .fw-300 }
 
 {: .important }

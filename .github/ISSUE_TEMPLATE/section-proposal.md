@@ -1,6 +1,6 @@
 ---
 name: Propose a new section or restructuring
-about: Suggest new content or a change to the book's structure
+about: Suggest new content or a change to the notes' structure
 title: "[Proposal] "
 labels: proposal
 ---

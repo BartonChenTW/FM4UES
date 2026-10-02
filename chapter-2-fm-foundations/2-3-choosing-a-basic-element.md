@@ -12,7 +12,7 @@ redirect_from: /03-basic-elements.html
 
 {% include page-status.html %}
 
-If you read only one page in this book, read this one. It gives the criterion for deciding whether a [foundation model](../appendices/a-glossary.html#foundation-model) is viable in a given sub-domain at all — before any question of architecture, data volume, or compute.
+If you read only one page in these notes, read this one. It gives the criterion for deciding whether a [foundation model](../appendices/a-glossary.html#foundation-model) is viable in a given sub-domain at all — before any question of architecture, data volume, or compute.
 {: .fs-6 .fw-300 }
 
 1. TOC

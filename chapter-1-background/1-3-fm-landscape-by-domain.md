@@ -16,7 +16,7 @@ last_reviewed: 2026-09-11
 
 ---
 
-The term and the underlying pattern were named and surveyed at length by the Stanford Center for Research on Foundation Models — the reference point for the "broad pretraining, transfer, multi-task" definition used throughout this book (see [§2.1](../chapter-2-fm-foundations/2-1-what-defines-an-fm.html)).[^bommasani2021opportunities] The table below is this book's own snapshot of where that pattern has and hasn't landed, organised by domain rather than by architecture. The "what they learn" column describes the models named in the row to its left — its citation is theirs, not a separate claim; rows with no citation (Language, Robotics/embodied) name a class of model rather than one specific paper, and the description is a characterisation of the class rather than a reported result.
+The term and the underlying pattern were named and surveyed at length by the Stanford Center for Research on Foundation Models — the reference point for the "broad pretraining, transfer, multi-task" definition used throughout these notes (see [§2.1](../chapter-2-fm-foundations/2-1-what-defines-an-fm.html)).[^bommasani2021opportunities] The table below is these notes' own snapshot of where that pattern has and hasn't landed, organised by domain rather than by architecture. The "what they learn" column describes the models named in the row to its left — its citation is theirs, not a separate claim; rows with no citation (Language, Robotics/embodied) name a class of model rather than one specific paper, and the description is a characterisation of the class rather than a reported result.
 
 | Domain | Representative models | What they learn |
 | :--- | :--- | :--- |
@@ -34,7 +34,7 @@ Granite-GFM is built on [Prithvi-SWIN-L](../appendices/d-model-index.html#prithv
 {: .warning }
 **The field moves fast.** Publication counts on LLM-and-energy alone went from roughly 1 (2022) to 13 (2023) to 128 (2024) to 464 (2025), with 348 already indexed in the first half of 2026 — a Scopus title/abstract/keyword search combining LLM and power-system terms, run 11 July 2026.[^naeem2026llmpower] Re-check anything in this table before it is used to justify a novelty claim.
 
-Two families are directly relevant to this book and get dedicated treatment: [time-series FMs](../chapter-2-fm-foundations/2-4-1-time-series-fms.html) and [power-grid FMs](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html), in [§2.4](../chapter-2-fm-foundations/index.html).
+Two families are directly relevant to these notes and get dedicated treatment: [time-series FMs](../chapter-2-fm-foundations/2-4-1-time-series-fms.html) and [power-grid FMs](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html), in [§2.4](../chapter-2-fm-foundations/index.html).
 
 [^bhamjee2024granitelst]: Bhamjee, M., Gaffoor, Z., Govindasamy, T. et al. (2024). [granite-geospatial-land-surface-temperature](https://huggingface.co/ibm-granite/granite-geospatial-land-surface-temperature). IBM Research, Hugging Face model card, Apache-2.0.
 [^kirillov2023sam]: Kirillov, A., Mintun, E., Ravi, N. et al. (2023). [Segment Anything](https://arxiv.org/abs/2304.02643). *ICCV 2023*. arXiv:2304.02643
@@ -53,7 +53,7 @@ Two families are directly relevant to this book and get dedicated treatment: [ti
 [^naeem2026llmpower]: Naeem, Z., Cirrincione, G., Favuzza, S. et al. (2026). [Large language models in power systems: From grid operations to home energy management](https://doi.org/10.3390/en19163769). *Energies*, 19(16), 3769.
 [^caron2021dino]: Caron, M., Touvron, H., Misra, I. et al. (2021). [Emerging properties in self-supervised vision transformers](https://arxiv.org/abs/2104.14294). *ICCV 2021*. arXiv:2104.14294
 [^wu2024janus]: Wu, C., Chen, X., Wu, Z. et al. (2024). [Janus: Decoupling visual encoding for unified multimodal understanding and generation](https://arxiv.org/abs/2410.13848). arXiv:2410.13848
-[^bommasani2021opportunities]: Bommasani, R., Hudson, D. A., Adeli, E. et al. (2021). [On the opportunities and risks of foundation models](https://arxiv.org/abs/2108.07258). arXiv:2108.07258. The paper that coined "foundation model"; defines it as a model "trained on broad data at scale" and "adaptable to a wide range of downstream tasks" — closely paralleling this book's own three-property definition in [§2.1](../chapter-2-fm-foundations/2-1-what-defines-an-fm.html).
+[^bommasani2021opportunities]: Bommasani, R., Hudson, D. A., Adeli, E. et al. (2021). [On the opportunities and risks of foundation models](https://arxiv.org/abs/2108.07258). arXiv:2108.07258. The paper that coined "foundation model"; defines it as a model "trained on broad data at scale" and "adaptable to a wide range of downstream tasks" — closely paralleling these notes' own three-property definition in [§2.1](../chapter-2-fm-foundations/2-1-what-defines-an-fm.html).
 
 ---
 [← Previous: 1.2 FMs in One Page](1-2-fms-in-one-page.html) · [Next: 1.4 Directions the Field Is Moving →](1-4-fm-field-directions.html)

@@ -19,7 +19,7 @@ ML-basics content for readers arriving from the energy-systems side. Covers what
 
 ---
 
-Architecture (D3 in [§2.2](2-2-five-design-decisions.html)) is determined largely by what structure the data has. This section covers the three families used throughout this book, and how they are combined when a model takes in several kinds of data at once.
+Architecture (D3 in [§2.2](2-2-five-design-decisions.html)) is determined largely by what structure the data has. This section covers the three families used throughout these notes, and how they are combined when a model takes in several kinds of data at once.
 
 ## Transformers and attention
 
@@ -27,13 +27,13 @@ A [transformer](../appendices/a-glossary.html#transformer) processes a set of to
 
 This is why transformers dominate sequence and largely-unstructured data: attention is a general-purpose way to let any element influence any other, at the cost of computing a relationship for every pair of tokens (**quadratic cost** in the number of tokens), which is the practical limit on how many tokens a transformer can process at once. Patching — grouping several raw values into one token, as time-series FMs do (see [§2.4.1](2-4-1-time-series-fms.html)) — is the standard way to buy longer effective context within this budget.
 
-**[Cross-attention](../appendices/a-glossary.html#cross-attention)**, used repeatedly in this book (e.g. [§2.3.3](2-3-choosing-a-basic-element.html#233-representation-strategies-and-testable-predictions), R2), is the same mechanism applied between two different sets of tokens: one set (say, building attributes) modulates how another set (a demand profile) is interpreted, rather than simply being appended to it as extra input columns.
+**[Cross-attention](../appendices/a-glossary.html#cross-attention)**, used repeatedly in these notes (e.g. [§2.3.3](2-3-choosing-a-basic-element.html#233-representation-strategies-and-testable-predictions), R2), is the same mechanism applied between two different sets of tokens: one set (say, building attributes) modulates how another set (a demand profile) is interpreted, rather than simply being appended to it as extra input columns.
 
 ## Graph neural networks (GNNs)
 
 Where a transformer's attention considers all pairs of tokens by default, a **graph neural network** works on data that already has an explicit relational structure — a graph of nodes and edges — and restricts computation to follow that structure. The standard mechanism is **message passing**: each node updates its representation by aggregating information from its immediate neighbours, and stacking several such layers lets information propagate further across the graph.
 
-This is the natural architecture whenever the data genuinely is a network — bus/line topology in power systems, or hub/pipe topology in district heating (see [§4.9.2](../chapter-4-directions/4-9-2-methods-tier2.html) for this book's treatment of GNNs at district scale). A **heterogeneous** GNN extends this to graphs with multiple distinct node and edge types (a heat pipe is not the same edge type as a power line), which is the relevant case for multi-carrier systems.
+This is the natural architecture whenever the data genuinely is a network — bus/line topology in power systems, or hub/pipe topology in district heating (see [§4.9.2](../chapter-4-directions/4-9-2-methods-tier2.html) for these notes' treatment of GNNs at district scale). A **heterogeneous** GNN extends this to graphs with multiple distinct node and edge types (a heat pipe is not the same edge type as a power line), which is the relevant case for multi-carrier systems.
 
 GNNs and transformers are not mutually exclusive: a common and effective pattern is local message passing for physically-local interactions, combined with a global attention layer for system-wide correlations that a purely local mechanism would take many layers to propagate (see [§4.9.2](../chapter-4-directions/4-9-2-methods-tier2.html)).
 
@@ -58,7 +58,7 @@ A **[multimodal](../appendices/a-glossary.html#multimodality) model** takes in m
 No single architecture suits all of them, so a multimodal model usually gives each modality its own **encoder**: a time-series encoder for the meter data, a small network for the attributes, a GNN for the network, and so on. Each encoder turns its input into tokens of the same size. The model then combines those tokens in one of three common ways:
 
 - **A shared space.** Separate encoders are trained so that matching inputs land close together. [CLIP](../appendices/d-model-index.html#clip) trains an image encoder and a text encoder to predict which caption goes with which image, on 400 million pairs, and can then classify images it was never trained on by comparing them with text descriptions.[^radford2021clip]
-- **Cross-attention.** One modality's tokens attend to another's, so the second changes how the first is read (see the transformer section above). This is the pattern this book proposes most often.
+- **Cross-attention.** One modality's tokens attend to another's, so the second changes how the first is read (see the transformer section above). This is the pattern these notes propose most often.
 - **One token stream.** All modalities are turned into tokens and processed together by a single transformer. [Janus](../appendices/d-model-index.html#janus) does this for images and text, with separate visual encoders for understanding an image and for generating one, both feeding one shared transformer.[^wu2024janus]
 
 **A worked example from this domain.** Suppose the task is to forecast one building's electricity use for the next day. Three modalities are available:
@@ -71,7 +71,7 @@ The meter tokens then cross-attend to the attribute and weather tokens. A cold m
 
 Three things make this harder than it sounds. The modalities change at different rates: attributes are fixed, weather is hourly, meter history may be every 15 minutes. Some modalities are often missing: most buildings have no household survey, and many have no reliable register entry. And the training data has to pair the modalities building by building, which measured data rarely does ([§3.2](../chapter-3-sim-opt/3-2-building-simulation-data.html)).
 
-**Where the book uses this.**
+**Where the notes use this.**
 - [§2.3.3](2-3-choosing-a-basic-element.html#233-representation-strategies-and-testable-predictions): describing a building's time series by its attributes.
 - [§4.8](../chapter-4-directions/4-8-candidate-subfields.html): the metadata-conditioned load FM, which is the worked example above at scale, and the grid-load bridge, which pairs load tokens with a grid graph.
 - [§5.7](../chapter-5-case-study/5-7-module-decomposition.html) and [§5.1](../chapter-5-case-study/5-1-roadmap.html#phase-2-year-24--multimodal-conditioning): the case study's encoder stack for demand, weather, technology, topology and market, and the roadmap phase that fuses them.
@@ -79,7 +79,7 @@ Three things make this harder than it sounds. The modalities change at different
 
 ## The common thread
 
-All three families are ways of building in an **inductive bias** — an assumption about the data's structure baked into the architecture rather than left for the model to discover from scratch. Sequence position for transformers, graph adjacency for GNNs, function-space continuity for neural operators. Choosing badly does not make learning impossible, but it makes it need far more data to discover a structure the architecture could have been given for free — which is exactly why D1–D3 in [§2.2](2-2-five-design-decisions.html) are treated as the central design decisions in this book, not implementation detail to be settled last.
+All three families are ways of building in an **inductive bias** — an assumption about the data's structure baked into the architecture rather than left for the model to discover from scratch. Sequence position for transformers, graph adjacency for GNNs, function-space continuity for neural operators. Choosing badly does not make learning impossible, but it makes it need far more data to discover a structure the architecture could have been given for free — which is exactly why D1–D3 in [§2.2](2-2-five-design-decisions.html) are treated as the central design decisions in these notes, not implementation detail to be settled last.
 
 [^vaswani2017attention]: Vaswani, A., Shazeer, N., Parmar, N. et al. (2017). [Attention is all you need](https://arxiv.org/abs/1706.03762). NeurIPS 2017. arXiv:1706.03762
 [^li2020fno]: Li, Z., Kovachki, N., Azizzadenesheli, K. et al. (2021). [Fourier neural operator for parametric partial differential equations](https://arxiv.org/abs/2010.08895). ICLR 2021. arXiv:2010.08895

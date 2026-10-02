@@ -795,3 +795,24 @@ Left out: "DLinear-class" (a generic baseline type), XGBoost (a library), AgentH
 - a browser check of the new site features
 
 The Mermaid-pin item is marked done (the diagrams render on the deployed site), and the references-workflow question is marked decided (hand-written footnotes keyed to the bib).
+
+## 2026-10-02 (renamed to Working Notes; version 2.3)
+
+**Why.** Barton felt the project isn't official enough to be called a book. It is closer to notes taken while learning the field. Options weighed:
+- "study notes": undersells the sourced chapters
+- "notebook": means a Jupyter notebook to ML readers
+- "knowledge base" or "note space": vague
+- "living review": implies a systematic-review method
+- "primer": still authoritative
+
+Chosen: **Working Notes**.
+
+**Changes.**
+- **Framing:** the README title ("Foundation Models for Urban Energy Systems — Working Notes"), the site description and footer, the home-page tagline, the sidebar label ("Working notes · Version 2.3"), `CONTRIBUTING.md`, `references/README.md`, and the issue template.
+- **Honesty line:** the home page and README now say these are notes from a learning process: sourced and open to correction, but not peer-reviewed. §1.6 is retitled "Scope of These Notes and How to Use Them" and opens with "What these notes are", which says where the notes argue for something of their own (§4.9, §4.11, Chapter 5).
+- **Wording inside the text:** 117 lines in 48 files. "This book" became "these notes", with verb agreement only where "book" was the subject: "these notes are/have/propose", but "nothing in these notes suggests". Possessives became "these notes'". Pronouns were fixed by hand ("how to use them", "for their own corpus", "the notes exactly as they stood").
+- **Left as they were:** `log.md`, the historical TODO lines, the Appendix C entries for 1.1 and 2.0 (which record what those versions were called), and `refs-to-add.md` mentions of external textbooks.
+- **Settings:** `book_version` / `book_version_date` renamed to `notes_version` / `notes_version_date` in `_config.yml`, `index.md`, `title.html` and `CONTRIBUTING.md`.
+- **Version 2.3:** an Appendix C entry, plus `_config.yml` and the README set to 2.3.
+
+Section numbers and URLs are unchanged. The only headings that changed are §1.6's title and "Relationship to the rest of these notes" in §4.2 and §4.4, and no page linked to those anchors.

@@ -816,3 +816,57 @@ Chosen: **Working Notes**.
 - **Version 2.3:** an Appendix C entry, plus `_config.yml` and the README set to 2.3.
 
 Section numbers and URLs are unchanged. The only headings that changed are §1.6's title and "Relationship to the rest of these notes" in §4.2 and §4.4, and no page linked to those anchors.
+
+## 2026-10-03 (Chapter 4: the three weakest sections improved; v2.3 released)
+
+**Released v2.3** (tag on the #52 merge commit, GitHub Release with the Appendix C notes).
+
+**Why.** These were the top three sections from the 2026-10-02 review. Barton asked for them to be fixed.
+
+**§4.6–4.7, the task screen.**
+- §4.6 now spells out what S1–S5 ask and what ✔/◐/✘ mean, and says the verdicts are these notes' own assessment.
+- T3 is split into aggregated load ("Largely solved") and single building ("Open"), matching §2.4.6. S4 for T3 is now marked "accuracy, not speed".
+- §4.7 is grouped by verdict and explains every row; it had skipped T2, T3, T6, T7 and T9.
+  - T6 cites the Fourier Neural Operator paper.
+  - T7 cites Wang & Hong (2020): reinforcement learning for building control is still mostly research-stage, 11% of studies in real buildings, and generalisation is one of three main barriers.
+  - T2 and T9 fail on the bottleneck.
+- Uncited judgements replaced with what the table shows:
+  - "by some distance" and "enormous transfer value" became "the only task that passes all five criteria without qualification"
+  - "the metamodel literature is large" now cites Westermann & Evins (57 studies)
+  - "never treated as a question at all" was narrowed
+  - "a common and costly error" became "easily conflated"
+- §4.1's pointer to a T3 discussion in §4.7 that didn't exist now gives the actual verdict and links §2.4.6.
+
+**§4.9.1, Tier 1.**
+- The block copied word for word from §3.4 became a two-sentence summary with a link.
+- Model facts corrected:
+  - Chronos-2 is one 120M-parameter model, not "five sizes from 9M to 710M" (paper §5).
+  - Multi-patch-size projection is credited to the original Moirai, and Moirai 2.0 dropped it.
+  - Step 2 now ranks Chronos-2 and TabPFN-TS first for this covariate-heavy problem, and treats TimesFM 2.5 and Moirai 2.0 (which ignores covariates) as univariate references.
+  - Lag-Llama is "a decoder-only model built on the LLaMA architecture" and univariate, instead of "architecturally identical to LLMs… easiest to fine-tune".
+- Baselines are cited: DLinear (Zeng et al., AAAI 2023), LightGBM (NeurIPS 2017), XGBoost (KDD 2016), all verified via Crossref or the proceedings page. DLinear is described from its abstract.
+- Uncited sweeping claims narrowed to what can be checked: "none of the general models in §2.4.1 has a mechanism…" replaces "nothing in the TSFM literature…". The covariate "open question" now cites Mulayim 2026 and Cheong 2026.
+- Also:
+  - The Earth-system aliasing analogy is removed.
+  - The timescale table is labelled indicative.
+  - "Autoregressive rollout" and "projection step" are explained in words.
+  - The reviewer framing is dropped, and so is "roughly a week of work".
+  - The previous-link title is fixed.
+
+**§4.10.**
+- A note at the top says that §4.10.1–4.10.3 summarise the literature and §4.10.4 is these notes' own rough guide.
+- Uncited paraphrases replaced:
+  - The rare-regime warning is now a plain statement backed by the deep-imbalanced-regression citation already there.
+  - "Most common weakness in this literature" is removed.
+  - The speedup pattern now cites Wen 2026 with its numbers: 190× before correction, over 10× after.
+  - The "caution from adjacent domains" became direct advice.
+- The units error is fixed: kW versus MWh (power versus energy) became kilowatts versus megawatts.
+- Building-energy accuracy measures now cite Ruiz & Bandera (2017) on the ASHRAE Guideline 14, IPMVP and FEMP calibration guidelines. CV(RMSE) is named only as the measure §4.1's example uses.
+- §4.10.4 drops "CHF 30k/year" and the reviewer framing, and states its scale in words.
+- The "Publication format" subsection (paper strategy) moved to the private `notes-concept-paper.md`, with its text preserved. The §4.10.4 heading and anchor are kept, since §5.3 links to it.
+
+**References (bib 152 → 157).** `wang2020rlcontrol`, `zeng2023dlinear`, `ke2017lightgbm`, `chen2016xgboost`, `ruiz2017calibration`.
+
+**Links.** The linking scripts added 7 glossary links and 1 model link (LLaMA) in the new text.
+
+Verified: footnote integrity on every page, all keys in the bib, no duplicates, braces balanced.

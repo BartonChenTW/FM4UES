@@ -15,7 +15,7 @@ Items tagged **[Claude]** are suggestions from Claude (2026-09-11), not yet agre
 
 ## Next
 
-- [ ] **Improve the three weakest Chapter 4 sections** (review of 2026-10-02):
+- [x] **Improve the three weakest Chapter 4 sections** (review of 2026-10-02). **Done 2026-10-03**; see log.md.
   1. **§4.9.1 Tier 1.** The oldest page in the chapter, with one footnote in about 1,080 words.
      - Model facts now contradict Appendix D: "Chronos-2 ships in five sizes from 9M to 710M" describes the original Chronos.
      - It recommends Moirai's multi-patch design and Moirai 2.0 for a covariate-heavy problem, though Moirai 2.0 dropped that design and §2.4.1 says it ignores covariates.

@@ -3,7 +3,7 @@ title: "4.10 Building It"
 parent: Chapter 4 — Directions for FMs in UES
 nav_order: 10
 status: draft
-last_reviewed: 2026-09-24
+last_reviewed: 2026-10-03
 redirect_from: /09-building-it.html
 ---
 
@@ -16,6 +16,9 @@ redirect_from: /09-building-it.html
 {:toc}
 
 ---
+
+{: .note }
+Sections 4.10.1–4.10.3 summarise practice from the literature, with sources. Section 4.10.4 is these notes' own rough guide to what a small project can do, not a survey result.
 
 ## 4.10.1 Data generation and sampling design
 
@@ -41,13 +44,13 @@ The sampling plan is a design decision the building-surrogate literature already
 ### The rare-regime trap
 
 {: .important }
-**Take this seriously.** [Foundation models](../appendices/a-glossary.html#foundation-model) inherit statistical biases from their training datasets, including under-representation of extremes and rare regimes, which distorts performance precisely on high-impact events.
+**Take this seriously.** A model learns the distribution it is trained on, so it is least reliable where its training data is thinnest, and in energy systems those are often the events that matter most.
 
 In energy systems the rare regimes are the ones that matter most: cold snaps driving peak heat demand, Dunkelflaute, storage fully depleted, network constraints binding. Uniform sampling of the design space will under-represent all of them. **Stratify deliberately.** Learning continuous targets where some values have far fewer observations is a recognised machine-learning problem in its own right — deep imbalanced regression — with dedicated methods.[^yang2021dir]
 
 ### Normalisation across carriers
 
-Carriers differ by orders of magnitude in typical values (kW electricity versus MWh seasonal heat storage). Per-carrier standardisation is the minimum; consider physical non-dimensionalisation (fractions of capacity, fractions of peak demand), which additionally helps transfer across systems of different sizes.
+Carriers differ by orders of magnitude in typical values: a household's electricity demand is in kilowatts, a district heating plant's output in megawatts. Per-carrier standardisation is the minimum; consider physical non-dimensionalisation (fractions of capacity, fractions of peak demand), which additionally helps transfer across systems of different sizes.
 
 ### Synthetic and archetype-derived data — what it buys and what it does not
 
@@ -74,17 +77,17 @@ Notes from practice:
 
 ## 4.10.3 Evaluation protocol
 
-A credible protocol reports all six. Reporting only the first is the most common weakness in this literature.
+A credible protocol reports all six. Accuracy alone does not show whether a model's output can be used.
 
 1. **Accuracy** — error on held-out instances, per carrier, per horizon
 2. **Feasibility** — constraint violation rate and magnitude; energy balance residual
 3. **Optimality gap** (Tier 3) — cost versus true optimum
-4. **Speedup** — honestly reported, **including** data generation and any post-processing correction. Note the pattern in power systems where speedup is reported both before and after correction, with an order-of-magnitude difference between them.
+4. **Speedup** — honestly reported, **including** data generation and any post-processing correction. Reporting both can change the picture by an order of magnitude: one power-flow model reports up to 190× speedup over a conventional solver before its outputs are corrected for feasibility, and over 10× after.[^wen2026lghgnn]
 5. **Transfer** — performance on unseen configurations/topologies; this is the actual foundation-model claim
 6. **Calibration** — if probabilistic, are the intervals honest?
 
 {: .note }
-Where the domain community has an established accuracy measure, use it alongside generic ML metrics. For building energy, NRMSE and CV(RMSE) are the calibration measures practitioners already read, and reporting them costs nothing while substantially improving how the work lands.
+Where the domain community has an established accuracy measure, use it alongside generic ML metrics. For building energy, calibration guidelines such as ASHRAE Guideline 14, IPMVP and FEMP set the accuracy measures practitioners already read;[^ruiz2017calibration] CV(RMSE), used in the worked example of [§4.1](4-1-off-the-shelf-fms.html), is the most familiar. Reporting them costs nothing and makes results easier for that audience to judge.
 
 ### Held-out design
 
@@ -96,34 +99,23 @@ Random splits overstate performance. Hold out along the axis you claim to genera
 - unseen **weather years / climate regimes**
 - unseen **scales** (train small, test large)
 
-Note the caution from adjacent domains: models trained and evaluated primarily at one scale and horizon have largely untested ability to generalise across spatial and temporal scales.
+A model trained and tested at one scale and horizon has not shown that it works at others. If transfer across scales is part of the claim, test it explicitly.
 
 ## 4.10.4 Realistic budget expectations
 
-At roughly CHF 30k/year materials:
+For a small project, such as one research group without a dedicated compute cluster, these notes' rough guide is:
 
 | Feasible | Not feasible |
 | :--- | :--- |
-| [Fine-tuning](../appendices/a-glossary.html#fine-tuning) models in the 10M–500M parameter range | Pretraining a large model from scratch |
-| 10³–10⁵ simulator runs for training data | 10⁷+ runs |
+| [Fine-tuning](../appendices/a-glossary.html#fine-tuning) existing models of tens to hundreds of millions of parameters | Pretraining a large model from scratch |
+| Thousands to hundreds of thousands of simulator runs for training data | Tens of millions of runs |
 | Small scaling studies | Large architecture sweeps |
 | Releasing a benchmark and dataset | Sustained large-scale compute |
 
 {: .important }
-**The honest deliverable at this budget is: a representation, a dataset, a benchmark, and a demonstrated small model — not a large trained foundation model.** Framing matters: *"we establish what a foundation model for this domain requires, and demonstrate feasibility"* is credible and fundable. *"We build a foundation model"* is not, at this budget, and reviewers who know the field will notice.
+**At this scale, the realistic deliverable is a representation, a dataset, a benchmark and a demonstrated small model, not a large trained [foundation model](../appendices/a-glossary.html#foundation-model).** A claim to *establish what a foundation model for this domain requires, and demonstrate feasibility* can be backed by that. A claim to *build a foundation model* cannot.
 
-### Publication format follows from the budget
-
-The same logic applies to papers. For a novel concept with limited empirical results, three formats are available:
-
-- **Pure empirical** — a benchmark, a baseline, a measurement. Safe with reviewers; low ceiling. Competent and rarely cited.
-- **Pure concept / position** — argument only. High ceiling, but at an engineering venue it reads as a proposal unless it does real analytical work: a criterion others can apply, a taxonomy with consequences, falsifiable predictions, a benchmark specification.
-- **Anchored concept paper (recommended)** — argument-led, with one demonstrative empirical result. Roughly three-quarters argument, one-quarter evidence. The argument carries the paper; a single result converts the central claim from assertion to demonstration.
-
-The anchored format matches the budget reality above: it does not depend on a trained model existing by the deadline, and it fails gracefully — if training slips, the paper still stands; if it succeeds, a results subsection is added without restructuring.
-
-**Audience translation is part of the format choice.** Writing FM concepts for a domain audience means introducing every ML idea through its domain counterpart ([§2.3.1](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#231-the-criterion) does this with discretisation), avoiding unexplained vocabulary, and including a short glossary. The test: if a paragraph requires ML background to parse, rewrite it.
-
+[^ruiz2017calibration]: Ruiz, G., Bandera, C. (2017). [Validation of calibrated energy models: Common errors](https://doi.org/10.3390/en10101587). *Energies*, 10(10), 1587.
 [^westermann2019surrogate]: Westermann, P. and Evins, R. (2019). [Surrogate modelling for sustainable building design – A review](https://doi.org/10.1016/j.enbuild.2019.05.057). *Energy and Buildings*, 198, 170–186. Aggregates 57 studies in a table recording each one's objective, sampling strategy and surrogate model type, with practical steps for deriving a surrogate.
 [^mckay1979lhs]: McKay, M. D., Beckman, R. J. and Conover, W. J. (1979). [A comparison of three methods for selecting values of input variables in the analysis of output from a computer code](https://doi.org/10.1080/00401706.1979.10489755). *Technometrics*, 21(2), 239–245. The paper usually credited with introducing Latin hypercube sampling: two sampling plans are shown to improve on simple random sampling, in variance, for a class of estimators including the sample mean.
 [^sobol1967distribution]: Sobol', I. M. (1967). [On the distribution of points in a cube and the approximate evaluation of integrals](https://doi.org/10.1016/0041-5553%2867%2990144-9). *USSR Computational Mathematics and Mathematical Physics*, 7(4), 86–112. The paper usually credited as the origin of the quasi-random point sequences now named after Sobol'.

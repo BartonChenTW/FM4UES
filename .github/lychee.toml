@@ -191,6 +191,31 @@ exclude = [
   #     Variables in the Analysis of Output from a Computer Code",
   #     Technometrics 21(2):239-245 (section 4.10, Latin hypercube).
   '^https://doi\.org/10\.1080/',
+  # Journal of Simulation moved from Palgrave (DOI prefix 10.1057) to
+  # Taylor & Francis, so its old DOIs now redirect to tandfonline.com and
+  # get the same 403 as the 10.1080 prefix above. Excluded per DOI, not by
+  # prefix, because 10.1057 also covers other Palgrave journals. Verified
+  # against the Crossref API on 2026-10-20, and doi.org redirects to the
+  # matching tandfonline.com record:
+  #   10.1057/jos.2012.20 -- Sargent (2013), "Verification and validation
+  #     of simulation models", Journal of Simulation 7(1):12-24
+  #     (section 4.3, verification checklist).
+  '^https://doi\.org/10\.1057/jos\.2012\.20$',
+  # IBPSA (DOI prefix 10.26868, the registrant for IBPSA, IBPSA-USA and
+  # IBPSA-Canada conference proceedings) redirects to
+  # publications.ibpsa.org, which returned 403 Forbidden to lychee on
+  # GitHub's runners on 2026-10-20 after passing an hour earlier -- the
+  # intermittent bot-blocking pattern above, not missing pages. Excluded
+  # by prefix since building-simulation proceedings are a recurring
+  # source. Each verified against the Crossref API (title, first author,
+  # proceedings) and its doi.org redirect to the matching paper page:
+  #   10.26868/25222708.2025.1230 -- Sur & Jain, Building Simulation 2025
+  #   10.26868/30680611.2024.2256 -- Mostafavi et al., SimBuild 2024
+  #   10.26868/30680611.2026.1308 -- Bai & Wang, SimBuild 2026
+  #   10.26868/30680611.2026.1360 -- Jia et al., SimBuild 2026
+  #   10.26868/31114504.2026.90   -- Fadel et al., eSim 2026
+  # (all section 4.3)
+  '^https://doi\.org/10\.26868/',
 ]
 
 # Skip files that aren't meant to be checked as published pages.

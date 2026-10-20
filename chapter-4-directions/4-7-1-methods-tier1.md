@@ -28,7 +28,7 @@ One [energy hub](../appendices/a-glossary.html#energy-hub). Fixed configuration.
 
 ## What kind of ML problem this is
 
-A multivariate time series with covariates: carriers and devices are the variates, time is the sequence, weather, demand and prices are covariates known in advance, and installed capacities are static inputs. [§3.3](../chapter-3-sim-opt/3-3-energy-hub-formalism.html#dispatch) sets out this framing in full. The practical consequence is that the task is to choose and adapt an existing architecture, not to invent one.
+A multivariate time series with [covariates](../appendices/a-glossary.html#covariate): carriers and devices are the variates, time is the sequence, weather, demand and prices are covariates known in advance, and installed capacities are static inputs. [§3.3](../chapter-3-sim-opt/3-3-energy-hub-formalism.html#dispatch) sets out this framing in full. The practical consequence is that the task is to choose and adapt an existing architecture, not to invent one.
 
 ## The one architectural decision that matters
 

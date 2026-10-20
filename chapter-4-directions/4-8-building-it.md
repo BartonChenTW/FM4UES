@@ -89,7 +89,7 @@ A credible protocol reports all six. Accuracy alone does not show whether a mode
 6. **Calibration** — if probabilistic, are the intervals honest?
 
 {: .note }
-Where the domain community has an established accuracy measure, use it alongside generic ML metrics. For building energy, calibration guidelines such as ASHRAE Guideline 14, IPMVP and FEMP set the accuracy measures practitioners already read;[^ruiz2017calibration] CV(RMSE), used in the worked example of [§4.1](4-1-off-the-shelf-fms.html), is the most familiar. Reporting them costs nothing and makes results easier for that audience to judge.
+Where the domain community has an established accuracy measure, use it alongside generic ML metrics. For building energy, calibration guidelines such as ASHRAE Guideline 14, IPMVP and FEMP set the accuracy measures practitioners already read;[^ruiz2017calibration] [CV(RMSE)](../appendices/a-glossary.html#cv-rmse), used in the worked example of [§4.1](4-1-off-the-shelf-fms.html), is the most familiar. Reporting them costs nothing and makes results easier for that audience to judge.
 
 ### Held-out design
 

@@ -22,6 +22,32 @@ These notes are revised continuously, so there are two ways to trace what change
 
 ---
 
+## 3.2 — 20 October 2026
+
+43 section pages, 286 references, 52 models in the model index.
+
+**Developed**
+- [§4.1](../chapter-4-directions/4-1-off-the-shelf-fms.html#which-covariates-each-model-accepts) Which covariates (weather, calendar, building metadata) nine time-series models accept, and what that means for a building or district forecast
+- [§4.2](../chapter-4-directions/4-2-fms-for-building-stocks.html) Building-stock models: residential and European evidence, three ways of combining a stock-level model with a building-level one, and the four-requirement comparison
+- [§4.3](../chapter-4-directions/4-3-llm-agents-for-simulation.html) Agents that build simulation models: tools for envelope and HVAC inputs, how far agent-built models fall from expert ones, a proposed nine-point verification checklist, and tests of language models against real energy surveys
+- [§4.4](../chapter-4-directions/4-4-generative-design.html) Generative design: how generated network designs are made feasible, and how a discrete design space can be represented for learning
+- [§2.8](../chapter-2-fm-foundations/2-8-ues-fm-evaluation-criteria.html) An eighth evaluation dimension, social and risk properties (representativeness, privacy, explainability, robustness), carried into §5.5
+- [§3.5](../chapter-3-sim-opt/3-5-retrofit-and-whole-life-carbon.html) What learned models have been tried for embodied carbon and retrofit, with a dated search
+- [§4.9](../chapter-4-directions/4-9-ecosystem.html) FMI, HELICS and mosaik as templates for coupling models, and a worked example of forecast error carried into a dispatch decision
+
+**Revised**
+- G10 ranked between G4 and G5 (§6.1), keeping its label
+- §3.3 now cites its dispatch, design and runtime sections; the runtime table is marked as these notes' own estimates
+- §4.5 explains how its sub-field table relates to the task screen; §4.6 defines CESAR-P and cites its sources; §4.9's demand row reads "Mature for aggregated load"
+- Glossary: covariate, CV(RMSE). Model index: TimesFM 3.0, TiRex-2
+
+**Corrections**
+- §4.1 uses the revised version of the district-heating evaluation it is built on: TabPFN-TS's CVRMSE is 13.07%, Chronos-2 has the lower probabilistic error on both networks, and the claim that TabPFN-TS was better calibrated is removed
+- §2.4.1 no longer says TabPFN-TS uses static metadata; its documentation says static covariates are dropped
+- §4.2 no longer says no stock-pretrained model has been tested on residential or European buildings; BuildingsBench has been, and on residential buildings it does not beat a persistence baseline
+- §4.3's earlier finding of no tools for envelope or technology defaults came from an arXiv-only search; journal papers show several
+- Two papers listed twice in the bibliography under different keys are merged
+
 ## 3.1 — 20 October 2026
 
 43 section pages, 204 references, 50 models in the model index.

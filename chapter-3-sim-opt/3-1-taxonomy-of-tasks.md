@@ -72,7 +72,7 @@ Each row is a distinct *task* with a distinct mathematical structure — and fou
 {: .note }
 T1 also carries a representation problem the other tasks do not, because the decomposition of a building into elements is itself a modelling choice rather than a property of the object. See [§2.3 Choosing a Basic Element](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html).
 
-**T3 — Forecasting.** Regression on a series' own history plus covariates such as weather and calendar, which is why it is the task where time-series foundation models already work. Demand forecasting is surveyed in [§2.4.5](../chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html), renewable generation in [§2.4.3](../chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html), and the off-the-shelf route in [§4.1](../chapter-4-directions/4-1-off-the-shelf-fms.html).
+**T3 — Forecasting.** Regression on a series' own history plus [covariates](../appendices/a-glossary.html#covariate) such as weather and calendar, which is why it is the task where time-series foundation models already work. Demand forecasting is surveyed in [§2.4.5](../chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html), renewable generation in [§2.4.3](../chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html), and the off-the-shelf route in [§4.1](../chapter-4-directions/4-1-off-the-shelf-fms.html).
 
 **T4 — Dispatch.** Usually LP if conversion efficiencies are linear and no on/off decisions are needed; MILP once unit commitment, minimum part-load, or discrete states enter. This is the workhorse: it is the inner object of T5, T7 and T8. Treated as an ML problem shape in [§3.3](3-3-energy-hub-formalism.html#dispatch).
 

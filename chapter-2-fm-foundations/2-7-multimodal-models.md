@@ -35,7 +35,7 @@ A **modality** is one kind of data with its own structure. In urban energy syste
 - **graphs:** a grid or pipe network
 - **text:** a planning document, a market notice, a survey answer
 
-**Several time series are not yet multimodal.** A load series with a temperature series is *multivariate*: one modality with several channels, which general forecasters handle as covariates ([§2.4.1](2-4-1-time-series-fms.html)). It becomes multimodal when a time series is combined with data of a different kind.
+**Several time series are not yet multimodal.** A load series with a temperature series is *multivariate*: one modality with several channels, which general forecasters handle as [covariates](../appendices/a-glossary.html#covariate) ([§2.4.1](2-4-1-time-series-fms.html)). It becomes multimodal when a time series is combined with data of a different kind.
 
 ## How models combine modalities
 

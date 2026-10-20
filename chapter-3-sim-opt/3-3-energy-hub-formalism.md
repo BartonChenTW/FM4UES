@@ -50,13 +50,13 @@ This is the classical-formalism counterpart to the representation problem develo
 
 ### The problem
 
-Given a fixed system configuration — devices, capacities, topology — and boundary conditions (weather, demand, prices, carbon intensity), decide how the system should run: device outputs, storage states, imports/exports, cost, emissions (T4 in [§3.1](3-1-taxonomy-of-tasks.html)). Usually formulated as a linear program (LP) if conversion efficiencies are linear and no on/off decisions are needed, or a mixed-integer linear program ([MILP](../appendices/a-glossary.html#milp)) once unit commitment, minimum part-load, or discrete states enter.
+Given a fixed system configuration — devices, capacities, topology — and boundary conditions (weather, demand, prices, carbon intensity), decide how the system should run: device outputs, storage states, imports/exports, cost, emissions (T4 in [§3.1](3-1-taxonomy-of-tasks.html)). Usually formulated as a linear program (LP) if conversion efficiencies are linear and no on/off decisions are needed, or a mixed-integer linear program ([MILP](../appendices/a-glossary.html#milp)) once unit commitment, minimum part-load, or discrete states enter. In the energy-hub literature the operational model is commonly a MILP that balances demand and supply across carriers by choosing conversion and storage schedules, extended with efficiencies, storage losses and operating limits to make schedules more realistic.[^evins2014energyhub] Overviews of multi-energy system models cover both this operational stage and planning.[^mancarella2014mes]
 
-This is the workhorse task of the domain: it is the inner object called repeatedly by design optimisation (T5, [§3.3](3-3-energy-hub-formalism.html#design-and-sizing)), control (T7), and scenario analysis (T8).
+This is the workhorse task of the domain: it is the inner object called repeatedly by design optimisation (T5, [below](#design-and-sizing)), control (T7), and scenario analysis (T8).
 
 ### What kind of ML problem this is
 
-**Multivariate time series with exogenous covariates.** Precisely:
+**Multivariate time series with exogenous [covariates](../appendices/a-glossary.html#covariate).** Precisely:
 
 - **Variate dimension** = carriers and devices
 - **Sequence dimension** = time
@@ -77,9 +77,9 @@ This is a well-studied shape in machine learning — see [§2.4.1](../chapter-2-
 
 ### Why this is structurally different from dispatch
 
-[§3.3](3-3-energy-hub-formalism.html#dispatch)'s dispatch problem approximates a **simulation**: given inputs, predict outputs. Design and sizing optimisation (T5 in [§3.1](3-1-taxonomy-of-tasks.html)) approximates an **optimisation**: given a problem instance, predict the optimal decision — what to build, and how big.
+The dispatch problem [above](#dispatch) approximates a **simulation**: given inputs, predict outputs. Design and sizing optimisation (T5 in [§3.1](3-1-taxonomy-of-tasks.html)) approximates an **optimisation**: given a problem instance, predict the optimal decision — what to build, and how big.
 
-The canonical structure is bilevel or two-stage:
+The canonical structure is bilevel or two-stage. Design studies of multi-energy systems typically formulate it as a MILP, which over a full year at hourly resolution means a very large number of decision variables, binary ones included,[^gabrielli2018seasonal] or as a two-stage stochastic MILP in which sizing comes first and operation is solved under uncertain prices, demands and weather; treating the problem deterministically underestimated system cost in a ten-building Swiss case.[^mavromatidis2018twostage] Multi-level formulations split building design, system sizing and operation, with a genetic algorithm searching the design and a MILP solving operation,[^evins2015multilevel] and decomposition methods become necessary at scale: for networks of 5–100 cogeneration systems the monolithic MILP could not find solutions that the decomposed problem did.[^wakui2021decomposition]
 
 ```
 outer:  choose capacities x  →  minimise  investment(x) + operating_cost(x)
@@ -87,7 +87,7 @@ outer:  choose capacities x  →  minimise  investment(x) + operating_cost(x)
 inner:                              operating_cost(x) = min over dispatch, subject to physics
 ```
 
-The inner problem — dispatch, from [§3.3](3-3-energy-hub-formalism.html#dispatch) — is called once per candidate design. With evolutionary or many-objective outer search, that is 10³–10⁶ dispatch solves. **This is the single most expensive loop in the domain and the clearest justification for [surrogate](../appendices/a-glossary.html#surrogate) and foundation-model work.**
+The inner problem — dispatch, from [above](#dispatch) — is called once per candidate design. With evolutionary or many-objective outer search, that is 10³–10⁶ dispatch solves. **This is the single most expensive loop in the domain and the clearest justification for [surrogate](../appendices/a-glossary.html#surrogate) and foundation-model work.**
 
 ### The amortisation argument
 
@@ -101,7 +101,6 @@ A foundation model changes the arithmetic: the cost is paid once, across a distr
 N_train × t_sim  <  Σ over future studies ( N_evaluations × t_sim )
 ```
 
-**Corollary that matters institutionally:** this is also the succession argument. A model that speeds up every future study creates ongoing dependence, which is the strongest mechanism by which research infrastructure survives its author.
 
 {: .warning }
 **Caveat.** The arithmetic only holds if the model actually transfers. Amortisation assumes reuse across systems, and reuse depends on the basic element satisfying [§2.3.1](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#231-the-criterion). Where it does not, what looks like a foundation model is a collection of memorised cases and the payback never arrives. **Check the representation before running the amortisation calculation.**
@@ -113,7 +112,7 @@ This page frames design/sizing as a learning problem and states the economic arg
 ## Where the computational cost actually is
 {: #where-the-cost-is}
 
-Order-of-magnitude brackets. The spread is the point.
+Order-of-magnitude brackets, as these notes' own estimates rather than measured values; the spread is the point. The usual way to make the expensive rows tractable is time-series aggregation, solving on a few representative periods instead of the full year. It reduces computation markedly, though averaged periods underestimate real system cost,[^kotzur2018impact] and across many hundreds of model runs, standard aggregation gave a tenfold speedup within 2% cost deviation, and a newer method a hundredfold.[^hoffmann2022pareto]
 
 | Task/configuration | Typical runtime |
 | :--- | :--- |
@@ -131,6 +130,14 @@ Order-of-magnitude brackets. The spread is the point.
 [^geidl2007opf]: Geidl, M. and Andersson, G. (2007). [Optimal power flow of multiple energy carriers](https://doi.org/10.1109/TPWRS.2006.888988). *IEEE Transactions on Power Systems*, 22(1), 145–155.
 [^geidl2007future]: Geidl, M., Koeppel, G., Favre-Perrod, P. et al. (2007). [Energy hubs for the future](https://doi.org/10.1109/MPAE.2007.264850). *IEEE Power and Energy Magazine*, 5(1), 24–30.
 [^geidl2006operational]: Geidl, M. and Andersson, G. (2006). [Operational and structural optimization of multi-carrier energy systems](https://doi.org/10.1002/etep.112). *European Transactions on Electrical Power*, 16(5), 463–477.
+[^evins2014energyhub]: Evins, R., Orehounig, K., Dorer, V. et al. (2014). [New formulations of the 'energy hub' model to address operational constraints](https://doi.org/10.1016/j.energy.2014.06.029). *Energy*, 73, 387–398.
+[^mancarella2014mes]: Mancarella, P. (2014). [MES (multi-energy systems): An overview of concepts and evaluation models](https://doi.org/10.1016/j.energy.2013.10.041). *Energy*, 65, 1–17.
+[^gabrielli2018seasonal]: Gabrielli, P., Gazzani, M., Martelli, E. et al. (2018). [Optimal design of multi-energy systems with seasonal storage](https://doi.org/10.1016/j.apenergy.2017.07.142). *Applied Energy*, 219, 408–424.
+[^mavromatidis2018twostage]: Mavromatidis, G., Orehounig, K., Carmeliet, J. (2018). [Design of distributed energy systems under uncertainty: A two-stage stochastic programming approach](https://doi.org/10.1016/j.apenergy.2018.04.019). *Applied Energy*, 222, 932–950.
+[^evins2015multilevel]: Evins, R. (2015). [Multi-level optimization of building design, energy system sizing and operation](https://doi.org/10.1016/j.energy.2015.07.007). *Energy*, 90, 1775–1789.
+[^wakui2021decomposition]: Wakui, T., Hashiguchi, M., Yokoyama, R. (2021). [Structural design of distributed energy networks by a hierarchical combination of variable- and constraint-based decomposition methods](https://doi.org/10.1016/j.energy.2021.120099). *Energy*, 224, 120099.
+[^kotzur2018impact]: Kotzur, L., Markewitz, P., Robinius, M. et al. (2018). [Impact of different time series aggregation methods on optimal energy system design](https://doi.org/10.1016/j.renene.2017.10.017). *Renewable Energy*, 117, 474–487. arXiv:1708.00420.
+[^hoffmann2022pareto]: Hoffmann, M., Kotzur, L., Stolten, D. (2022). [The Pareto-optimal temporal aggregation of energy system models](https://doi.org/10.1016/j.apenergy.2022.119029). *Applied Energy*, 315, 119029. arXiv:2111.12072.
 
 ---
 [← Previous: 3.2 Building Simulation: Loads, Datasets, Benchmarks](3-2-building-simulation-data.html) · [Back to Chapter 3](index.html) · [Next: 3.4 Tools and Data Standards →](3-4-tools-and-standards.html)

@@ -42,7 +42,7 @@ flowchart TD
 | 2.5 | [Self-supervised pretraining, fine-tuning, scaling laws](2-5-scaling-laws.html) | ML basics for readers without an ML background |
 | 2.6 | [Architectures: transformers, GNNs, neural operators](2-6-architectures.html) | ML basics, continued |
 | 2.7 | [Multimodal models](2-7-multimodal-models.html) | Combining time series with building attributes, images, graphs and text; why it may matter most for UES |
-| 2.8 | [Evaluation criteria for UES foundation models](2-8-ues-fm-evaluation-criteria.html) | Seven dimensions for judging a UES-FM proposal beyond the generic three-property test |
+| 2.8 | [Evaluation criteria for UES foundation models](2-8-ues-fm-evaluation-criteria.html) | Eight dimensions for judging a UES-FM proposal beyond the generic three-property test |
 
 ---
 [← Previous: 1.4 Why Now, and How to Use These Notes](../chapter-1-background/1-4-why-now-and-how-to-use.html) · [Next: 2.1 What Defines a Foundation Model →](2-1-what-defines-an-fm.html)

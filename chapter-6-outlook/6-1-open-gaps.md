@@ -48,7 +48,7 @@ Not a foundation-model problem (see [§4.6](../chapter-4-directions/4-6-reading-
 
 ### G7 — Verification of agent-built models {#g7}
 
-As natural-language model setup commoditises, the open problem shifts from generation to verification — whether the assumptions an agent silently chose were defensible. The field's own vocabulary has moved toward verifiable agentic AI and reliability benchmarking. See [§4.3](../chapter-4-directions/4-3-llm-agents-for-simulation.html).
+As natural-language model setup commoditises, the open problem shifts from generation to verification — whether the assumptions an agent silently chose were defensible. Work on AI agents has moved toward measuring reliability rather than single successes.[^rabanser2026agentreliability] In the building-simulation studies found so far, agents that work through validated tools handle complex model changes that agents working alone fail, and a large share of models that run still give wrong results. [§4.3](../chapter-4-directions/4-3-llm-agents-for-simulation.html) collects that evidence and proposes a nine-point verification checklist.
 
 ### G8 — The basic element for buildings, and the zoning ambiguity underneath it {#g8}
 
@@ -60,12 +60,13 @@ Every existing energy foundation model represents what a system *is* or *does*. 
 
 ### G10 — Learned flexibility: predicting how a system responds to signals it has not seen {#g10}
 
-[Flexibility](../appendices/a-glossary.html#flexibility) assessment (T12 in [§3.1](../chapter-3-sim-opt/3-1-taxonomy-of-tasks.html)) asks how much an EV fleet, a data centre or a building can shift or shed when a price or the grid asks it to. Today this is measured and optimised case by case ([§3.7](../chapter-3-sim-opt/3-7-flexible-loads.html)), and one study found far more flexibility available with perfect foresight of a data centre's job queue than without it.[^ji2026gpuflexibility] No learned model of flexibility for either load was found (dated search in §3.7). The obstacle is counterfactual: forecasters do well when an intervention repeats one they have seen and much worse when it is new.[^ashok2026whatifbench] The contribution would be a model of flexible-load response, trained on simulators that pair loads with grids and evaluated on interventions held out from training. This gap was added in v3.1 and is not yet ranked against G1–G9.
+[Flexibility](../appendices/a-glossary.html#flexibility) assessment (T12 in [§3.1](../chapter-3-sim-opt/3-1-taxonomy-of-tasks.html)) asks how much an EV fleet, a data centre or a building can shift or shed when a price or the grid asks it to. Today this is measured and optimised case by case ([§3.7](../chapter-3-sim-opt/3-7-flexible-loads.html)), and one study found far more flexibility available with perfect foresight of a data centre's job queue than without it.[^ji2026gpuflexibility] No learned model of flexibility for either load was found (dated search in §3.7). The obstacle is counterfactual: forecasters do well when an intervention repeats one they have seen and much worse when it is new.[^ashok2026whatifbench] The contribution would be a model of flexible-load response, trained on simulators that pair loads with grids and evaluated on interventions held out from training. Ranked by defensibility, it sits between G4 and G5: simulators that pair flexible loads with grids already exist to train on, and the shortfall to beat is measured, but no benchmark of flexible-load response exists yet. It keeps the label G10, added in v3.1, so that the labels G5–G9 used across these notes do not change.
 
 [^lin2024tsfmbuilding]: Lin, X., Prabowo, A., Razzak, I. et al. (2024). [Exploring capabilities of time series foundation models in building analytics](https://arxiv.org/abs/2411.08888). arXiv:2411.08888.
 [^shin2019zoning]: Shin, M., Haberl, J. S. (2019). [Thermal zoning for building HVAC design and energy simulation: A literature review](https://doi.org/10.1016/j.enbuild.2019.109429). *Energy and Buildings*, 203, 109429.
 [^ji2026gpuflexibility]: Ji, Y., Crozier, C., Liska, M. (2026). [Quantifying and Attributing Power Flexibility from GPU-Heavy Data Centers](https://arxiv.org/abs/2603.27831). arXiv:2603.27831.
 [^ashok2026whatifbench]: Ashok, A., Parmar, M., Goyal, P. et al. (2026). [WhatIf-Bench: Benchmarking Intervention-Aware Time Series Forecasting](https://arxiv.org/abs/2610.26582). arXiv:2610.26582.
+[^rabanser2026agentreliability]: Rabanser, S., Kapoor, S., Kirgis, P. et al. (2026). [Towards a science of AI agent reliability](https://arxiv.org/abs/2602.16666). arXiv:2602.16666. Accepted at ICML 2026.
 
 ---
 [← Previous: Chapter 6 — Outlook](index.html) · [Back to Chapter 6](index.html) · [Next: 6.2 How to Contribute →](6-2-how-to-contribute.html)

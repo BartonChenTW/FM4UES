@@ -36,6 +36,9 @@ These five screen the **task**. They do not screen the **representation**, and a
 
 ## Applying the screen at sub-field level
 
+{: .note }
+The sub-field table below does not reuse the five criteria as columns. It looks at the other screen, the representation: what the [basic element](../appendices/a-glossary.html#basic-element) would be ([§2.3.1](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#231-the-criterion)), what [self-supervised](../appendices/a-glossary.html#self-supervised-pretraining) task it allows, and what pretraining data exists. The five criteria are applied task by task in [Screening the tasks](#screening-the-tasks) further down, so the two tables are the two screens, one per level.
+
 Before applying this screen task-by-task (done in [§4.5](4-5-screening-fields.html#screening-the-tasks)), it is worth applying it at the level of whole UES sub-fields, since some sub-fields already have a natural basic element and others manifestly do not:
 
 | Sub-field | Basic element | Self-supervision task | Public pretraining data | Maturity |

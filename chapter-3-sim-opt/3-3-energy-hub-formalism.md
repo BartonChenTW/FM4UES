@@ -68,6 +68,8 @@ This is a well-studied shape in machine learning — see [§2.4.1](../chapter-2-
 
 **Why this matters for the amortisation argument.** Because dispatch is called so many times inside outer loops (design search, scenario evaluation, uncertainty quantification), even a modest per-call speedup compounds. This is where the amortisation argument first becomes concrete: paying a one-off training cost to replace a repeatedly-called solver call with a learned approximation. The full arithmetic, and its caveats, is developed in [§3.3](3-3-energy-hub-formalism.html#design-and-sizing) and revisited for the case study in [Chapter 5](../chapter-5-case-study/index.html).
 
+**Flexible loads enter here.** EV fleets and data centres appear in dispatch as loads whose timing and size can be chosen within limits; how much they can move is assessed in [§3.7](3-7-flexible-loads.html) (task T12).
+
 **Where this is developed as a build path.** This page frames dispatch as a learning problem; the concrete methods, architecture choices and build path for single-hub dispatch (Tier 1) and multi-hub multi-carrier dispatch (Tier 2) are given in [§4.7.1](../chapter-4-directions/4-7-1-methods-tier1.html) and [§4.7.2](../chapter-4-directions/4-7-2-methods-tier2.html), once [Chapter 4](../chapter-4-directions/index.html) has established which sub-fields pass the FM screen at all.
 
 ## Design and sizing optimisation

@@ -461,6 +461,49 @@
     - "https://api.crossref.org/works/10.3390/asi9010018"
   notes: "No public code found. Not a foundation model; named in section 4.9.2 as a design example."
 
+- id: "gridsfm"
+  name: "GridSFM"
+  full_name: "GridSFM"
+  family: "Energy"
+  developer: "Microsoft"
+  year: 2026
+  description: "15-million-parameter graph network pretrained on 54 grid topologies for AC optimal power flow, adapting to unseen grids of up to 10,000 buses from 100 solved instances."
+  url: "https://github.com/microsoft/GridSFM"
+  paper: "https://arxiv.org/abs/2609.30173"
+  bib_key: "bhan2026gridsfm"
+  sources:
+    - "https://export.arxiv.org/api/query?id_list=2609.30173"
+    - "https://github.com/microsoft/GridSFM"
+  notes: "Developer from the repository owner (microsoft/GridSFM, MIT licence); the paper's author block gives no affiliations."
+- id: "genco"
+  name: "GENCO"
+  full_name: "GEometric Neural Corrective Optimizer"
+  family: "Energy"
+  developer: "IBM Research, Hydro-Québec Research Institute and ETH Zürich"
+  year: 2026
+  description: "One neural solver for power flow, optimal power flow and state estimation on transmission grids, released with the open GridFM Development Framework and datasets."
+  url: ""
+  paper: "https://arxiv.org/abs/2608.09921"
+  bib_key: "puech2026genco"
+  sources:
+    - "https://export.arxiv.org/api/query?id_list=2608.09921"
+    - "https://arxiv.org/html/2608.09921"
+  notes: "Affiliations from the paper's author block. Repository URL not confirmed."
+- id: "lumina"
+  name: "LUMINA"
+  full_name: "LUMINA"
+  family: "Energy"
+  developer: "Argonne National Laboratory, with Emory University and Sogang University"
+  year: 2026
+  description: "Framework and design principles for physics-constrained foundation models, derived from controlled experiments on topology-transferable AC optimal power flow."
+  url: ""
+  paper: "https://arxiv.org/abs/2603.04300"
+  bib_key: "li2026lumina"
+  sources:
+    - "https://export.arxiv.org/api/query?id_list=2603.04300"
+    - "https://arxiv.org/html/2603.04300"
+  notes: "Affiliations from the paper's author block (partial list read)."
+
 # --- Weather and geospatial ---
 - id: "graphcast"
   name: "GraphCast"

@@ -89,4 +89,4 @@ Energy poverty is framed in the social-science literature as the inability to at
 [^beckel2014household]: Beckel, C., Sadamori, L., Staake, T., Santini, S. (2014). [Revealing household characteristics from smart meter data](https://doi.org/10.1016/j.energy.2014.10.025). *Energy*, 78, 397–410.
 
 ---
-[← Previous: 3.5 Building Retrofit and Whole-Life Carbon](3-5-retrofit-and-whole-life-carbon.html) · [Back to Chapter 3](index.html) · [Next: Chapter 4 — Directions for FMs in UES →](../chapter-4-directions/index.html)
+[← Previous: 3.5 Building Retrofit and Whole-Life Carbon](3-5-retrofit-and-whole-life-carbon.html) · [Back to Chapter 3](index.html) · [Next: 3.7 Flexible Loads: EV Charging and Data Centres →](3-7-flexible-loads.html)

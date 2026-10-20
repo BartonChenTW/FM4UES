@@ -24,6 +24,7 @@ redirect_from: /appendix-a-glossary.html
 | **DAE**{: #dae} | Differential-algebraic equations — the structure of Modelica-type models |
 | **Decision space**{: #decision-space} | The set of possible interventions on a system, as distinct from its state space; see [G9](../chapter-6-outlook/6-1-open-gaps.html#g9) |
 | **DINO**{: #dino} (self-distillation with no labels) | Self-supervised vision transformer trained by having a student network match a teacher's output with no labelled data. See [§1.3](../chapter-1-background/1-3-fm-landscape-by-domain.html) |
+| **Demand response**{: #demand-response} | Changes in consumers' electricity use in response to prices or incentives, which grids use to balance supply and demand. See [§3.7](../chapter-3-sim-opt/3-7-flexible-loads.html) |
 | **Embodied emissions**{: #embodied-emissions} | Greenhouse-gas emissions from producing, transporting, installing, replacing and disposing of building materials and equipment, as opposed to operating the building. See [§3.5](../chapter-3-sim-opt/3-5-retrofit-and-whole-life-carbon.html) |
 | **Energy burden**{: #energy-burden} | Share of a household's income spent on energy; a common quantitative indicator of energy poverty |
 | **Energy hub**{: #energy-hub} | Node converting/storing/dispatching multiple carriers via a coupling matrix ([§3.3](../chapter-3-sim-opt/3-3-energy-hub-formalism.html)) |
@@ -31,6 +32,7 @@ redirect_from: /appendix-a-glossary.html
 | **Energy poverty**{: #energy-poverty} | Inability of a household to attain a socially and materially necessary level of domestic energy services. See [§3.6](../chapter-3-sim-opt/3-6-social-dimensions.html) |
 | **EPD**{: #epd} (Environmental Product Declaration) | Product-specific declaration of life-cycle environmental impacts, structured by the EN 15804 information modules. See [§3.5](../chapter-3-sim-opt/3-5-retrofit-and-whole-life-carbon.html) |
 | **Fine-tuning**{: #fine-tuning} | Adjusting a pretrained model to a specific case with a small amount of additional data — comparable to calibrating a model against measurements. See [§2.5](../chapter-2-fm-foundations/2-5-scaling-laws.html) |
+| **Flexibility**{: #flexibility} | The ability of a load, generator or store to change its power in response to a signal (a price, a grid request) by shifting it in time, moving it to another site, or curtailing it. See [§3.7](../chapter-3-sim-opt/3-7-flexible-loads.html) |
 | **Foundation model**{: #foundation-model} | Pretrained on a broad distribution; transfers to unseen instances; serves multiple tasks |
 | **In-context learning**{: #in-context-learning} | Making predictions by conditioning on labelled examples supplied at inference time, with no parameter updates |
 | **LCA**{: #lca} (life cycle assessment) | Quantifying a product's or building's environmental impacts across its life cycle, from raw materials to end of life. For buildings, standardised in EN 15978. See [§3.5](../chapter-3-sim-opt/3-5-retrofit-and-whole-life-carbon.html) |

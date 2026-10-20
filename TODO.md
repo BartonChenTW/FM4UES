@@ -42,6 +42,10 @@ Items tagged **[Claude]** are suggestions from Claude (2026-09-11), not yet agre
   - Confirm venues that come only from arXiv comments (Time-LLM ICLR 2024, SysCaps ICLR 2025, Wu et al. TMLR).
   - Check that the journal version of the clean-energy review (`ferdaus2025cleanenergy`) keeps its section 5.2 on fusion.
   - Watch for a multimodal load model conditioned on real building-register attributes. None existed at the dated search (2026-10-20).
+- [ ] **Follow-ups from v3.1 (flexible loads).**
+  - Rank G10 against G1–G9.
+  - Re-check the 2026 preprints in §2.4.2 and §3.7 for published versions.
+  - Consider whether heat pumps and building thermal mass belong in §3.7 alongside EVs and data centres.
 - [ ] **Smaller items from the same review.**
   - §4.9's Demand row says "Mature" without "for aggregated load" and links §2.4.2 instead of §2.4.5. Neither §4.9 Shape 1 nor §4.6 links §2.7 "Multimodal models".
   - §4.6 doesn't define CESAR-P and has no citations.

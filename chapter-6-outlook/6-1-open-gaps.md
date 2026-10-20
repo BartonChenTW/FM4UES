@@ -58,8 +58,14 @@ No building decomposition satisfies the four requirements of [§2.3.1](../chapte
 
 Every existing energy foundation model represents what a system *is* or *does*. None represents what could be *done to it* — the discrete, combinatorial, constraint-bound space of possible interventions. This is required for any FM targeting retrofit, investment or design support (Tier 3, [§4.7.3](../chapter-4-directions/4-7-3-methods-tier3.html)), has no counterpart in the grid literature to borrow from, and is the least developed question in these notes. See also [§4.4 Generative Design](../chapter-4-directions/4-4-generative-design.html), and [§3.5](../chapter-3-sim-opt/3-5-retrofit-and-whole-life-carbon.html) for the domain side: how [retrofit measures](../appendices/a-glossary.html#retrofit-measure) are chosen today and how embodied carbon enters the trade-off.
 
+### G10 — Learned flexibility: predicting how a system responds to signals it has not seen {#g10}
+
+[Flexibility](../appendices/a-glossary.html#flexibility) assessment (T12 in [§3.1](../chapter-3-sim-opt/3-1-taxonomy-of-tasks.html)) asks how much an EV fleet, a data centre or a building can shift or shed when a price or the grid asks it to. Today this is measured and optimised case by case ([§3.7](../chapter-3-sim-opt/3-7-flexible-loads.html)), and one study found far more flexibility available with perfect foresight of a data centre's job queue than without it.[^ji2026gpuflexibility] No learned model of flexibility for either load was found (dated search in §3.7). The obstacle is counterfactual: forecasters do well when an intervention repeats one they have seen and much worse when it is new.[^ashok2026whatifbench] The contribution would be a model of flexible-load response, trained on simulators that pair loads with grids and evaluated on interventions held out from training. This gap was added in v3.1 and is not yet ranked against G1–G9.
+
 [^lin2024tsfmbuilding]: Lin, X., Prabowo, A., Razzak, I. et al. (2024). [Exploring capabilities of time series foundation models in building analytics](https://arxiv.org/abs/2411.08888). arXiv:2411.08888.
 [^shin2019zoning]: Shin, M., Haberl, J. S. (2019). [Thermal zoning for building HVAC design and energy simulation: A literature review](https://doi.org/10.1016/j.enbuild.2019.109429). *Energy and Buildings*, 203, 109429.
+[^ji2026gpuflexibility]: Ji, Y., Crozier, C., Liska, M. (2026). [Quantifying and Attributing Power Flexibility from GPU-Heavy Data Centers](https://arxiv.org/abs/2603.27831). arXiv:2603.27831.
+[^ashok2026whatifbench]: Ashok, A., Parmar, M., Goyal, P. et al. (2026). [WhatIf-Bench: Benchmarking Intervention-Aware Time Series Forecasting](https://arxiv.org/abs/2610.26582). arXiv:2610.26582.
 
 ---
 [← Previous: Chapter 6 — Outlook](index.html) · [Back to Chapter 6](index.html) · [Next: 6.2 How to Contribute →](6-2-how-to-contribute.html)

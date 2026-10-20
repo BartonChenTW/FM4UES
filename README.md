@@ -36,16 +36,16 @@ One page per section, nested by chapter using just-the-docs' `parent:` /
 | `index.md` | Landing page and table of contents |
 | `chapter-1-background/` | §1.1–1.4 — what a UES contains, FMs in one page, the FM landscape, why UES/why now, scope of the notes |
 | `chapter-2-fm-foundations/` | §2.1–2.8 — what defines an FM, the five design decisions, **Choosing a Basic Element** (the core argument), surrogates vs FMs, existing FMs relevant to energy, ML basics (self-supervision, transformers, GNNs, neural operators), **multimodal models**, evaluation criteria for UES FMs |
-| `chapter-3-sim-opt/` | §3.1–3.6 — modelling tasks and their mathematical structure, building simulation data, the energy hub formalism, dispatch and design/sizing optimisation as ML problems, the tool landscape, schemas, where cost lives, building retrofit and whole-life carbon, social dimensions (behaviour, adoption, energy poverty and justice) |
+| `chapter-3-sim-opt/` | §3.1–3.7 — modelling tasks and their mathematical structure, building simulation data, the energy hub formalism, dispatch and design/sizing optimisation as ML problems, the tool landscape, schemas, where cost lives, building retrofit and whole-life carbon, social dimensions (behaviour, adoption, energy poverty and justice), flexible loads (EV charging, data centres) |
 | `chapter-4-directions/` | §4.1–4.9 — a neutral survey: off-the-shelf FMs, building-stock FMs, LLM agents for simulation, generative design, screening, candidate sub-fields, a proposed three-tier development path (§4.7, the one non-survey section), building it, and how the pieces could fit together as an ecosystem |
 | `chapter-5-case-study/` | §5.1–5.5 — one concrete proposal: roadmap (Phases 0–5), the representation problem, data generation, a concrete representation, token schema, physics loss, module decomposition, risks |
-| `chapter-6-outlook/` | §6.1–6.2 — nine open gaps (G1–G9), how to contribute |
+| `chapter-6-outlook/` | §6.1–6.2 — ten open gaps (G1–G10), how to contribute |
 | `appendices/` | Glossary (A), pre-project checklist (B), version history (C), model index (D, generated from `_data/models.yml`) |
 | `references/` | `fm-for-ues.bib` (Zotero import) and its README |
 
 ## Status
 
-Version 3.0 (20 October 2026) — actively revised. Each version is a tagged
+Version 3.1 (20 October 2026) — actively revised. Each version is a tagged
 [GitHub Release](https://github.com/BartonChenTW/FM4UES/releases), summarised in
 [Appendix C](appendices/c-version-history.md). Each page on the site links to its own
 change history. Corrections and additions welcome via issue or pull request.

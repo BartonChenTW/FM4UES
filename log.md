@@ -933,3 +933,36 @@ Barton asked for a page-view counter using his GoatCounter site (fm4ues.goatcoun
 - Site code `goatcounter: "fm4ues"` in `_config.yml`.
 - A README line says views are counted with GoatCounter, which uses no cookies.
 - No literal HTML tags in the script, per the lychee note.
+
+## 2026-10-20 (version 3.1: grid FMs updated; §3.7 Flexible loads; T12; G10)
+
+**Why.** Barton asked for an investigation of FM and ML work on energy-system operational simulation, especially EV charging and data-centre flexibility, and agreed the proposed placement: update §2.4.2, add a new §3.7, add task T12 and gap G10.
+
+**Findings** (dated arXiv searches, 2026-10-20, reported on §3.7):
+- Grid FMs moved to released pretrained models in 2026.
+- EV charging and data centres have no domain FM.
+- Data-centre flexibility is a fast-growing field (117 results), mostly optimisation and control.
+- No learned model of aggregate EV flexibility was found (0 results).
+
+**Changes.**
+- **§2.4.2:** new subsection "The first released pretrained models (2026)" covering GridSFM, GENCO, LUMINA, heterogeneous graph FMs and GridFM distillation, plus a real-data caution from the Uruguay dispatch study. H1 is now "(First Released Models, Moving Fast)". The §4.5 sub-field table and the §4.9 Grid row follow; the status label stays Emerging, now with "first released pretrained models (2026)".
+- **New §3.7 Flexible Loads:**
+  - what flexibility is, and the value study (PJM vs Korea)
+  - data centres: measured flexibility (130 kW cluster, job power elasticity, flexibility prices, inference as ramp management), the grid-integration review, and learned models and tools (load-forecasting ensemble, CarbonX, OpenG2G)
+  - EV charging: hierarchical probabilistic forecasting, EV-STLLM, Chronos-2 zero-shot on charging stations; control with HetGPS and LLM-enhanced multi-agent RL
+  - the notes' reading
+  - a dated search
+- **§3.1:** T12 Flexibility assessment, as a table row and a note, and "eleven" became "twelve".
+- **§3.3:** a pointer to flexible loads in the dispatch section.
+- **§2.4.5:** an EV-charging row in the evaluations table.
+- **§4.5:** a T12 row ("Open"). "Eleven" became "twelve", and the self-reference "criteria of §4.5" left over from the merge is fixed.
+- **§4.6:** a T12 reading citing WhatIf-Bench (48–85% skill on repeated interventions, −7% to 50% on new ones), and candidate direction 6, "Flexibility model".
+- **§6.1:** G10 "Learned flexibility", added at the end and not yet ranked. "Nine gaps" became "ten" in the Chapter 6 landing, §6.2, the home page and the README.
+- **Glossary:** Flexibility and Demand response. The linker links "flexibility" only on the pages that use it in this sense.
+- **Model index:** GridSFM (Microsoft, from the repository owner), GENCO (IBM Research, Hydro-Québec, ETH Zürich) and LUMINA (Argonne, with Emory and Sogang), with affiliations from the papers' author blocks.
+- Chapter 3 landing (table and diagram), README and home page.
+- Version 3.1 recorded in Appendix C, `_config.yml` and the README.
+
+**References (bib 183 → 204).** 21 new, all checked with the arXiv API, claims written from abstracts. Published versions were found via OpenAlex and checked on Crossref: EV-STLLM (*Expert Systems with Applications* 313), CarbonX (e-Energy '26) and the Uruguay ORPD study (ICPRS 2025). The rest are preprints. Khanal et al. is noted as submitted to *Nature Energy*.
+
+Verified: footnote integrity on every page, all keys in the bib, no duplicates, braces balanced, and every internal link and anchor resolving (local check). Navigation was regenerated for all 49 chapter pages.

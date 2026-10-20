@@ -191,6 +191,16 @@ exclude = [
   #     Variables in the Analysis of Output from a Computer Code",
   #     Technometrics 21(2):239-245 (section 4.10, Latin hypercube).
   '^https://doi\.org/10\.1080/',
+  # Journal of Simulation moved from Palgrave (DOI prefix 10.1057) to
+  # Taylor & Francis, so its old DOIs now redirect to tandfonline.com and
+  # get the same 403 as the 10.1080 prefix above. Excluded per DOI, not by
+  # prefix, because 10.1057 also covers other Palgrave journals. Verified
+  # against the Crossref API on 2026-10-20, and doi.org redirects to the
+  # matching tandfonline.com record:
+  #   10.1057/jos.2012.20 -- Sargent (2013), "Verification and validation
+  #     of simulation models", Journal of Simulation 7(1):12-24
+  #     (section 4.3, verification checklist).
+  '^https://doi\.org/10\.1057/jos\.2012\.20$',
 ]
 
 # Skip files that aren't meant to be checked as published pages.

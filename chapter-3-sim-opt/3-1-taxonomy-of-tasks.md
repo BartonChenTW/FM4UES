@@ -22,7 +22,7 @@ last_reviewed: 2026-09-29
 
 **System description + external conditions → model → system outcomes**
 
-The inputs may include building characteristics, technology parameters, weather, occupancy, energy prices, network characteristics, or technology availability. The outputs may include energy demand, generation, energy flows, temperatures, equipment operation, investment decisions, operating costs, or emissions. Which inputs and which outputs is exactly what distinguishes one task from another — and that is what the eleven tasks below are sorted by.
+The inputs may include building characteristics, technology parameters, weather, occupancy, energy prices, network characteristics, or technology availability. The outputs may include energy demand, generation, energy flows, temperatures, equipment operation, investment decisions, operating costs, or emissions. Which inputs and which outputs is exactly what distinguishes one task from another — and that is what the twelve tasks below are sorted by.
 
 ### Simulation and optimisation answer different questions
 
@@ -46,7 +46,7 @@ Viewed this way, many energy-system computations are structured mappings from in
 
 But they are not ordinary black-box prediction problems. They encode conservation laws, engineering constraints, operational limits, discrete decisions, objective functions, and assumptions about uncertain human behaviour. A [foundation model](../appendices/a-glossary.html#foundation-model) here has to interact with that structure rather than merely fit an input–output relation. The recurring question, taken up as a screening test in [§4.5](../chapter-4-directions/4-5-screening-fields.html#screening-the-tasks), is **which parts of energy-system modelling can benefit from foundation-model approaches, and what structure must be preserved when they are learned or approximated.**
 
-## The eleven tasks
+## The twelve tasks
 
 Each row is a distinct *task* with a distinct mathematical structure — and foundation-model potential differs sharply between them. This table is used again in [§4.5 Screening the Tasks](../chapter-4-directions/4-5-screening-fields.html#screening-the-tasks).
 
@@ -63,6 +63,7 @@ Each row is a distinct *task* with a distinct mathematical structure — and fou
 | T9 | **Impact assessment** | Emissions, cost, equity, comfort outcomes | post-processing / [LCA](../appendices/a-glossary.html#lca) | seconds–hours |
 | T10 | **Retrofit analysis & planning** | Which measures should this existing building (or stock) get, and when? | combinatorial, multi-objective search over a discrete measure set, T1 in the loop | minutes–days |
 | T11 | **Behaviour & adoption modelling** | How do people use buildings, and who adopts which technology, when? | agent-based simulation / behavioural models, calibrated to surveys and observed uptake | minutes–hours |
+| T12 | **[Flexibility](../appendices/a-glossary.html#flexibility) assessment** | How much can a load or fleet shift or shed, when, and at what cost? | scheduling optimisation under service constraints; counterfactual response to new signals | minutes–hours |
 
 ## Notes on each task's structure
 
@@ -84,6 +85,8 @@ T1 also carries a representation problem the other tasks do not, because the dec
 **T10 — Retrofit.** A decision over which measures to apply to an existing building, evaluated by running T1 on each candidate and scored on cost, operational and embodied emissions (T9). At stock scale it turns into a T8 scenario question. It is the most concrete instance of the [decision space](../appendices/a-glossary.html#decision-space) in [gap G9](../chapter-6-outlook/6-1-open-gaps.html#g9). Treated in [§3.5](3-5-retrofit-and-whole-life-carbon.html).
 
 **T11 — Behaviour and adoption.** Models of the people in the system rather than the devices: occupant behaviour (an input to T1) and technology-adoption and investment decisions (an input to T8, and at stock level the rate at which T10's measures are actually taken up). Usually agent-based, calibrated to surveys and observed uptake. Unlike every other task here, there is no physics simulator to generate ground truth. Treated in [§3.6](3-6-social-dimensions.html).
+
+**T12 — Flexibility assessment.** How much a flexible load, such as an EV fleet, a data centre or a building's heat pump, can shift in time, move between sites or curtail in response to a price or grid signal, and what that costs in lost service. Its results enter dispatch (T4) and design (T5) as loads that can be chosen within limits. The hard part is counterfactual: predicting the response to a signal the load has not yet received. Treated in [§3.7](3-7-flexible-loads.html).
 
 [^ferrando2020ubem]: Ferrando, M., Causone, F., Hong, T., Chen, Y. (2020). [Urban building energy modeling (UBEM) tools: A state-of-the-art review of bottom-up physics-based approaches](https://arxiv.org/abs/2103.01761). *Sustainable Cities and Society*, 62, 102408.
 [^doma2023occupant]: Doma, A., Ouf, M. (2023). [Modelling occupant behaviour for urban scale simulation: Review of available approaches and tools](https://doi.org/10.1007/s12273-022-0939-3). *Building Simulation*, 16, 169–184.

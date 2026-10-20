@@ -18,7 +18,7 @@ What is open, and how readers can contribute.
 
 | § | Page | Covers |
 | :--- | :--- | :--- |
-| 6.1 | [Open gaps](6-1-open-gaps.html) | Nine gaps (G1–G9), ordered by how defensible they are as research contributions |
+| 6.1 | [Open gaps](6-1-open-gaps.html) | Ten gaps (G1–G10), ordered by how defensible they are as research contributions |
 | 6.2 | [How to contribute to this knowledge base](6-2-how-to-contribute.html) | Ways to contribute, pointing to CONTRIBUTING.md |
 
 ---

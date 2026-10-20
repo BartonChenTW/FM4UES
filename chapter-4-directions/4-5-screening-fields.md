@@ -41,7 +41,7 @@ Before applying this screen task-by-task (done in [§4.5](4-5-screening-fields.h
 | Sub-field | Basic element | Self-supervision task | Public pretraining data | Maturity |
 | :--- | :--- | :--- | :--- | :--- |
 | **Load / smart-meter FM** | Windowed [patch](../appendices/a-glossary.html#patch) of a meter time series | Masked / next-value reconstruction | EnergyBench, [BuildingsBench](../appendices/d-model-index.html#buildingsbench) (see [§3.2](../chapter-3-sim-opt/3-2-building-simulation-data.html)) | Mature — several such models already exist ([§2.4.5](../chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html)) |
-| **Grid FM** ([GridFM-v0](../appendices/d-model-index.html#gridfm)) | A bus carrying (p, q, v, δ) as a graph node; lines and transformers as edges | Masked node-feature reconstruction + AC power-flow physics loss | PGLIB-OPF, IEEE cases, gridfm-datakit | Emerging but active — see [§2.4.2](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html) |
+| **Grid FM** ([GridFM-v0](../appendices/d-model-index.html#gridfm)) | A bus carrying (p, q, v, δ) as a graph node; lines and transformers as edges | Masked node-feature reconstruction + AC power-flow physics loss | PGLIB-OPF, IEEE cases, gridfm-datakit | Emerging: first released pretrained models in 2026, see [§2.4.2](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html) |
 | **UBEM / simulator-grounded FM** | A building (envelope, geometry, HVAC, occupancy) paired with its simulated load | Conditional generation, attribute-to-profile mapping | Privately generable only | Not a found-data FM — simulator-grounded generative model |
 | **Urban microclimate / geospatial-energy FM** | Satellite pixel/patch over space-time | Masked spatiotemporal reconstruction | HLS, Sentinel-2, ERA5 | Emerging, adjacent, not yet fused with load or grid data — see [§2.4.3](../chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html#weather-and-geospatial) |
 | **District multi-energy hub** | Not yet defined | Not yet defined | Essentially none public | Immature — the subject of [Chapter 5](../chapter-5-case-study/index.html) |
@@ -53,7 +53,7 @@ Before applying this screen task-by-task (done in [§4.5](4-5-screening-fields.h
 ## Screening the tasks
 {: #screening-the-tasks}
 
-This page applies the five screening criteria of [§4.5](4-5-screening-fields.html) to each of the eleven modelling tasks (T1–T11) of [§3.1](../chapter-3-sim-opt/3-1-taxonomy-of-tasks.html). The criteria ask:
+This section applies the five screening criteria above to each of the twelve modelling tasks (T1–T12) of [§3.1](../chapter-3-sim-opt/3-1-taxonomy-of-tasks.html). The criteria ask:
 
 - **S1 ground truth:** can unlimited correct labels be produced, usually by running a simulator or solver?
 - **S2 homogeneity:** do instances of the task share enough structure for a model to transfer between them?
@@ -77,6 +77,7 @@ This page applies the five screening criteria of [§4.5](4-5-screening-fields.ht
 | T9 Impact assessment | ✔ | ✔ | ◐ | ✘ | ✔ | Weak — no bottleneck |
 | T10 Retrofit | ◐ simulator + [LCA](../appendices/a-glossary.html#lca) data per candidate; optimum needs a solver | ◐ shared measure library, instance-specific constraints | ✔ many buildings | ✔ combinatorial loop over T1 | ◐ per-candidate outcomes yes; "best plan" depends on objectives | **Promising, representation-blocked** — see [§4.6](4-6-reading-the-screen.html) |
 | T11 Behaviour/adoption | ✘ no simulator of people; observational only | ◐ | ✔ many households | ◐ Monte Carlo over seeds and scenarios | ◐ one observed history; equity is normative | **Weak as an FM target** — LLMs as bounded tools instead (see [§4.6](4-6-reading-the-screen.html)) |
+| T12 [Flexibility](../appendices/a-glossary.html#flexibility) assessment | ◐ simulators of workloads and charging exist; the response to a new signal is counterfactual | ◐ fleets and facilities differ | ✔ many sites | ✔ assessed inside dispatch and market loops | ◐ checkable in simulation; real response observed once | **Open** — forecasting the load works; forecasting its response to new signals does not (see [§4.6](4-6-reading-the-screen.html)) |
 
 
 ---

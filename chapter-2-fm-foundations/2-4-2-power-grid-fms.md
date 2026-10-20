@@ -4,10 +4,10 @@ parent: "2.4 Existing FMs Relevant to Energy"
 grand_parent: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 2
 status: draft
-last_reviewed: 2026-09-11
+last_reviewed: 2026-10-20
 ---
 
-# 2.4.2 Power-Grid Foundation Models (Emerging, Moving Fast)
+# 2.4.2 Power-Grid Foundation Models (First Released Models, Moving Fast)
 {: .no_toc }
 
 {% include page-status.html %}
@@ -23,6 +23,18 @@ The power-systems community has already made the move this document is about. Gr
 
 {: .note }
 Read together with [§2.3.1](2-3-choosing-a-basic-element.html#231-the-criterion): what makes this domain tractable is not that power systems had more data, but that the bus supplies a [basic element](../appendices/a-glossary.html#basic-element) satisfying all four requirements. Sub-domains without such an element should not expect the same recipe to work.
+
+## The first released pretrained models (2026)
+
+During 2026 the idea became working, released software. Several pretrained models now solve power flow or optimal power flow on grids they were not trained on:
+
+- **[GridSFM](../appendices/d-model-index.html#gridsfm)** is a 15-million-parameter graph network pretrained on 54 grid topologies of 500 to 4,000 buses. [Zero-shot](../appendices/a-glossary.html#zero-shot), it reaches a 2.45% generation-cost error on a held-out 10,000-bus case, and with only 100 solved instances it adapts to unseen grids of up to 10,000 buses. Models, data and code are released.[^bhan2026gridsfm]
+- **[GENCO](../appendices/d-model-index.html#genco)** handles power flow, optimal power flow and state estimation in one architecture, and was tested on real Hydro-Québec SCADA data. It reports up to 30× speedups over Newton-Raphson for power flow and up to 85× over the IPOPT solver for optimal power flow, and ships with an open development framework and datasets of millions of scenarios.[^puech2026genco]
+- **[LUMINA](../appendices/d-model-index.html#lumina)** draws design principles for constrained "scientific foundation models" from controlled experiments on AC optimal power flow: physics-invariant representations that still respect each system's constraints, accuracy without sacrificing constraint satisfaction, and reliability in high-impact operating regimes.[^li2026lumina]
+- **Heterogeneous graph foundation models** trained on about three million grid graphs from ten benchmark cases of 14 to 13,659 buses, on up to 1,024 nodes of the Frontier supercomputer, compare six graph-network families and adapt to downstream tasks such as predicting voltages after a single outage.[^lupopasini2026heterogfm]
+- **Distillation** shrinks a 20-million-parameter grid foundation model 32-fold so it can run at the edge, next to the measurement, within one synchrophasor reporting frame.[^sanduleac2026gridfmdistil]
+
+One caution carries over from earlier learning-to-optimise work: on two years of real operating data from Uruguay's grid, learned dispatch models showed a significant increase in prediction error compared with synthetic inputs.[^boero2025orpd] Results on benchmark grids do not yet show performance in real operation.
 
 ## The demand side has moved too — and shows the gap precisely
 
@@ -43,6 +55,12 @@ The same domain-specific turn is visible on the metering side. **[EnergyFM](../a
 [^liu2026scalingopf]: Liu, X., He, X., Chen, Y. (2026). [Scaling laws of machine learning for optimal power flow](https://arxiv.org/abs/2601.02706). arXiv:2601.02706.
 [^liu2025multitask]: Liu, S., Dong, L., Tian, C., Xie, L. (2025). [Unlocking multi-task electric energy system intelligence: Data scaling laws and performance with limited fine-tuning](https://arxiv.org/abs/2503.20040). arXiv:2503.20040.
 [^arjunan2026energyfm]: Arjunan, P., Srivastava, N., Kumar, K. et al. (2026). [EnergyFM: Pretrained models for energy meter data analytics](https://doi.org/10.1145/3744255.3798119). *e-Energy '26*, 556–568.
+[^bhan2026gridsfm]: Bhan, L., Yang, W., Capetz, M. et al. (2026). [GridSFM: A Foundation Model for Solving AC Optimal Power Flow](https://arxiv.org/abs/2609.30173). arXiv:2609.30173.
+[^puech2026genco]: Puech, A., Mazzonelli, M., Govindasamy, T. R. et al. (2026). [GENCO - A Unified Neural Solver Embedded in a Development Framework for Steady-State Grid Analysis](https://arxiv.org/abs/2608.09921). arXiv:2608.09921.
+[^li2026lumina]: Li, Y., Memon, Z., Jin, H. et al. (2026). [LUMINA: Foundation Models for Topology Transferable ACOPF](https://arxiv.org/abs/2603.04300). arXiv:2603.04300.
+[^lupopasini2026heterogfm]: Lupo Pasini, M., Li, Y., Kim, K. et al. (2026). [Scalable Heterogeneous Graph Foundation Models for Data-Driven Optimal Power Flow in Smart Grids](https://arxiv.org/abs/2605.23194). arXiv:2605.23194.
+[^sanduleac2026gridfmdistil]: Sănduleac, V. A., Puthanpurayil, S. R. R., Khan, N. et al. (2026). [Physics-Aware Distillation of a Grid Foundation Model for Real-Time Edge Inference](https://arxiv.org/abs/2610.21833). arXiv:2610.21833.
+[^boero2025orpd]: Boero, I., Diaz, S., Vázquez, T. et al. (2025). [Learning to Optimally Dispatch Power: Performance on a Nation-Wide Real-World Dataset](https://doi.org/10.1109/ICPRS66293.2025.11302858). *ICPRS 2025*, 1–7. arXiv:2505.24505.
 
 ---
 [← Previous: 2.4.1 Time-Series FMs](2-4-1-time-series-fms.html) · [Back to Chapter 2](index.html) · [Next: 2.4.3 Weather, Geospatial & Generation FMs →](2-4-3-clean-energy-forecasting-fms.html)

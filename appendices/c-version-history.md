@@ -22,6 +22,21 @@ These notes are revised continuously, so there are two ways to trace what change
 
 ---
 
+## 3.1 — 20 October 2026
+
+43 section pages, 204 references, 50 models in the model index.
+
+**New**
+- [§3.7](../chapter-3-sim-opt/3-7-flexible-loads.html) Flexible loads: EV charging and data centres. What flexibility is and what it is worth, how much data centres can move (measured), how EV charging is forecast and controlled, and why flexibility itself is not yet learned.
+- Task **T12 Flexibility assessment** in §3.1, screened in §4.5 and read in §4.6 ("Open")
+- Gap **G10 Learned flexibility** in §6.1, and a "flexibility model" direction in §4.6
+- Glossary: flexibility, demand response
+
+**Revised**
+- §2.4.2 now covers the first released pretrained grid models of 2026 (GridSFM, GENCO, LUMINA, heterogeneous graph FMs, edge distillation), with a caution from real operating data; its verdict changes from "emerging" to "first released models", and §4.5 and §4.9 follow
+- §2.4.5 adds EV charging stations to its evaluations table
+- Model index: GridSFM, GENCO and LUMINA
+
 ## 3.0 — 20 October 2026
 
 The notes restructured into fewer, fuller pages: **55 section pages became 42**, and section numbers changed. Every old page address redirects to its new place, and links into the middle of old pages land on the matching part of the new one.

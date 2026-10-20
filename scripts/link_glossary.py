@@ -16,6 +16,7 @@ TERMS = [
     (r'cross-attention|cross-attending|cross-attends?', 'cross-attention', False),
     (r'DAEs?', 'dae', True),
     (r'decision spaces?', 'decision-space', False),
+    (r'demand response', 'demand-response', False),
     (r'embodied emissions', 'embodied-emissions', False),
     (r'energy burden', 'energy-burden', False),
     (r'energy hubs?', 'energy-hub', False),
@@ -23,6 +24,7 @@ TERMS = [
     (r'energy poverty', 'energy-poverty', False),
     (r'EPDs?', 'epd', True),
     (r'fine-tuning', 'fine-tuning', False),
+    (r'flexibility', 'flexibility', False),
     (r'foundation models?', 'foundation-model', False),
     (r'in-context learning', 'in-context-learning', False),
     (r'LCI databases?', 'lci-database', True),
@@ -60,7 +62,8 @@ BLOCK_BEFORE = {
 # Electrical transformers, not the ML architecture: skip a match on a line containing one of these
 SKIP_IF_LINE = {'transformer': ('lines and transformers', 'transformer is overloaded', '| Transformer |')}
 # Terms linked only on pages that use them in the glossary's sense
-ONLY_IN = {'cell': {'chapter-2-fm-foundations/2-3-choosing-a-basic-element.md', 'chapter-2-fm-foundations/2-4-4-tabular-fms.md'}}
+ONLY_IN = {'flexibility': {'chapter-3-sim-opt/3-7-flexible-loads.md', 'chapter-3-sim-opt/3-3-energy-hub-formalism.md', 'chapter-3-sim-opt/3-1-taxonomy-of-tasks.md', 'chapter-4-directions/4-5-screening-fields.md', 'chapter-4-directions/4-6-reading-the-screen.md', 'chapter-6-outlook/6-1-open-gaps.md'},
+           'cell': {'chapter-2-fm-foundations/2-3-choosing-a-basic-element.md', 'chapter-2-fm-foundations/2-4-4-tabular-fms.md'}}
 SKIP_FILES = {'appendices/a-glossary.md', 'appendices/c-version-history.md', 'appendices/d-model-index.md'}
 
 MASK = re.compile(

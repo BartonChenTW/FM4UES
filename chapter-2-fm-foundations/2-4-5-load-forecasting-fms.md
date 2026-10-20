@@ -44,6 +44,7 @@ Most of the literature evaluates the general models of [§2.4.1](2-4-1-time-seri
 | 200 low-voltage feeders, net load | Kaas et al.[^kaas2026lvpeak] | [Chronos-Bolt](../appendices/d-model-index.html#chronos-bolt), Chronos-2 and TabPFN-TS outperform six baselines, Chronos-2 most clearly; without weather covariates the FMs adapt to the added uncertainty |
 | District heating network | Spoek et al.[^spoek2026tabpfndh] | Zero-shot TabPFN-TS and Chronos-2 at CVRMSE of about 13% and 12.5%, with the setup validated on a second network (worked through in [§4.1](../chapter-4-directions/4-1-off-the-shelf-fms.html)) |
 | National markets, Singapore and Australia | Cheong et al.[^cheong2026exogenous] | A simple LSTM baseline often beats every FM in Singapore's stable climate; FMs help mainly where climate is variable, and only some architectures use exogenous features well |
+| EV charging stations, among ten transport datasets | Yanes-Pulido & Rodrigues[^yanespulido2026tsfmtransport] | Chronos-2 zero-shot matches or beats specialised deep-learning models on most datasets, especially at longer horizons; see [§3.7](../chapter-3-sim-opt/3-7-flexible-loads.html) |
 | Households | Meyer et al.[^meyer2025household] | Zero-shot FMs comparable to transformers trained from scratch; with longer input windows, some FMs beat all of them, at much less effort |
 | Several load datasets, scarce history | Liao et al.[^liao2025timegpt] | Fine-tuned TimeGPT beats standard benchmarks, especially at short horizons, but not on every dataset; the authors advise checking on a validation set |
 | Commercial buildings, synthetic stock | Bose et al.[^bose2024comstock] | Heterogeneity of the training buildings and architecture matter more than parameter count; fine-tuned FMs are competitive, at higher compute cost |
@@ -86,6 +87,7 @@ Most of the literature evaluates the general models of [§2.4.1](2-4-1-time-seri
 [^bose2024comstock]: Bose, S., Li, Y., Van Sant, A. et al. (2024). [From RNNs to foundation models: An empirical study on commercial building energy consumption](https://arxiv.org/abs/2411.14421). NeurIPS 2024 Workshop on Time Series in the Age of Large Models. arXiv:2411.14421.
 [^park2025buildingtsfm]: Park, Y.-J., Germain, F., Liu, J. et al. (2025). [Probabilistic forecasting for building energy systems using time-series foundation models](https://doi.org/10.1016/j.enbuild.2025.116446). *Energy and Buildings*, 348, 116446. arXiv:2506.00630.
 [^mulayim2026bem]: Mulayim, O. B., Quan, P., Han, L. et al. (2026). [Can time-series foundation models perform building energy management tasks?](https://doi.org/10.1017/dce.2026.10040) *Data-Centric Engineering*, 7, e9. arXiv:2506.11250.
+[^yanespulido2026tsfmtransport]: Yanes-Pulido, J., Rodrigues, F. (2026). [Time Series Foundation Models as Strong Baselines in Transportation Forecasting: A Large-Scale Benchmark Analysis](https://arxiv.org/abs/2602.24238). arXiv:2602.24238.
 
 ---
 [← Previous: 2.4.4 Tabular FMs](2-4-4-tabular-fms.html) · [Back to Chapter 2](index.html) · [Next: 2.5 Self-Supervision, Fine-Tuning, Scaling Laws →](2-5-scaling-laws.html)

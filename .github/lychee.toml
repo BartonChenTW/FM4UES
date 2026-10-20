@@ -201,6 +201,21 @@ exclude = [
   #     of simulation models", Journal of Simulation 7(1):12-24
   #     (section 4.3, verification checklist).
   '^https://doi\.org/10\.1057/jos\.2012\.20$',
+  # IBPSA (DOI prefix 10.26868, the registrant for IBPSA, IBPSA-USA and
+  # IBPSA-Canada conference proceedings) redirects to
+  # publications.ibpsa.org, which returned 403 Forbidden to lychee on
+  # GitHub's runners on 2026-10-20 after passing an hour earlier -- the
+  # intermittent bot-blocking pattern above, not missing pages. Excluded
+  # by prefix since building-simulation proceedings are a recurring
+  # source. Each verified against the Crossref API (title, first author,
+  # proceedings) and its doi.org redirect to the matching paper page:
+  #   10.26868/25222708.2025.1230 -- Sur & Jain, Building Simulation 2025
+  #   10.26868/30680611.2024.2256 -- Mostafavi et al., SimBuild 2024
+  #   10.26868/30680611.2026.1308 -- Bai & Wang, SimBuild 2026
+  #   10.26868/30680611.2026.1360 -- Jia et al., SimBuild 2026
+  #   10.26868/31114504.2026.90   -- Fadel et al., eSim 2026
+  # (all section 4.3)
+  '^https://doi\.org/10\.26868/',
 ]
 
 # Skip files that aren't meant to be checked as published pages.

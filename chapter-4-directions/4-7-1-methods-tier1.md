@@ -1,19 +1,21 @@
 ---
-title: "4.9.1 Tier 1 — Single Hub Dispatch"
-parent: "4.9 A Proposed Development Path"
+title: "4.7.1 Tier 1 — Single Hub Dispatch"
+parent: "4.7 A Proposed Development Path"
 grand_parent: Chapter 4 — Directions for FMs in UES
 nav_order: 1
 status: draft
 last_reviewed: 2026-10-03
+redirect_from:
+  - /chapter-4-directions/4-9-1-methods-tier1.html
 ---
 
-# 4.9.1 Tier 1 — Single Hub, Dispatch Only, Simplified Topology
+# 4.7.1 Tier 1 — Single Hub, Dispatch Only, Simplified Topology
 {: .no_toc }
 
 {% include page-status.html %}
 
 {: .note }
-Tier 1 of the notes' proposed development path toward a multi-carrier [foundation model](../appendices/a-glossary.html#foundation-model) ([§4.9](4-9-methods-landing.html)): a proposal, not a survey of established practice.
+Tier 1 of the notes' proposed development path toward a multi-carrier [foundation model](../appendices/a-glossary.html#foundation-model) ([§4.7](4-7-methods-landing.html)): a proposal, not a survey of established practice.
 
 1. TOC
 {:toc}
@@ -26,7 +28,7 @@ One [energy hub](../appendices/a-glossary.html#energy-hub). Fixed configuration.
 
 ## What kind of ML problem this is
 
-A multivariate time series with covariates: carriers and devices are the variates, time is the sequence, weather, demand and prices are covariates known in advance, and installed capacities are static inputs. [§3.4](../chapter-3-sim-opt/3-4-dispatch-optimisation.html) sets out this framing in full. The practical consequence is that the task is to choose and adapt an existing architecture, not to invent one.
+A multivariate time series with covariates: carriers and devices are the variates, time is the sequence, weather, demand and prices are covariates known in advance, and installed capacities are static inputs. [§3.3](../chapter-3-sim-opt/3-3-energy-hub-formalism.html#dispatch) sets out this framing in full. The practical consequence is that the task is to choose and adapt an existing architecture, not to invent one.
 
 ## The one architectural decision that matters
 
@@ -34,7 +36,7 @@ A multivariate time series with covariates: carriers and devices are the variate
 
 **Channel-independent.** Each carrier forecast separately with shared weights. Robust, strong baselines, scales well. **But it discards exactly the coupling that makes a multi-energy system interesting** — CHP ties gas to electricity to heat; a heat pump ties electricity to heat. Discarding this discards the physics.
 
-**Cross-variate (recommended).** Carriers attend to each other (see [§2.7](../chapter-2-fm-foundations/2-7-architectures.html) for what attention does). Two reference implementations:
+**Cross-variate (recommended).** Carriers attend to each other (see [§2.6](../chapter-2-fm-foundations/2-6-architectures.html) for what attention does). Two reference implementations:
 
 - **[Any-variate attention](../appendices/a-glossary.html#any-variate-attention)** ([Moirai](../appendices/d-model-index.html#moirai)) scales to arbitrary numbers of variables — which additionally buys partial transfer across systems with *different carrier sets*.
 - **Time and group attention layers** ([Chronos-2](../appendices/d-model-index.html#chronos-2)) exchange information across multiple series.
@@ -81,9 +83,9 @@ A single fixed [patch](../appendices/a-glossary.html#patch) size cannot serve al
 
 Run this **before** committing to a large data-generation campaign or an architecture. It is a small job by comparison, and it either confirms the framing or changes it while changing course is still cheap. Keep it scoped: it is a reference point, not a research programme.
 
-**Step 2 — [Zero-shot](../appendices/a-glossary.html#zero-shot) [TSFM](../appendices/a-glossary.html#tsfm) evaluation.** Dispatch depends heavily on covariates, so prioritise the models that use them: Chronos-2 and [TabPFN-TS](../appendices/d-model-index.html#tabpfn-ts) model target and covariates jointly, and TabPFN-TS also takes static metadata, which maps onto installed capacities. [TimesFM 2.5](../appendices/d-model-index.html#timesfm-2-5) adds covariates only through a separate linear regressor, and [Moirai 2.0](../appendices/d-model-index.html#moirai-2-0) ignores them, so treat both as univariate references ([§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html)). Evidence from load forecasting suggests zero-shot results will be weaker for one system than for many pooled together ([§2.4.6](../chapter-2-fm-foundations/2-4-6-load-forecasting-fms.html)). (See [§2.4.4](../chapter-2-fm-foundations/2-4-4-tabular-fms.html) — a tabular FM here is also the strongest available version of the attribute-list baseline, one row of attributes per building ([§2.3.3](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#233-representation-strategies-and-testable-predictions)), so this step doubles as part of Step 1. See also [§4.1](4-1-off-the-shelf-fms.html) for this same move applied to pure forecasting.)
+**Step 2 — [Zero-shot](../appendices/a-glossary.html#zero-shot) [TSFM](../appendices/a-glossary.html#tsfm) evaluation.** Dispatch depends heavily on covariates, so prioritise the models that use them: Chronos-2 and [TabPFN-TS](../appendices/d-model-index.html#tabpfn-ts) model target and covariates jointly, and TabPFN-TS also takes static metadata, which maps onto installed capacities. [TimesFM 2.5](../appendices/d-model-index.html#timesfm-2-5) adds covariates only through a separate linear regressor, and [Moirai 2.0](../appendices/d-model-index.html#moirai-2-0) ignores them, so treat both as univariate references ([§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html)). Evidence from load forecasting suggests zero-shot results will be weaker for one system than for many pooled together ([§2.4.5](../chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html)). (See [§2.4.4](../chapter-2-fm-foundations/2-4-4-tabular-fms.html) — a tabular FM here is also the strongest available version of the attribute-list baseline, one row of attributes per building ([§2.3.3](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#233-representation-strategies-and-testable-predictions)), so this step doubles as part of Step 1. See also [§4.1](4-1-off-the-shelf-fms.html) for this same move applied to pure forecasting.)
 
-**Step 3 — Fine-tune.** Chronos-2 is a single model of 120M parameters,[^ansari2025chronos2] small enough to fine-tune on a modest compute budget. [Lag-Llama](../appendices/d-model-index.html#lag-llama) is a decoder-only model built on the [LLaMA](../appendices/d-model-index.html#llama) language-model architecture,[^rasul2023laglama] so the standard tools for [fine-tuning](../appendices/a-glossary.html#fine-tuning) language models, such as low-rank adaptation (LoRA), apply to it directly ([§2.6](../chapter-2-fm-foundations/2-6-scaling-laws.html)). It is univariate, though, so it suits single carriers better than the coupled problem.
+**Step 3 — Fine-tune.** Chronos-2 is a single model of 120M parameters,[^ansari2025chronos2] small enough to fine-tune on a modest compute budget. [Lag-Llama](../appendices/d-model-index.html#lag-llama) is a decoder-only model built on the [LLaMA](../appendices/d-model-index.html#llama) language-model architecture,[^rasul2023laglama] so the standard tools for [fine-tuning](../appendices/a-glossary.html#fine-tuning) language models, such as low-rank adaptation (LoRA), apply to it directly ([§2.5](../chapter-2-fm-foundations/2-5-scaling-laws.html)). It is univariate, though, so it suits single carriers better than the coupled problem.
 
 **Step 4 — Custom architecture, only if steps 1–3 leave a gap you can characterise.**
 
@@ -93,7 +95,7 @@ Off-the-shelf models are not designed for three things, and these are where new 
 
 **(a) Storage state.** State of charge changes slowly, depends on everything that happened before, and links distant timesteps. Producing a long trajectory by feeding each forecast back in as the next input (autoregressive rollout) accumulates error, so the state drifts. None of the general models in [§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html) has a mechanism to keep a variable within physical bounds; they forecast values, not constrained states. Options: an architecture that carries the state explicitly, constraints on the accumulated quantity in the loss, or a final step that moves each prediction onto the nearest physically valid value.
 
-**(b) Energy balance.** Predictions must conserve energy for each carrier at each timestep. None of the general models in [§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html) enforces a conservation law across its outputs, so this has to be added; see [§4.10.2](4-10-building-it.html#4102-enforcing-physics) for the options.
+**(b) Energy balance.** Predictions must conserve energy for each carrier at each timestep. None of the general models in [§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html) enforces a conservation law across its outputs, so this has to be added; see [§4.8.2](4-8-building-it.html#482-enforcing-physics) for the options.
 
 **(c) Long horizons.** Each model is trained up to a maximum forecast length, and beyond it the forecast is built by rollout, with the error growth described in (a) ([§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html)). Seasonal storage needs exactly those long horizons.
 
@@ -110,4 +112,4 @@ Off-the-shelf models are not designed for three things, and these are where new 
 [^rasul2023laglama]: Rasul, K., Ashok, A., Williams, A. R. et al. (2023). [Lag-Llama: Towards foundation models for probabilistic time series forecasting](https://arxiv.org/abs/2310.08278). arXiv:2310.08278
 
 ---
-[← Previous: 4.9 A Proposed Development Path](4-9-methods-landing.html) · [Next: 4.9.2 Tier 2 →](4-9-2-methods-tier2.html)
+[← Previous: 4.7 A Proposed Development Path](4-7-methods-landing.html) · [Back to Chapter 4](index.html) · [Next: 4.7.2 Tier 2 — Multi-Hub, Multi-Carrier →](4-7-2-methods-tier2.html)

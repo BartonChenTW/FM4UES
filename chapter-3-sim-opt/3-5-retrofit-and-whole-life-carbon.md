@@ -1,12 +1,14 @@
 ---
-title: "3.9 Building Retrofit and Whole-Life Carbon"
+title: "3.5 Building Retrofit and Whole-Life Carbon"
 parent: Chapter 3 — Simulation and Optimisation in UES
-nav_order: 9
+nav_order: 5
 status: draft
 last_reviewed: 2026-09-29
+redirect_from:
+  - /chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html
 ---
 
-# 3.9 Building Retrofit Analysis and Whole-Life Carbon
+# 3.5 Building Retrofit Analysis and Whole-Life Carbon
 {: .no_toc }
 
 {% include page-status.html %}
@@ -32,11 +34,11 @@ The mathematical object is a **search over a discrete set of measures, with a si
 | One building | Which measures, at which level | T1 per candidate; T5 when a measure is a system to be sized (heat pump, PV, storage); T9 for cost and emissions |
 | A stock or district | Which buildings first, at what rate, under which policy | T1 across the stock; T8 for the scenarios |
 
-At stock scale the question becomes a scenario question. CESAR, a bottom-up building stock model for Swiss districts, pairs an EnergyPlus-based demand model with a retrofitting model that applies energy-transformation scenarios based on the Swiss Energy Strategy 2050 to project future demand and emissions. Applied to an urban, a suburban and a rural district, it found that under business-as-usual only a small number of buildings reach the 2050 primary-energy and emissions targets.[^wang2018cesar] The retrofitting model applies *scenarios* rather than optimising measures building by building, so at stock level it inherits T8's lack of ground truth ([§4.7](../chapter-4-directions/4-7-reading-the-screen.html)) while still needing T1 for every building. Its dynamic-simulation successor, CESAR-P, is the simulator-grounded data generator described in [§3.2](3-2-building-simulation-data.html). Which owners actually take up the measures, and at what rate, is an adoption question — T11, in [§3.10](3-10-social-dimensions.html).
+At stock scale the question becomes a scenario question. CESAR, a bottom-up building stock model for Swiss districts, pairs an EnergyPlus-based demand model with a retrofitting model that applies energy-transformation scenarios based on the Swiss Energy Strategy 2050 to project future demand and emissions. Applied to an urban, a suburban and a rural district, it found that under business-as-usual only a small number of buildings reach the 2050 primary-energy and emissions targets.[^wang2018cesar] The retrofitting model applies *scenarios* rather than optimising measures building by building, so at stock level it inherits T8's lack of ground truth ([§4.6](../chapter-4-directions/4-6-reading-the-screen.html)) while still needing T1 for every building. Its dynamic-simulation successor, CESAR-P, is the simulator-grounded data generator described in [§3.2](3-2-building-simulation-data.html). Which owners actually take up the measures, and at what rate, is an adoption question — T11, in [§3.6](3-6-social-dimensions.html).
 
 ### The measure library is shared; the feasible subset is not
 
-Every building draws on roughly the same catalogue of measures, but which of them a specific building can accept depends on that building: roof area bounds PV, the electrical connection bounds a heat pump, heritage protection can rule out external insulation. These instance-specific constraints are what make a retrofit plan a *[decision space](../appendices/a-glossary.html#decision-space)* rather than a list of options. That is [gap G9](../chapter-6-outlook/6-1-open-gaps.html#g9), and it is why a learned model that imitates a retrofit optimiser carries the deployment risk described in [§4.9.3](../chapter-4-directions/4-9-3-methods-tier3.html).
+Every building draws on roughly the same catalogue of measures, but which of them a specific building can accept depends on that building: roof area bounds PV, the electrical connection bounds a heat pump, heritage protection can rule out external insulation. These instance-specific constraints are what make a retrofit plan a *[decision space](../appendices/a-glossary.html#decision-space)* rather than a list of options. That is [gap G9](../chapter-6-outlook/6-1-open-gaps.html#g9), and it is why a learned model that imitates a retrofit optimiser carries the deployment risk described in [§4.7.3](../chapter-4-directions/4-7-3-methods-tier3.html).
 
 ## Whole-life carbon: where building materials enter
 
@@ -54,7 +56,7 @@ Operational energy is only part of a building's emissions. The European standard
 
 **The trade-off is not small.** A compilation of more than 650 LCA case studies (238 in the final sample) found life-cycle greenhouse-gas emissions falling as operational energy performance improves, but the embodied share rising: roughly 20–25% of life-cycle emissions for buildings built to current energy regulations, 45–50% for highly energy-efficient buildings, and above 90% in extreme cases, with a "carbon spike" at the time of production.[^rock2020embodied] It is a meta-analysis across different buildings, not a model of retrofit decisions. It establishes that optimising operational energy alone leaves a growing share of emissions out of view; it does not say what any given retrofit should be. It also reports a need for more transparent and comparable LCA studies — a data-quality warning for anyone assembling a corpus from published results.
 
-**Counting embodied carbon changes the answer.** An integrated LCA and life-cycle-cost model, optimised robustly under uncertainty in the production, replacement and dismantling of building elements and in operational energy use, was applied to two typical Swiss buildings with low and high energy performance. Replacing the heating system was crucial for lowering environmental impact; for the building that already performed well, the investments were not repaid by operational savings; and for both buildings the robust optimum differed from the deep-renovation practice usually promoted to cut energy use.[^galimshina2021renovation] Two buildings, each optimised separately: nothing from the first solve carries over to the second. That per-instance cost is exactly what a learned model would amortise ([§3.5](3-5-design-sizing-optimisation.html#the-amortisation-argument)) — and the result is evidence that the objective has to include embodied impacts for the amortised answer to be the right one.
+**Counting embodied carbon changes the answer.** An integrated LCA and life-cycle-cost model, optimised robustly under uncertainty in the production, replacement and dismantling of building elements and in operational energy use, was applied to two typical Swiss buildings with low and high energy performance. Replacing the heating system was crucial for lowering environmental impact; for the building that already performed well, the investments were not repaid by operational savings; and for both buildings the robust optimum differed from the deep-renovation practice usually promoted to cut energy use.[^galimshina2021renovation] Two buildings, each optimised separately: nothing from the first solve carries over to the second. That per-instance cost is exactly what a learned model would amortise ([§3.3](3-3-energy-hub-formalism.html#the-amortisation-argument)) — and the result is evidence that the objective has to include embodied impacts for the amortised answer to be the right one.
 
 ## Data shapes
 
@@ -65,9 +67,9 @@ Operational energy is only part of a building's emissions. The European standard
 
 ## Why this matters for foundation models
 
-- **Embodied carbon itself is not the bottleneck.** Once quantities and impact factors are known it is a weighted sum, consistent with T9's "no bottleneck" verdict in [§4.6](../chapter-4-directions/4-6-screening-tasks.html). Learning it would be learning a lookup table.
-- **The loop is.** Candidates multiply: five measure categories with three levels each, plus "do nothing", give 4⁵ = 1,024 combinations for one building, each needing a T1 run — multiplied again by the buildings in a stock, by weather or price scenarios, and by robustness samples if uncertainty is handled as in the Swiss study above. That is the 10³–10⁶-call loop of [§3.8](3-8-where-the-cost-is.html).
-- **The representation is the open problem.** A model would need to represent the building ([G8](../chapter-6-outlook/6-1-open-gaps.html#g8)), the set of measures feasible on it ([G9](../chapter-6-outlook/6-1-open-gaps.html#g9)), and outcomes on two axes, operational and embodied. T10's verdict in [§4.6](../chapter-4-directions/4-6-screening-tasks.html) and its screening row in [§4.5](../chapter-4-directions/4-5-screening-fields.html) follow from that.
+- **Embodied carbon itself is not the bottleneck.** Once quantities and impact factors are known it is a weighted sum, consistent with T9's "no bottleneck" verdict in [§4.5](../chapter-4-directions/4-5-screening-fields.html#screening-the-tasks). Learning it would be learning a lookup table.
+- **The loop is.** Candidates multiply: five measure categories with three levels each, plus "do nothing", give 4⁵ = 1,024 combinations for one building, each needing a T1 run — multiplied again by the buildings in a stock, by weather or price scenarios, and by robustness samples if uncertainty is handled as in the Swiss study above. That is the 10³–10⁶-call loop of [§3.3](3-3-energy-hub-formalism.html#where-the-cost-is).
+- **The representation is the open problem.** A model would need to represent the building ([G8](../chapter-6-outlook/6-1-open-gaps.html#g8)), the set of measures feasible on it ([G9](../chapter-6-outlook/6-1-open-gaps.html#g9)), and outcomes on two axes, operational and embodied. T10's verdict in [§4.5](../chapter-4-directions/4-5-screening-fields.html#screening-the-tasks) and its screening row in [§4.5](../chapter-4-directions/4-5-screening-fields.html) follow from that.
 
 [^ma2012retrofit]: Ma, Z., Cooper, P., Daly, D., Ledo, L. (2012). [Existing building retrofits: Methodology and state-of-the-art](https://doi.org/10.1016/j.enbuild.2012.08.018). *Energy and Buildings*, 55, 889–902.
 [^asadi2012retrofit]: Asadi, E., da Silva, M. G., Antunes, C. H., Dias, L. (2012). [Multi-objective optimization for building retrofit strategies: A model and an application](https://doi.org/10.1016/j.enbuild.2011.10.016). *Energy and Buildings*, 44, 81–87.
@@ -79,4 +81,4 @@ Operational energy is only part of a building's emissions. The European standard
 [^kbob2026oekobilanz]: Plattform Ökobilanzdaten im Baubereich (KBOB, ecobau, IPB). [Ökobilanzdaten im Baubereich](https://www.kbob.admin.ch/de/oekobilanzdaten-im-baubereich). Version 9.0, 14 July 2026. In German.
 
 ---
-[← Previous: 3.8 Where the Computational Cost Actually Is](3-8-where-the-cost-is.html) · [Back to Chapter 3](index.html) · [Next: 3.10 Social Dimensions →](3-10-social-dimensions.html)
+[← Previous: 3.4 Tools and Data Standards](3-4-tools-and-standards.html) · [Back to Chapter 3](index.html) · [Next: 3.6 Social Dimensions →](3-6-social-dimensions.html)

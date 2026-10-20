@@ -1,12 +1,14 @@
 ---
-title: "1.3 The FM Landscape Today, by Domain"
-parent: Chapter 1 — Background
+title: "1.3 The FM Landscape and Where It Is Heading"
+parent: "Chapter 1 — Background"
 nav_order: 3
 status: draft
 last_reviewed: 2026-09-11
+redirect_from:
+  - /chapter-1-background/1-4-fm-field-directions.html
 ---
 
-# 1.3 The Foundation Model Landscape Today, by Domain
+# 1.3 The Foundation Model Landscape and Where It Is Heading
 {: .no_toc }
 
 {% include page-status.html %}
@@ -36,6 +38,17 @@ Granite-GFM is built on [Prithvi-SWIN-L](../appendices/d-model-index.html#prithv
 
 Two families are directly relevant to these notes and get dedicated treatment: [time-series FMs](../chapter-2-fm-foundations/2-4-1-time-series-fms.html) and [power-grid FMs](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html), in [§2.4](../chapter-2-fm-foundations/index.html).
 
+## Where the field is heading
+{: #where-the-field-is-heading}
+
+- **Time series has matured.** By 2026 the major families — Google [TimesFM 2.5](../appendices/d-model-index.html#timesfm-2-5),[^google2025timesfm25] Amazon [Chronos-2](../appendices/d-model-index.html#chronos-2),[^ansari2025chronos2] Salesforce [Moirai 2.0](../appendices/d-model-index.html#moirai-2-0),[^liu2025moirai2] Datadog [Toto 2.0](../appendices/d-model-index.html#toto-2-0),[^khwaja2026toto2] IBM's TTM (released under IBM's Granite name), Nixtla [TimeGPT-2](../appendices/d-model-index.html#timegpt-2),[^nixtla2025timegpt2] NVIDIA [NV-Tesseract](../appendices/d-model-index.html#nv-tesseract) (since renamed Kumo-TS)[^nvidia2025nvtesseract] — have all been refreshed. They have not converged on one architecture. TimesFM and Moirai 2.0 are decoder-only [transformers](../appendices/a-glossary.html#transformer),[^das2024timesfm] [^liu2025moirai2] Chronos-2 is encoder-only,[^ansari2025chronos2] TimeGPT is an encoder-decoder transformer,[^garza2023timegpt] TTM is not a transformer at all but an MLP-mixer,[^ekambaram2024ttm] and [TiRex](../appendices/d-model-index.html#tirex) is a recurrent model.[^auer2025tirex] The practical question has shifted from "how do I train a model" to "which pretrained model do I select." See [§2.4.1](../chapter-2-fm-foundations/2-4-1-time-series-fms.html).
+- **Scaling laws now hold for time series.** Toto 2.0 is reported as the first time-series model where classic scaling behaviour (more data and parameters → predictably better performance) has been demonstrated across a 625× range of model size.[^khwaja2026toto2] This matters because scaling laws are what justified the FM bet in language in the first place — see [§2.5](../chapter-2-fm-foundations/2-5-scaling-laws.html).
+- **Multimodality is becoming the default**, not a special case. [Cross-attending](../appendices/a-glossary.html#cross-attention) heterogeneous inputs is now standard design (explained with an energy example in [§2.7](../chapter-2-fm-foundations/2-7-multimodal-models.html)).
+- **Physics-informed / hybrid FMs** are emerging wherever domain equations are known. GridFM-v0's masked-reconstruction-plus-power-flow-loss is the archetype in power systems — see [§2.4.2](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html).
+- **Efficiency is a parallel axis to scale.** IBM's TTM family runs at 1–5 M parameters and is CPU-capable[^ekambaram2024ttm] — the opposite bet from billion-parameter LLMs.
+- **Synthetic and simulation-grounded pretraining** is rising wherever real annotated data is scarce or privacy-constrained.
+- **Graph FMs are a genuinely new frontier**, less mature than sequence FMs. GridFM-v0 sits at this edge.
+
 [^bhamjee2024granitelst]: Bhamjee, M., Gaffoor, Z., Govindasamy, T. et al. (2024). [granite-geospatial-land-surface-temperature](https://huggingface.co/ibm-granite/granite-geospatial-land-surface-temperature). IBM Research, Hugging Face model card, Apache-2.0.
 [^kirillov2023sam]: Kirillov, A., Mintun, E., Ravi, N. et al. (2023). [Segment Anything](https://arxiv.org/abs/2304.02643). *ICCV 2023*. arXiv:2304.02643
 [^lam2023graphcast]: Lam, R., Sanchez-Gonzalez, A., Willson, M. et al. (2023). [Learning skillful medium-range global weather forecasting](https://doi.org/10.1126/science.adi2336). *Science*, 382(6677), 1416–1421.
@@ -54,6 +67,13 @@ Two families are directly relevant to these notes and get dedicated treatment: [
 [^caron2021dino]: Caron, M., Touvron, H., Misra, I. et al. (2021). [Emerging properties in self-supervised vision transformers](https://arxiv.org/abs/2104.14294). *ICCV 2021*. arXiv:2104.14294
 [^wu2024janus]: Wu, C., Chen, X., Wu, Z. et al. (2024). [Janus: Decoupling visual encoding for unified multimodal understanding and generation](https://arxiv.org/abs/2410.13848). arXiv:2410.13848
 [^bommasani2021opportunities]: Bommasani, R., Hudson, D. A., Adeli, E. et al. (2021). [On the opportunities and risks of foundation models](https://arxiv.org/abs/2108.07258). arXiv:2108.07258. The paper that coined "foundation model"; defines it as a model "trained on broad data at scale" and "adaptable to a wide range of downstream tasks" — closely paralleling these notes' own three-property definition in [§2.1](../chapter-2-fm-foundations/2-1-what-defines-an-fm.html).
+[^ansari2025chronos2]: Ansari, A. F., Shchur, O., Küken, J. et al. (2025). [Chronos-2: From univariate to universal forecasting](https://arxiv.org/abs/2510.15821). arXiv:2510.15821.
+[^liu2025moirai2]: Liu, C., Aksu, T., Liu, J. et al. (2025). [Moirai 2.0: When less is more for time series forecasting](https://arxiv.org/abs/2511.11698). arXiv:2511.11698.
+[^google2025timesfm25]: Google Research (2025). [TimesFM 2.5 (timesfm-2.5-200m)](https://huggingface.co/google/timesfm-2.5-200m-pytorch). Hugging Face model card; no paper. Released September 2025.
+[^nixtla2025timegpt2]: Nixtla (2025). [TimeGPT-2: Next generation time series model](https://www.nixtla.io/blog/timegpt-2-announcement). Announcement, October 2025; no paper or public architecture details.
+[^nvidia2025nvtesseract]: NVIDIA (2025). [New NVIDIA NV-Tesseract time series models advance dataset processing and anomaly detection](https://developer.nvidia.com/blog/new-nvidia-nv-tesseract-time-series-models-advance-dataset-processing-and-anomaly-detection). NVIDIA Technical Blog, 6 May 2025; no paper. The project is now [Kumo-TS](https://github.com/NVIDIA/Kumo-TS).
+[^auer2025tirex]: Auer, A., Podest, P., Klotz, D. et al. (2025). [TiRex: Zero-shot forecasting across long and short horizons with enhanced in-context learning](https://arxiv.org/abs/2505.23719). NeurIPS 2025. arXiv:2505.23719.
+[^khwaja2026toto2]: Khwaja, E., Lettieri, C., Woo, G. et al. (2026). [Toto 2.0: Time series forecasting enters the scaling era](https://arxiv.org/abs/2605.20119). arXiv:2605.20119.
 
 ---
-[← Previous: 1.2 FMs in One Page](1-2-fms-in-one-page.html) · [Next: 1.4 Directions the Field Is Moving →](1-4-fm-field-directions.html)
+[← Previous: 1.2 FMs in One Page](1-2-fms-in-one-page.html) · [Back to Chapter 1](index.html) · [Next: 1.4 Why Now, and How to Use These Notes →](1-4-why-now-and-how-to-use.html)

@@ -42,7 +42,7 @@ stripped from the review version.
 Framed as a **review and position paper**, not an empirical results paper,
 for three reasons that generalise beyond this specific submission:
 
-1. **Budget and timeline honesty.** Per the book's §4.10.4 and §4.10.4.1
+1. **Budget and timeline honesty.** Per the book's §4.8.4 and §4.8.4.1
    (realistic budget expectations, publication format), a trained and
    validated foundation model was not going to exist by the paper deadline.
    Promising one in the abstract and under-delivering in the paper is worse
@@ -245,9 +245,9 @@ parts most likely to change or go stale.*
 
 ---
 
-## Publication format (moved from §4.10.4, 2026-10-03)
+## Publication format (moved from §4.8.4, 2026-10-03)
 
-Moved here from the public §4.10 because it is paper-writing strategy rather than a survey of how to build a model.
+Moved here from the public §4.8 because it is paper-writing strategy rather than a survey of how to build a model.
 
 ### Publication format follows from the budget (original text)
 
@@ -259,4 +259,4 @@ The same logic applies to papers. For a novel concept with limited empirical res
 
 The anchored format matches the budget reality above: it does not depend on a trained model existing by the deadline, and it fails gracefully — if training slips, the paper still stands; if it succeeds, a results subsection is added without restructuring.
 
-**Audience translation is part of the format choice.** Writing FM concepts for a domain audience means introducing every ML idea through its domain counterpart ([§2.3.1](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#231-the-criterion) does this with discretisation), avoiding unexplained vocabulary, and including a short glossary. The test: if a paragraph requires ML background to parse, rewrite it.
+**Audience translation is part of the format choice.** Writing FM concepts for a domain audience means introducing every ML idea through its domain counterpart ([§2.3.1](chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#231-the-criterion) does this with discretisation), avoiding unexplained vocabulary, and including a short glossary. The test: if a paragraph requires ML background to parse, rewrite it.

@@ -16,43 +16,47 @@ Items tagged **[Claude]** are suggestions from Claude (2026-09-11), not yet agre
 ## Next
 
 - [x] **Improve the three weakest Chapter 4 sections** (review of 2026-10-02). **Done 2026-10-03**; see log.md.
-  1. **§4.9.1 Tier 1.** The oldest page in the chapter, with one footnote in about 1,080 words.
+  1. **§4.7.1 Tier 1.** The oldest page in the chapter, with one footnote in about 1,080 words.
      - Model facts now contradict Appendix D: "Chronos-2 ships in five sizes from 9M to 710M" describes the original Chronos.
      - It recommends Moirai's multi-patch design and Moirai 2.0 for a covariate-heavy problem, though Moirai 2.0 dropped that design and §2.4.1 says it ignores covariates.
      - "Nothing in the TSFM literature handles…" claims are uncited.
-     - l.29–37 copies §3.4 word for word.
+     - l.29–37 copies §3.3 word for word.
      - Undefined jargon ("DLinear-class", "autoregressive rollout"), and reviewer-facing tone.
 
      Half-day rewrite plus 4–6 sources, most already in refs-to-add §B and the bib.
-  2. **§4.6–§4.7 the task screen.**
+  2. **§4.5–§4.6 the task screen.**
      - No citations at all.
-     - T3 is marked "Solved", which §2.4.6 contradicts for single buildings.
-     - §4.1 l.29 points to a T3 discussion in §4.7 that doesn't exist.
+     - T3 is marked "Solved", which §2.4.5 contradicts for single buildings.
+     - §4.1 l.29 points to a T3 discussion in §4.6 that doesn't exist.
      - The S1–S5 and T1–T11 labels and the ✔/◐/✘ marks are not explained on the page.
-     - §4.7 explains only some rows.
+     - §4.6 explains only some rows.
 
      Half-day.
-  3. **§4.10.3–§4.10.4 evaluation and budget.**
+  3. **§4.8.3–§4.8.4 evaluation and budget.**
      - Several uncited paraphrases (l.44, l.77, l.82, l.99).
      - An unexplained "CHF 30k/year" figure.
-     - Grant and paper strategy ("reviewers who know the field will notice", the publication-format advice) mixed into a survey page, without §4.9's "proposal" label.
+     - Grant and paper strategy ("reviewers who know the field will notice", the publication-format advice) mixed into a survey page, without §4.7's "proposal" label.
 
      Half-day.
+- [ ] **Follow-ups from §2.7 Multimodal models (v3.0).**
+  - Confirm venues that come only from arXiv comments (Time-LLM ICLR 2024, SysCaps ICLR 2025, Wu et al. TMLR).
+  - Check that the journal version of the clean-energy review (`ferdaus2025cleanenergy`) keeps its section 5.2 on fusion.
+  - Watch for a multimodal load model conditioned on real building-register attributes. None existed at the dated search (2026-10-20).
 - [ ] **Smaller items from the same review.**
-  - §4.11's Demand row says "Mature" without "for aggregated load" and links §2.4.2 instead of §2.4.6. Neither §4.11 Shape 1 nor §4.8 links §2.7 "Multimodal models".
-  - §4.8 doesn't define CESAR-P and has no citations.
-  - §4.9.3 repeats a sentence (l.41) and doesn't yet cite Lédée et al. 2025 (refs-to-add A1).
+  - §4.9's Demand row says "Mature" without "for aggregated load" and links §2.4.2 instead of §2.4.5. Neither §4.9 Shape 1 nor §4.6 links §2.7 "Multimodal models".
+  - §4.6 doesn't define CESAR-P and has no citations.
+  - §4.7.3 repeats a sentence (l.41) and doesn't yet cite Lédée et al. 2025 (refs-to-add A1).
   - §4.5's S1–S5 task screen and its sub-field table use different axes.
-  - §4.10 l.50 mixes power and energy units ("kW electricity versus MWh seasonal heat storage").
-  - §3.8's runtime table is uncited, and §3.5 has no citations.
-- [ ] **Check the new site features in a browser.** Footnote, glossary, section-title and model hover cards, diagram Enlarge and Open in new tab, and the §4.11 status labels in dark mode. They were build-checked only, because the dev machine has no JavaScript runtime.
-- [ ] **Key next step: improve Chapter 4 so it gives a more solid picture of what the future ecosystem of UES foundation models could look like** (Barton, 2026-09-29). **Progressed 2026-09-29:** new closing page [§4.11](chapter-4-directions/4-11-ecosystem.md) — components by layer (with basic element and status), interface types (physical quantities / shared representations / language), the concrete model-to-model interfaces, three shapes the ecosystem could take (one multimodal FM, a federation, an orchestrating agent), and what an ecosystem needs that no single model does. Still open: a worked chained example measuring error propagation into the decision; co-simulation interface standards (FMI, HELICS) as templates; whether to log the interface problem as a new open gap (G10) in §6.1.
-- [ ] **Follow-ups from §3.10 (social dimensions, 2026-09-29).** (a) Kind 3 — the social properties of an FM itself (representativeness of training data, meter-data privacy, explainability, misuse) — was deliberately left out; it belongs in §2.9 (a new criterion) and §5.8, and was already planned in `notes-concept-paper.md` §2.2 ("Barriers"). (b) Rai & Robinson 2015's finding is written from a search summary of its abstract (SSRN and ScienceDirect block scripted access); check against the paper. (c) Three of §3.10/§4.3's energy sources are 2026 arXiv preprints (AgentHomeID, Faiud et al., EqGrid); re-check for peer-reviewed versions. (d) T11's runtime ("minutes–hours") is an estimate, like the other rows.
-- [ ] **Follow-ups from §3.9 (retrofit and whole-life carbon, 2026-09-29).** (a) Run a dated search for ML / foundation-model work on building LCA and on retrofit recommendation, and for any published paired (building, measure set) → (operational, embodied) corpus; §3.9 currently says honestly that no search has been run. (b) T10's runtime in §3.1 ("minutes–days") is an estimate like the other rows; source it or add a retrofit-loop row to §3.8. (c) Consider linking `embodied_emissions` in the §5.5 device token to §3.9. (d) §3.9 is written from abstracts and publisher/standards landing pages; EN 15978:2026's module list was cross-checked against secondary summaries, not the standard text.
+  - §4.8 l.50 mixes power and energy units ("kW electricity versus MWh seasonal heat storage").
+  - §3.3's runtime table is uncited, and §3.3 has no citations.
+- [ ] **Check the new site features in a browser.** Footnote, glossary, section-title and model hover cards, diagram Enlarge and Open in new tab, and the §4.9 status labels in dark mode. They were build-checked only, because the dev machine has no JavaScript runtime.
+- [ ] **Key next step: improve Chapter 4 so it gives a more solid picture of what the future ecosystem of UES foundation models could look like** (Barton, 2026-09-29). **Progressed 2026-09-29:** new closing page [§4.9](chapter-4-directions/4-9-ecosystem.md) — components by layer (with basic element and status), interface types (physical quantities / shared representations / language), the concrete model-to-model interfaces, three shapes the ecosystem could take (one multimodal FM, a federation, an orchestrating agent), and what an ecosystem needs that no single model does. Still open: a worked chained example measuring error propagation into the decision; co-simulation interface standards (FMI, HELICS) as templates; whether to log the interface problem as a new open gap (G10) in §6.1.
+- [ ] **Follow-ups from §3.6 (social dimensions, 2026-09-29).** (a) Kind 3 — the social properties of an FM itself (representativeness of training data, meter-data privacy, explainability, misuse) — was deliberately left out; it belongs in §2.8 (a new criterion) and §5.5, and was already planned in `notes-concept-paper.md` §2.2 ("Barriers"). (b) Rai & Robinson 2015's finding is written from a search summary of its abstract (SSRN and ScienceDirect block scripted access); check against the paper. (c) Three of §3.6/§4.3's energy sources are 2026 arXiv preprints (AgentHomeID, Faiud et al., EqGrid); re-check for peer-reviewed versions. (d) T11's runtime ("minutes–hours") is an estimate, like the other rows.
+- [ ] **Follow-ups from §3.5 (retrofit and whole-life carbon, 2026-09-29).** (a) Run a dated search for ML / foundation-model work on building LCA and on retrofit recommendation, and for any published paired (building, measure set) → (operational, embodied) corpus; §3.5 currently says honestly that no search has been run. (b) T10's runtime in §3.1 ("minutes–days") is an estimate like the other rows; source it or add a retrofit-loop row to §3.3. (c) Consider linking `embodied_emissions` in the §5.3 device token to §3.5. (d) §3.5 is written from abstracts and publisher/standards landing pages; EN 15978:2026's module list was cross-checked against secondary summaries, not the standard text.
 - [ ] **Fill in the four stub sections in Chapter 4.** [§4.1](chapter-4-directions/4-1-off-the-shelf-fms.md) (off-the-shelf FMs), [§4.2](chapter-4-directions/4-2-fms-for-building-stocks.md) (FMs for building stocks), [§4.3](chapter-4-directions/4-3-llm-agents-for-simulation.md) (LLM agents for simulation), [§4.4](chapter-4-directions/4-4-generative-design.md) (generative design) are each marked `{: .note }` "Stub — needs expansion" — they state the direction and cross-reference the rest of the notes but don't yet contain a worked example, benchmark numbers, or a literature survey specific to that sub-topic. **Progressed 2026-09-19:** each now has at least one verified citation tied to the direction — §4.1 a worked zero-shot district-heating evaluation with reported numbers, §4.2 the nearest empirical result (and a dated search confirming no stock-level FM exists yet), §4.3 one grounded LLM-agent example for the occupant-behaviour assumption category, §4.4 an adjacent-domain precedent validated on power-system test cases plus an in-domain example clarifying the input-vs-design distinction. None has these notes' own benchmark run — see log.md for what's still open per section.
-- [ ] **Add remaining diagrams.** Every Part landing page (1–5), the Tier progression page (§4.9), the roadmap (§5.1), and the token schema/temporal hierarchy (§5.5) now have Mermaid diagrams (enabled via `mermaid:` in `_config.yml`, 2026-09-11). Not yet illustrated: individual section pages within each Part (e.g. the four-requirements table in §2.3, the bipartite graph worked example in §5.4) — the phasing note below still applies to these.
-- [ ] **The existing chapter-landing diagrams aren't very helpful (Barton, 2026-09-12).** All six started as flowcharts of the table of contents. See [diagram-ideas.md](diagram-ideas.md) for a page-by-page critique and concrete replacement ideas. **Chapter 4's landing is done (2026-09-13):** replaced the TOC flowchart with a screening 2×2 (public-data availability × basic-element clarity) placing the five sub-fields from §4.5/§4.8. Remaining TOC landings: Chapters 1, 2, 3, 5. (§4.9 tier progression and §5.1 roadmap are keep/touch-up, not replacements.)
-- [x] **Verify the just-the-docs Mermaid version pin (`11.4.1` in `_config.yml`) still resolves** once this is actually built via GitHub Pages/`bundle exec jekyll serve` — set from current documented just-the-docs convention but not yet build-verified in this repo. The Chapter 4 landing uses `quadrantChart`, which requires Mermaid ≥10.2.0, so the 11.4.1 pin is fine and a `flowchart` fallback is **not** needed. (The "Syntax error in text" seen on 2026-09-13 was unquoted semicolons in two quadrant labels, not the version — fixed by quoting, and the fixed block verified against a real Mermaid 11.4.1 parser. See log.md.) **Done:** the deployed site loads Mermaid 11.4.1, and the diagrams render, including §4.11 and the Chapter 4 quadrant chart.
+- [ ] **Add remaining diagrams.** Every Part landing page (1–5), the Tier progression page (§4.7), the roadmap (§5.1), and the token schema/temporal hierarchy (§5.3) now have Mermaid diagrams (enabled via `mermaid:` in `_config.yml`, 2026-09-11). Not yet illustrated: individual section pages within each Part (e.g. the four-requirements table in §2.3, the bipartite graph worked example in §5.3) — the phasing note below still applies to these.
+- [ ] **The existing chapter-landing diagrams aren't very helpful (Barton, 2026-09-12).** All six started as flowcharts of the table of contents. See [diagram-ideas.md](diagram-ideas.md) for a page-by-page critique and concrete replacement ideas. **Chapter 4's landing is done (2026-09-13):** replaced the TOC flowchart with a screening 2×2 (public-data availability × basic-element clarity) placing the five sub-fields from §4.5/§4.6. Remaining TOC landings: Chapters 1, 2, 3, 5. (§4.7 tier progression and §5.1 roadmap are keep/touch-up, not replacements.)
+- [x] **Verify the just-the-docs Mermaid version pin (`11.4.1` in `_config.yml`) still resolves** once this is actually built via GitHub Pages/`bundle exec jekyll serve` — set from current documented just-the-docs convention but not yet build-verified in this repo. The Chapter 4 landing uses `quadrantChart`, which requires Mermaid ≥10.2.0, so the 11.4.1 pin is fine and a `flowchart` fallback is **not** needed. (The "Syntax error in text" seen on 2026-09-13 was unquoted semicolons in two quadrant labels, not the version — fixed by quoting, and the fixed block verified against a real Mermaid 11.4.1 parser. See log.md.) **Done:** the deployed site loads Mermaid 11.4.1, and the diagrams render, including §4.9 and the Chapter 4 quadrant chart.
 
 ## Restructure (done 2026-09-11)
 
@@ -60,7 +64,7 @@ Items tagged **[Claude]** are suggestions from Claude (2026-09-11), not yet agre
 - [x] **Added detailed references with footnotes** throughout the new section pages, using the citation keys in `references/fm-for-ues.bib` (extended from ~16 to ~22 entries during the merge).
 - [x] **Restructured the textbook into six Parts**, one page per numbered section, per [outline.md](outline.md) as amended (6-part split: Chapter 4 neutral survey vs. Chapter 5 case study vs. Chapter 6 outlook, instead of the outline's original 5-part draft). See [log.md](log.md) for the full before/after mapping.
 - [x] **Broadened Chapter 4** with off-the-shelf FMs, building-stock FMs, LLM/agent-built simulation models, and generative design (stubs, see Next above).
-- [x] **Added ML-basics content to Chapter 2**: self-supervised pretraining, fine-tuning, scaling laws (§2.6), transformer/GNN/neural-operator architectures (§2.7), and a surrogates-vs-FMs section (§2.8).
+- [x] **Added ML-basics content to Chapter 2**: self-supervised pretraining, fine-tuning, scaling laws (§2.5), transformer/GNN/neural-operator architectures (§2.6), and a surrogates-vs-FMs section (§2.1).
 - [x] **Added illustrations to the highest-value spots**: every Part landing page, the tier-progression page, the roadmap, and the token schema/temporal hierarchy. Per-section illustration (previously flagged as ~40 diagrams of work) intentionally deferred — see Next above.
 - [x] **Moved Appendix C and the concept-paper notes to a private file** (`notes-concept-paper.md`, excluded from the site build) rather than keeping them as a public appendix.
 - [x] **Added `redirect_from:` front matter** for all 13 old public URLs (`01-the-domain.html` through `11-references.html`, plus both old appendices) so existing links don't 404.
@@ -87,9 +91,9 @@ All items below are now implemented as part of the 2026-09-11 restructure (see "
 
 - [x] **[Claude] Separate the neutral survey from the research proposal.** Implemented as the Chapter 4 (neutral survey) / Chapter 5 (case study) / Chapter 6 (outlook) split.
 - [x] **[Claude] Broaden Chapter 4 (Directions).** Added as §4.1–4.4 (off-the-shelf FMs, building-stock FMs, LLM/agent-built simulation models, generative design) — currently stubs, see Next above.
-- [x] **[Claude] Add ML basics to Chapter 2.** Added as §2.6 (self-supervision, fine-tuning, scaling laws) and §2.7 (transformers, GNNs, neural operators).
-- [x] **[Claude] Add a "surrogate models vs FMs" section to Chapter 2.** Added as §2.8.
-- [x] **[Claude] Frame Chapter 3 as "UES through an ML lens".** Reframed throughout — see e.g. §3.2 ("Framed for an ML reader"), §3.4, §3.5.
+- [x] **[Claude] Add ML basics to Chapter 2.** Added as §2.5 (self-supervision, fine-tuning, scaling laws) and §2.6 (transformers, GNNs, neural operators).
+- [x] **[Claude] Add a "surrogate models vs FMs" section to Chapter 2.** Added as §2.1.
+- [x] **[Claude] Frame Chapter 3 as "UES through an ML lens".** Reframed throughout — see e.g. §3.2 ("Framed for an ML reader"), §3.3, §3.3.
 - [x] **[Claude] Add a dedicated data and benchmarks section to Chapter 3.** Added as §3.2 (BuildingsBench, EnergyBench, ResStock/ComStock, CESAR-P).
 - [x] **[Claude] Resolve the overlap between basic elements and the representation problem.** §2.3 (Chapter 2) is the general criterion and concept; §5.2 (Chapter 5) is its application to the specific case-study representation — explicitly cross-referenced both ways.
 - [x] **[Claude] Phase the illustrations.** Done for Part landing pages, the tier-progression page, the roadmap, and the token schema. Per-section illustration remains open — see Next above.

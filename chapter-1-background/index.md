@@ -16,11 +16,9 @@ Orientation for a UES reader: what the domain is, what [foundation models](../ap
 
 ```mermaid
 flowchart LR
-    A["1.1 What a UES contains"] --> E["1.5 Why UES, why now"]
-    B["1.2 FMs in one page"] --> E
-    C["1.3 The FM landscape by domain"] --> E
-    D["1.4 Directions the field is moving"] --> E
-    E --> F["1.6 Scope and how to use these notes"]
+    A["1.1 What a UES contains"] --> D["1.4 Why now, and how to use these notes"]
+    B["1.2 FMs in one page"] --> C["1.3 The FM landscape and where it is heading"]
+    C --> D
 ```
 
 ## In this chapter
@@ -29,10 +27,8 @@ flowchart LR
 | :--- | :--- | :--- |
 | 1.1 | [What an urban energy system contains](1-1-what-is-ues.html) | Scales, carriers, the [energy hub](../appendices/a-glossary.html#energy-hub) abstraction |
 | 1.2 | [FMs in one page](1-2-fms-in-one-page.html) | What changed in AI since ~2018, in non-technical terms |
-| 1.3 | [The FM landscape today, by domain](1-3-fm-landscape-by-domain.html) | Where foundation models exist across language, vision, weather, time series, graphs |
-| 1.4 | [Directions the FM field is moving](1-4-fm-field-directions.html) | Maturing time-series models, scaling laws, efficiency, synthetic pretraining |
-| 1.5 | [Why UES, why now](1-5-why-ues-why-now.html) | The cost argument for bringing FMs to this domain |
-| 1.6 | [Scope of these notes and how to use them](1-6-scope-and-how-to-use.html) | What the notes do and do not try to do |
+| 1.3 | [The FM landscape and where it is heading](1-3-fm-landscape-by-domain.html) | Where foundation models exist across language, vision, weather, time series and graphs, and where the field is moving: maturing time-series models, scaling laws, efficiency, synthetic pretraining |
+| 1.4 | [Why now, and how to use these notes](1-4-why-now-and-how-to-use.html) | The cost argument for bringing FMs to this domain; what the notes do and do not try to do |
 
 ---
-[Back to Home](../index.html) · [Next: Chapter 2 — Foundation Knowledge of FMs →](../chapter-2-fm-foundations/index.html)
+[← Previous: Home](../index.html) · [Next: 1.1 What an Urban Energy System Contains →](1-1-what-is-ues.html)

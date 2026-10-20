@@ -41,4 +41,4 @@ This is a living knowledge base — corrections, references, and new sections ar
 - Match the existing front-matter pattern (`title`, `parent`, `nav_order`, `status`, `last_reviewed`) — see any section page for the format.
 
 ---
-[← Previous: 6.1 Open Gaps](6-1-open-gaps.html) · [Back to Chapter 6](index.html) · [Back to Home](../index.html)
+[← Previous: 6.1 Open Gaps](6-1-open-gaps.html) · [Back to Chapter 6](index.html) · [Next: Appendices →](../appendices/index.html)

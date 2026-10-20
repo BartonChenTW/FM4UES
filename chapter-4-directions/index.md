@@ -15,7 +15,7 @@ A broad, neutral survey of which problems a [foundation model](../appendices/a-g
 {: .fs-6 .fw-300 }
 
 {: .note }
-**Chapter 4 vs Chapter 5.** This chapter surveys the field broadly: what's already usable off the shelf and which sub-fields pass a screening test. It does not commit to one representation or one roadmap, with one marked exception: [§4.9](4-9-methods-landing.html) sets out the notes' own proposed development path in three tiers. [Chapter 5](../chapter-5-case-study/index.html) does exactly that, for one specific case — a foundation model for multi-carrier [energy hubs](../appendices/a-glossary.html#energy-hub).
+**Chapter 4 vs Chapter 5.** This chapter surveys the field broadly: what's already usable off the shelf and which sub-fields pass a screening test. It does not commit to one representation or one roadmap, with one marked exception: [§4.7](4-7-methods-landing.html) sets out the notes' own proposed development path in three tiers. [Chapter 5](../chapter-5-case-study/index.html) does exactly that, for one specific case — a foundation model for multi-carrier [energy hubs](../appendices/a-glossary.html#energy-hub).
 
 ```mermaid
 quadrantChart
@@ -35,7 +35,7 @@ quadrantChart
     Behaviour and social outcomes: [0.40, 0.28]
 ```
 
-The chapter's argument is this screen, not the reading order. **Load** and **grid** already have a natural [basic element](../appendices/a-glossary.html#basic-element) and public (or physically simulated) pretraining data. **UBEM** has an element but is data-generation-bottlenecked. **Weather / microclimate** has abundant geospatial data that is not yet fused with load or grid. The **multi-carrier hub** fails both axes — which is why it is the [Chapter 5](../chapter-5-case-study/index.html) case study rather than a near-term product. **Retrofit / [whole-life carbon](../appendices/a-glossary.html#whole-life-carbon)** sits beside it: impact factors per material are published, but its basic element would have to carry a [decision space](../appendices/a-glossary.html#decision-space) as well as a state (see [§3.9](../chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html)). **Behaviour and social outcomes** have text data that language models already handle, but no simulator of people, so the direction is existing models used as checked tools (see [§3.10](../chapter-3-sim-opt/3-10-social-dimensions.html)). Task-level verdicts (T1–T11, including T4 dispatch as the strongest candidate) are in [§4.6](4-6-screening-tasks.html) and [§4.7](4-7-reading-the-screen.html). How the sub-fields would fit together — as one ecosystem of models rather than a list of candidates — is the closing synthesis in [§4.11](4-11-ecosystem.html).
+The chapter's argument is this screen, not the reading order. **Load** and **grid** already have a natural [basic element](../appendices/a-glossary.html#basic-element) and public (or physically simulated) pretraining data. **UBEM** has an element but is data-generation-bottlenecked. **Weather / microclimate** has abundant geospatial data that is not yet fused with load or grid. The **multi-carrier hub** fails both axes — which is why it is the [Chapter 5](../chapter-5-case-study/index.html) case study rather than a near-term product. **Retrofit / [whole-life carbon](../appendices/a-glossary.html#whole-life-carbon)** sits beside it: impact factors per material are published, but its basic element would have to carry a [decision space](../appendices/a-glossary.html#decision-space) as well as a state (see [§3.5](../chapter-3-sim-opt/3-5-retrofit-and-whole-life-carbon.html)). **Behaviour and social outcomes** have text data that language models already handle, but no simulator of people, so the direction is existing models used as checked tools (see [§3.6](../chapter-3-sim-opt/3-6-social-dimensions.html)). Task-level verdicts (T1–T11, including T4 dispatch as the strongest candidate) are in [§4.5](4-5-screening-fields.html#screening-the-tasks) and [§4.6](4-6-reading-the-screen.html). How the sub-fields would fit together — as one ecosystem of models rather than a list of candidates — is the closing synthesis in [§4.9](4-9-ecosystem.html).
 
 ## In this chapter
 
@@ -45,16 +45,14 @@ The chapter's argument is this screen, not the reading order. **Load** and **gri
 | 4.2 | [FMs for whole building stocks](4-2-fms-for-building-stocks.html) | Stock-level rather than single-building representation |
 | 4.3 | [LLMs and agents that build or run simulation models](4-3-llm-agents-for-simulation.html) | Natural-language model setup; ties to gap G7 |
 | 4.4 | [Generative design](4-4-generative-design.html) | Generating candidate system designs rather than only evaluating them |
-| 4.5 | [Screening: which sub-fields fit the FM pattern](4-5-screening-fields.html) | The FM-pattern fit test, applied at sub-field level |
-| 4.6 | [Screening the tasks](4-6-screening-tasks.html) | The five-criterion screen applied to the modelling tasks T1–T11 |
-| 4.7 | [Reading the screen](4-7-reading-the-screen.html) | What the screen implies for where to invest |
-| 4.8 | [Candidate sub-fields for a new FM](4-8-candidate-subfields.html) | Load FM, grid-load bridge, UBEM FM, weather-conditioned FM, hub FM |
-| 4.9 | [A proposed development path](4-9-methods-landing.html) | The notes' own proposal: three tiers from single-hub dispatch to design, toward a multi-carrier FM |
-| 4.9.1 | [— Tier 1: single hub, dispatch](4-9-1-methods-tier1.html) | Build path, baselines, architecture choice |
-| 4.9.2 | [— Tier 2: multi-hub, multi-carrier](4-9-2-methods-tier2.html) | Graph neural networks, [neural operators](../appendices/a-glossary.html#neural-operator), topology generalisation |
-| 4.9.3 | [— Tier 3: design and sizing](4-9-3-methods-tier3.html) | [Amortised optimisation](../appendices/a-glossary.html#amortised-optimisation), feasibility guarantees, the decision-space problem |
-| 4.10 | [Building it: data, physics, evaluation, budget](4-10-building-it.html) | Data generation, physics enforcement, evaluation protocol, realistic budgets |
-| 4.11 | [Putting it together: a future ecosystem of UES FMs](4-11-ecosystem.html) | Which models, on which basic elements, passing what to each other; three shapes the ecosystem could take |
+| 4.5 | [Screening sub-fields and tasks](4-5-screening-fields.html) | The FM-pattern fit test, applied to whole sub-fields and to the modelling tasks T1–T11 |
+| 4.6 | [Reading the screen: where to aim](4-6-reading-the-screen.html) | What the screen implies, row by row; candidate sub-fields for a new FM |
+| 4.7 | [A proposed development path](4-7-methods-landing.html) | The notes' own proposal: three tiers from single-hub dispatch to design, toward a multi-carrier FM |
+| 4.7.1 | [— Tier 1: single hub, dispatch](4-7-1-methods-tier1.html) | Build path, baselines, architecture choice |
+| 4.7.2 | [— Tier 2: multi-hub, multi-carrier](4-7-2-methods-tier2.html) | Graph neural networks, [neural operators](../appendices/a-glossary.html#neural-operator), topology generalisation |
+| 4.7.3 | [— Tier 3: design and sizing](4-7-3-methods-tier3.html) | [Amortised optimisation](../appendices/a-glossary.html#amortised-optimisation), feasibility guarantees, the decision-space problem |
+| 4.8 | [Building it: data, physics, evaluation, budget](4-8-building-it.html) | Data generation, physics enforcement, evaluation protocol, realistic budgets |
+| 4.9 | [Putting it together: a future ecosystem of UES FMs](4-9-ecosystem.html) | Which models, on which basic elements, passing what to each other; three shapes the ecosystem could take |
 
 ---
-[← Previous: Chapter 3 — Simulation and Optimisation in UES](../chapter-3-sim-opt/index.html) · [Next: Chapter 5 — Case Study →](../chapter-5-case-study/index.html)
+[← Previous: 3.6 Social Dimensions](../chapter-3-sim-opt/3-6-social-dimensions.html) · [Next: 4.1 Using Existing FMs Off the Shelf →](4-1-off-the-shelf-fms.html)

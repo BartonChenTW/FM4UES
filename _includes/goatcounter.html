@@ -1,0 +1,35 @@
+{%- comment -%}
+  Page-view counting with GoatCounter (https://fm4ues.goatcounter.com),
+  which records views without cookies or personal data.
+
+  - count.js records one view per page load. It only loads on the built
+    site (jekyll.environment is "production" on GitHub Pages), so local
+    `jekyll serve` previews are not counted.
+  - The small script below fills the "N views" item in each page's status
+    line (_includes/page-status.html) from GoatCounter's public counter
+    endpoint. That endpoint only answers once "Allow using the visitor
+    counter" is switched on in the GoatCounter site settings; until then,
+    or if the request fails, the item stays hidden.
+
+  As in nav_footer_custom.html, the script must not contain a literal HTML
+  tag, even in a comment, or lychee's tokenizer loses sync.
+{%- endcomment -%}
+{%- if site.goatcounter and jekyll.environment == "production" -%}
+<script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var el = document.querySelector('.gc-views');
+    if (!el || !window.fetch) { return; }
+    var url = 'https://{{ site.goatcounter }}.goatcounter.com/counter/' +
+      encodeURIComponent(window.location.pathname) + '.json';
+    fetch(url)
+      .then(function (r) { if (!r.ok) { throw new Error(r.status); } return r.json(); })
+      .then(function (d) {
+        if (!d || !d.count) { return; }
+        el.textContent = ' · ' + d.count + (d.count === '1' ? ' view' : ' views');
+        el.hidden = false;
+      })
+      .catch(function () { /* counter not enabled or unreachable: stay hidden */ });
+  });
+</script>
+{%- endif -%}

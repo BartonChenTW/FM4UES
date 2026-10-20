@@ -3,7 +3,7 @@ title: Appendix C — Version History
 parent: Appendices
 nav_order: 3
 status: draft
-last_reviewed: 2026-10-02
+last_reviewed: 2026-10-20
 ---
 
 # Appendix C — Version History
@@ -22,11 +22,27 @@ These notes are revised continuously, so there are two ways to trace what change
 
 ---
 
+## 3.0 — 20 October 2026
+
+The notes restructured into fewer, fuller pages: **55 section pages became 42**, and section numbers changed. Every old page address redirects to its new place, and links into the middle of old pages land on the matching part of the new one.
+
+**Merged**
+- Chapter 1: the FM landscape and its directions (§1.3); why now and how to use the notes (§1.4)
+- Chapter 2: surrogates vs foundation models into what defines an FM (§2.1); what does not exist yet into the §2.4 overview; weather and geospatial models with renewable generation (§2.4.3)
+- Chapter 3: the energy hub formalism, dispatch, design and sizing, and where the computational cost is (§3.3); tools and data standards (§3.4)
+- Chapter 4: screening sub-fields and tasks (§4.5); reading the screen and candidate sub-fields (§4.6)
+- Chapter 5: the concrete representation and token schema (§5.3); data generation, modules and training tasks, and the physics loss (§5.4)
+
+**New**
+- [§2.7](../chapter-2-fm-foundations/2-7-multimodal-models.html) Multimodal models, now a section of its own and much extended: how time series are combined with attributes, images and text, what has been tried, what the evidence shows, why it is hard, and a dated search finding no multimodal foundation model yet for buildings, districts, grids or energy hubs
+
+**Renumbered** (old → new): 2.4.5 → 2.4.3, 2.4.6 → 2.4.5, 2.6 → 2.5, 2.7 → 2.6, 2.9 → 2.8; 3.9 → 3.5, 3.10 → 3.6; 4.9 → 4.7 (with 4.9.1–4.9.3 → 4.7.1–4.7.3), 4.10 → 4.8, 4.11 → 4.9; 5.8 → 5.5.
+
 ## 2.3 — 2 October 2026
 
 Renamed from a "working textbook" to **Working Notes**, which describes the project more accurately: a record of learning the field, sourced but not peer-reviewed. Section numbers and URLs are unchanged.
 
-- The site description, home page, README, sidebar and contribution guide now call the project working notes. [§1.6](../chapter-1-background/1-6-scope-and-how-to-use.html) opens with "What these notes are", which says where the notes argue for something of their own.
+- The site description, home page, README, sidebar and contribution guide now call the project working notes. [§1.6](../chapter-1-background/1-4-why-now-and-how-to-use.html#scope-and-how-to-use) opens with "What these notes are", which says where the notes argue for something of their own.
 - Every glossary term and every model in the [model index](d-model-index.html) is now linked from its first mention on each page. The model index grew from 39 to 47 entries, with PatchTST, BuildingsBench, LG-HGNN, CLIP and the language models named in §1.3.
 - The glossary's "Patch" now covers image patches as well as timesteps.
 
@@ -35,8 +51,8 @@ Renamed from a "working textbook" to **Working Notes**, which describes the proj
 55 section pages, 152 references, 39 models in the model index.
 
 **New**
-- [§2.4.6](../chapter-2-fm-foundations/2-4-6-load-forecasting-fms.html) Load and smart-meter forecasting foundation models: models pretrained on load data, ten evaluations of general models sorted by aggregation level, and why aggregated load is close to solved while single buildings are not
-- [§2.7](../chapter-2-fm-foundations/2-7-architectures.html#multimodal-models) Multimodal models, with a worked example from this domain
+- [§2.4.6](../chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html) Load and smart-meter forecasting foundation models: models pretrained on load data, ten evaluations of general models sorted by aggregation level, and why aggregated load is close to solved while single buildings are not
+- [§2.7](../chapter-2-fm-foundations/2-7-multimodal-models.html) Multimodal models, with a worked example from this domain
 - [Appendix D](d-model-index.html) Model index: every named model with its developer, a one-line description and links to the model and its paper
 
 **Revised**
@@ -60,10 +76,10 @@ Renamed from a "working textbook" to **Working Notes**, which describes the proj
 54 section pages, 137 references.
 
 **New sections**
-- [§2.9](../chapter-2-fm-foundations/2-9-ues-fm-evaluation-criteria.html) Evaluation criteria for UES foundation models
-- [§3.9](../chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html) Building retrofit and whole-life carbon (task T10)
-- [§3.10](../chapter-3-sim-opt/3-10-social-dimensions.html) Social dimensions: behaviour, adoption, energy poverty and justice (task T11)
-- [§4.11](../chapter-4-directions/4-11-ecosystem.html) A future ecosystem of UES foundation models
+- [§2.9](../chapter-2-fm-foundations/2-8-ues-fm-evaluation-criteria.html) Evaluation criteria for UES foundation models
+- [§3.9](../chapter-3-sim-opt/3-5-retrofit-and-whole-life-carbon.html) Building retrofit and whole-life carbon (task T10)
+- [§3.10](../chapter-3-sim-opt/3-6-social-dimensions.html) Social dimensions: behaviour, adoption, energy poverty and justice (task T11)
+- [§4.11](../chapter-4-directions/4-9-ecosystem.html) A future ecosystem of UES foundation models
 - Appendix C, this page
 
 **Substantially extended**

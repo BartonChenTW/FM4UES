@@ -1,13 +1,15 @@
 ---
-title: "4.10 Building It"
+title: "4.8 Building It"
 parent: Chapter 4 — Directions for FMs in UES
-nav_order: 10
+nav_order: 8
 status: draft
 last_reviewed: 2026-10-03
-redirect_from: /09-building-it.html
+redirect_from:
+  - /09-building-it.html
+  - /chapter-4-directions/4-10-building-it.html
 ---
 
-# 4.10 Building It: Data, Physics, Evaluation, Budget
+# 4.8 Building It: Data, Physics, Evaluation, Budget
 {: .no_toc }
 
 {% include page-status.html %}
@@ -20,7 +22,7 @@ redirect_from: /09-building-it.html
 {: .note }
 Sections 4.10.1–4.10.3 summarise practice from the literature, with sources. Section 4.10.4 is these notes' own rough guide to what a small project can do, not a survey result.
 
-## 4.10.1 Data generation and sampling design
+## 4.8.1 Data generation and sampling design
 
 Since ground truth comes from a simulator, **the training distribution is a design decision, not a given**. This is the most under-appreciated step.
 
@@ -56,7 +58,7 @@ Carriers differ by orders of magnitude in typical values: a household's electric
 
 See [§3.2](../chapter-3-sim-opt/3-2-building-simulation-data.html) for this in full — the summary: simulator-generated corpora are fully labelled, but archetype-derived data supports interpolation across archetype space, not generalisation to real heterogeneity, and the corpus silently absorbs the generating optimiser's assumptions.
 
-## 4.10.2 Enforcing physics
+## 4.8.2 Enforcing physics
 
 Four mechanisms, in increasing order of strength and cost:
 
@@ -73,9 +75,9 @@ Notes from practice:
 - Physics-informed approaches embedding multi-physics dynamic constraints in the loss enable physically consistent solutions with limited training samples and improve accuracy under sparse data — a valuable property when simulator runs are expensive.[^karniadakis2021piml]
 - Feasibility-restoration layers are an active area; repair layers for networks with hard constraints are being developed as reusable components.[^chu2026snarenet]
 
-**Recommendation for multi-carrier energy systems:** architectural enforcement of per-carrier energy balance (make the outputs sum correctly by construction), plus soft penalties for inequality constraints, plus a projection step if hard feasibility is required downstream. See also [§5.6](../chapter-5-case-study/5-6-physics-loss.html) for the physics-loss inventory attached to these notes' specific case-study representation.
+**Recommendation for multi-carrier energy systems:** architectural enforcement of per-carrier energy balance (make the outputs sum correctly by construction), plus soft penalties for inequality constraints, plus a projection step if hard feasibility is required downstream. See also [§5.4](../chapter-5-case-study/5-4-data-modules-and-tasks.html#physics-loss) for the physics-loss inventory attached to these notes' specific case-study representation.
 
-## 4.10.3 Evaluation protocol
+## 4.8.3 Evaluation protocol
 
 A credible protocol reports all six. Accuracy alone does not show whether a model's output can be used.
 
@@ -101,7 +103,7 @@ Random splits overstate performance. Hold out along the axis you claim to genera
 
 A model trained and tested at one scale and horizon has not shown that it works at others. If transfer across scales is part of the claim, test it explicitly.
 
-## 4.10.4 Realistic budget expectations
+## 4.8.4 Realistic budget expectations
 
 For a small project, such as one research group without a dedicated compute cluster, these notes' rough guide is:
 
@@ -126,4 +128,4 @@ For a small project, such as one research group without a dedicated compute clus
 [^chu2026snarenet]: Chu, Y.-C., Boukas, A., Udell, M. (2026). [SnareNet: Flexible repair layers for neural networks with hard constraints](https://arxiv.org/abs/2602.09317). arXiv:2602.09317
 
 ---
-[← Previous: 4.9.3 Tier 3](4-9-3-methods-tier3.html) · [Back to Chapter 4](index.html) · [Next: 4.11 A Future Ecosystem of UES FMs →](4-11-ecosystem.html)
+[← Previous: 4.7.3 Tier 3 — Design & Sizing](4-7-3-methods-tier3.html) · [Back to Chapter 4](index.html) · [Next: 4.9 A Future Ecosystem of UES FMs →](4-9-ecosystem.html)

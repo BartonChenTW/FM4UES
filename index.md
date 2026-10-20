@@ -35,7 +35,7 @@ These notes are written for someone who knows urban energy systems well and mach
 
 **If you read only one page**, read [Choosing a Basic Element](chapter-2-fm-foundations/2-3-choosing-a-basic-element.html) (§2.3) — it gives the criterion for deciding whether a foundation model is viable in a sub-domain at all, before any question of architecture or compute.
 
-The **[proposed development path](chapter-4-directions/4-9-methods-landing.html)** (§4.9) is the notes' own proposal, set apart from the surrounding survey: three tiers of increasing difficulty (single-hub dispatch → multi-hub multi-carrier dispatch → design and sizing optimisation), each with a concrete build path.
+The **[proposed development path](chapter-4-directions/4-7-methods-landing.html)** (§4.7) is the notes' own proposal, set apart from the surrounding survey: three tiers of increasing difficulty (single-hub dispatch → multi-hub multi-carrier dispatch → design and sizing optimisation), each with a concrete build path.
 
 {: .warning }
 **The field moves fast.** Publication counts on LLM-and-energy alone went from roughly 1 (2022) to 13 (2023) to 128 (2024) to 464 (2025), with 348 already indexed in the first half of 2026 (a Scopus search run 11 July 2026 — query and source in [§1.3](chapter-1-background/1-3-fm-landscape-by-domain.html)). Re-check anything that reads as a landscape or novelty claim before it is used to justify a proposal or paper.
@@ -47,7 +47,7 @@ The **[proposed development path](chapter-4-directions/4-9-methods-landing.html)
 | Chapter | Page | Covers |
 | :--- | :--- | :--- |
 | 1 | [Background: UES and FMs](chapter-1-background/index.html) | What the domain is, what FMs are, why the two should meet now |
-| 2 | [Foundation Knowledge of FMs](chapter-2-fm-foundations/index.html) | What makes a model a foundation model; [Choosing a Basic Element](chapter-2-fm-foundations/2-3-choosing-a-basic-element.html); the FM landscape today; ML basics (self-supervision, [transformers](appendices/a-glossary.html#transformer), GNNs, [neural operators](appendices/a-glossary.html#neural-operator)); [surrogates](appendices/a-glossary.html#surrogate) vs FMs; evaluation criteria for UES FMs |
+| 2 | [Foundation Knowledge of FMs](chapter-2-fm-foundations/index.html) | What makes a model a foundation model; [Choosing a Basic Element](chapter-2-fm-foundations/2-3-choosing-a-basic-element.html); the FM landscape today; ML basics (self-supervision, [transformers](appendices/a-glossary.html#transformer), GNNs, [neural operators](appendices/a-glossary.html#neural-operator)); [multimodal](appendices/a-glossary.html#multimodality) models; [surrogates](appendices/a-glossary.html#surrogate) vs FMs; evaluation criteria for UES FMs |
 | 3 | [Simulation and Optimisation in UES](chapter-3-sim-opt/index.html) | Modelling tasks and their mathematical structure, building simulation data, the energy hub formalism, dispatch and design optimisation, the tool landscape, where cost lives, building retrofit and [whole-life carbon](appendices/a-glossary.html#whole-life-carbon), social dimensions |
 | 4 | [Directions for FMs in UES](chapter-4-directions/index.html) | A broad, neutral survey: off-the-shelf FMs, building-stock FMs, LLM agents, generative design, screening, a proposed three-tier development path, and a future ecosystem of UES FMs |
 | 5 | [Case Study: A Foundation Model for Multi-Carrier Energy Hubs](chapter-5-case-study/index.html) | One concrete proposal — representation, token schema, module decomposition, a phased roadmap, risks |

@@ -19,14 +19,10 @@ One specific, opinionated proposal, worked through in full technical depth: repr
 
 ```mermaid
 flowchart TD
-    A["5.2 The representation problem"] --> B["5.3 Data generation"]
-    A --> C["5.4 A concrete representation"]
-    C --> D["5.5 Token schema"]
-    D --> E["5.6 Physics loss"]
-    C --> F["5.7 Module decomposition"]
+    A["5.2 The representation problem"] --> C["5.3 A concrete representation and token schema"]
+    C --> F["5.4 Data, modules and training tasks"]
     F --> G["5.1 Roadmap Phases 0–5"]
-    B --> G
-    G --> H["5.8 Risks & open questions"]
+    G --> H["5.5 Risks & open questions"]
 ```
 
 ## In this chapter
@@ -35,12 +31,9 @@ flowchart TD
 | :--- | :--- | :--- |
 | 5.1 | [A roadmap for a multi-carrier energy hub FM](5-1-roadmap.html) | Phases 0–5, from representation to multi-scale coupling |
 | 5.2 | [The representation problem](5-2-representation-problem.html) | Why representation is four decisions, and the causal chain from representation to capability |
-| 5.3 | [Data generation](5-3-data-generation.html) | Sampling design specific to the case study |
-| 5.4 | [A concrete proposed representation](5-4-concrete-representation.html) | Bipartite graph of carrier-bus and device tokens, worked 50-building example |
-| 5.5 | [Token schema and temporal hierarchy](5-5-token-schema.html) | The full schema, masking tasks, invariances, minimum viable v0 |
-| 5.6 | [Physics loss](5-6-physics-loss.html) | The physics-loss inventory attached to the tokens |
-| 5.7 | [Module and task decomposition](5-7-module-decomposition.html) | Encoders, pretraining tasks, downstream benchmark suite |
-| 5.8 | [Risks and unsettled design questions](5-8-risks.html) | Five risks most likely to kill the programme; three unsettled questions |
+| 5.3 | [A concrete representation and token schema](5-3-concrete-representation.html) | Bipartite graph of carrier-bus and device tokens with a worked 50-building example; the full token schema, temporal hierarchy, masking tasks, invariances and minimum viable v0 |
+| 5.4 | [Data, modules and training tasks](5-4-data-modules-and-tasks.html) | Sampling design for the case study; encoders, pretraining tasks and benchmark suite; the physics-loss inventory |
+| 5.5 | [Risks and unsettled design questions](5-5-risks.html) | Five risks most likely to kill the programme; three unsettled questions |
 
 ---
-[← Previous: Chapter 4 — Directions for FMs in UES](../chapter-4-directions/index.html) · [Next: Chapter 6 — Outlook →](../chapter-6-outlook/index.html)
+[← Previous: 4.9 A Future Ecosystem of UES FMs](../chapter-4-directions/4-9-ecosystem.html) · [Next: 5.1 A Roadmap for a Multi-Carrier Energy Hub FM →](5-1-roadmap.html)

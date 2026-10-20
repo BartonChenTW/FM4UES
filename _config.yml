@@ -43,8 +43,8 @@ footer_content: "Working notes, actively revised. Corrections and additions welc
 # Current version of the notes, shown under the site title in the sidebar
 # (_includes/title.html) and on the home page. Change it here, and in
 # README.md's Status section, when releasing a version (CONTRIBUTING.md).
-notes_version: "2.3"
-notes_version_date: "2 October 2026"
+notes_version: "3.0"
+notes_version_date: "20 October 2026"
 
 # Source repository: just-the-docs uses these for the "Edit this page on
 # GitHub" footer link, and _includes/page-status.html uses them for each

@@ -23,7 +23,7 @@ last_reviewed: 2026-09-19
 
 Everything in [§2.3](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html) and most of these notes' case study in [Chapter 5](../chapter-5-case-study/index.html) treats a single building or a single hub as the unit of interest. A different and complementary direction treats the **building stock** — a whole city or region's worth of buildings — as the object, with the individual building as the [basic element](../appendices/a-glossary.html#basic-element): the "building as an element of a stock" representation in [§2.3.3](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html#233-representation-strategies-and-testable-predictions).
 
-This changes the questions that are answerable. Instead of "what will this building's demand be," the target becomes portfolio-level: aggregate demand under a retrofit policy ([§3.9](../chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html)), stock-wide emissions trajectories, or which archetypes in a city-scale stock are under-represented in a training corpus. Large physics-based stock models — **ResStock**[^wilson2022resstock] and **ComStock**[^parker2023comstock] (NREL) — already generate the kind of fully-labelled, large-N corpora (see [§3.2](../chapter-3-sim-opt/3-2-building-simulation-data.html)) that a stock-level foundation model would pretrain on.
+This changes the questions that are answerable. Instead of "what will this building's demand be," the target becomes portfolio-level: aggregate demand under a retrofit policy ([§3.5](../chapter-3-sim-opt/3-5-retrofit-and-whole-life-carbon.html)), stock-wide emissions trajectories, or which archetypes in a city-scale stock are under-represented in a training corpus. Large physics-based stock models — **ResStock**[^wilson2022resstock] and **ComStock**[^parker2023comstock] (NREL) — already generate the kind of fully-labelled, large-N corpora (see [§3.2](../chapter-3-sim-opt/3-2-building-simulation-data.html)) that a stock-level foundation model would pretrain on.
 
 ## Relationship to the rest of these notes
 
@@ -46,4 +46,4 @@ The one result is not itself a stock-level FM, but it is the closest empirical g
 [^bose2024rnnstofm]: Bose, S., Li, Y., Van Sant, A., Zhang, Y., Kim, K. (2024). [From RNNs to foundation models: An empirical study on commercial building energy consumption](https://arxiv.org/abs/2411.14421). arXiv:2411.14421. NeurIPS 2024 Workshop on Time Series in the Age of Large Models.
 
 ---
-[← Previous: 4.1 Off-the-Shelf FMs](4-1-off-the-shelf-fms.html) · [Next: 4.3 LLM Agents for Simulation →](4-3-llm-agents-for-simulation.html)
+[← Previous: 4.1 Using Existing FMs Off the Shelf](4-1-off-the-shelf-fms.html) · [Back to Chapter 4](index.html) · [Next: 4.3 LLMs and Agents That Build or Run Simulation Models →](4-3-llm-agents-for-simulation.html)

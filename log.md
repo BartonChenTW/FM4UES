@@ -294,8 +294,8 @@ Both D5 sources are single-carrier power flow with a fixed constraint set, so th
 Barton had drafted a "What does an energy-system model actually do?" section on the Chapter 3 **landing page** (uncommitted working-tree change). Reviewed it, and moved it into [§3.1](chapter-3-sim-opt/3-1-taxonomy-of-tasks.md) instead of keeping it on the landing page. Three reasons:
 
 1. **Landing-page uniformity.** Every other chapter landing is one-line intro + diagram + "In this chapter" table, with no body prose. The draft added ~55 lines, making Chapter 3 structurally unlike Chapters 1, 2, 4, 5, 6.
-2. **Duplication with Chapter 1.** Checked each claim against Chapter 1. The component list, the building→district→urban scale ladder, and the energy-hub paragraph all restate [§1.1](chapter-1-background/1-1-what-is-ues.md) (which is richer — it has the scale table with typical extents, the coupling matrix, and the four "beyond the hub" items with five review citations). The "learned models are cheaper over loops" point restates [§1.2](chapter-1-background/1-2-fms-in-one-page.md) consequence 2 and [§1.5](chapter-1-background/1-5-why-ues-why-now.md). These were cut and replaced with a one-sentence back-link to §1.1.
-3. **It was doing §3.1's assigned job.** [§1.6](chapter-1-background/1-6-scope-and-how-to-use.md) job #1 assigns "what actually gets modelled… what mathematical object each task is" to Chapter 3. §3.1 previously opened cold on "Each row is a distinct *task*…" with no statement of what a task *is* — the draft's input→output framing is exactly that missing preamble.
+2. **Duplication with Chapter 1.** Checked each claim against Chapter 1. The component list, the building→district→urban scale ladder, and the energy-hub paragraph all restate [§1.1](chapter-1-background/1-1-what-is-ues.md) (which is richer — it has the scale table with typical extents, the coupling matrix, and the four "beyond the hub" items with five review citations). The "learned models are cheaper over loops" point restates [§1.2](chapter-1-background/1-2-fms-in-one-page.md) consequence 2 and [§1.5](chapter-1-background/1-4-why-now-and-how-to-use.md#why-now). These were cut and replaced with a one-sentence back-link to §1.1.
+3. **It was doing §3.1's assigned job.** [§1.6](chapter-1-background/1-4-why-now-and-how-to-use.md#scope-and-how-to-use) job #1 assigns "what actually gets modelled… what mathematical object each task is" to Chapter 3. §3.1 previously opened cold on "Each row is a distinct *task*…" with no statement of what a task *is* — the draft's input→output framing is exactly that missing preamble.
 
 **Kept** (genuinely new, not anywhere else in the book): the `system description + external conditions → model → outcomes` mapping; the simulation-vs-optimisation distinction; the "why this framing matters for FMs" argument. Grepped the whole book for the sim/opt distinction — it appears only in §3.4's opening line and §3.5's "structurally different from dispatch", both of which assume the reader already has it. Nothing introduced it, in a chapter titled "Simulation and Optimisation in UES".
 
@@ -324,7 +324,7 @@ Barton had drafted a "What does an energy-system model actually do?" section on 
 
 Surveys were kept for the landscape claim only, per CONTRIBUTING; the specific results are all primary.
 
-**The argument the section now carries**, rather than a list of models. Renewable forecasting matured early because a generation site passes all four requirements of §2.3.1 with no convention to argue about — the positive case that §2.3.2's building analysis is the negative of. Three limits then keep it from being read as encouragement for a UES FM: (1) WindFM and Tyan-WP both sit on the same public WIND Toolkit corpus, and the multi-carrier case has neither an agreed element nor a corpus; (2) these models forecast an *exogenous, weather-driven input* — a boundary condition upstream of the hub, not the system, so nothing about conversion, storage state, topology or discrete decisions ([§3.3](chapter-3-sim-opt/3-3-energy-hub-formalism.md)); (3) single-carrier, single-task, short-horizon, which is narrower than the multi-task transfer that separates an FM from a surrogate ([§2.8](chapter-2-fm-foundations/2-8-surrogates-vs-fms.md)).
+**The argument the section now carries**, rather than a list of models. Renewable forecasting matured early because a generation site passes all four requirements of §2.3.1 with no convention to argue about — the positive case that §2.3.2's building analysis is the negative of. Three limits then keep it from being read as encouragement for a UES FM: (1) WindFM and Tyan-WP both sit on the same public WIND Toolkit corpus, and the multi-carrier case has neither an agreed element nor a corpus; (2) these models forecast an *exogenous, weather-driven input* — a boundary condition upstream of the hub, not the system, so nothing about conversion, storage state, topology or discrete decisions ([§3.3](chapter-3-sim-opt/3-3-energy-hub-formalism.md)); (3) single-carrier, single-task, short-horizon, which is narrower than the multi-task transfer that separates an FM from a surrogate ([§2.8](chapter-2-fm-foundations/2-1-what-defines-an-fm.md#surrogates-vs-fms)).
 
 The `longarini2026coldstart` finding is the one flagged as most useful here: accuracy tracked *the availability of plausible temporal context*, not the fidelity of whatever generated it — which bears on how much a UES corpus would have to be real versus merely plausible.
 
@@ -334,7 +334,7 @@ The `longarini2026coldstart` finding is the one flagged as most useful here: acc
 
 ## 2026-09-17 (extend §2.8 with the surrogate → FM migration path)
 
-Barton asked whether Kleinebrahm et al.'s *Joule* paper on European grid defection belonged in the surrogate section, and — the better half of the question — how a reader moves from a surrogate to an FM. [§2.8](chapter-2-fm-foundations/2-8-surrogates-vs-fms.md) said what the *difference* is (the four-row table) but never what to *do* about it. The only route it offered was one clause: "making the same class of model transferable across systems rather than rebuilt for each one" — the destination, not the path.
+Barton asked whether Kleinebrahm et al.'s *Joule* paper on European grid defection belonged in the surrogate section, and — the better half of the question — how a reader moves from a surrogate to an FM. [§2.8](chapter-2-fm-foundations/2-1-what-defines-an-fm.md#surrogates-vs-fms) said what the *difference* is (the four-row table) but never what to *do* about it. The only route it offered was one clause: "making the same class of model transferable across systems rather than rebuilt for each one" — the destination, not the path.
 
 **New subsection: a four-step path, ordered by when each constraint bites.**
 
@@ -351,7 +351,7 @@ Step 0 is first on purpose: §2.3.2's negative result for buildings means a surr
 
 **The Kleinebrahm citation, and what it is *not* used for.** Cited for one claim: work at continental building-stock scale is population-level in the sense Step 1 requires. Deliberately **not** cited as a surrogate, because the method could not be verified — the paper is paywalled and the abstract is absent from Crossref, OpenAlex, Semantic Scholar and Europe PMC. An earlier draft of this passage asserted the study "is not released as a model anyone else can apply" and that "Steps 2 and 3 are simply not attempted"; both were claims about a method the writer had not read, and were cut. The replacement argues the general point instead — *the distinction is the deliverable, not the scale* — which needs no unverifiable detail about this particular paper. Only the title, authors, venue and pagination are asserted, all from Crossref.
 
-**A wrong cross-reference fixed in passing.** §2.8 pointed at [§3.4](chapter-3-sim-opt/3-4-dispatch-optimisation.md) for "the break-even arithmetic". §3.4 itself says the arithmetic is developed in §3.5, and [§3.5](chapter-3-sim-opt/3-5-design-sizing-optimisation.md) is where the `N_train × t_sim < Σ(N_evaluations × t_sim)` inequality actually appears. Repointed.
+**A wrong cross-reference fixed in passing.** §2.8 pointed at [§3.4](chapter-3-sim-opt/3-3-energy-hub-formalism.md#dispatch) for "the break-even arithmetic". §3.4 itself says the arithmetic is developed in §3.5, and [§3.5](chapter-3-sim-opt/3-3-energy-hub-formalism.md#design-and-sizing) is where the `N_train × t_sim < Σ(N_evaluations × t_sim)` inequality actually appears. Repointed.
 
 §2.8 had no footnotes before this; the definitions block is placed in house position, above the closing nav rule. Bibliography 99 → 100. `last_reviewed` bumped to 2026-09-17. All 14 links in the section verified to resolve, both anchors checked against the target headings. Not rendered in a browser.
 
@@ -371,23 +371,23 @@ Added Shin & Haberl's systematic review (*Energy and Buildings* 203:109429, DOI 
 
 ### Findings not acted on
 
-- **[§2.5](chapter-2-fm-foundations/2-5-what-does-not-exist-yet.md) is the weakest load-bearing page in the book.** 176 words, six negative existence claims, no citations and no dates — and Chapters 4, 5 and 6 all rest on it. Negative claims age silently and cannot be checked without a stated method. §1.3 does this properly (Scopus terms + date + citation); §2.5 has no equivalent. Both core claims were spot-checked against arXiv on 2026-09-17 and still hold — no FM for multi-carrier operation or energy hubs — so the premise is sound and only the support is missing. Needs a search-methodology line and a nearest-miss citation per bullet.
+- **[§2.5](chapter-2-fm-foundations/2-4-existing-fms-relevant-to-energy.md#what-does-not-exist-yet) is the weakest load-bearing page in the book.** 176 words, six negative existence claims, no citations and no dates — and Chapters 4, 5 and 6 all rest on it. Negative claims age silently and cannot be checked without a stated method. §1.3 does this properly (Scopus terms + date + citation); §2.5 has no equivalent. Both core claims were spot-checked against arXiv on 2026-09-17 and still hold — no FM for multi-carrier operation or energy hubs — so the premise is sound and only the support is missing. Needs a search-methodology line and a nearest-miss citation per bullet.
 - **The glossary is one-sided.** 28 terms, roughly 23 ML-side to 5 UES-side, in a book whose stated audience is someone who knows UES well and ML less well *or vice versa*. Missing, with body usage counts: UBEM (21 — the most-used acronym in the book), OPF (16), MILP (14), LP (9), ESDL (8), CIM (6), GNN (6), LLM (5), CHP (4), DH (4), MINLP (3). DINO, SAM and ViT are all defined; UBEM is not.
 - **Chapter 4 stubs §4.1–4.4 remain uncited.** One directly fillable: "Systematic Evaluation of TabPFN-TS for Zero-Shot Probabilistic Heat Load Forecasting in District Heating Networks" (arXiv, 2026-08-20) is an off-the-shelf FM applied zero-shot to a UES carrier task — precisely §4.1's subject, covering district heating, which the book discusses but has no FM evidence for. TabPFN-TS is already threaded through §2.4.1 and §2.4.4.
 - **Not checked:** whether any *positive* claim has gone stale (§2.4.1's model roster is the likeliest casualty), and anything needing a Jekyll build.
 
 ## 2026-09-19 (source §2.5's six negative claims)
 
-First item off last week's "findings not acted on" backlog. [§2.5](chapter-2-fm-foundations/2-5-what-does-not-exist-yet.md) asserted six "no FM exists for X" claims — 176 words, zero citations, zero dates — while Chapters 4, 5 and 6 all build on it being true. A negative claim with no stated search method can't be checked or age-verified; [§1.3](chapter-1-background/1-3-fm-landscape-by-domain.md) already does this correctly (dated Scopus search + citation), so the fix is the same pattern applied here.
+First item off last week's "findings not acted on" backlog. [§2.5](chapter-2-fm-foundations/2-4-existing-fms-relevant-to-energy.md#what-does-not-exist-yet) asserted six "no FM exists for X" claims — 176 words, zero citations, zero dates — while Chapters 4, 5 and 6 all build on it being true. A negative claim with no stated search method can't be checked or age-verified; [§1.3](chapter-1-background/1-3-fm-landscape-by-domain.md) already does this correctly (dated Scopus search + citation), so the fix is the same pattern applied here.
 
 **Method.** A dated arXiv title/abstract search per claim, run 19 September 2026 — first attempt silently returned zero hits on every query including a known-good control (`"foundation model" AND "power grid"`, which should and does return 16 results); traced to `export.arxiv.org` 301-redirecting plain `curl` to an empty body. Fixed with `-L` before trusting any result.
 
 Two of the six claims turned up a genuine nearest-miss paper, both new to the bibliography:
 
 - **Multi-carrier operation.** The search returns exactly one paper: TabPFN-TS (an existing general time-series FM) evaluated zero-shot on district-heating load forecasting.[^spoek2026tabpfndh] This is the same paper flagged last week as the direct fill for [§4.1](chapter-4-directions/4-1-off-the-shelf-fms.md)'s stub — cited here for what it is *not*: single-carrier, forecasting-only, no conversion/storage/dispatch. The nearest miss confirms the gap.
-- **Representation/interchange format.** Beyond [§3.7](chapter-3-sim-opt/3-7-schemas-and-standards.md)'s existing ESDL/CIM treatment, added a June 2026 paper from *within* the multi-energy-systems research community itself — motivated by discussions at ECOS 2025, concluding that standardised case-study description "remains fragmented".[^vallee2026standardizing] Independent confirmation from outside ML that the same gap is felt domain-side.
+- **Representation/interchange format.** Beyond [§3.7](chapter-3-sim-opt/3-4-tools-and-standards.md#schemas-and-standards)'s existing ESDL/CIM treatment, added a June 2026 paper from *within* the multi-energy-systems research community itself — motivated by discussions at ECOS 2025, concluding that standardised case-study description "remains fragmented".[^vallee2026standardizing] Independent confirmation from outside ML that the same gap is felt domain-side.
 
-Two claims were cross-referenced to material the book already has rather than re-cited: the design/planning claim now points at the single-system surrogates in [§4.9.3](chapter-4-directions/4-9-3-methods-tier3.md) (`perera2019mlsurrogate`, `prina2024energyplan` — neither claims cross-system transfer), and the benchmark claim points at [G4](chapter-6-outlook/6-1-open-gaps.md#g4)'s existing `lin2024tsfmbuilding` citation rather than re-running that search.
+Two claims were cross-referenced to material the book already has rather than re-cited: the design/planning claim now points at the single-system surrogates in [§4.9.3](chapter-4-directions/4-7-3-methods-tier3.md) (`perera2019mlsurrogate`, `prina2024energyplan` — neither claims cross-system transfer), and the benchmark claim points at [G4](chapter-6-outlook/6-1-open-gaps.md#g4)'s existing `lin2024tsfmbuilding` citation rather than re-running that search.
 
 The basic-element claim needed no citation, only a pointer — [§2.3.2](chapter-2-fm-foundations/2-3-choosing-a-basic-element.md#232-basic-elements-for-buildings)/[§2.3.3](chapter-2-fm-foundations/2-3-choosing-a-basic-element.md#233-representation-strategies-and-testable-predictions) already argue it at length. The decision-space claim is the cleanest of the six: zero results, no near miss to report, cross-referenced to [G9](chapter-6-outlook/6-1-open-gaps.md#g9).
 
@@ -401,7 +401,7 @@ Both new sources verified against arXiv metadata before use (title, full author 
 
 Second item off the backlog, following §2.5's sourcing pass earlier the same day. Ran a dated arXiv search per section (all title/abstract, 19 September 2026), each independent of the others.
 
-**§4.1 gets a genuine worked example, with real numbers.** A published evaluation runs TabPFN-TS and Chronos-2 zero-shot on district-heating heat-load forecasting.[^spoek2026tabpfndh] Reported: hourly 24h-ahead forecasting with a 12-week rolling context and ambient temperature as the only covariate is a parsimonious high-performing configuration (longer context does not help); TabPFN-TS reaches CVRMSE 13.06% against Chronos-2's 12.48% but is better calibrated; and — the part most relevant to this book's own concerns — the configuration was validated on a **second, different network**, i.e. transferability actually tested rather than assumed, exactly what [§2.9](chapter-2-fm-foundations/2-9-ues-fm-evaluation-criteria.md) dimension 2 asks for. Flagged the one caveat worth carrying forward: TabPFN-TS pretrains on synthetic data, which side-steps leakage but leaves open whether its prior captures district-heating dynamics specifically.
+**§4.1 gets a genuine worked example, with real numbers.** A published evaluation runs TabPFN-TS and Chronos-2 zero-shot on district-heating heat-load forecasting.[^spoek2026tabpfndh] Reported: hourly 24h-ahead forecasting with a 12-week rolling context and ambient temperature as the only covariate is a parsimonious high-performing configuration (longer context does not help); TabPFN-TS reaches CVRMSE 13.06% against Chronos-2's 12.48% but is better calibrated; and — the part most relevant to this book's own concerns — the configuration was validated on a **second, different network**, i.e. transferability actually tested rather than assumed, exactly what [§2.9](chapter-2-fm-foundations/2-8-ues-fm-evaluation-criteria.md) dimension 2 asks for. Flagged the one caveat worth carrying forward: TabPFN-TS pretrains on synthetic data, which side-steps leakage but leaves open whether its prior captures district-heating dynamics specifically.
 
 **§4.2 stays a stub, but a checked one.** The search (ResStock/ComStock + foundation model/pretrained; separately "building stock" + foundation model) returns exactly one relevant result and confirms no stock-level FM has been published. That one result — `bose2024rnnstofm`, already cited elsewhere in this book for its scaling-laws argument — is reused here for a different claim: it isolates dataset heterogeneity as mattering more than parameter count on ComStock-derived data, which bears directly on what a stock-level pretraining corpus would need to contain, even though it is not itself a stock-level model.
 
@@ -451,7 +451,7 @@ Method: every new reference's metadata from Crossref (arXiv for `yang2021dir`); 
 
 **Why.** Building materials and LCA (embodied carbon) were raised as a possible new section. The book already argued about retrofit — §2.3's decision layer, [G9](chapter-6-outlook/6-1-open-gaps.md#g9), §4.9.3's retrofit corollary, §4.2's "retrofit policy" — but had no page on how retrofit is actually analysed, and embodied carbon appeared only as a field in §5.5's device token and the "LCA" cell of T9. Framed as retrofit analysis with whole-life carbon inside it, rather than a standalone materials/LCA section, so it grounds the existing decision-space argument instead of opening a separate topic. No new chapter: chapters are organised by kind of material, not by sub-domain.
 
-**New page.** [`chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.md`](chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.md): the task (discrete measure search with T1 in the loop), how it composes with T1/T5/T8/T9, instance-specific constraints; whole-life carbon via EN 15978 modules, with B6 (operational energy) as the seam between this book and LCA; data shapes (LCI databases, national datasets, EPDs, the missing paired corpus); why it matters for FMs. Added as §3.9 so nothing is renumbered.
+**New page.** [`chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.md`](chapter-3-sim-opt/3-5-retrofit-and-whole-life-carbon.md): the task (discrete measure search with T1 in the loop), how it composes with T1/T5/T8/T9, instance-specific constraints; whole-life carbon via EN 15978 modules, with B6 (operational energy) as the seam between this book and LCA; data shapes (LCI databases, national datasets, EPDs, the missing paired corpus); why it matters for FMs. Added as §3.9 so nothing is renumbered.
 
 **Taxonomy.** Added **T10 Retrofit analysis & planning** to §3.1 ("The nine tasks" → "The ten tasks"), plus notes for T9 and T10. Added rather than widening T9: retrofit has its own structure (discrete measure selection), while T9 is post-processing. Updated T1–T9 → T1–T10 in §4.6 and the Chapter 4 landing page.
 
@@ -467,7 +467,7 @@ Verified: footnote ref/def integrity on every page, all footnote names match `.b
 
 **Why.** Social aspects of UES and buildings were raised as a possible addition, split into four kinds: (1) people as model inputs, (2) social outcomes, (3) social properties of the FM itself, (4) social science without AI. The maintainer chose (1) and (2). Before this, occupant behaviour was covered (§3.1 T1 note, §4.3 BuildOcc) and "equity, comfort" appeared once, undeveloped, in T9.
 
-**New page.** [`chapter-3-sim-opt/3-10-social-dimensions.md`](chapter-3-sim-opt/3-10-social-dimensions.md): the two roles (inputs vs the population outcomes fall on), anchored on Krumm et al.'s finding that social aspects enter energy models mainly exogenously and only ABMs represent actor heterogeneity; occupant behaviour (brief, cross-linked); technology adoption via ABMs (Austin PV; AgentHomeID's owner types and income quartiles, which is the stock-level form of §3.9's retrofit question); energy poverty and energy justice, with the point that distributional outcomes depend on a normative equity principle; data shapes (surveys, registers, observed adoption, meter data as a social signal, text); why it screens like T8.
+**New page.** [`chapter-3-sim-opt/3-10-social-dimensions.md`](chapter-3-sim-opt/3-6-social-dimensions.md): the two roles (inputs vs the population outcomes fall on), anchored on Krumm et al.'s finding that social aspects enter energy models mainly exogenously and only ABMs represent actor heterogeneity; occupant behaviour (brief, cross-linked); technology adoption via ABMs (Austin PV; AgentHomeID's owner types and income quartiles, which is the stock-level form of §3.9's retrofit question); energy poverty and energy justice, with the point that distributional outcomes depend on a normative equity principle; data shapes (surveys, registers, observed adoption, meter data as a social signal, text); why it screens like T8.
 
 **Taxonomy.** Added **T11 Behaviour & adoption modelling** to §3.1 ("ten" → "eleven"); T9 note extended to equity outcomes. Added as its own task because adoption models have a distinct structure (calibrated stochastic simulation of decision rules) and, uniquely among the tasks, no physics simulator for ground truth.
 
@@ -485,7 +485,7 @@ Verified: footnote integrity on every page, all footnote names match `.bib` keys
 
 **Why.** Picked up the key TODO item: Chapter 4 surveyed directions one at a time and never said how they fit together; the coupling idea lived only in Chapter 5 (Phase 5 hub ↔ grid, D5 flexibility envelope), §4.8's grid-load bridge, and the private concept-paper notes (planned section "Coupling to adjacent FMs" and an "FM ecosystem" figure).
 
-**New page** [`chapter-4-directions/4-11-ecosystem.md`](chapter-4-directions/4-11-ecosystem.md), placed last in Chapter 4 as its synthesis (after §4.10, so nothing is renumbered). Argument: basic elements differ by layer (§2.3, §2.4), so expect several FMs connected at interfaces rather than one. Contents: component table by layer with element and status ("the ends exist and the middle does not"); a Mermaid diagram of components and what flows between them; three interface types (physical quantities, shared learned representations, language/tool calls) with their trade-offs, anchored on co-simulation as today's practice; the concrete UES interfaces and what stands behind each; three shapes (one multimodal FM — conditional on a shared element, Aurora as the precedent that shows why; a federation coupled by physical quantities — the near-term default; an orchestrating agent — ChemGraph as precedent, G7 as the obstacle), with the book's reading that they are complementary; ecosystem-level needs (interface schema, uncertainty across interfaces, chain-level evaluation, constraint authority, shared data engines). Labelled as the book's own synthesis.
+**New page** [`chapter-4-directions/4-11-ecosystem.md`](chapter-4-directions/4-9-ecosystem.md), placed last in Chapter 4 as its synthesis (after §4.10, so nothing is renumbered). Argument: basic elements differ by layer (§2.3, §2.4), so expect several FMs connected at interfaces rather than one. Contents: component table by layer with element and status ("the ends exist and the middle does not"); a Mermaid diagram of components and what flows between them; three interface types (physical quantities, shared learned representations, language/tool calls) with their trade-offs, anchored on co-simulation as today's practice; the concrete UES interfaces and what stands behind each; three shapes (one multimodal FM — conditional on a shared element, Aurora as the precedent that shows why; a federation coupled by physical quantities — the near-term default; an orchestrating agent — ChemGraph as precedent, G7 as the obstacle), with the book's reading that they are complementary; ecosystem-level needs (interface schema, uncertainty across interfaces, chain-level evaluation, constraint authority, shared data engines). Labelled as the book's own synthesis.
 
 **Dated search** (arXiv, 2026-09-29), reported on the page: "foundation model" × ecosystem × {energy, grid} → 11 results, none on coupling energy-system FMs; "foundation model(s)" × {coupling, interoperab*, composable} × {power system, energy system} → 1, unrelated; "multiple foundation models" × {energy, grid} → 1, unrelated (not reported).
 
@@ -619,7 +619,7 @@ Not run in a browser. After deploy, try both buttons on §4.11, and on the Chapt
 - §2.4.3 covers generation only.
 - §4.5 rated "Load / smart-meter FM" mature without naming any models.
 
-**New page** [`chapter-2-fm-foundations/2-4-6-load-forecasting-fms.md`](chapter-2-fm-foundations/2-4-6-load-forecasting-fms.md), placed after §2.4.5 so nothing is renumbered. Its argument: both routes (load-pretrained models and general TSFMs used zero-shot) use the patch element of §2.3.2(d), which describes the output and not the building. That predicts the pattern the literature shows: zero-shot models do well on aggregated load and unreliably for a single building.
+**New page** [`chapter-2-fm-foundations/2-4-6-load-forecasting-fms.md`](chapter-2-fm-foundations/2-4-5-load-forecasting-fms.md), placed after §2.4.5 so nothing is renumbered. Its argument: both routes (load-pretrained models and general TSFMs used zero-shot) use the patch element of §2.3.2(d), which describes the output and not the building. That predicts the pattern the literature shows: zero-shot models do well on aggregated load and unreliably for a single building.
 - **Load-pretrained models:** BuildingsBench, EnergyFM, PowerPM, and a natural-gas demand FM.
 - **General TSFMs tested on load:** a table of ten evaluations sorted by aggregation level.
 - **Reading the evidence:** aggregated load close to solved, with national load mixed; single buildings not solved; covariates the open question.
@@ -870,3 +870,57 @@ Section numbers and URLs are unchanged. The only headings that changed are §1.6
 **Links.** The linking scripts added 7 glossary links and 1 model link (LLaMA) in the new text.
 
 Verified: footnote integrity on every page, all keys in the bib, no duplicates, braces balanced.
+
+## 2026-10-20 (version 3.0: restructure into 42 pages; §2.7 Multimodal models)
+
+**Why.** Barton felt there were too many subsections. A review found 55 section pages averaging about 600 words, 17 of them under 400 words, and several short adjacent pages on one topic. He also asked for multimodal models to become a section of their own with more content, as a potentially important approach.
+
+**Merges (55 → 42 section pages):**
+- 1.3 + 1.4 → §1.3
+- 1.5 + 1.6 → §1.4 (new file `1-4-why-now-and-how-to-use.md`)
+- 2.1 + 2.8 → §2.1
+- 2.4 landing + 2.5 → §2.4
+- 2.4.3 + 2.4.5 → §2.4.3
+- 3.3 + 3.4 + 3.5 + 3.8 → §3.3
+- 3.6 + 3.7 → §3.4 (new file `3-4-tools-and-standards.md`)
+- 4.5 + 4.6 → §4.5
+- 4.7 + 4.8 → §4.6
+- 5.4 + 5.5 → §5.3
+- 5.3 + 5.6 + 5.7 → §5.4 (new file `5-4-data-modules-and-tasks.md`)
+
+Renumbered: 2.4.6 → 2.4.5, 2.6 → 2.5, 2.7 → 2.6, 2.9 → 2.8, 3.9 → 3.5, 3.10 → 3.6, 4.9(.x) → 4.7(.x), 4.10 → 4.8, 4.11 → 4.9, 5.8 → 5.5.
+
+**Method.** A script did the mechanical work:
+- Merging: each merged page keeps the old pages' content as sections with explicit anchors (`{: #dispatch}` etc.). Headings were demoted one level, footnotes deduplicated, and repeated glossary or model links after the first on a page unlinked.
+- Renumbering: numbered headings follow their page (4.10.x → 4.8.x, 5.8.x → 5.5.x; 5.4.x and 5.5.x → 5.3.1–5.3.8).
+- Redirects: every removed or renamed URL gets a `redirect_from` on its new page, and existing redirects were kept.
+- Links and references: every Markdown link in the repo was rewritten from an old-file → (new file, part anchor) map plus an (old file, old heading id) → new id map. Every "§x.y" reference was rewritten from an old → new number map, applied in one pass so nothing is mapped twice, ranges included. `log.md`, `outline.md` and the historical Appendix C entries keep their wording, with only paths updated.
+- Navigation: Previous/Next footers were regenerated for all 48 chapter pages in reading order.
+
+Done by hand: the chapter landing tables and Mermaid diagrams, the README and home-page descriptions, and the multimodal page.
+
+**New §2.7 "Multimodal Models"** (`2-7-multimodal-models.md`), built from the old §2.7 subsection and extended:
+- why it matters for UES: the patch element carries nothing about the building
+- modality vs multivariate
+- how modalities are combined
+- the worked example
+- what has been tried, under three headings:
+  - attributes: TFT, TabPFN-TS, Tyan-WP, UniCA, BuildingsBench's minimal metadata, SysCaps, a heating-load benchmark
+  - images and fields: CrossViViT, SolCloudLLM, Baguan-solar, SKIPP'D, Aurora, Aardvark, HeatPrompt
+  - text: LLMTime, Time-LLM, ChatTime, Time-MMD, Context is Key, plus the critical results of Tan et al., Zhang et al., Sridhar et al. and MUSE-Bench, and energy cases (building load, NSW prices with news, TRACE-EPF, CM-LLM)
+- the notes' reading of the evidence
+- why it is hard: rates and timing, missing modalities, paired data, misalignment
+- a dated search: no multimodal FM for buildings, districts, grids or hubs; 4 hits, of which only Baguan-solar is a forecasting model
+
+Research was done by an agent and verified against arXiv, Crossref and OpenAlex. Claims are written from abstracts, except where marked as coming from the body (BuildingsBench's inputs, Time-MMD's energy domain, the clean-energy review's fusion section). SysCaps is also now cited in §4.6 as the closest precedent for the metadata-conditioned load model. §2.4.3's multi-modal-fusion sentence now says it rests on the review's fusion section.
+
+**References (bib 157 → 183).** 26 new: `lim2021tft`, `emami2025syscaps`, `neubauer2026heatingtl`, `han2025unica`, `boussif2023crossvivit`, `nie2023skippd`, `chen2026solcloudllm`, `ma2026baguansolar`, `allen2025aardvark`, `thota2026heatprompt`, `gruver2023llmtime`, `jin2024timellm`, `wang2025chattime`, `liu2024timemmd`, `williams2025cik`, `tan2024lmuseful`, `zhang2025whenmultimodal`, `sridhar2026textsensitivity`, `chen2026musebench`, `xue2023lmload`, `bi2025nswepnews`, `yi2026traceepf`, `zhou2026cmllm`, `chang2025timeimm`, `wu2024missingmodality`, `chen2026horai`.
+
+**Weakly verified, noted for follow-up** (see TODO):
+- The ICLR venues of Time-LLM and SysCaps and TMLR for the missing-modality survey come from arXiv comments only.
+- Aardvark's first author is Vaughan on arXiv and Allen in *Nature*; the published name is used.
+- Not yet checked: whether the clean-energy review's journal version keeps its fusion section.
+
+**Also:** the glossary linker's electrical-transformer exceptions now match on line content instead of (file, line), since lines moved. Version 3.0 is recorded in Appendix C, `_config.yml` and the README.
+
+Verified: a local check found every internal link and anchor resolving (apart from two code examples in CONTRIBUTING); footnote integrity on every page; all keys in the bib; no duplicates; braces balanced. Not built locally: `site-check.yml` covers the build and anchors.

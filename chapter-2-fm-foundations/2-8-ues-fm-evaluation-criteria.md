@@ -1,12 +1,14 @@
 ---
-title: "2.9 Evaluation Criteria for UES Foundation Models"
+title: "2.8 Evaluation Criteria for UES Foundation Models"
 parent: Chapter 2 — Foundation Knowledge of FMs
-nav_order: 9
+nav_order: 8
 status: draft
 last_reviewed: 2026-09-13
+redirect_from:
+  - /chapter-2-fm-foundations/2-9-ues-fm-evaluation-criteria.html
 ---
 
-# 2.9 Evaluation Criteria for UES Foundation Models
+# 2.8 Evaluation Criteria for UES Foundation Models
 {: .no_toc }
 
 {% include page-status.html %}
@@ -24,7 +26,7 @@ last_reviewed: 2026-09-13
 The three-property definition in [§2.1](2-1-what-defines-an-fm.html) — broad pretraining, transfer, multi-task — is necessary but not sufficient once the model's outputs feed into physical, decision-critical systems. A model can satisfy all three properties and still be useless or dangerous in this domain: it can transfer across buildings while producing physically infeasible predictions, or generalise across tasks while giving no indication of when it is unreliable. The seven dimensions below make that gap concrete.
 
 {: .note }
-This framework does not replace the [surrogate](../appendices/a-glossary.html#surrogate)/FM contrast in [§2.8](2-8-surrogates-vs-fms.html) — it assumes that contrast, then asks a further question: given that something clears the FM bar, how good an FM is it for *this* domain specifically?
+This framework does not replace the [surrogate](../appendices/a-glossary.html#surrogate)/FM contrast in [§2.1](2-1-what-defines-an-fm.html#surrogates-vs-fms) — it assumes that contrast, then asks a further question: given that something clears the FM bar, how good an FM is it for *this* domain specifically?
 
 ## The seven dimensions
 
@@ -34,13 +36,13 @@ This framework does not replace the [surrogate](../appendices/a-glossary.html#su
 
 **3. Task generality.** Transfer across *instances* (dimension 2) is not the same as transfer across *task types*. A stronger test is whether the same pretrained representation can be adapted to substantially different downstream tasks — forecasting, classification, simulation, optimisation, control — not just re-run on a new building for the same task it was trained on.
 
-**4. Physical consistency.** Purely data-driven models can produce physically infeasible predictions, and physics-informed machine learning provides established ways to prevent this — as physics-informed inputs, loss functions, architectural design, or ensemble models.[^ma2025piml_bem] (The broader physics-informed ML literature this specific taxonomy sits within is surveyed in [^karniadakis2021piml].) Ask whether a model's outputs satisfy conservation principles, respect technological operating constraints, and remain physically meaningful when transferred to new conditions — not whether the whole model is architecturally a physics-informed neural network. Physics can equally enter through the training data, the loss, the architecture, or coupling with a conventional simulator at inference time. See [§5.6](../chapter-5-case-study/5-6-physics-loss.html) for how these notes' own case study handles it.
+**4. Physical consistency.** Purely data-driven models can produce physically infeasible predictions, and physics-informed machine learning provides established ways to prevent this — as physics-informed inputs, loss functions, architectural design, or ensemble models.[^ma2025piml_bem] (The broader physics-informed ML literature this specific taxonomy sits within is surveyed in [^karniadakis2021piml].) Ask whether a model's outputs satisfy conservation principles, respect technological operating constraints, and remain physically meaningful when transferred to new conditions — not whether the whole model is architecturally a physics-informed neural network. Physics can equally enter through the training data, the loss, the architecture, or coupling with a conventional simulator at inference time. See [§5.4](../chapter-5-case-study/5-4-data-modules-and-tasks.html#physics-loss) for how these notes' own case study handles it.
 
 **5. Data efficiency.** Energy data in this domain is often heterogeneous, incomplete, proprietary, or expensive to collect — see [§3.2](../chapter-3-sim-opt/3-2-building-simulation-data.html). The relevant measurement is how much local data is needed to adapt a pretrained model to a new building, neighbourhood, technology, climate, or task — compared against a task-specific baseline trained from scratch, not assumed from model size alone.
 
 **6. Uncertainty awareness.** Energy-system decisions are made under uncertainty from weather, occupancy, technology performance, prices, and behaviour. A systematic review of uncertainty quantification in ML-based building energy modelling identifies three primary uncertainty sources — building operations, simulation tools, and the ML model itself — and categorises their contributing factors into aleatoric and epistemic uncertainty.[^xu2025uq_bem] A model producing accurate point predictions with no indication of when they are unreliable is insufficient for decision-critical use here; probabilistic predictions, ensembles, Bayesian methods, or calibrated confidence estimates are the usual routes to closing this gap. That this is achievable with [foundation models](../appendices/a-glossary.html#foundation-model) specifically, rather than only with purpose-built probabilistic models, is shown for building energy systems by the same study cited under dimension 2, which treats probabilistic forecasting alongside zero-shot and fine-tuned prediction as part of one evaluation.[^park2025probforecasting]
 
-**7. Computational benefit.** Foundation models for the electric power grid have been proposed partly to replace or accelerate expensive repeated calculations while staying adaptable across applications.[^hamann2024foundation] The equivalent case here: replacing expensive simulation calls with a surrogate, accelerating optimisation, enabling scenario exploration, supporting real-time control. But speed is not a standalone virtue — a faster model whose errors lead to materially different energy-system decisions is not a better model. See the amortisation argument in [§2.8](2-8-surrogates-vs-fms.html) and [§3.4](../chapter-3-sim-opt/3-4-dispatch-optimisation.html) for when the trade actually pays off.
+**7. Computational benefit.** Foundation models for the electric power grid have been proposed partly to replace or accelerate expensive repeated calculations while staying adaptable across applications.[^hamann2024foundation] The equivalent case here: replacing expensive simulation calls with a surrogate, accelerating optimisation, enabling scenario exploration, supporting real-time control. But speed is not a standalone virtue — a faster model whose errors lead to materially different energy-system decisions is not a better model. See the amortisation argument in [§2.1](2-1-what-defines-an-fm.html#surrogates-vs-fms) and [§3.3](../chapter-3-sim-opt/3-3-energy-hub-formalism.html#dispatch) for when the trade actually pays off.
 
 ## Reading these seven together
 
@@ -56,4 +58,4 @@ Treat this as a checklist for reading and writing UES-FM claims, not as a valida
 [^hamann2024foundation]: Hamann, H. F., Gjorgiev, B., Brunschwiler, T. et al. (2024). [Foundation models for the electric power grid](https://doi.org/10.1016/j.joule.2024.11.002). *Joule*, 8(12), 3245–3258.
 
 ---
-[← Previous: 2.8 Surrogates vs Foundation Models](2-8-surrogates-vs-fms.html) · [Back to Chapter 2](index.html) · [Next: Chapter 3 — Simulation and Optimisation in UES →](../chapter-3-sim-opt/index.html)
+[← Previous: 2.7 Multimodal Models](2-7-multimodal-models.html) · [Back to Chapter 2](index.html) · [Next: Chapter 3 — Simulation and Optimisation in UES →](../chapter-3-sim-opt/index.html)

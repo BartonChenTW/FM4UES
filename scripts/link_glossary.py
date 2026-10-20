@@ -57,10 +57,8 @@ BLOCK_BEFORE = {
                          'ecg', 'federated', 'eo', 'demand', 'generation', 'renewable', 'foundational', 'on'},
     'transformer': {'swin', 'vision', 'fusion', 'time-series', 'series', 'standard', 'temporal'},
 }
-# Electrical transformers, not the ML architecture: (file, line)
-SKIP_AT = {'transformer': {('chapter-4-directions/4-5-screening-fields.md', 42),
-                           ('chapter-5-case-study/5-2-representation-problem.md', 37),
-                           ('chapter-5-case-study/5-4-concrete-representation.md', 55)}}
+# Electrical transformers, not the ML architecture: skip a match on a line containing one of these
+SKIP_IF_LINE = {'transformer': ('lines and transformers', 'transformer is overloaded', '| Transformer |')}
 # Terms linked only on pages that use them in the glossary's sense
 ONLY_IN = {'cell': {'chapter-2-fm-foundations/2-3-choosing-a-basic-element.md', 'chapter-2-fm-foundations/2-4-4-tabular-fms.md'}}
 SKIP_FILES = {'appendices/a-glossary.md', 'appendices/c-version-history.md', 'appendices/d-model-index.md'}
@@ -119,7 +117,7 @@ def link_file(path, dry):
         for a, b, gid in cands:
             if gid in done or any(x <= a < y for x, y in masked) or any(x < b and a < y for x, y in taken):
                 continue
-            if (path, i + 1) in SKIP_AT.get(gid, ()):
+            if any(c in line for c in SKIP_IF_LINE.get(gid, ())):
                 continue
             prev = re.findall(r'([\w-]+)\s+$', line[:a])
             if prev and prev[-1].lower() in BLOCK_BEFORE.get(gid, ()):

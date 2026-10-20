@@ -20,6 +20,8 @@ against source material, and final sign-off are his. Citations are meant to trac
 checkable sources (see the references workflow in `CONTRIBUTING.md`); if you spot a claim
 that doesn't, please flag it via issue.
 
+**Page views** are counted with [GoatCounter](https://fm4ues.goatcounter.com), which uses no cookies and does not track individual visitors.
+
 **Read them as Markdown instead:** every page is a plain `.md` file in this repo, starting at
 [`index.md`](index.md).
 

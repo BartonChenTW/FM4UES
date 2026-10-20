@@ -46,6 +46,9 @@ footer_content: "Working notes, actively revised. Corrections and additions welc
 notes_version: "3.0"
 notes_version_date: "20 October 2026"
 
+# GoatCounter site code for page-view counting (_includes/goatcounter.html)
+goatcounter: "fm4ues"
+
 # Source repository: just-the-docs uses these for the "Edit this page on
 # GitHub" footer link, and _includes/page-status.html uses them for each
 # page's "Page history" link (the GitHub commit list for that file).

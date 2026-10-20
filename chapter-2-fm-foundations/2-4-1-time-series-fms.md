@@ -37,7 +37,7 @@ Architecturally distinct approaches worth knowing:
 - **Covariate usage is under-verified.** Recent work notes that benchmark results offer limited insight into actual covariate usage, and finds that TabPFN-TS captures simple, deliberately-constructed covariate–target relationships more reliably than Chronos-2 does — despite Chronos-2's stronger aggregate benchmark scores.[^berthelier2026covariate]
 
 {: .note }
-Using these models off the shelf, [zero-shot](../appendices/a-glossary.html#zero-shot), for load forecasting is covered as a practical direction in [§4.1](../chapter-4-directions/4-1-off-the-shelf-fms.html), and as a build path in [§4.9.1 (Tier 1)](../chapter-4-directions/4-9-1-methods-tier1.html).
+Using these models off the shelf, [zero-shot](../appendices/a-glossary.html#zero-shot), for load forecasting is covered as a practical direction in [§4.1](../chapter-4-directions/4-1-off-the-shelf-fms.html), and as a build path in [§4.7.1 (Tier 1)](../chapter-4-directions/4-7-1-methods-tier1.html).
 
 [^ansari2024chronos]: Ansari, A. F., Stella, L., Turkmen, C. et al. (2024). [Chronos: Learning the language of time series](https://arxiv.org/abs/2403.07815). *Transactions on Machine Learning Research*. arXiv:2403.07815.
 [^woo2024moirai]: Woo, G., Liu, C., Kumar, A. et al. (2024). [Unified training of universal time series forecasting transformers](https://arxiv.org/abs/2402.02592). ICML 2024. arXiv:2402.02592.
@@ -55,4 +55,4 @@ Using these models off the shelf, [zero-shot](../appendices/a-glossary.html#zero
 [^berthelier2026covariate]: Berthelier, G., Baranova, M., Pantea, A.-T. et al. (2026). [Investigating simple target-covariate relationships for Chronos-2 and TabPFN-TS](https://arxiv.org/abs/2605.12200). arXiv:2605.12200.
 
 ---
-[← Previous: 2.4 Existing FMs Relevant to Energy](2-4-existing-fms-relevant-to-energy.html) · [Next: 2.4.2 Power-Grid FMs →](2-4-2-power-grid-fms.html)
+[← Previous: 2.4 Existing FMs Relevant to Energy](2-4-existing-fms-relevant-to-energy.html) · [Back to Chapter 2](index.html) · [Next: 2.4.2 Power-Grid FMs →](2-4-2-power-grid-fms.html)

@@ -53,4 +53,4 @@ It therefore scores better than any element in §2.3.2(a)–(d), which is why it
 [^lin2026contextconstrained]: Lin, Y., Li, S. (2026). [Context-constrained transfer learning for tabular foundation models via data distillation](https://arxiv.org/abs/2607.04809). arXiv:2607.04809
 
 ---
-[← Previous: 2.4.3 Clean-Energy Forecasting FMs](2-4-3-clean-energy-forecasting-fms.html) · [Next: 2.4.5 Geospatial & Weather FMs →](2-4-5-geospatial-weather-fms.html)
+[← Previous: 2.4.3 Weather, Geospatial & Generation FMs](2-4-3-clean-energy-forecasting-fms.html) · [Back to Chapter 2](index.html) · [Next: 2.4.5 Load & Smart-Meter Forecasting FMs →](2-4-5-load-forecasting-fms.html)

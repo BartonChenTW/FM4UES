@@ -21,9 +21,9 @@ last_reviewed: 2026-09-19
 
 ## The direction
 
-[§3.5](../chapter-3-sim-opt/3-5-design-sizing-optimisation.html) and [§4.9.3 (Tier 3)](4-9-3-methods-tier3.html) treat design and sizing as an *optimisation* problem: search a space of candidate designs (device choices, capacities, topology) and return the best one against a stated objective. **Generative design** is a related but distinct framing: rather than searching a fixed [decision space](../appendices/a-glossary.html#decision-space) for an optimum, a generative model proposes novel candidate designs directly — sampling from a learned distribution over plausible system configurations, potentially including topologies or technology combinations not explicitly enumerated in advance.
+[§3.3](../chapter-3-sim-opt/3-3-energy-hub-formalism.html#design-and-sizing) and [§4.7.3 (Tier 3)](4-7-3-methods-tier3.html) treat design and sizing as an *optimisation* problem: search a space of candidate designs (device choices, capacities, topology) and return the best one against a stated objective. **Generative design** is a related but distinct framing: rather than searching a fixed [decision space](../appendices/a-glossary.html#decision-space) for an optimum, a generative model proposes novel candidate designs directly — sampling from a learned distribution over plausible system configurations, potentially including topologies or technology combinations not explicitly enumerated in advance.
 
-This distinction matters because it changes what the model needs to represent. Tier 3's amortised-optimisation approaches ([§4.9.3](4-9-3-methods-tier3.html)) predict *within* a decision space that is defined and bounded ahead of time. A generative approach needs the decision space itself to be represented well enough that sampling from it produces valid, buildable designs — which is a direct application of the **decision space** problem named in [§2.3.2](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html) and logged as [gap G9](../chapter-6-outlook/6-1-open-gaps.html#g9).
+This distinction matters because it changes what the model needs to represent. Tier 3's amortised-optimisation approaches ([§4.7.3](4-7-3-methods-tier3.html)) predict *within* a decision space that is defined and bounded ahead of time. A generative approach needs the decision space itself to be represented well enough that sampling from it produces valid, buildable designs — which is a direct application of the **decision space** problem named in [§2.3.2](../chapter-2-fm-foundations/2-3-choosing-a-basic-element.html) and logged as [gap G9](../chapter-6-outlook/6-1-open-gaps.html#g9).
 
 ## Relationship to the rest of these notes
 
@@ -33,7 +33,7 @@ Generative design for energy systems is the design-space analogue of what diffus
 
 A dated search (arXiv title/abstract, "generative design" combined with "energy system", "energy hub" or "power system", plus a separate diffusion-specific pass; run 19 September 2026) surfaces one precedent that is closer to these notes' subject than "adjacent engineering domain" usually implies. A generative-design framework pairs a candidate-design generator with a performance estimator, using graph learning so the generator can mine good structural properties from existing systems rather than search a fixed enumerated space — and it is validated on IEEE power-system test cases specifically, not a generic mechanical or structural benchmark.[^wu2022generativeresilience]
 
-**What transfers and what does not.** The framing — generator plus fast performance estimator, iterated — is directly reusable, and the target domain (power-system topology) is one carrier of the multi-carrier picture. What does not transfer without new work: it optimises for network *resilience* under disruption, not the cost, emissions or feasibility objectives an energy-hub design problem uses, and single-carrier grid topology is not multi-carrier device selection — the discrete technology and connection choices [§3.5](../chapter-3-sim-opt/3-5-design-sizing-optimisation.html) and [§4.9.3](4-9-3-methods-tier3.html) treat as the object have no counterpart in a network-topology framing.
+**What transfers and what does not.** The framing — generator plus fast performance estimator, iterated — is directly reusable, and the target domain (power-system topology) is one carrier of the multi-carrier picture. What does not transfer without new work: it optimises for network *resilience* under disruption, not the cost, emissions or feasibility objectives an energy-hub design problem uses, and single-carrier grid topology is not multi-carrier device selection — the discrete technology and connection choices [§3.3](../chapter-3-sim-opt/3-3-energy-hub-formalism.html#design-and-sizing) and [§4.7.3](4-7-3-methods-tier3.html) treat as the object have no counterpart in a network-topology framing.
 
 ## An in-domain example — and the distinction it clarifies
 
@@ -41,7 +41,7 @@ A generative model has also already been used *within* these notes' domain, but 
 
 ## What would still need to be added here
 
-- Discussion of feasibility: a generatively-proposed design still needs the feasibility guarantees discussed in [§4.9.3](4-9-3-methods-tier3.html) — a generated device combination that cannot actually be built or connected is not useful.
+- Discussion of feasibility: a generatively-proposed design still needs the feasibility guarantees discussed in [§4.7.3](4-7-3-methods-tier3.html) — a generated device combination that cannot actually be built or connected is not useful.
 - How this direction would interact with the decision-space representation problem in [G9](../chapter-6-outlook/6-1-open-gaps.html#g9), which is currently unsolved rather than merely under-explored.
 - Whether a graph-learning generator-plus-estimator pattern like Wu & Wang's, re-targeted from resilience to cost/feasibility, is a viable starting point — untested, and a genuinely open question rather than a survey gap.
 
@@ -51,4 +51,4 @@ A generative model has also already been used *within* these notes' domain, but 
 [^zhang2023solargan]: Zhang, Y., Schlüter, A., Waibel, C. (2023). [SolarGAN: Synthetic annual solar irradiance time series on urban building facades via deep generative networks](https://doi.org/10.1016/j.egyai.2022.100223). *Energy and AI*, 12, 100223.
 
 ---
-[← Previous: 4.3 LLM Agents for Simulation](4-3-llm-agents-for-simulation.html) · [Next: 4.5 Screening: Which Sub-Fields Fit the FM Pattern →](4-5-screening-fields.html)
+[← Previous: 4.3 LLMs and Agents That Build or Run Simulation Models](4-3-llm-agents-for-simulation.html) · [Back to Chapter 4](index.html) · [Next: 4.5 Screening Sub-Fields and Tasks →](4-5-screening-fields.html)

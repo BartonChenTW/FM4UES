@@ -35,9 +35,9 @@ Three consequences follow directly from the recipe, and they are the reason thes
 
 1. **The unit of learning changes.** A foundation model needs something to pretrain on that is plentiful, comparable across instances, and assembles into whole systems — a *[basic element](../appendices/a-glossary.html#basic-element)*. Text has the word/subword token; images have the patch; power grids have the bus. Finding (or failing to find) this element for a given domain is the central technical question, not an implementation detail. [Chapter 2](../chapter-2-fm-foundations/index.html) develops this in full.
 
-2. **The economics change.** A model trained once and reused across many future studies has a fundamentally different cost structure from a bespoke model trained and discarded within a single project. This is the amortisation argument that recurs throughout the notes (see [§3.4](../chapter-3-sim-opt/3-4-dispatch-optimisation.html) and [Chapter 5](../chapter-5-case-study/index.html)).
+2. **The economics change.** A model trained once and reused across many future studies has a fundamentally different cost structure from a bespoke model trained and discarded within a single project. This is the amortisation argument that recurs throughout the notes (see [§3.3](../chapter-3-sim-opt/3-3-energy-hub-formalism.html#dispatch) and [Chapter 5](../chapter-5-case-study/index.html)).
 
-3. **What "understanding" means changes.** A foundation model does not need to be told the equations governing a system to produce useful output — it infers regularities from data. This is powerful where equations are known but expensive to solve (a plausible substitute), and risky where the model must extrapolate beyond what it has seen, because nothing forces it to respect physics it was never shown examples of. [§15](../chapter-5-case-study/5-6-physics-loss.html) and related sections return to how this risk is managed.
+3. **What "understanding" means changes.** A foundation model does not need to be told the equations governing a system to produce useful output — it infers regularities from data. This is powerful where equations are known but expensive to solve (a plausible substitute), and risky where the model must extrapolate beyond what it has seen, because nothing forces it to respect physics it was never shown examples of. [§15](../chapter-5-case-study/5-4-data-modules-and-tasks.html#physics-loss) and related sections return to how this risk is managed.
 
 {: .note }
 This page deliberately does not cover architectures ([transformers](../appendices/a-glossary.html#transformer), graph neural networks, etc.) or training mechanics (self-supervision, [fine-tuning](../appendices/a-glossary.html#fine-tuning), scaling laws) — those are covered properly, with more precision, in [Chapter 2](../chapter-2-fm-foundations/index.html) once the domain motivation is established.
@@ -46,4 +46,4 @@ This page deliberately does not cover architectures ([transformers](../appendice
 [^lam2023graphcast]: Lam, R., Sanchez-Gonzalez, A., Willson, M. et al. (2023). [Learning skillful medium-range global weather forecasting](https://doi.org/10.1126/science.adi2336). *Science*, 382(6677), 1416–1421.
 
 ---
-[← Previous: 1.1 What a UES Contains](1-1-what-is-ues.html) · [Next: 1.3 The FM Landscape by Domain →](1-3-fm-landscape-by-domain.html)
+[← Previous: 1.1 What an Urban Energy System Contains](1-1-what-is-ues.html) · [Back to Chapter 1](index.html) · [Next: 1.3 The FM Landscape and Where It Is Heading →](1-3-fm-landscape-by-domain.html)

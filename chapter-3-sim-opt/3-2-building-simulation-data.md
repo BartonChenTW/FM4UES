@@ -26,7 +26,7 @@ Building energy simulation (T1 in [§3.1](3-1-taxonomy-of-tasks.html)) produces,
 ## Data shapes
 
 - **Real measured data** — smart meter or utility billing records. Abundant for electricity, sparser for heat. Carries real heterogeneity but almost never comes paired with the building attributes that would explain it (construction year, envelope, systems) — see the limitation below.
-- **Simulator-generated data** — output of a physics-based tool (EnergyPlus, CitySim, TRNSYS; see [§3.6](3-6-tool-landscape.html)) run over a sampled set of building descriptions. Fully labelled by construction, since the input description is known exactly. This is the basis for any controlled study of representation — see [§5.3](../chapter-5-case-study/5-3-data-generation.html) for sampling design.
+- **Simulator-generated data** — output of a physics-based tool (EnergyPlus, CitySim, TRNSYS; see [§3.4](3-4-tools-and-standards.html#tool-landscape)) run over a sampled set of building descriptions. Fully labelled by construction, since the input description is known exactly. This is the basis for any controlled study of representation — see [§5.4](../chapter-5-case-study/5-4-data-modules-and-tasks.html#data-generation) for sampling design.
 
 ## Datasets and benchmarks
 
@@ -36,7 +36,7 @@ Building energy simulation (T1 in [§3.1](3-1-taxonomy-of-tasks.html)) produces,
 - **CESAR-P** (Empa) — a dynamic urban building energy simulation tool used as a simulator-grounded data generator, producing building-attribute-to-load-profile pairs.[^orehounig2022cesarp]
 
 {: .important }
-**The sample-granularity trap.** EnergyBench's ~78,000 buildings can be read as ~28 million samples (building-days), 78,000 samples (building-years), or roughly 200 samples (district-years) depending on what you call one example — identical underlying data, entirely different regime. The first supports pretraining; the third supports [fine-tuning](../appendices/a-glossary.html#fine-tuning) at best. This decision alone can determine whether a corpus is viable for a given training objective, and it recurs directly in the case study's token-schema design (see [§5.5](../chapter-5-case-study/5-5-token-schema.html)).
+**The sample-granularity trap.** EnergyBench's ~78,000 buildings can be read as ~28 million samples (building-days), 78,000 samples (building-years), or roughly 200 samples (district-years) depending on what you call one example — identical underlying data, entirely different regime. The first supports pretraining; the third supports [fine-tuning](../appendices/a-glossary.html#fine-tuning) at best. This decision alone can determine whether a corpus is viable for a given training objective, and it recurs directly in the case study's token-schema design (see [§5.3](../chapter-5-case-study/5-3-concrete-representation.html)).
 
 ## The core limitation: measured data without attributes
 
@@ -49,4 +49,4 @@ Public building load collections mostly provide profiles without ground-truth at
 [^energybench]: AI-IoT Lab, IISc Bangalore. [EnergyBench](https://huggingface.co/datasets/ai-iot/EnergyBench). Hugging Face dataset, CC-BY-SA-4.0.
 
 ---
-[← Previous: 3.1 Modelling Tasks and Their Mathematical Structure](3-1-taxonomy-of-tasks.html) · [Next: 3.3 Multi-Carrier Energy Hub Formalism →](3-3-energy-hub-formalism.html)
+[← Previous: 3.1 Modelling Tasks](3-1-taxonomy-of-tasks.html) · [Back to Chapter 3](index.html) · [Next: 3.3 The Energy Hub: Formalism, Dispatch, Design →](3-3-energy-hub-formalism.html)

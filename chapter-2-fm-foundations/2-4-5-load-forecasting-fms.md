@@ -1,13 +1,15 @@
 ---
-title: "2.4.6 Load & Smart-Meter Forecasting FMs"
+title: "2.4.5 Load & Smart-Meter Forecasting FMs"
 parent: "2.4 Existing FMs Relevant to Energy"
 grand_parent: Chapter 2 — Foundation Knowledge of FMs
-nav_order: 6
+nav_order: 5
 status: draft
 last_reviewed: 2026-10-01
+redirect_from:
+  - /chapter-2-fm-foundations/2-4-6-load-forecasting-fms.html
 ---
 
-# 2.4.6 Load and Smart-Meter Forecasting Foundation Models (Mature for Aggregated Load)
+# 2.4.5 Load and Smart-Meter Forecasting Foundation Models (Mature for Aggregated Load)
 {: .no_toc }
 
 {% include page-status.html %}
@@ -58,7 +60,7 @@ Most of the literature evaluates the general models of [§2.4.1](2-4-1-time-seri
 
 ## What this family does not settle
 
-**It forecasts consumption, not the building.** None of the models above can answer a what-if question: what the load becomes after a heat pump is installed or the envelope is insulated. They extrapolate a series rather than represent the object, so they do not replace demand modelling (T1) or retrofit analysis (T10, [§3.9](../chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html)). Conditioning a load model on building attributes is the candidate direction in [§4.8](../chapter-4-directions/4-8-candidate-subfields.html), and it is the step that would turn this family into a building model.
+**It forecasts consumption, not the building.** None of the models above can answer a what-if question: what the load becomes after a heat pump is installed or the envelope is insulated. They extrapolate a series rather than represent the object, so they do not replace demand modelling (T1) or retrofit analysis (T10, [§3.5](../chapter-3-sim-opt/3-5-retrofit-and-whole-life-carbon.html)). Conditioning a load model on building attributes is the candidate direction in [§4.6](../chapter-4-directions/4-6-reading-the-screen.html#candidate-sub-fields), and it is the step that would turn this family into a building model.
 
 **Mostly one carrier.** Nearly all of the work is on electricity. District heat and gas have only one or two studies each here, and none of the models treats several carriers at once, which is the coupling that defines a multi-carrier system ([§3.3](../chapter-3-sim-opt/3-3-energy-hub-formalism.html)).
 
@@ -86,4 +88,4 @@ Most of the literature evaluates the general models of [§2.4.1](2-4-1-time-seri
 [^mulayim2026bem]: Mulayim, O. B., Quan, P., Han, L. et al. (2026). [Can time-series foundation models perform building energy management tasks?](https://doi.org/10.1017/dce.2026.10040) *Data-Centric Engineering*, 7, e9. arXiv:2506.11250.
 
 ---
-[← Previous: 2.4.5 Geospatial & Weather FMs](2-4-5-geospatial-weather-fms.html) · [Next: 2.5 What Does Not Exist Yet →](2-5-what-does-not-exist-yet.html)
+[← Previous: 2.4.4 Tabular FMs](2-4-4-tabular-fms.html) · [Back to Chapter 2](index.html) · [Next: 2.5 Self-Supervision, Fine-Tuning, Scaling Laws →](2-5-scaling-laws.html)

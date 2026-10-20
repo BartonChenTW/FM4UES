@@ -1,20 +1,22 @@
 ---
-title: "4.9.2 Tier 2 — Multi-Hub, Multi-Carrier"
-parent: "4.9 A Proposed Development Path"
+title: "4.7.2 Tier 2 — Multi-Hub, Multi-Carrier"
+parent: "4.7 A Proposed Development Path"
 grand_parent: Chapter 4 — Directions for FMs in UES
 nav_order: 2
 status: draft
 last_reviewed: 2026-09-11
-redirect_from: /07-methods-tier2.html
+redirect_from:
+  - /07-methods-tier2.html
+  - /chapter-4-directions/4-9-2-methods-tier2.html
 ---
 
-# 4.9.2 Tier 2 — Multi-Hub, Multi-Carrier, Dispatch Only
+# 4.7.2 Tier 2 — Multi-Hub, Multi-Carrier, Dispatch Only
 {: .no_toc }
 
 {% include page-status.html %}
 
 {: .note }
-Tier 2 of the notes' proposed development path toward a multi-carrier [foundation model](../appendices/a-glossary.html#foundation-model) ([§4.9](4-9-methods-landing.html)): a proposal, not a survey of established practice.
+Tier 2 of the notes' proposed development path toward a multi-carrier [foundation model](../appendices/a-glossary.html#foundation-model) ([§4.7](4-7-methods-landing.html)): a proposal, not a survey of established practice.
 
 1. TOC
 {:toc}
@@ -29,7 +31,7 @@ The learning problem becomes: *given a graph and boundary conditions, predict th
 
 ## Architecture family: graph neural networks
 
-The power-systems community has developed this thoroughly and the lessons transfer directly. See [§2.7](../chapter-2-fm-foundations/2-7-architectures.html) for what a graph neural network is, if you have not met one before.
+The power-systems community has developed this thoroughly and the lessons transfer directly. See [§2.6](../chapter-2-fm-foundations/2-6-architectures.html) for what a graph neural network is, if you have not met one before.
 
 **Heterogeneous message passing is the right default.** Recent work proposes a hybrid heterogeneous graph neural network combined with a scalable [transformer](../appendices/a-glossary.html#transformer) for AC-OPF that explicitly models power system components as distinct node and edge types, specifically to address topology adaptability and scalability.[^arowolo2026gnnopf] In multi-carrier systems the heterogeneity is even more pronounced — a heat pipe and a power line are not the same edge type in any useful sense.
 
@@ -62,7 +64,7 @@ For district multi-carrier systems with slow thermal transport, spatial-then-tem
 
 ## The alternative: neural operators
 
-If the network physics is genuinely continuous — thermal transport in pipes, pressure dynamics — **operator learning** is the other credible family (see [§2.7](../chapter-2-fm-foundations/2-7-architectures.html)). DeepONet learns solution operators of governing equations and solves a family of parametric PDEs, rather than a single instance; Fourier [Neural Operators](../appendices/a-glossary.html#neural-operator) learn mappings between function spaces rather than finite-dimensional mappings.
+If the network physics is genuinely continuous — thermal transport in pipes, pressure dynamics — **operator learning** is the other credible family (see [§2.6](../chapter-2-fm-foundations/2-6-architectures.html)). DeepONet learns solution operators of governing equations and solves a family of parametric PDEs, rather than a single instance; Fourier [Neural Operators](../appendices/a-glossary.html#neural-operator) learn mappings between function spaces rather than finite-dimensional mappings.
 
 Reported performance in adjacent thermal problems is strong: a physics-informed Fourier neural operator predicting tunnel-fire temperature fields reports maximum errors below 5% with prediction times at the second level, a two-to-four-order-of-magnitude acceleration versus CFD.[^gao2026tunnelfno]
 
@@ -76,4 +78,4 @@ A practically important pattern: **latent operator learning**. High-dimensional 
 [^kontolati2023latentdeeponet]: Kontolati, K., Goswami, S., Karniadakis, G. E., Shields, M. D. (2023). [Learning in latent spaces improves the predictive accuracy of deep neural operators](https://arxiv.org/abs/2304.07599). arXiv:2304.07599
 
 ---
-[← Previous: 4.9.1 Tier 1](4-9-1-methods-tier1.html) · [Next: 4.9.3 Tier 3 →](4-9-3-methods-tier3.html)
+[← Previous: 4.7.1 Tier 1 — Single Hub Dispatch](4-7-1-methods-tier1.html) · [Back to Chapter 4](index.html) · [Next: 4.7.3 Tier 3 — Design & Sizing →](4-7-3-methods-tier3.html)

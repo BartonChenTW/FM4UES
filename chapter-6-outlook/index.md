@@ -22,4 +22,4 @@ What is open, and how readers can contribute.
 | 6.2 | [How to contribute to this knowledge base](6-2-how-to-contribute.html) | Ways to contribute, pointing to CONTRIBUTING.md |
 
 ---
-[← Previous: Chapter 5 — Case Study](../chapter-5-case-study/index.html) · [Back to Home](../index.html)
+[← Previous: 5.5 Risks and Unsettled Design Questions](../chapter-5-case-study/5-5-risks.html) · [Next: 6.1 Open Gaps →](6-1-open-gaps.html)

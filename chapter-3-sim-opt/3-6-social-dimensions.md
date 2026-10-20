@@ -1,12 +1,14 @@
 ---
-title: "3.10 Social Dimensions"
+title: "3.6 Social Dimensions"
 parent: Chapter 3 — Simulation and Optimisation in UES
-nav_order: 10
+nav_order: 6
 status: draft
 last_reviewed: 2026-09-29
+redirect_from:
+  - /chapter-3-sim-opt/3-10-social-dimensions.html
 ---
 
-# 3.10 Social Dimensions: Behaviour, Adoption and Distributional Outcomes
+# 3.6 Social Dimensions: Behaviour, Adoption and Distributional Outcomes
 {: .no_toc }
 
 {% include page-status.html %}
@@ -38,7 +40,7 @@ The input already named as T1's persistent weakness in [§3.1](3-1-taxonomy-of-t
 
 Whether and when households and owners invest decides what the technical models get to optimise. The standard tool is an **agent-based model (ABM)**: a population of simulated decision-makers, each with its own attributes and decision rule, interacting (through neighbours, prices, policy) over time. An empirically initialised ABM of residential PV adoption in Austin, Texas, over 2004–2013, validated against temporal, spatial and demographic criteria, found that modelling only the financial side of the decision predicted the rate and scale of adoption well, but that agent-level attitudes and social interactions were needed to predict its spatial and demographic pattern.[^rai2015abm] One technology, one city, one decade of observed history: it shows which parts of the decision matter for which question, not that the calibrated rules carry over elsewhere.
 
-The same structure applies to buildings. AgentHomeID represents owner-occupiers, private landlords and institutional owners separately, with willingness-to-pay parameters estimated from empirical decision-maker studies, on both archetypes and GIS-derived real buildings. For Germany to 2045, it found subsidy allocation and investment diverging sharply across owner types and income quartiles, with the lowest quartiles persistently under-investing; at regional scale, bottom-up heat-pump uptake was spatially concentrated and differed from aggregated top-down projections in both magnitude and location.[^ganal2026agenthomeid] It is a preprint, and its willingness-to-pay parameters come from German decision-maker studies. Its relevance here is that it is the stock-level version of [§3.9](3-9-retrofit-and-whole-life-carbon.html)'s retrofit question: *which owners will actually adopt the measures* — and the answer shapes the grid loads ([T6](3-1-taxonomy-of-tasks.html)) that follow.
+The same structure applies to buildings. AgentHomeID represents owner-occupiers, private landlords and institutional owners separately, with willingness-to-pay parameters estimated from empirical decision-maker studies, on both archetypes and GIS-derived real buildings. For Germany to 2045, it found subsidy allocation and investment diverging sharply across owner types and income quartiles, with the lowest quartiles persistently under-investing; at regional scale, bottom-up heat-pump uptake was spatially concentrated and differed from aggregated top-down projections in both magnitude and location.[^ganal2026agenthomeid] It is a preprint, and its willingness-to-pay parameters come from German decision-maker studies. Its relevance here is that it is the stock-level version of [§3.5](3-5-retrofit-and-whole-life-carbon.html)'s retrofit question: *which owners will actually adopt the measures* — and the answer shapes the grid loads ([T6](3-1-taxonomy-of-tasks.html)) that follow.
 
 **The mathematical object** is a stochastic simulation of many interacting decision rules, calibrated to surveys and observed uptake and run over many random seeds and scenarios. It sits inside T8: an adoption trajectory is one of the assumptions a scenario rests on.
 
@@ -72,7 +74,7 @@ Energy poverty is framed in the social-science literature as the inability to at
 
 ## Why this matters for foundation models
 
-- **It screens like T8, not like T4.** There is no simulator for people. An ABM is itself a calibrated hypothesis, so it cannot supply unlimited ground truth the way a physics simulator does ([§4.5](../chapter-4-directions/4-5-screening-fields.html)'s S1), and a distributional outcome depends on a normative choice, so "correct" is not checkable (S5). T11's verdict in [§4.6](../chapter-4-directions/4-6-screening-tasks.html) follows from that.
+- **It screens like T8, not like T4.** There is no simulator for people. An ABM is itself a calibrated hypothesis, so it cannot supply unlimited ground truth the way a physics simulator does ([§4.5](../chapter-4-directions/4-5-screening-fields.html)'s S1), and a distributional outcome depends on a normative choice, so "correct" is not checkable (S5). T11's verdict in [§4.5](../chapter-4-directions/4-5-screening-fields.html#screening-the-tasks) follows from that.
 - **Heterogeneity is the signal, not noise.** Both adoption studies above find that *who* decides changes the answer — attitudes and social ties in one, owner type and income in the other. A stock-level model that represents buildings but not their owners and occupants ([§4.2](../chapter-4-directions/4-2-fms-for-building-stocks.html)) cannot answer a distributional question at all.
 - **So the realistic role for FMs is as tools inside these models, not as a "social FM".** Language models can structure behavioural assumptions, stand in for survey respondents, or act as policy agents — each with a validity question attached. That direction is surveyed in [§4.3](../chapter-4-directions/4-3-llm-agents-for-simulation.html).
 - **The literature is thin.** A dated search (arXiv title/abstract, run 29 September 2026) combining "foundation model" with "energy poverty", "energy justice" or "energy equity" returns no result; combining "large language model" or "LLM" with "energy poverty", "energy justice" or "energy burden" returns one relevant result; combining it with "agent-based", "adoption" and "energy" returns one. Both are discussed in [§4.3](../chapter-4-directions/4-3-llm-agents-for-simulation.html).
@@ -87,4 +89,4 @@ Energy poverty is framed in the social-science literature as the inability to at
 [^beckel2014household]: Beckel, C., Sadamori, L., Staake, T., Santini, S. (2014). [Revealing household characteristics from smart meter data](https://doi.org/10.1016/j.energy.2014.10.025). *Energy*, 78, 397–410.
 
 ---
-[← Previous: 3.9 Building Retrofit and Whole-Life Carbon](3-9-retrofit-and-whole-life-carbon.html) · [Back to Chapter 3](index.html) · [Next: Chapter 4 — Directions for FMs in UES →](../chapter-4-directions/index.html)
+[← Previous: 3.5 Building Retrofit and Whole-Life Carbon](3-5-retrofit-and-whole-life-carbon.html) · [Back to Chapter 3](index.html) · [Next: Chapter 4 — Directions for FMs in UES →](../chapter-4-directions/index.html)

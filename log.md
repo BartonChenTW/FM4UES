@@ -870,3 +870,12 @@ Section numbers and URLs are unchanged. The only headings that changed are §1.6
 **Links.** The linking scripts added 7 glossary links and 1 model link (LLaMA) in the new text.
 
 Verified: footnote integrity on every page, all keys in the bib, no duplicates, braces balanced.
+
+## 2026-10-20 (GoatCounter page-view counting)
+
+Barton asked for a page-view counter using his GoatCounter site (fm4ues.goatcounter.com).
+- `_includes/goatcounter.html`, included from `head_custom.html`, loads GoatCounter's `count.js` on the built site only (`jekyll.environment == "production"`), so local previews aren't counted.
+- Each page's status line (`page-status.html`) has a hidden "N views" item, filled from GoatCounter's public counter endpoint. That endpoint currently answers 403, "Need to enable the 'allow using the visitor counter' setting". Until that setting is on in GoatCounter, or if the request fails, the item stays hidden.
+- Site code `goatcounter: "fm4ues"` in `_config.yml`.
+- A README line says views are counted with GoatCounter, which uses no cookies.
+- No literal HTML tags in the script, per the lychee note.

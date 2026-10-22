@@ -987,3 +987,21 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 **References (bib 204 → 286).** 34 for the cleanup and follow-ups, 50 for the stubs and §2.4.1, minus the two merged duplicates.
 
 Verified: footnote integrity on every page, all keys in the bib, no duplicates, braces balanced, every internal link and anchor resolving (local check, negative-tested). Glossary and model linkers re-run. Version 3.2 recorded in Appendix C, `_config.yml` and the README.
+
+## 2026-10-21 (version 3.3: data that cannot leave its owner; G11)
+
+**Why.** Barton asked whether federated learning and data privacy are covered. They were, in one sentence each, so a subsection was agreed: "Data that cannot leave its owner" in §4.8.1, with glossary entries and a gap G11 if no privacy test of an energy FM exists.
+
+**Search.** Dated searches on 2026-10-21 (arXiv API #1–#21 and Q5-1–Q5-11, OpenAlex, Crossref; EU and Swiss legal texts from EUR-Lex, Fedlex and the EDPB; dataset licences from the licensors' own pages). Research notes: `FM4UES-work/research/privacy.md`. 25 core sources; withdrawn papers (CoSense-LLM, arXiv 2503.13558) not cited.
+
+**Changes.**
+- **§4.8.1:** new subsection. Four routes (federated learning, differential privacy, generator-made synthetic data, simulator data) in a table with their accuracy costs; federated pretraining and adaptation of TSFMs; why a trained model is not anonymous by default (EDPB Opinion 28/2024) and the attacks that work on smaller load models; licences of the open corpora (all CC BY 4.0; BDG2 cited via its Zenodo v1.0 record because its GitHub licence text changed); EU and Swiss law, including the Swiss research-access route since 1 Jan 2026; and the notes' own reading of what this means. The stale "Sections 4.10.1–4.10.3" note is fixed to 4.8.1–4.8.3.
+- **§2.8:** Nihalchandani et al. corrected (matched or beat local training, simulated federation); Delgado Fernández et al. now with the 20–40% federation cost and ε = 4.2 (MAPE 8.4% → 10.6%); the memorisation sentence now says attacks work on smaller load models and points to G11.
+- **§4.6:** heading "limited by data licensing" → "limited by access to data"; the licence sentence replaced (open corpora are CC BY; utility data is restricted by data-protection law; IDEAL has 255 homes).
+- **§5.5:** qualifier that fine-tuning or validating on real data brings privacy back. **§3.6:** model-side property inference (Aly et al. 2026).
+- **§6.1:** G11 Privacy audit of energy foundation models, ranked with G4 and G10. "Ten gaps" → "eleven" in the Chapter 6 landing, §6.2, the home page and the README.
+- **Glossary:** federated learning, differential privacy, membership inference (and linker terms).
+
+**References (bib 286 → 314).** 28 new: 15 papers and preprints, 8 legal and official texts, 5 dataset records.
+
+Verified: footnote integrity on every page, all keys in the bib, no duplicates, braces balanced, every internal link and anchor resolving (local check). Glossary and model linkers re-run. Version 3.3 recorded in Appendix C, `_config.yml` and the README.

@@ -1,0 +1,1111 @@
+# Institutions behind the foundation-model publications cited in the notes:
+# the source for Appendix E (appendices/e-research-institutes.md).
+#
+# Compiled on 2026-10-27, starting from the authors of every publication in
+# references/fm-for-ues.bib that builds, pretrains, adapts or evaluates a
+# foundation model, LLMs and LLM agents included (137 entries). Affiliations come
+# from each paper's OpenAlex record (author institutions, checked against the
+# raw affiliation strings), or from the paper's own title page where OpenAlex
+# had none; for a model card or README with no author list, the developer it
+# names. Institutions are counted at organisation level: departments, campuses
+# and national subsidiaries are merged (e.g. IBM Research Zurich, Ireland, India
+# and Yorktown are "IBM Research").
+#
+# Left out because no affiliation could be verified from the paper:
+# shirzadi2026necbagents, ball2026openstudiomcp (publisher page blocked, no
+# preprint) and wang2026pufibara (no stated affiliation).
+#
+# Each paper links to the page whose footnotes cite it. Entries are sorted by
+# number of papers, then name. When adding a reference, add its key to every
+# institution in its author list.
+
+- name: "IBM Research"
+  sector: "Company"
+  countries: "India, Ireland, Switzerland, United States"
+  papers:
+    - {key: "jakubik2023prithvi", label: "Prithvi", title: "Foundation models for generalist geospatial artificial intelligence", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "bhamjee2024granitelst", label: "Granite-GFM", title: "granite-geospatial-land-surface-temperature", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "ekambaram2024ttm", label: "TTM", title: "Tiny Time Mixers (TTMs): Fast pre-trained models for enhanced zero/few-shot forecasting", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "hamann2024foundation", label: "GridFM", title: "Foundation models for the electric power grid", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "jin2024timellm", label: "Jin et al. 2024", title: "Time-LLM: Time series forecasting by reprogramming large language models", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "szwarcman2024prithvieo2", label: "Prithvi-EO-2.0", title: "Prithvi-EO-2.0: A versatile multi-temporal foundation model for Earth observation applications", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+    - {key: "puech2025gridfmdatakit", label: "Puech et al. 2025", title: "gridfm-datakit-v1: A Python library for scalable and realistic power flow and OPF data generation", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+    - {key: "arjunan2026energyfm", label: "EnergyFM", title: "EnergyFM: Pretrained Models for Energy Meter Data Analytics", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+    - {key: "puech2026genco", label: "GENCO", title: "GENCO - A Unified Neural Solver Embedded in a Development Framework for Steady-State Grid Analysis", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "Argonne National Laboratory"
+  sector: "Research institute"
+  countries: "United States"
+  papers:
+    - {key: "bose2024rnnstofm", label: "Bose et al. 2024", title: "From RNNs to Foundation Models: An Empirical Study on Commercial Building Energy Consumption", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+    - {key: "hamann2024foundation", label: "GridFM", title: "Foundation models for the electric power grid", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "pham2025chemgraph", label: "Pham et al. 2025", title: "ChemGraph: An Agentic Framework for Computational Chemistry Workflows", page: "chapter-4-directions/4-9-ecosystem.html"}
+    - {key: "puech2025gridfmdatakit", label: "Puech et al. 2025", title: "gridfm-datakit-v1: A Python library for scalable and realistic power flow and OPF data generation", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+    - {key: "li2026lumina", label: "LUMINA", title: "LUMINA: Foundation Models for Topology Transferable ACOPF", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+    - {key: "lupopasini2026heterogfm", label: "Lupo Pasini et al. 2026", title: "Scalable Heterogeneous Graph Foundation Models for Data-Driven Optimal Power Flow in Smart Grids", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "Karlsruhe Institute of Technology"
+  sector: "University"
+  countries: "Germany"
+  papers:
+    - {key: "beichter2025decisionfocused", label: "Beichter et al. 2025", title: "Decision-focused fine-tuning of time series foundation models for dispatchable feeder optimization", page: "chapter-4-directions/4-9-ecosystem.html"}
+    - {key: "raisch2025gentl", label: "Raisch et al. 2025", title: "GenTL: A General Transfer Learning Model for Building Thermal Dynamics", page: "chapter-4-directions/4-2-fms-for-building-stocks.html"}
+    - {key: "hertel2026explainable", label: "Hertel et al. 2026", title: "Explainable Load Forecasting with Covariate-Informed Time Series Foundation Models", page: "chapter-2-fm-foundations/2-8-ues-fm-evaluation-criteria.html"}
+    - {key: "kaas2026lvpeak", label: "Kaas et al. 2026", title: "Probabilistic Low-Voltage Peak Load Forecasting with Time Series Foundation Models Evaluated on Application-Oriented Metrics", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+    - {key: "thota2026buildingage", label: "Thota et al. 2026", title: "A Multi-Agent System for Building-Age Cohort Mapping to Support Urban Energy Planning", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+    - {key: "thota2026heatprompt", label: "Thota et al. 2026", title: "HeatPrompt: Zero-shot vision-language modeling of urban heat demand from satellite images", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Microsoft"
+  sector: "Company"
+  countries: "China, India, Netherlands, United Kingdom, United States"
+  papers:
+    - {key: "hu2021lora", label: "Hu et al. 2021", title: "LoRA: Low-rank adaptation of large language models", page: "chapter-2-fm-foundations/2-5-scaling-laws.html"}
+    - {key: "allen2025aardvark", label: "Allen et al. 2025", title: "End-to-end data-driven weather prediction", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "bodnar2025aurora", label: "Aurora", title: "A foundation model for the Earth system", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "mishra2025spirit", label: "SPIRIT", title: "SPIRIT: Short-term prediction of solar irradiance for zero-shot transfer learning using foundation models", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+    - {key: "zhang2025tsfmrobust", label: "Zhang et al. 2025", title: "Are Time-Series Foundation Models Deployment-Ready? A Systematic Study of Adversarial Robustness Across Domains", page: "chapter-2-fm-foundations/2-8-ues-fm-evaluation-criteria.html"}
+    - {key: "bhan2026gridsfm", label: "GridSFM", title: "GridSFM: A Foundation Model for Solving AC Optimal Power Flow", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "National Laboratory of the Rockies (formerly NREL)"
+  sector: "Research institute"
+  countries: "United States"
+  papers:
+    - {key: "emami2023buildingsbench", label: "BuildingsBench", title: "BuildingsBench: A large-scale dataset of 900K buildings and benchmark for short-term load forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+    - {key: "bose2024rnnstofm", label: "Bose et al. 2024", title: "From RNNs to Foundation Models: An Empirical Study on Commercial Building Energy Consumption", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+    - {key: "hamann2024foundation", label: "GridFM", title: "Foundation models for the electric power grid", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "emami2025syscaps", label: "Emami et al. 2025", title: "SysCaps: Language interfaces for simulation surrogates of complex systems", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "zhang2025bemagentic", label: "Zhang et al. 2025", title: "Automatic building energy model development and debugging using large language models agentic workflow", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+    - {key: "jia2026bemeval", label: "Jia et al. 2026", title: "BEMEval-Doc2Schema: Benchmarking large language models for structured data extraction in building energy modeling", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Carnegie Mellon University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "gruver2023llmtime", label: "Gruver et al. 2023", title: "Large language models are zero-shot time series forecasters", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "goswami2024moment", label: "MOMENT", title: "MOMENT: A family of open time-series foundation models", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+    - {key: "cohen2025toto", label: "Toto", title: "This time is different: An observability perspective on time series foundation models", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "khwaja2026toto2", label: "Toto 2.0", title: "Toto 2.0: Time series forecasting enters the scaling era", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "mulayim2026bem", label: "Mulayim et al. 2026", title: "Can time-series foundation models perform building energy management tasks?", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "Google Research"
+  sector: "Company"
+  countries: "United States"
+  papers:
+    - {key: "lam2023graphcast", label: "GraphCast", title: "Learning skillful medium-range global weather forecasting", page: "chapter-1-background/1-2-fms-in-one-page.html"}
+    - {key: "das2024timesfm", label: "TimesFM", title: "A decoder-only foundation model for time-series forecasting", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "google2025timesfm25", label: "Google Research 2025", title: "TimesFM 2.5 (timesfm-2.5-200m)", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "ashok2026whatifbench", label: "Ashok et al. 2026", title: "WhatIf-Bench: Benchmarking Intervention-Aware Time Series Forecasting", page: "chapter-3-sim-opt/3-7-flexible-loads.html"}
+    - {key: "google2026timesfm3", label: "TimesFM 3.0", title: "TimesFM: GitHub repository README (TimesFM 2.5 covariates via XReg; TimesFM 3.0 release)", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+- name: "University of Freiburg"
+  sector: "University"
+  countries: "Germany"
+  papers:
+    - {key: "hollmann2022tabpfn", label: "Hollmann et al. 2023", title: "TabPFN: A transformer that solves small tabular classification problems in a second", page: "chapter-2-fm-foundations/2-4-4-tabular-fms.html"}
+    - {key: "ansari2024chronos", label: "Chronos", title: "Chronos: Learning the language of time series", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "ansari2025chronos2", label: "Chronos-2", title: "Chronos-2: From univariate to universal forecasting", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "hollmann2025tabpfnv2", label: "TabPFN v2", title: "Accurate predictions on small data with a tabular foundation model", page: "chapter-2-fm-foundations/2-3-choosing-a-basic-element.html"}
+    - {key: "hoo2025tabpfnts", label: "TabPFN-TS", title: "From tables to time: Extending TabPFN-v2 to time series forecasting", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+- name: "Amazon"
+  sector: "Company"
+  countries: "United States"
+  papers:
+    - {key: "ansari2024chronos", label: "Chronos", title: "Chronos: Learning the language of time series", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "ansari2025chronos2", label: "Chronos-2", title: "Chronos-2: From univariate to universal forecasting", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "zhang2025whenmultimodal", label: "Zhang et al. 2025", title: "When does multimodality lead to better time series forecasting?", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "mulayim2026bem", label: "Mulayim et al. 2026", title: "Can time-series foundation models perform building energy management tasks?", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "Harvard University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "hamann2024foundation", label: "GridFM", title: "Foundation models for the electric power grid", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "liu2025multitask", label: "Liu et al. 2025", title: "Unlocking multi-task electric energy system intelligence: Data scaling laws and performance with limited fine-tuning", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+    - {key: "puech2025gridfmdatakit", label: "Puech et al. 2025", title: "gridfm-datakit-v1: A Python library for scalable and realistic power flow and OPF data generation", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+    - {key: "song2026intentfidelity", label: "Song et al. 2026", title: "Your Simulation Runs but Solves the Wrong Physics: PDE-Grounded Intent Verification for LLM-Generated Multiphysics Simulation Code", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Hong Kong University of Science and Technology"
+  sector: "University"
+  countries: "China, Hong Kong"
+  papers:
+    - {key: "jin2024timellm", label: "Jin et al. 2024", title: "Time-LLM: Time series forecasting by reprogramming large language models", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "jiang2025buildingscibench", label: "Jiang et al. 2025", title: "Benchmarking knowledge and capability of large language models in building science domain", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+    - {key: "zhang2025tsfmrobust", label: "Zhang et al. 2025", title: "Are Time-Series Foundation Models Deployment-Ready? A Systematic Study of Adversarial Robustness Across Domains", page: "chapter-2-fm-foundations/2-8-ues-fm-evaluation-criteria.html"}
+    - {key: "mulayim2026bem", label: "Mulayim et al. 2026", title: "Can time-series foundation models perform building energy management tasks?", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "Johannes Kepler University Linz"
+  sector: "University"
+  countries: "Austria"
+  papers:
+    - {key: "ansari2025chronos2", label: "Chronos-2", title: "Chronos-2: From univariate to universal forecasting", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "auer2025tirex", label: "TiRex", title: "TiRex: Zero-shot forecasting across long and short horizons with enhanced in-context learning", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "bodnar2025aurora", label: "Aurora", title: "A foundation model for the Earth system", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "podest2026tirex2", label: "TiRex-2", title: "TiRex-2: Generalizing TiRex to Multivariate Data and Streaming", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+- name: "Michigan State University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "zhou2023pfmsurvey", label: "Zhou et al. 2023", title: "A Comprehensive Survey on Pretrained Foundation Models: A History from BERT to ChatGPT", page: "chapter-2-fm-foundations/2-1-what-defines-an-fm.html"}
+    - {key: "lee2024climateopinion", label: "Lee et al. 2024", title: "Can large language models estimate public opinion about global warming? An empirical assessment of algorithmic fidelity and bias", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+    - {key: "shu2025llmretrofit", label: "Shu et al. 2025", title: "Large Language Models for Building Energy Retrofit Decision-Making: Technical and Sociotechnical Evaluations", page: "chapter-3-sim-opt/3-5-retrofit-and-whole-life-carbon.html"}
+    - {key: "shu2026retrofitllm", label: "Shu et al. 2026", title: "Catalyzing Informed Residential Energy Retrofit Decisions via Domain-Specific LLM", page: "chapter-3-sim-opt/3-5-retrofit-and-whole-life-carbon.html"}
+- name: "Mila – Quebec AI Institute"
+  sector: "Research institute"
+  countries: "Canada"
+  papers:
+    - {key: "boussif2023crossvivit", label: "Boussif et al. 2023", title: "Improving day-ahead solar irradiance time series forecasting by leveraging spatio-temporal context", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "rasul2023laglama", label: "Lag-Llama", title: "Lag-Llama: Towards foundation models for probabilistic time series forecasting", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+    - {key: "williams2025cik", label: "Williams et al. 2025", title: "Context is Key: A benchmark for forecasting with essential textual information", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "ashok2026whatifbench", label: "Ashok et al. 2026", title: "WhatIf-Bench: Benchmarking Intervention-Aware Time Series Forecasting", page: "chapter-3-sim-opt/3-7-flexible-loads.html"}
+- name: "New York University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "gruver2023llmtime", label: "Gruver et al. 2023", title: "Large language models are zero-shot time series forecasters", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "ansari2024chronos", label: "Chronos", title: "Chronos: Learning the language of time series", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "hamann2024foundation", label: "GridFM", title: "Foundation models for the electric power grid", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "quan2025stars", label: "Quan et al. 2025", title: "Sim-to-Real Transfer Learning for Large-Scale Short-Term Building Energy Forecasting in Sustainable Cities", page: "chapter-4-directions/4-2-fms-for-building-stocks.html"}
+- name: "Tsinghua University"
+  sector: "University"
+  countries: "China"
+  papers:
+    - {key: "liu2024timer", label: "Timer", title: "Timer: Generative pre-trained transformers are large time series models", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+    - {key: "fan2025windfm", label: "WindFM", title: "WindFM: An open-source foundation model for zero-shot wind power forecasting", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+    - {key: "zhang2025tsfmrobust", label: "Zhang et al. 2025", title: "Are Time-Series Foundation Models Deployment-Ready? A Systematic Study of Adversarial Robustness Across Domains", page: "chapter-2-fm-foundations/2-8-ues-fm-evaluation-criteria.html"}
+    - {key: "lin2026contextconstrained", label: "Lin et al. 2026", title: "Context-constrained transfer learning for tabular foundation models via data distillation", page: "chapter-2-fm-foundations/2-4-4-tabular-fms.html"}
+- name: "University of Arizona"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "jiang2024eplusllm", label: "Jiang et al. 2024", title: "EPlus-LLM: A large language model-based computing platform for automated building energy modeling", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+    - {key: "zhang2025bemagentic", label: "Zhang et al. 2025", title: "Automatic building energy model development and debugging using large language models agentic workflow", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+    - {key: "jia2026bemeval", label: "Jia et al. 2026", title: "BEMEval-Doc2Schema: Benchmarking large language models for structured data extraction in building energy modeling", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+    - {key: "jung2026buildocc", label: "Jung 2026", title: "BuildOcc: A large language model occupant agent platform for building energy research", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "University of Cambridge"
+  sector: "University"
+  countries: "United Kingdom"
+  papers:
+    - {key: "allen2025aardvark", label: "Allen et al. 2025", title: "End-to-end data-driven weather prediction", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "bodnar2025aurora", label: "Aurora", title: "A foundation model for the Earth system", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "yi2026traceepf", label: "Yi et al. 2026", title: "TRACE: A reproducible benchmark for electricity price forecasting with official operational text", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "zhou2026ubemresilience", label: "Zhou et al. 2026", title: "Large language model orchestrated workflow integrating retrieval-augmented generation and model context protocol tools for urban-scale simulation-based resilience assessment", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Université de Montréal"
+  sector: "University"
+  countries: "Canada"
+  papers:
+    - {key: "boussif2023crossvivit", label: "Boussif et al. 2023", title: "Improving day-ahead solar irradiance time series forecasting by leveraging spatio-temporal context", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "rasul2023laglama", label: "Lag-Llama", title: "Lag-Llama: Towards foundation models for probabilistic time series forecasting", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+    - {key: "williams2025cik", label: "Williams et al. 2025", title: "Context is Key: A benchmark for forecasting with essential textual information", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "ashok2026whatifbench", label: "Ashok et al. 2026", title: "WhatIf-Bench: Benchmarking Intervention-Aware Time Series Forecasting", page: "chapter-3-sim-opt/3-7-flexible-loads.html"}
+- name: "Ant Group"
+  sector: "Company"
+  countries: "China"
+  papers:
+    - {key: "jin2024timellm", label: "Jin et al. 2024", title: "Time-LLM: Time series forecasting by reprogramming large language models", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "han2025unica", label: "Han et al. 2025", title: "UniCA: Unified covariate adaptation for time series foundation model", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "chen2026musebench", label: "Chen et al. 2026", title: "Beyond numerical time series: A unified benchmark for multimodal forecasting with heterogeneous context", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Arizona State University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "szwarcman2024prithvieo2", label: "Prithvi-EO-2.0", title: "Prithvi-EO-2.0: A versatile multi-temporal foundation model for Earth observation applications", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+    - {key: "emami2025syscaps", label: "Emami et al. 2025", title: "SysCaps: Language interfaces for simulation surrogates of complex systems", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "jadhav2026eqgrid", label: "Jadhav et al. 2026", title: "Grounded, Compute-Efficient LLM Policy Agents for Energy-Poverty Equity in Physically-Constrained Peer-to-Peer Energy Markets", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "ETH Zurich"
+  sector: "University"
+  countries: "Switzerland"
+  papers:
+    - {key: "hamann2024foundation", label: "GridFM", title: "Foundation models for the electric power grid", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "puech2025gridfmdatakit", label: "Puech et al. 2025", title: "gridfm-datakit-v1: A Python library for scalable and realistic power flow and OPF data generation", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+    - {key: "puech2026genco", label: "GENCO", title: "GENCO - A Unified Neural Solver Embedded in a Development Framework for Steady-State Grid Analysis", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "Griffith University"
+  sector: "University"
+  countries: "Australia"
+  papers:
+    - {key: "jin2024timellm", label: "Jin et al. 2024", title: "Time-LLM: Time series forecasting by reprogramming large language models", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "zhou2024gasfm", label: "Zhou et al. 2024", title: "Towards Universal Large-Scale Foundational Model for Natural Gas Demand Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+    - {key: "shi2024timemoe", label: "Time-MoE", title: "Time-MoE: Billion-scale time series foundation models with mixture of experts", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+- name: "Hydro-Québec"
+  sector: "Research institute"
+  countries: "Canada"
+  papers:
+    - {key: "hamann2024foundation", label: "GridFM", title: "Foundation models for the electric power grid", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "puech2025gridfmdatakit", label: "Puech et al. 2025", title: "gridfm-datakit-v1: A Python library for scalable and realistic power flow and OPF data generation", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+    - {key: "puech2026genco", label: "GENCO", title: "GENCO - A Unified Neural Solver Embedded in a Development Framework for Steady-State Grid Analysis", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "Imperial College London"
+  sector: "University"
+  countries: "United Kingdom"
+  papers:
+    - {key: "dwivedi2024unistruct", label: "Dwivedi et al. 2024", title: "Representation Learning of Structured Data for Medical Foundation Models", page: "chapter-2-fm-foundations/2-2-five-design-decisions.html"}
+    - {key: "liao2025timegpt", label: "Liao et al. 2025", title: "TimeGPT in load forecasting: A large time series model perspective", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+    - {key: "wang2025llmstatedpref", label: "Wang et al. 2025", title: "Can Large Language Models Simulate Human Responses? A Case Study of Stated Preference Experiments in the Context of Heating-related Choices", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Inria"
+  sector: "Research institute"
+  countries: "France"
+  papers:
+    - {key: "caron2021dino", label: "DINO", title: "Emerging Properties in Self-Supervised Vision Transformers", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "qu2025tabicl", label: "Qu et al. 2025", title: "TabICL: A tabular foundation model for in-context learning on large data", page: "chapter-2-fm-foundations/2-4-4-tabular-fms.html"}
+    - {key: "berthelier2026covariate", label: "Berthelier et al. 2026", title: "Investigating simple target-covariate relationships for Chronos-2 and TabPFN-TS", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+- name: "Meta"
+  sector: "Company"
+  countries: "United States"
+  papers:
+    - {key: "caron2021dino", label: "DINO", title: "Emerging Properties in Self-Supervised Vision Transformers", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "kirillov2023sam", label: "SAM", title: "Segment Anything", page: "chapter-1-background/1-2-fms-in-one-page.html"}
+    - {key: "hoo2025tabpfnts", label: "TabPFN-TS", title: "From tables to time: Extending TabPFN-v2 to time series forecasting", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+- name: "NASA"
+  sector: "Research institute"
+  countries: "United States"
+  papers:
+    - {key: "boussif2023crossvivit", label: "Boussif et al. 2023", title: "Improving day-ahead solar irradiance time series forecasting by leveraging spatio-temporal context", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "jakubik2023prithvi", label: "Prithvi", title: "Foundation models for generalist geospatial artificial intelligence", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "szwarcman2024prithvieo2", label: "Prithvi-EO-2.0", title: "Prithvi-EO-2.0: A versatile multi-temporal foundation model for Earth observation applications", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+- name: "Prior Labs"
+  sector: "Company"
+  countries: "Germany"
+  papers:
+    - {key: "hoo2025tabpfnts", label: "TabPFN-TS", title: "From tables to time: Extending TabPFN-v2 to time series forecasting", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+    - {key: "priorlabs2025tabpfn25", label: "Prior Labs 2025", title: "TabPFN-2.5: Advancing the state of the art in tabular foundation models", page: "chapter-2-fm-foundations/2-4-4-tabular-fms.html"}
+    - {key: "priorlabs2026tabpfntsreadme", label: "Prior Labs 2026", title: "tabpfn-time-series: GitHub repository README, covariate model table", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+- name: "Salesforce AI Research"
+  sector: "Company"
+  countries: "United States"
+  papers:
+    - {key: "zhou2023pfmsurvey", label: "Zhou et al. 2023", title: "A Comprehensive Survey on Pretrained Foundation Models: A History from BERT to ChatGPT", page: "chapter-2-fm-foundations/2-1-what-defines-an-fm.html"}
+    - {key: "woo2024moirai", label: "Moirai", title: "Unified training of universal time series forecasting transformers", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "liu2025moirai2", label: "Moirai 2.0", title: "Moirai 2.0: When less is more for time series forecasting", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "Tongji University"
+  sector: "University"
+  countries: "China"
+  papers:
+    - {key: "jiang2025buildingscibench", label: "Jiang et al. 2025", title: "Benchmarking knowledge and capability of large language models in building science domain", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+    - {key: "zhang2025bemagentic", label: "Zhang et al. 2025", title: "Automatic building energy model development and debugging using large language models agentic workflow", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+    - {key: "shu2026retrofitllm", label: "Shu et al. 2026", title: "Catalyzing Informed Residential Energy Retrofit Decisions via Domain-Specific LLM", page: "chapter-3-sim-opt/3-5-retrofit-and-whole-life-carbon.html"}
+- name: "UNSW Sydney"
+  sector: "University"
+  countries: "Australia"
+  papers:
+    - {key: "xue2023lmload", label: "Xue et al. 2023", title: "Utilizing language models for energy load forecasting", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "lin2024tsfmbuilding", label: "Lin et al. 2024", title: "Exploring Capabilities of Time Series Foundation Models in Building Analytics", page: "chapter-2-fm-foundations/2-4-existing-fms-relevant-to-energy.html"}
+    - {key: "ferdaus2025cleanenergy", label: "Ferdaus et al. 2026", title: "Foundation models for clean energy forecasting: A comprehensive review", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+- name: "University of California San Diego"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "zhou2023pfmsurvey", label: "Zhou et al. 2023", title: "A Comprehensive Survey on Pretrained Foundation Models: A History from BERT to ChatGPT", page: "chapter-2-fm-foundations/2-1-what-defines-an-fm.html"}
+    - {key: "ansari2024chronos", label: "Chronos", title: "Chronos: Learning the language of time series", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "bhan2026gridsfm", label: "GridSFM", title: "GridSFM: A Foundation Model for Solving AC Optimal Power Flow", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "University of California, Los Angeles"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "chang2025timeimm", label: "Chang et al. 2025", title: "Time-IMM: A dataset and benchmark for irregular multimodal multivariate time series", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "cohen2025toto", label: "Toto", title: "This time is different: An observability perspective on time series foundation models", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "maji2026carbonx", label: "Maji et al. 2026", title: "CarbonX: An Open-Source Tool for Computational Decarbonization Using Time Series Foundation Models", page: "chapter-3-sim-opt/3-7-flexible-loads.html"}
+- name: "University of Pennsylvania"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "goswami2024moment", label: "MOMENT", title: "MOMENT: A family of open time-series foundation models", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+    - {key: "bodnar2025aurora", label: "Aurora", title: "A foundation model for the Earth system", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "cohen2025toto", label: "Toto", title: "This time is different: An observability perspective on time series foundation models", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "University of Utah"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "jiang2024eplusllm", label: "Jiang et al. 2024", title: "EPlus-LLM: A large language model-based computing platform for automated building energy modeling", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+    - {key: "jiang2025buildingscibench", label: "Jiang et al. 2025", title: "Benchmarking knowledge and capability of large language models in building science domain", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+    - {key: "zhang2025bemagentic", label: "Zhang et al. 2025", title: "Automatic building energy model development and debugging using large language models agentic workflow", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Alibaba"
+  sector: "Company"
+  countries: "China"
+  papers:
+    - {key: "jin2024timellm", label: "Jin et al. 2024", title: "Time-LLM: Time series forecasting by reprogramming large language models", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "ma2026baguansolar", label: "Ma et al. 2026", title: "Integrating weather foundation model and satellite to enable fine-grained solar irradiance forecasting", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Bosch"
+  sector: "Company"
+  countries: "China, India, Taiwan, United States"
+  papers:
+    - {key: "hollmann2022tabpfn", label: "Hollmann et al. 2023", title: "TabPFN: A transformer that solves small tabular classification problems in a second", page: "chapter-2-fm-foundations/2-4-4-tabular-fms.html"}
+    - {key: "nihalchandani2026fedtsfm", label: "Nihalchandani et al. 2026", title: "Personalized Federated Sparse Adaptation of Time-Series Foundation Models", page: "chapter-2-fm-foundations/2-8-ues-fm-evaluation-criteria.html"}
+- name: "Brookhaven National Laboratory"
+  sector: "Research institute"
+  countries: "United States"
+  papers:
+    - {key: "puech2025gridfmdatakit", label: "Puech et al. 2025", title: "gridfm-datakit-v1: A Python library for scalable and realistic power flow and OPF data generation", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+    - {key: "puech2026genco", label: "GENCO", title: "GENCO - A Unified Neural Solver Embedded in a Development Framework for Steady-State Grid Analysis", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "Charité – Universitätsmedizin Berlin"
+  sector: "Research institute"
+  countries: "Germany"
+  papers:
+    - {key: "hollmann2022tabpfn", label: "Hollmann et al. 2023", title: "TabPFN: A transformer that solves small tabular classification problems in a second", page: "chapter-2-fm-foundations/2-4-4-tabular-fms.html"}
+    - {key: "hollmann2025tabpfnv2", label: "TabPFN v2", title: "Accurate predictions on small data with a tabular foundation model", page: "chapter-2-fm-foundations/2-3-choosing-a-basic-element.html"}
+- name: "Clark University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "jakubik2023prithvi", label: "Prithvi", title: "Foundation models for generalist geospatial artificial intelligence", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "szwarcman2024prithvieo2", label: "Prithvi-EO-2.0", title: "Prithvi-EO-2.0: A versatile multi-temporal foundation model for Earth observation applications", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+- name: "ELLIS Institute Tübingen"
+  sector: "Research institute"
+  countries: "Germany"
+  papers:
+    - {key: "hollmann2025tabpfnv2", label: "TabPFN v2", title: "Accurate predictions on small data with a tabular foundation model", page: "chapter-2-fm-foundations/2-3-choosing-a-basic-element.html"}
+    - {key: "hoo2025tabpfnts", label: "TabPFN-TS", title: "From tables to time: Extending TabPFN-v2 to time series forecasting", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+- name: "Emory University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "ferdaus2025cleanenergy", label: "Ferdaus et al. 2026", title: "Foundation models for clean energy forecasting: A comprehensive review", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+    - {key: "li2026lumina", label: "LUMINA", title: "LUMINA: Foundation Models for Topology Transferable ACOPF", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "Google DeepMind"
+  sector: "Company"
+  countries: "United Kingdom"
+  papers:
+    - {key: "lam2023graphcast", label: "GraphCast", title: "Learning skillful medium-range global weather forecasting", page: "chapter-1-background/1-2-fms-in-one-page.html"}
+    - {key: "allen2025aardvark", label: "Allen et al. 2025", title: "End-to-end data-driven weather prediction", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "NXAI"
+  sector: "Company"
+  countries: "Austria"
+  papers:
+    - {key: "auer2025tirex", label: "TiRex", title: "TiRex: Zero-shot forecasting across long and short horizons with enhanced in-context learning", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "podest2026tirex2", label: "TiRex-2", title: "TiRex-2: Generalizing TiRex to Multivariate Data and Streaming", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+- name: "Nanyang Technological University"
+  sector: "University"
+  countries: "Singapore"
+  papers:
+    - {key: "zhou2023pfmsurvey", label: "Zhou et al. 2023", title: "A Comprehensive Survey on Pretrained Foundation Models: A History from BERT to ChatGPT", page: "chapter-2-fm-foundations/2-1-what-defines-an-fm.html"}
+    - {key: "song2026intentfidelity", label: "Song et al. 2026", title: "Your Simulation Runs but Solves the Wrong Physics: PDE-Grounded Intent Verification for LLM-Generated Multiphysics Simulation Code", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Nixtla"
+  sector: "Company"
+  countries: "United States"
+  papers:
+    - {key: "garza2023timegpt", label: "TimeGPT", title: "TimeGPT-1", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "nixtla2025timegpt2", label: "Nixtla 2025", title: "TimeGPT-2: Next Generation Time Series Model", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "North China Electric Power University"
+  sector: "University"
+  countries: "China"
+  papers:
+    - {key: "fan2025windfm", label: "WindFM", title: "WindFM: An open-source foundation model for zero-shot wind power forecasting", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+    - {key: "fan2026evstllm", label: "Fan et al. 2026", title: "EV-STLLM: Electric vehicle charging forecasting based on spatio-temporal large language models with multi-frequency and multi-scale information fusion", page: "chapter-3-sim-opt/3-7-flexible-loads.html"}
+- name: "OpenAI"
+  sector: "Company"
+  countries: "United States"
+  papers:
+    - {key: "kaplan2020scaling", label: "Kaplan et al. 2020", title: "Scaling laws for neural language models", page: "chapter-2-fm-foundations/2-5-scaling-laws.html"}
+    - {key: "radford2021clip", label: "CLIP", title: "Learning Transferable Visual Models From Natural Language Supervision", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Princeton University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "shi2024timemoe", label: "Time-MoE", title: "Time-MoE: Billion-scale time series foundation models with mixture of experts", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+    - {key: "rabanser2026agentreliability", label: "Rabanser et al. 2026", title: "Towards a Science of AI Agent Reliability", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Renmin University of China"
+  sector: "University"
+  countries: "China"
+  papers:
+    - {key: "tu2024powerpm", label: "PowerPM", title: "PowerPM: Foundation Model for Power Systems", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+    - {key: "lin2026contextconstrained", label: "Lin et al. 2026", title: "Context-constrained transfer learning for tabular foundation models via data distillation", page: "chapter-2-fm-foundations/2-4-4-tabular-fms.html"}
+- name: "Rutgers University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "ansari2024chronos", label: "Chronos", title: "Chronos: Learning the language of time series", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "ansari2025chronos2", label: "Chronos-2", title: "Chronos-2: From univariate to universal forecasting", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "Shanghai Jiao Tong University"
+  sector: "University"
+  countries: "China"
+  papers:
+    - {key: "chen2023fengwu", label: "FengWu", title: "FengWu: Pushing the skillful global medium-range weather forecast beyond 10 days lead", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "zhou2026cmllm", label: "Zhou et al. 2026", title: "A causal-guided multimodal large language model for generalized power system time-series data analytics", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Stanford University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "bommasani2021opportunities", label: "Bommasani et al. 2021", title: "On the opportunities and risks of foundation models", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "sur2025promptbem", label: "Sur et al. 2025", title: "Demonstrating the feasibility of prompt engineering to develop complex building energy models", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Stony Brook University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "puech2025gridfmdatakit", label: "Puech et al. 2025", title: "gridfm-datakit-v1: A Python library for scalable and realistic power flow and OPF data generation", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+    - {key: "puech2026genco", label: "GENCO", title: "GENCO - A Unified Neural Solver Embedded in a Development Framework for Steady-State Grid Analysis", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "Technical University of Munich"
+  sector: "University"
+  countries: "Germany"
+  papers:
+    - {key: "raisch2025gentl", label: "Raisch et al. 2025", title: "GenTL: A General Transfer Learning Model for Building Thermal Dynamics", page: "chapter-4-directions/4-2-fms-for-building-stocks.html"}
+    - {key: "xia2026tenantllm", label: "Xia et al. 2026", title: "Simulating Tenant Responses to Energy Policy Interventions with Transaction-Cost-Aware LLM Agent", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "The Alan Turing Institute"
+  sector: "Research institute"
+  countries: "United Kingdom"
+  papers:
+    - {key: "allen2025aardvark", label: "Allen et al. 2025", title: "End-to-end data-driven weather prediction", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "bodnar2025aurora", label: "Aurora", title: "A foundation model for the Earth system", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "University of Alabama in Huntsville"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "jakubik2023prithvi", label: "Prithvi", title: "Foundation models for generalist geospatial artificial intelligence", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "szwarcman2024prithvieo2", label: "Prithvi-EO-2.0", title: "Prithvi-EO-2.0: A versatile multi-temporal foundation model for Earth observation applications", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+- name: "University of California, Berkeley"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "ansari2024chronos", label: "Chronos", title: "Chronos: Learning the language of time series", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "szwarcman2024prithvieo2", label: "Prithvi-EO-2.0", title: "Prithvi-EO-2.0: A versatile multi-temporal foundation model for Earth observation applications", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+- name: "University of Science and Technology of China"
+  sector: "University"
+  countries: "China"
+  papers:
+    - {key: "chen2023fengwu", label: "FengWu", title: "FengWu: Pushing the skillful global medium-range weather forecast beyond 10 days lead", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "huang2026tyanwp", label: "Tyan-WP", title: "Tyan-WP: A wind power foundation model for ultra-short-term probabilistic forecasting", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+- name: "University of Toronto"
+  sector: "University"
+  countries: "Canada"
+  papers:
+    - {key: "allen2025aardvark", label: "Allen et al. 2025", title: "End-to-end data-driven weather prediction", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "williams2025cik", label: "Williams et al. 2025", title: "Context is Key: A benchmark for forecasting with essential textual information", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "University of Washington"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "tan2024lmuseful", label: "Tan et al. 2024", title: "Are language models actually useful for time series forecasting?", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "bhan2026gridsfm", label: "GridSFM", title: "GridSFM: A Foundation Model for Solving AC Optimal Power Flow", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "Université Laval"
+  sector: "University"
+  countries: "Canada"
+  papers:
+    - {key: "williams2025cik", label: "Williams et al. 2025", title: "Context is Key: A benchmark for forecasting with essential textual information", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "ashok2026whatifbench", label: "Ashok et al. 2026", title: "WhatIf-Bench: Benchmarking Intervention-Aware Time Series Forecasting", page: "chapter-3-sim-opt/3-7-flexible-loads.html"}
+- name: "École Polytechnique Fédérale de Lausanne"
+  sector: "University"
+  countries: "Switzerland"
+  papers:
+    - {key: "hamann2024foundation", label: "GridFM", title: "Foundation models for the electric power grid", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "liao2025timegpt", label: "Liao et al. 2025", title: "TimeGPT in load forecasting: A large time series model perspective", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "Aalborg University"
+  sector: "University"
+  countries: "Denmark"
+  papers:
+    - {key: "sanduleac2026gridfmdistil", label: "Sănduleac et al. 2026", title: "Physics-Aware Distillation of a Grid Foundation Model for Real-Time Edge Inference", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "Anusandhan National Research Foundation"
+  sector: "Research institute"
+  countries: "India"
+  papers:
+    - {key: "mishra2025spirit", label: "SPIRIT", title: "SPIRIT: Short-term prediction of solar irradiance for zero-shot transfer learning using foundation models", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+- name: "Arcadia University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "zhang2025bemagentic", label: "Zhang et al. 2025", title: "Automatic building energy model development and debugging using large language models agentic workflow", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "BITS Pilani"
+  sector: "University"
+  countries: "India"
+  papers:
+    - {key: "sridhar2026textsensitivity", label: "Sridhar et al. 2026", title: "Semantics or structure? Auditing text sensitivity in multimodal time-series forecasting", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Beihang University"
+  sector: "University"
+  countries: "China"
+  papers:
+    - {key: "zhou2023pfmsurvey", label: "Zhou et al. 2023", title: "A Comprehensive Survey on Pretrained Foundation Models: A History from BERT to ChatGPT", page: "chapter-2-fm-foundations/2-1-what-defines-an-fm.html"}
+- name: "Beijing University of Posts and Telecommunications"
+  sector: "University"
+  countries: "China"
+  papers:
+    - {key: "wang2025chattime", label: "Wang et al. 2025", title: "ChatTime: A unified multimodal time series foundation model bridging numerical and textual data", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Big Ladder Software"
+  sector: "Company"
+  countries: "United States"
+  papers:
+    - {key: "jia2026bemeval", label: "Jia et al. 2026", title: "BEMEval-Doc2Schema: Benchmarking large language models for structured data extraction in building energy modeling", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Birla AI Labs"
+  sector: "Company"
+  countries: "India"
+  papers:
+    - {key: "sridhar2026textsensitivity", label: "Sridhar et al. 2026", title: "Semantics or structure? Auditing text sensitivity in multimodal time-series forecasting", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Bochum University of Applied Sciences"
+  sector: "University"
+  countries: "Germany"
+  papers:
+    - {key: "frochte2026modelicaacceptance", label: "Frochte et al. 2026", title: "LLM Agents as Suppliers of Physical System Models: Calibration and Acceptance in Modelica", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Boston College"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "ansari2025chronos2", label: "Chronos-2", title: "Chronos-2: From univariate to universal forecasting", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "Boston University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "szwarcman2024prithvieo2", label: "Prithvi-EO-2.0", title: "Prithvi-EO-2.0: A versatile multi-temporal foundation model for Earth observation applications", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+- name: "Brigham Young University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "argyle2023silicon", label: "Argyle et al. 2023", title: "Out of One, Many: Using Language Models to Simulate Human Samples", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "British Antarctic Survey"
+  sector: "Research institute"
+  countries: "United Kingdom"
+  papers:
+    - {key: "allen2025aardvark", label: "Allen et al. 2025", title: "End-to-end data-driven weather prediction", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Carleton University"
+  sector: "University"
+  countries: "Canada"
+  papers:
+    - {key: "fadel2026operatorbem", label: "Fadel et al. 2026", title: "Toward automated generation of EnergyPlus models for existing buildings through operator descriptions", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Centre National de la Recherche Scientifique"
+  sector: "Research institute"
+  countries: "France"
+  papers:
+    - {key: "caron2021dino", label: "DINO", title: "Emerging Properties in Self-Supervised Vision Transformers", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "Cheng Hsin General Hospital"
+  sector: "Research institute"
+  countries: "Taiwan"
+  papers:
+    - {key: "dwivedi2024unistruct", label: "Dwivedi et al. 2024", title: "Representation Learning of Structured Data for Medical Foundation Models", page: "chapter-2-fm-foundations/2-2-five-design-decisions.html"}
+- name: "China Electric Power Research Institute"
+  sector: "Research institute"
+  countries: "China"
+  papers:
+    - {key: "huang2026tyanwp", label: "Tyan-WP", title: "Tyan-WP: A wind power foundation model for ultra-short-term probabilistic forecasting", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+- name: "China Unicom"
+  sector: "Company"
+  countries: "China"
+  papers:
+    - {key: "wang2025chattime", label: "Wang et al. 2025", title: "ChatTime: A unified multimodal time series foundation model bridging numerical and textual data", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "China Yangtze Power"
+  sector: "Company"
+  countries: "China"
+  papers:
+    - {key: "zhou2026cmllm", label: "Zhou et al. 2026", title: "A causal-guided multimodal large language model for generalized power system time-series data analytics", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Chinese Academy of Sciences"
+  sector: "Research institute"
+  countries: "China"
+  papers:
+    - {key: "chen2023fengwu", label: "FengWu", title: "FengWu: Pushing the skillful global medium-range weather forecast beyond 10 days lead", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "Columbia University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "song2026intentfidelity", label: "Song et al. 2026", title: "Your Simulation Runs but Solves the Wrong Physics: PDE-Grounded Intent Verification for LLM-Generated Multiphysics Simulation Code", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Commonwealth Scientific and Industrial Research Organisation"
+  sector: "Research institute"
+  countries: "Australia"
+  papers:
+    - {key: "lin2024tsfmbuilding", label: "Lin et al. 2024", title: "Exploring Capabilities of Time Series Foundation Models in Building Analytics", page: "chapter-2-fm-foundations/2-4-existing-fms-relevant-to-energy.html"}
+- name: "Cornell University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "song2026intentfidelity", label: "Song et al. 2026", title: "Your Simulation Runs but Solves the Wrong Physics: PDE-Grounded Intent Verification for LLM-Generated Multiphysics Simulation Code", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Datadog"
+  sector: "Company"
+  countries: "United States"
+  papers:
+    - {key: "datadog2026totoreadme", label: "Datadog 2026", title: "Toto: GitHub repository README", page: "chapter-4-directions/4-1-off-the-shelf-fms.html"}
+- name: "DeepSeek"
+  sector: "Company"
+  countries: "China"
+  papers:
+    - {key: "wu2024janus", label: "Janus", title: "Janus: Decoupling Visual Encoding for Unified Multimodal Understanding and Generation", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "Delft University of Technology"
+  sector: "University"
+  countries: "Netherlands"
+  papers:
+    - {key: "xia2026tenantllm", label: "Xia et al. 2026", title: "Simulating Tenant Responses to Energy Policy Interventions with Transaction-Cost-Aware LLM Agent", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Drexel University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "zhang2025bemagentic", label: "Zhang et al. 2025", title: "Automatic building energy model development and debugging using large language models agentic workflow", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Duke University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "zhou2023pfmsurvey", label: "Zhou et al. 2023", title: "A Comprehensive Survey on Pretrained Foundation Models: A History from BERT to ChatGPT", page: "chapter-2-fm-foundations/2-1-what-defines-an-fm.html"}
+- name: "EDF"
+  sector: "Company"
+  countries: "France"
+  papers:
+    - {key: "berthelier2026covariate", label: "Berthelier et al. 2026", title: "Investigating simple target-covariate relationships for Chronos-2 and TabPFN-TS", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+- name: "ENN Group"
+  sector: "Company"
+  countries: "China"
+  papers:
+    - {key: "zhou2024gasfm", label: "Zhou et al. 2024", title: "Towards Universal Large-Scale Foundational Model for Natural Gas Demand Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "East China Normal University"
+  sector: "University"
+  countries: "China"
+  papers:
+    - {key: "chen2026horai", label: "Chen et al. 2026", title: "Empowering time series analysis with large-scale multimodal pretraining", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "European Centre for Medium-Range Weather Forecasts"
+  sector: "Research institute"
+  countries: "United Kingdom"
+  papers:
+    - {key: "allen2025aardvark", label: "Allen et al. 2025", title: "End-to-end data-driven weather prediction", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Forschungszentrum Jülich"
+  sector: "Research institute"
+  countries: "Germany"
+  papers:
+    - {key: "szwarcman2024prithvieo2", label: "Prithvi-EO-2.0", title: "Prithvi-EO-2.0: A versatile multi-temporal foundation model for Earth observation applications", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+- name: "George Mason University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "lee2024climateopinion", label: "Lee et al. 2024", title: "Can large language models estimate public opinion about global warming? An empirical assessment of algorithmic fidelity and bias", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Georgia Institute of Technology"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "liu2024timemmd", label: "Liu et al. 2024", title: "Time-MMD: Multi-domain multimodal dataset for time series analysis", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Hong Kong Polytechnic University"
+  sector: "University"
+  countries: "Hong Kong"
+  papers:
+    - {key: "zhang2026llmmarlev", label: "Zhang et al. 2026", title: "LLM-Enhanced Multi-Agent Reinforcement Learning for Unified Electric Vehicles-Charging Station-Grid Optimization in Public Charging Systems", page: "chapter-3-sim-opt/3-7-flexible-loads.html"}
+- name: "Huawei"
+  sector: "Company"
+  countries: "China"
+  papers:
+    - {key: "chen2026horai", label: "Chen et al. 2026", title: "Empowering time series analysis with large-scale multimodal pretraining", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "INESC TEC"
+  sector: "Research institute"
+  countries: "Portugal"
+  papers:
+    - {key: "hamann2024foundation", label: "GridFM", title: "Foundation models for the electric power grid", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "Illinois Institute of Technology"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "zhang2026llmmarlev", label: "Zhang et al. 2026", title: "LLM-Enhanced Multi-Agent Reinforcement Learning for Unified Electric Vehicles-Charging Station-Grid Optimization in Public Charging Systems", page: "chapter-3-sim-opt/3-7-flexible-loads.html"}
+- name: "Indian Institute of Science Bangalore"
+  sector: "University"
+  countries: "India"
+  papers:
+    - {key: "arjunan2026energyfm", label: "EnergyFM", title: "EnergyFM: Pretrained Models for Energy Meter Data Analytics", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "Institute for Infocomm Research"
+  sector: "Research institute"
+  countries: "Singapore"
+  papers:
+    - {key: "cheong2026exogenous", label: "Cheong et al. 2026", title: "Assessing Electricity Demand Forecasting with Exogenous Data in Time Series Foundation Models", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "International Institute of Information Technology, Hyderabad"
+  sector: "University"
+  countries: "India"
+  papers:
+    - {key: "mishra2025spirit", label: "SPIRIT", title: "SPIRIT: Short-term prediction of solar irradiance for zero-shot transfer learning using foundation models", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+- name: "Johns Hopkins University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "kaplan2020scaling", label: "Kaplan et al. 2020", title: "Scaling laws for neural language models", page: "chapter-2-fm-foundations/2-5-scaling-laws.html"}
+- name: "Kalinga Institute of Industrial Technology"
+  sector: "University"
+  countries: "India"
+  papers:
+    - {key: "sridhar2026textsensitivity", label: "Sridhar et al. 2026", title: "Semantics or structure? Auditing text sensitivity in multimodal time-series forecasting", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Kitware"
+  sector: "Company"
+  countries: "United States"
+  papers:
+    - {key: "reed2023scalemae", label: "Scale-MAE", title: "Scale-MAE: A scale-aware masked autoencoder for multiscale geospatial representation learning", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "Lawrence Berkeley National Laboratory"
+  sector: "Research institute"
+  countries: "United States"
+  papers:
+    - {key: "li2025energyplusmcp", label: "Li et al. 2025", title: "EnergyPlus-MCP: A model-context-protocol server for AI-driven building energy modeling", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Lehigh University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "zhou2023pfmsurvey", label: "Zhou et al. 2023", title: "A Comprehensive Survey on Pretrained Foundation Models: A History from BERT to ChatGPT", page: "chapter-2-fm-foundations/2-1-what-defines-an-fm.html"}
+- name: "Macquarie University"
+  sector: "University"
+  countries: "Australia"
+  papers:
+    - {key: "zhou2023pfmsurvey", label: "Zhou et al. 2023", title: "A Comprehensive Survey on Pretrained Foundation Models: A History from BERT to ChatGPT", page: "chapter-2-fm-foundations/2-1-what-defines-an-fm.html"}
+- name: "Masaryk University"
+  sector: "University"
+  countries: "Czechia"
+  papers:
+    - {key: "hamann2024foundation", label: "GridFM", title: "Foundation models for the electric power grid", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "Massachusetts Institute of Technology"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "park2025probforecasting", label: "Park et al. 2025", title: "Probabilistic forecasting for building energy systems using time-series foundation models", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "McGill University"
+  sector: "University"
+  countries: "Canada"
+  papers:
+    - {key: "rasul2023laglama", label: "Lag-Llama", title: "Lag-Llama: Towards foundation models for probabilistic time series forecasting", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+- name: "Mitsubishi Electric Research Laboratories"
+  sector: "Company"
+  countries: "United States"
+  papers:
+    - {key: "park2025probforecasting", label: "Park et al. 2025", title: "Probabilistic forecasting for building energy systems using time-series foundation models", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "Monash University"
+  sector: "University"
+  countries: "Australia"
+  papers:
+    - {key: "jin2024timellm", label: "Jin et al. 2024", title: "Time-LLM: Time series forecasting by reprogramming large language models", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Morgan Stanley"
+  sector: "Company"
+  countries: "United States"
+  papers:
+    - {key: "rasul2023laglama", label: "Lag-Llama", title: "Lag-Llama: Towards foundation models for probabilistic time series forecasting", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+- name: "NVIDIA"
+  sector: "Company"
+  countries: "United States"
+  papers:
+    - {key: "nvidia2025nvtesseract", label: "NVIDIA 2025", title: "New NVIDIA NV-Tesseract Time Series Models Advance Dataset Processing and Anomaly Detection", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "Nanjing University"
+  sector: "University"
+  countries: "China"
+  papers:
+    - {key: "han2025unica", label: "Han et al. 2025", title: "UniCA: Unified covariate adaptation for time series foundation model", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Nanjing University of Information Science and Technology"
+  sector: "University"
+  countries: "China"
+  papers:
+    - {key: "chen2023fengwu", label: "FengWu", title: "FengWu: Pushing the skillful global medium-range weather forecast beyond 10 days lead", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "Nankai University"
+  sector: "University"
+  countries: "China"
+  papers:
+    - {key: "zhou2024gasfm", label: "Zhou et al. 2024", title: "Towards Universal Large-Scale Foundational Model for Natural Gas Demand Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "National Observatory of Athens"
+  sector: "Research institute"
+  countries: "Greece"
+  papers:
+    - {key: "kaselimi2026coupling", label: "Kaselimi et al. 2026", title: "Toward Artificial Intelligence Enabled Earth System Coupling", page: "chapter-2-fm-foundations/2-2-five-design-decisions.html"}
+- name: "National Research Council Canada"
+  sector: "Research institute"
+  countries: "Canada"
+  papers:
+    - {key: "fadel2026operatorbem", label: "Fadel et al. 2026", title: "Toward automated generation of EnergyPlus models for existing buildings through operator descriptions", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "National Taiwan University"
+  sector: "University"
+  countries: "Taiwan"
+  papers:
+    - {key: "bodnar2025aurora", label: "Aurora", title: "A foundation model for the Earth system", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "National University of Science and Technology POLITEHNICA Bucharest"
+  sector: "University"
+  countries: "Romania"
+  papers:
+    - {key: "sanduleac2026gridfmdistil", label: "Sănduleac et al. 2026", title: "Physics-Aware Distillation of a Grid Foundation Model for Real-Time Edge Inference", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "National University of Singapore"
+  sector: "University"
+  countries: "Singapore"
+  papers:
+    - {key: "ma2026baguansolar", label: "Ma et al. 2026", title: "Integrating weather foundation model and satellite to enable fine-grained solar irradiance forecasting", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "National Yang Ming Chiao Tung University"
+  sector: "University"
+  countries: "Taiwan"
+  papers:
+    - {key: "chang2025timeimm", label: "Chang et al. 2025", title: "Time-IMM: A dataset and benchmark for irregular multimodal multivariate time series", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Netze BW"
+  sector: "Company"
+  countries: "Germany"
+  papers:
+    - {key: "kaas2026lvpeak", label: "Kaas et al. 2026", title: "Probabilistic Low-Voltage Peak Load Forecasting with Time Series Foundation Models Evaluated on Application-Oriented Metrics", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "Newcastle University"
+  sector: "University"
+  countries: "United Kingdom"
+  papers:
+    - {key: "nihalchandani2026fedtsfm", label: "Nihalchandani et al. 2026", title: "Personalized Federated Sparse Adaptation of Time-Series Foundation Models", page: "chapter-2-fm-foundations/2-8-ues-fm-evaluation-criteria.html"}
+- name: "Norwegian University of Science and Technology"
+  sector: "University"
+  countries: "Norway"
+  papers:
+    - {key: "lie2026jutulgpt", label: "Lie et al. 2026", title: "Agentic Scientific Simulation: Execution-Grounded Model Construction and Reconstruction", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Oak Ridge National Laboratory"
+  sector: "Research institute"
+  countries: "United States"
+  papers:
+    - {key: "lupopasini2026heterogfm", label: "Lupo Pasini et al. 2026", title: "Scalable Heterogeneous Graph Foundation Models for Data-Driven Optimal Power Flow in Smart Grids", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "Oregon State University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "szwarcman2024prithvieo2", label: "Prithvi-EO-2.0", title: "Prithvi-EO-2.0: A versatile multi-temporal foundation model for Earth observation applications", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+- name: "Pacific Northwest National Laboratory"
+  sector: "Research institute"
+  countries: "United States"
+  papers:
+    - {key: "wan2025cdlmodelica", label: "Wan et al. 2025", title: "Automating Modelica Module Generation Using Large Language Models: A Case Study on Building Control Description Language", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Paderborn University"
+  sector: "University"
+  countries: "Germany"
+  papers:
+    - {key: "meyer2025household", label: "Meyer et al. 2025", title: "Benchmarking Time Series Foundation Models for Short-Term Household Electricity Load Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "RWTH Aachen University"
+  sector: "University"
+  countries: "Germany"
+  papers:
+    - {key: "spoek2026tabpfndh", label: "Spoek et al. 2026", title: "Systematic Evaluation of TabPFN-TS and Chronos-2 for Zero-Shot Heat Load Forecasting in District Heating Networks", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "Ricerca sul Sistema Energetico (RSE)"
+  sector: "Research institute"
+  countries: "Italy"
+  papers:
+    - {key: "puech2025gridfmdatakit", label: "Puech et al. 2025", title: "gridfm-datakit-v1: A Python library for scalable and realistic power flow and OPF data generation", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "Rosenheim Technical University of Applied Sciences"
+  sector: "University"
+  countries: "Germany"
+  papers:
+    - {key: "raisch2025gentl", label: "Raisch et al. 2025", title: "GenTL: A General Transfer Learning Model for Building Thermal Dynamics", page: "chapter-4-directions/4-2-fms-for-building-stocks.html"}
+- name: "SRI International"
+  sector: "Research institute"
+  countries: "United States"
+  papers:
+    - {key: "mostafavi2024modelicallm", label: "Mostafavi et al. 2024", title: "Simplifying modeling for building and district energy systems with large language models", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "SUNY College of Environmental Science and Forestry"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "bai2026llmpriors", label: "Bai et al. 2026", title: "LLM-informed efficient Bayesian calibration of building energy simulation models under limited data", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Seeburg Castle University"
+  sector: "University"
+  countries: "Austria"
+  papers:
+    - {key: "kutzner2026syntheticvalidity", label: "Kutzner et al. 2026", title: "Consequential Behaviour and Representational Fairness in the Validation of Synthetic Research", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "ServiceNow"
+  sector: "Company"
+  countries: "United States"
+  papers:
+    - {key: "williams2025cik", label: "Williams et al. 2025", title: "Context is Key: A benchmark for forecasting with essential textual information", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Shanghai Artificial Intelligence Laboratory"
+  sector: "Research institute"
+  countries: "China"
+  papers:
+    - {key: "chen2023fengwu", label: "FengWu", title: "FengWu: Pushing the skillful global medium-range weather forecast beyond 10 days lead", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "Shanghai Meteorological Bureau"
+  sector: "Research institute"
+  countries: "China"
+  papers:
+    - {key: "chen2023fengwu", label: "FengWu", title: "FengWu: Pushing the skillful global medium-range weather forecast beyond 10 days lead", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "Sierra"
+  sector: "Company"
+  countries: "United States"
+  papers:
+    - {key: "yao2024taubench", label: "Yao et al. 2024", title: "τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Singapore Management University"
+  sector: "University"
+  countries: "Singapore"
+  papers:
+    - {key: "woo2024moirai", label: "Moirai", title: "Unified training of universal time series forecasting transformers", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "Sistemi 2000"
+  sector: "Company"
+  countries: "Italy"
+  papers:
+    - {key: "longarini2026coldstart", label: "Longarini et al. 2026", title: "Time series foundation models based on physics-informed synthetic histories for cold-start photovoltaic forecasting", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+- name: "Sogang University"
+  sector: "University"
+  countries: "South Korea"
+  papers:
+    - {key: "li2026lumina", label: "LUMINA", title: "LUMINA: Foundation Models for Topology Transferable ACOPF", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "Squirrel AI"
+  sector: "Company"
+  countries: "China"
+  papers:
+    - {key: "liu2024timemmd", label: "Liu et al. 2024", title: "Time-MMD: Multi-domain multimodal dataset for time series analysis", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Sri Lanka Institute of Information Technology"
+  sector: "University"
+  countries: "Sri Lanka"
+  papers:
+    - {key: "chen2026solcloudllm", label: "Chen et al. 2026", title: "Bidirectional multimodal fusion of sky images and time-series for solar forecasting with large language models", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "TU Dortmund University"
+  sector: "University"
+  countries: "Germany"
+  papers:
+    - {key: "liao2025timegpt", label: "Liao et al. 2025", title: "TimeGPT in load forecasting: A large time series model perspective", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "Technical University of Denmark"
+  sector: "University"
+  countries: "Denmark"
+  papers:
+    - {key: "yanespulido2026tsfmtransport", label: "Yanes-Pulido et al. 2026", title: "Time Series Foundation Models as Strong Baselines in Transportation Forecasting: A Large-Scale Benchmark Analysis", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "Texas A&M University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "liu2025multitask", label: "Liu et al. 2025", title: "Unlocking multi-task electric energy system intelligence: Data scaling laws and performance with limited fine-tuning", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "The University of Melbourne"
+  sector: "University"
+  countries: "Australia"
+  papers:
+    - {key: "chen2026solcloudllm", label: "Chen et al. 2026", title: "Bidirectional multimodal fusion of sky images and time-series for solar forecasting with large language models", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Tianjin University"
+  sector: "University"
+  countries: "China"
+  papers:
+    - {key: "liao2025timegpt", label: "Liao et al. 2025", title: "TimeGPT in load forecasting: A large time series model perspective", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "United States Department of Energy"
+  sector: "Research institute"
+  countries: "United States"
+  papers:
+    - {key: "hamann2024foundation", label: "GridFM", title: "Foundation models for the electric power grid", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "Universities Space Research Association"
+  sector: "Research institute"
+  countries: "United States"
+  papers:
+    - {key: "szwarcman2024prithvieo2", label: "Prithvi-EO-2.0", title: "Prithvi-EO-2.0: A versatile multi-temporal foundation model for Earth observation applications", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+- name: "University College London"
+  sector: "University"
+  countries: "United Kingdom"
+  papers:
+    - {key: "zhou2026ubemresilience", label: "Zhou et al. 2026", title: "Large language model orchestrated workflow integrating retrieval-augmented generation and model context protocol tools for urban-scale simulation-based resilience assessment", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "University Medical Center Freiburg"
+  sector: "Research institute"
+  countries: "Germany"
+  papers:
+    - {key: "hollmann2025tabpfnv2", label: "TabPFN v2", title: "Accurate predictions on small data with a tabular foundation model", page: "chapter-2-fm-foundations/2-3-choosing-a-basic-element.html"}
+- name: "University of Amsterdam"
+  sector: "University"
+  countries: "Netherlands"
+  papers:
+    - {key: "bodnar2025aurora", label: "Aurora", title: "A foundation model for the Earth system", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "University of California, Santa Cruz"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "bose2024rnnstofm", label: "Bose et al. 2024", title: "From RNNs to Foundation Models: An Empirical Study on Commercial Building Energy Consumption", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "University of Chicago"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "hamann2024foundation", label: "GridFM", title: "Foundation models for the electric power grid", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "University of Colorado Boulder"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "hamann2024foundation", label: "GridFM", title: "Foundation models for the electric power grid", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "University of Exeter"
+  sector: "University"
+  countries: "United Kingdom"
+  papers:
+    - {key: "wu2027powercodebench", label: "Wu et al. 2027", title: "Knowledge boundary probing and demand-guided intervention for LLM-based power system code generation", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "University of Galway"
+  sector: "University"
+  countries: "Ireland"
+  papers:
+    - {key: "faiud2026llmabm", label: "Faiud et al. 2026", title: "LLM-Assisted Behavioural and Scenario Augmentation for Agent-Based Energy Adoption Models", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "University of Hong Kong"
+  sector: "University"
+  countries: "Hong Kong"
+  papers:
+    - {key: "wu2024janus", label: "Janus", title: "Janus: Decoupling Visual Encoding for Unified Multimodal Understanding and Generation", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "University of Iceland"
+  sector: "University"
+  countries: "Iceland"
+  papers:
+    - {key: "szwarcman2024prithvieo2", label: "Prithvi-EO-2.0", title: "Prithvi-EO-2.0: A versatile multi-temporal foundation model for Earth observation applications", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+- name: "University of Illinois Chicago"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "zhou2023pfmsurvey", label: "Zhou et al. 2023", title: "A Comprehensive Survey on Pretrained Foundation Models: A History from BERT to ChatGPT", page: "chapter-2-fm-foundations/2-1-what-defines-an-fm.html"}
+- name: "University of Macerata"
+  sector: "University"
+  countries: "Italy"
+  papers:
+    - {key: "longarini2026coldstart", label: "Longarini et al. 2026", title: "Time series foundation models based on physics-informed synthetic histories for cold-start photovoltaic forecasting", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+- name: "University of Manchester"
+  sector: "University"
+  countries: "United Kingdom"
+  papers:
+    - {key: "dwivedi2024unistruct", label: "Dwivedi et al. 2024", title: "Representation Learning of Structured Data for Medical Foundation Models", page: "chapter-2-fm-foundations/2-2-five-design-decisions.html"}
+- name: "University of Massachusetts Amherst"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "maji2026carbonx", label: "Maji et al. 2026", title: "CarbonX: An Open-Source Tool for Computational Decarbonization Using Time Series Foundation Models", page: "chapter-3-sim-opt/3-7-flexible-loads.html"}
+- name: "University of Michigan"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "shu2026retrofitllm", label: "Shu et al. 2026", title: "Catalyzing Informed Residential Energy Retrofit Decisions via Domain-Specific LLM", page: "chapter-3-sim-opt/3-5-retrofit-and-whole-life-carbon.html"}
+- name: "University of Modena and Reggio Emilia"
+  sector: "University"
+  countries: "Italy"
+  papers:
+    - {key: "longarini2026coldstart", label: "Longarini et al. 2026", title: "Time series foundation models based on physics-informed synthetic histories for cold-start photovoltaic forecasting", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+- name: "University of New Orleans"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "ferdaus2025cleanenergy", label: "Ferdaus et al. 2026", title: "Foundation models for clean energy forecasting: A comprehensive review", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+- name: "University of Oxford"
+  sector: "University"
+  countries: "United Kingdom"
+  papers:
+    - {key: "kutzner2026syntheticvalidity", label: "Kutzner et al. 2026", title: "Consequential Behaviour and Representational Fairness in the Validation of Synthetic Research", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "University of Palermo"
+  sector: "University"
+  countries: "Italy"
+  papers:
+    - {key: "naeem2026llmpower", label: "Naeem et al. 2026", title: "Large language models in power systems: From grid operations to home energy management", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "University of Sydney"
+  sector: "University"
+  countries: "Australia"
+  papers:
+    - {key: "bi2025nswepnews", label: "Bi et al. 2025", title: "NSW-EPNews: A news-augmented benchmark for electricity price forecasting with LLMs", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "University of Virginia"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "tan2024lmuseful", label: "Tan et al. 2024", title: "Are language models actually useful for time series forecasting?", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "University of Würzburg"
+  sector: "University"
+  countries: "Germany"
+  papers:
+    - {key: "obermeier2026fets", label: "Obermeier et al. 2026", title: "FETS Benchmark: Foundation Models Enable Scalable and Generalizable Energy Time Series Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "Université Côte d'Azur"
+  sector: "University"
+  countries: "France"
+  papers:
+    - {key: "berthelier2026covariate", label: "Berthelier et al. 2026", title: "Investigating simple target-covariate relationships for Chronos-2 and TabPFN-TS", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+- name: "Université Grenoble Alpes"
+  sector: "University"
+  countries: "France"
+  papers:
+    - {key: "caron2021dino", label: "DINO", title: "Emerging Properties in Self-Supervised Vision Transformers", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "Université Paris Cité"
+  sector: "University"
+  countries: "France"
+  papers:
+    - {key: "berthelier2026covariate", label: "Berthelier et al. 2026", title: "Investigating simple target-covariate relationships for Chronos-2 and TabPFN-TS", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+- name: "Université du Québec à Rimouski"
+  sector: "University"
+  countries: "Canada"
+  papers:
+    - {key: "boussif2023crossvivit", label: "Boussif et al. 2023", title: "Improving day-ahead solar irradiance time series forecasting by leveraging spatio-temporal context", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Vanderbilt University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "bisbee2024synthetic", label: "Bisbee et al. 2024", title: "Synthetic Replacements for Human Survey Data? The Perils of Large Language Models", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Vector Institute"
+  sector: "Research institute"
+  countries: "Canada"
+  papers:
+    - {key: "allen2025aardvark", label: "Allen et al. 2025", title: "End-to-end data-driven weather prediction", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Virginia Tech"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "szwarcman2024prithvieo2", label: "Prithvi-EO-2.0", title: "Prithvi-EO-2.0: A versatile multi-temporal foundation model for Earth observation applications", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+- name: "Weihenstephan-Triesdorf University of Applied Sciences"
+  sector: "University"
+  countries: "Germany"
+  papers:
+    - {key: "obermeier2026fets", label: "Obermeier et al. 2026", title: "FETS Benchmark: Foundation Models Enable Scalable and Generalizable Energy Time Series Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "Yale University"
+  sector: "University"
+  countries: "United States"
+  papers:
+    - {key: "lee2024climateopinion", label: "Lee et al. 2024", title: "Can large language models estimate public opinion about global warming? An empirical assessment of algorithmic fidelity and bias", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Zhejiang University"
+  sector: "University"
+  countries: "China"
+  papers:
+    - {key: "tu2024powerpm", label: "PowerPM", title: "PowerPM: Foundation Model for Power Systems", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "Zhejiang University of Technology"
+  sector: "University"
+  countries: "China"
+  papers:
+    - {key: "ma2026baguansolar", label: "Ma et al. 2026", title: "Integrating weather foundation model and satellite to enable fine-grained solar irradiance forecasting", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "École Normale Supérieure – PSL"
+  sector: "University"
+  countries: "France"
+  papers:
+    - {key: "qu2025tabicl", label: "Qu et al. 2025", title: "TabICL: A tabular foundation model for in-context learning on large data", page: "chapter-2-fm-foundations/2-4-4-tabular-fms.html"}

@@ -3,7 +3,7 @@ title: Appendix C — Version History
 parent: Appendices
 nav_order: 3
 status: draft
-last_reviewed: 2026-10-20
+last_reviewed: 2026-10-21
 ---
 
 # Appendix C — Version History
@@ -21,6 +21,20 @@ These notes are revised continuously, so there are two ways to trace what change
 "Last reviewed" on each page is a separate signal. It is set by hand when someone has checked the page's content, so it can be older than the page's most recent edit.
 
 ---
+
+## 3.3 — 21 October 2026
+
+43 section pages, 314 references, 52 models in the model index.
+
+**New**
+- [§4.8.1](../chapter-4-directions/4-8-building-it.html#data-that-cannot-leave-its-owner) Data that cannot leave its owner: training on private meter data by federated learning, differential privacy, synthetic data or simulation, with the accuracy each costs; why a trained model is not anonymous by default; and what EU and Swiss law and the open datasets' licences allow
+- Gap [G11](../chapter-6-outlook/6-1-open-gaps.html#g11) Privacy audit of energy foundation models, ranked with G4 and G10
+- Glossary: federated learning, differential privacy, membership inference
+
+**Corrections**
+- §2.8 no longer says personalised federated adaptation beat local training; it matched or beat it. It now gives the accuracy cost of federated training and of differential privacy, and says attacks work on smaller load models
+- §4.6 no longer says licences restrict pooling meter data: the open corpora are CC BY 4.0, and what restricts utility data is data-protection law. Its heading is now "limited by access to data"
+- §5.5 notes that fine-tuning or validating on real data brings the privacy question back
 
 ## 3.2 — 20 October 2026
 

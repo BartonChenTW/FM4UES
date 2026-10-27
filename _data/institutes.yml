@@ -3,7 +3,7 @@
 #
 # Compiled on 2026-10-27, starting from the authors of every publication in
 # references/fm-for-ues.bib that builds, pretrains, adapts or evaluates a
-# foundation model, LLMs and LLM agents included (137 entries). Affiliations come
+# foundation model, LLMs and LLM agents included (140 entries). Affiliations come
 # from each paper's OpenAlex record (author institutions, checked against the
 # raw affiliation strings), or from the paper's own title page where OpenAlex
 # had none; for a model card or README with no author list, the developer it
@@ -354,6 +354,12 @@
   papers:
     - {key: "lam2023graphcast", label: "GraphCast", title: "Learning skillful medium-range global weather forecasting", page: "chapter-1-background/1-2-fms-in-one-page.html"}
     - {key: "allen2025aardvark", label: "Allen et al. 2025", title: "End-to-end data-driven weather prediction", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Hong Kong Polytechnic University"
+  sector: "University"
+  countries: "Hong Kong"
+  papers:
+    - {key: "chen2025ffts", label: "Chen et al. 2025", title: "Federated Foundation Models on Heterogeneous Time Series", page: "chapter-4-directions/4-8-building-it.html"}
+    - {key: "zhang2026llmmarlev", label: "Zhang et al. 2026", title: "LLM-Enhanced Multi-Agent Reinforcement Learning for Unified Electric Vehicles-Charging Station-Grid Optimization in Public Charging Systems", page: "chapter-3-sim-opt/3-7-flexible-loads.html"}
 - name: "NXAI"
   sector: "Company"
   countries: "Austria"
@@ -450,6 +456,12 @@
   papers:
     - {key: "chen2023fengwu", label: "FengWu", title: "FengWu: Pushing the skillful global medium-range weather forecast beyond 10 days lead", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
     - {key: "huang2026tyanwp", label: "Tyan-WP", title: "Tyan-WP: A wind power foundation model for ultra-short-term probabilistic forecasting", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
+- name: "University of Technology Sydney"
+  sector: "University"
+  countries: "Australia"
+  papers:
+    - {key: "chen2025ffts", label: "Chen et al. 2025", title: "Federated Foundation Models on Heterogeneous Time Series", page: "chapter-4-directions/4-8-building-it.html"}
+    - {key: "chen2026fedal", label: "Chen et al. 2026", title: "FeDaL: Federated Dataset Learning for General Time Series Foundation Models", page: "chapter-4-directions/4-8-building-it.html"}
 - name: "University of Toronto"
   sector: "University"
   countries: "Canada"
@@ -649,11 +661,6 @@
   countries: "United States"
   papers:
     - {key: "liu2024timemmd", label: "Liu et al. 2024", title: "Time-MMD: Multi-domain multimodal dataset for time series analysis", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
-- name: "Hong Kong Polytechnic University"
-  sector: "University"
-  countries: "Hong Kong"
-  papers:
-    - {key: "zhang2026llmmarlev", label: "Zhang et al. 2026", title: "LLM-Enhanced Multi-Agent Reinforcement Learning for Unified Electric Vehicles-Charging Station-Grid Optimization in Public Charging Systems", page: "chapter-3-sim-opt/3-7-flexible-loads.html"}
 - name: "Huawei"
   sector: "Company"
   countries: "China"
@@ -674,6 +681,11 @@
   countries: "India"
   papers:
     - {key: "arjunan2026energyfm", label: "EnergyFM", title: "EnergyFM: Pretrained Models for Energy Meter Data Analytics", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "Indian Institute of Technology Ropar"
+  sector: "University"
+  countries: "India"
+  papers:
+    - {key: "sharma2026fedchronos", label: "Sharma et al. 2026", title: "FedChronos: Federated Fine-Tuning of Time-Series Foundation Models for Privacy-Preserving Commodity Price Forecasting", page: "chapter-4-directions/4-8-building-it.html"}
 - name: "Institute for Infocomm Research"
   sector: "Research institute"
   countries: "Singapore"
@@ -814,6 +826,11 @@
   countries: "United States"
   papers:
     - {key: "lupopasini2026heterogfm", label: "Lupo Pasini et al. 2026", title: "Scalable Heterogeneous Graph Foundation Models for Data-Driven Optimal Power Flow in Smart Grids", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "Ontario Tech University"
+  sector: "University"
+  countries: "Canada"
+  papers:
+    - {key: "sharma2026fedchronos", label: "Sharma et al. 2026", title: "FedChronos: Federated Fine-Tuning of Time-Series Foundation Models for Privacy-Preserving Commodity Price Forecasting", page: "chapter-4-directions/4-8-building-it.html"}
 - name: "Oregon State University"
   sector: "University"
   countries: "United States"

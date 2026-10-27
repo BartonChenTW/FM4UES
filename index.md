@@ -51,7 +51,7 @@ The **[proposed development path](chapter-4-directions/4-7-methods-landing.html)
 | 3 | [Simulation and Optimisation in UES](chapter-3-sim-opt/index.html) | Modelling tasks and their mathematical structure, building simulation data, the energy hub formalism, dispatch and design optimisation, the tool landscape, where cost lives, building retrofit and [whole-life carbon](appendices/a-glossary.html#whole-life-carbon), social dimensions, flexible loads (EV charging, data centres) |
 | 4 | [Directions for FMs in UES](chapter-4-directions/index.html) | A broad, neutral survey: off-the-shelf FMs, building-stock FMs, LLM agents, generative design, screening, a proposed three-tier development path, and a future ecosystem of UES FMs |
 | 5 | [Case Study: A Foundation Model for Multi-Carrier Energy Hubs](chapter-5-case-study/index.html) | One concrete proposal — representation, token schema, module decomposition, a phased roadmap, risks |
-| 6 | [Outlook](chapter-6-outlook/index.html) | Ten open gaps; how to contribute |
+| 6 | [Outlook](chapter-6-outlook/index.html) | Eleven open gaps; how to contribute |
 | — | [Glossary](appendices/a-glossary.html) | Plain-language definitions of every ML term used |
 | — | [Pre-Project Checklist](appendices/b-checklist.html) | Thirteen questions to ask before starting |
 | — | [Version History](appendices/c-version-history.html) | What changed in each version; how to trace changes to a page |

@@ -521,14 +521,14 @@
   family: "Energy"
   developer: "Argonne National Laboratory, with Emory University and Sogang University"
   year: 2026
-  description: "Framework and design principles for physics-constrained foundation models, derived from controlled experiments on topology-transferable AC optimal power flow."
+  description: "Framework and design principles for physics-constrained foundation models, derived from controlled experiments on topology-transferable AC optimal power flow: eight graph-network architectures pretrained on OPFData grids, with constraint-aware (augmented Lagrangian) training. ICLR 2026 workshop paper."
   url: ""
   paper: "https://arxiv.org/abs/2603.04300"
   bib_key: "li2026lumina"
   sources:
     - "https://export.arxiv.org/api/query?id_list=2603.04300"
     - "https://arxiv.org/html/2603.04300"
-  notes: "Affiliations from the paper's author block (partial list read)."
+  notes: "Affiliations from the paper's author block (all ten authors checked). Venue from OpenReview (ICLR 2026 Workshop FM4Science, poster). The paper describes the framework as open source but gives no repository link, and none was found on GitHub (searched 2026-10-29)."
 
 # --- Weather and geospatial ---
 - id: "graphcast"

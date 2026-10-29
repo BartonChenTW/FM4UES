@@ -1019,3 +1019,15 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 - **Not changed:** Appendix D (EnerGNN is a library, not a pretrained model) and Appendix E (no RTE paper builds, adapts or evaluates a foundation model, so RTE and Liège do not meet its criterion).
 
 **References (bib 315 → 321).** `energnn2026`, `donon2024h2mgnode`, `donon2026tvc`, `martinez2026osr`, `donon2026energnnlfe`, `rte2025rte7000`.
+
+## 2026-10-29 (LUMINA and related work)
+
+**Why.** Barton asked who made LUMINA and to make sure related information is in the repo. LUMINA was cited only as a one-line bullet from the arXiv preprint.
+
+**Sources, read in full.** LUMINA (arXiv 2603.04300v2; venue from OpenReview: ICLR 2026 Workshop FM4Science, poster), Lupo Pasini et al. (arXiv 2605.23194v2, author block), OPFData (arXiv 2406.07234). GitHub searched for a LUMINA code release: none found.
+
+**Changes.**
+- **§2.4.2:** LUMINA bullet rewritten with the team (Argonne, with Emory and Sogang), what it tests and its results (multi-topology pretraining transfers better; heterogeneous over homogeneous GNNs; fine-tuning 48.8% / 83.6% fewer steps on case118 / case500; augmented-Lagrangian loss 3–80× fewer violations on unseen grids; errors at high load and high-degree buses) and limits (≤500-bus adaptation, no feasibility guarantee, narrow FM definition, no code link). Heterogeneous-GFM bullet now names Oak Ridge and the two shared Argonne authors. OPFData added under Related tooling.
+- **Appendix D:** LUMINA description and notes (venue, all authors checked, no code link).
+- **Bib:** `li2026lumina` changed to `@inproceedings` (workshop); `lovett2024opfdata` added (321 → 322).
+- **Appendix E:** unchanged; Argonne, Emory and Sogang were already listed for LUMINA, and Oak Ridge and Argonne for Lupo Pasini et al.

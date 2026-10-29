@@ -38,4 +38,4 @@ Every named model the notes discuss, with who built it, what it is, and where to
 {% endfor %}
 
 ---
-[← Previous: Appendix C — Version History](c-version-history.html) · [Back to Appendices](index.html) · [Back to Home](../index.html)
+[← Previous: Appendix C — Version History](c-version-history.html) · [Back to Appendices](index.html) · [Next: Appendix E — Research Institutes →](e-research-institutes.html)

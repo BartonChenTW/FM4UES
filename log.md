@@ -1031,3 +1031,14 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 - **Appendix D:** LUMINA description and notes (venue, all authors checked, no code link).
 - **Bib:** `li2026lumina` changed to `@inproceedings` (workshop); `lovett2024opfdata` added (321 → 322).
 - **Appendix E:** unchanged; Argonne, Emory and Sogang were already listed for LUMINA, and Oak Ridge and Argonne for Lupo Pasini et al.
+
+## 2026-10-29 (DynaGridFM)
+
+**Why.** Barton asked whether DynaGridFM is in the repo and to add it. It was not.
+
+**Sources.** GE Vernova news article, 19 October 2026 (the only public source; no paper, data, architecture or results yet).
+
+**Changes.**
+- **§2.4.2:** short dated paragraph "Announced, not yet published: DynaGridFM" before the Uruguay caution: GE Vernova Advanced Research lead, with GE Vernova Grid Software, PNNL and Georgia Tech; ARPA-E Vision OPEN 2024, US$3.43M, two years; multi-task, multi-interval look-ahead for AC/DC grids with many inverter-based resources, with recommendations checked by GPU grid optimisers.
+- **Bib:** `gevernova2026dynagridfm` added (322 → 323).
+- **Appendix D and E:** unchanged until a paper appears.

@@ -4,7 +4,7 @@ parent: "2.4 Existing FMs Relevant to Energy"
 grand_parent: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 5
 status: draft
-last_reviewed: 2026-10-01
+last_reviewed: 2026-10-29
 redirect_from:
   - /chapter-2-fm-foundations/2-4-6-load-forecasting-fms.html
 ---
@@ -30,6 +30,8 @@ Two routes run side by side. One pretrains a model on load data itself: measured
 **[EnergyFM](../appendices/d-model-index.html#energyfm)** goes the other way, pretraining on 1.26 billion hourly *measured* smart-meter readings from 76,217 buildings, and is evaluated on forecasting, anomaly detection and appliance classification. That makes it multi-task in the sense of [§2.1](2-1-what-defines-an-fm.html), not only a forecaster.[^arjunan2026energyfm] Its place relative to the grid models is discussed in [§2.4.2](2-4-2-power-grid-fms.html#the-demand-side-has-moved-too--and-shows-the-gap-precisely).
 
 **[PowerPM](../appendices/d-model-index.html#powerpm)** models electricity time series together with their hierarchy (individual consumers within larger aggregates), using a temporal encoder that takes exogenous variables and a hierarchical encoder for the correlations between levels. It is pretrained [self-supervised](../appendices/a-glossary.html#self-supervised-pretraining) on a large private dataset, and reported to keep its advantage when transferred to public datasets and other tasks.[^tu2024powerpm] Of the models here, it is the one that builds the composability of meters into the architecture rather than leaving it implicit.
+
+**[s4casting](../appendices/d-model-index.html#s4casting)** comes from a grid operator rather than a research lab. Alliander, whose network company Liander is a Dutch distribution system operator, releases it as an open-source toolkit (MPL-2.0) of state space models (S4 and Mamba-style) and transformer variants for probabilistic forecasting of medium-voltage load up to two days ahead. Its first model card describes a 29-million-parameter transformer trained on LianderPower, Liander's open dataset of 1,459 substation and feeder measurement points from 2013 to 2024 with weather covariates; it forecasts a Gaussian mixture for each 15-minute step. Its pretraining spans many locations of one operator rather than many domains, and the card reports only validation scores, with no comparison against operational baselines. On 29 October 2026 the weights were documented but not yet on Hugging Face. The models are to move into LF Energy's OpenSTEF forecasting project.[^alliander2026s4casting]
 
 **Beyond electricity**, a contrastively pretrained model for natural gas demand was trained on more than 10,000 industrial, commercial and welfare customers of one utility, with fine-tuning by industry. Its reported gain over the best existing model is modest: 3.68% in MSE.[^zhou2024gasfm]
 
@@ -76,6 +78,7 @@ Most of the literature evaluates the general models of [§2.4.1](2-4-1-time-seri
 [^emami2023buildingsbench]: Emami, P., Sahu, A., Graf, P. (2023). [BuildingsBench: A large-scale dataset of 900K buildings and benchmark for short-term load forecasting](https://arxiv.org/abs/2307.00142). NeurIPS 2023, Datasets and Benchmarks Track. arXiv:2307.00142.
 [^arjunan2026energyfm]: Arjunan, P., Srivastava, N., Kumar, K. et al. (2026). [EnergyFM: Pretrained models for energy meter data analytics](https://doi.org/10.1145/3744255.3798119). *e-Energy '26*, 556–568.
 [^tu2024powerpm]: Tu, S., Zhang, Y., Zhang, J. et al. (2024). [PowerPM: Foundation model for power systems](https://arxiv.org/abs/2408.04057). *Advances in Neural Information Processing Systems 37* (NeurIPS 2024), 115233–115260. arXiv:2408.04057.
+[^alliander2026s4casting]: Alliander (2026). [s4casting: Time series foundation models for energy forecasting](https://github.com/alliander-opensource/s4casting). GitHub repository, MPL-2.0. Model card: [transformer-lianderpower-v1](https://github.com/alliander-opensource/s4casting/blob/main/model_cards/transformer-lianderpower-v1/MODEL_CARD.md). Accessed 29 October 2026.
 [^zhou2024gasfm]: Zhou, X., Ye, J., Zhao, S. et al. (2024). [Towards universal large-scale foundational model for natural gas demand forecasting](https://arxiv.org/abs/2409.15794). arXiv:2409.15794.
 [^obermeier2026fets]: Obermeier, M., Pruckner, M., Haselbeck, F., Zeiselmair, A. (2026). [FETS Benchmark: Foundation models enable scalable and generalizable energy time series forecasting](https://doi.org/10.1016/j.egyai.2026.100867). *Energy and AI*, 26, 100867. arXiv:2604.22328.
 [^hertel2026gridlevels]: Hertel, M., Pütz, S., Kolar, J. et al. (2026). [A benchmark for electrical load forecasting across grid levels: Time-series transformers outperform established methods](https://arxiv.org/abs/2607.15705). arXiv:2607.15705.

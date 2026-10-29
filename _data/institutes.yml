@@ -3,7 +3,7 @@
 #
 # Compiled on 2026-10-27, starting from the authors of every publication in
 # references/fm-for-ues.bib that builds, pretrains, adapts or evaluates a
-# foundation model, LLMs and LLM agents included (140 entries). Affiliations come
+# foundation model, LLMs and LLM agents included (141 entries). Affiliations come
 # from each paper's OpenAlex record (author institutions, checked against the
 # raw affiliation strings), or from the paper's own title page where OpenAlex
 # had none; for a model card or README with no author list, the developer it
@@ -491,6 +491,11 @@
   countries: "Denmark"
   papers:
     - {key: "sanduleac2026gridfmdistil", label: "Sănduleac et al. 2026", title: "Physics-Aware Distillation of a Grid Foundation Model for Real-Time Edge Inference", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "Alliander"
+  sector: "Company"
+  countries: "Netherlands"
+  papers:
+    - {key: "alliander2026s4casting", label: "s4casting", title: "s4casting: Time series foundation models for energy forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
 - name: "Anusandhan National Research Foundation"
   sector: "Research institute"
   countries: "India"

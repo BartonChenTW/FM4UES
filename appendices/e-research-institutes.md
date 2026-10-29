@@ -3,7 +3,7 @@ title: Appendix E — Research Institutes
 parent: Appendices
 nav_order: 5
 status: draft
-last_reviewed: 2026-10-27
+last_reviewed: 2026-10-29
 ---
 
 # Appendix E — Research Institutes
@@ -16,7 +16,7 @@ The universities, research institutes and companies behind the foundation-model 
 {% assign uni = site.data.institutes | where: "sector", "University" %}
 {% assign ri = site.data.institutes | where: "sector", "Research institute" %}
 {% assign co = site.data.institutes | where: "sector", "Company" %}
-**{{ site.data.institutes | size }} institutions** from 140 publications: {{ uni | size }} universities, {{ ri | size }} research institutes and public bodies, and {{ co | size }} companies. Most are in the United States (74 institutions), China (30), Germany (16) and the United Kingdom (12).
+**{{ site.data.institutes | size }} institutions** from 141 publications: {{ uni | size }} universities, {{ ri | size }} research institutes and public bodies, and {{ co | size }} companies. Most are in the United States (74 institutions), China (30), Germany (16) and the United Kingdom (12).
 
 How the list was compiled:
 

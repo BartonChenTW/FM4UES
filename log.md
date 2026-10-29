@@ -1042,3 +1042,15 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 - **§2.4.2:** short dated paragraph "Announced, not yet published: DynaGridFM" before the Uruguay caution: GE Vernova Advanced Research lead, with GE Vernova Grid Software, PNNL and Georgia Tech; ARPA-E Vision OPEN 2024, US$3.43M, two years; multi-task, multi-interval look-ahead for AC/DC grids with many inverter-based resources, with recommendations checked by GPU grid optimisers.
 - **Bib:** `gevernova2026dynagridfm` added (322 → 323).
 - **Appendix D and E:** unchanged until a paper appears.
+
+## 2026-10-29 (s4casting)
+
+**Why.** Barton asked whether Alliander's s4casting is in the repo and to add it. It was not.
+
+**Sources.** GitHub repository alliander-opensource/s4casting (README, docs/DATA_SOURCES.md, docs/EVALUATION.md, docs/WEIGHTS_RELEASE.md) and the model card model_cards/transformer-lianderpower-v1/MODEL_CARD.md. No paper; docs/CITATION.md returns 404. Hugging Face searched for s4casting, Alliander and LianderPower: no model found.
+
+**Changes.**
+- **§2.4.5:** paragraph under "Models pretrained on load data": Alliander (Dutch DSO Liander's parent), MPL-2.0 toolkit of S4/Mamba-style SSMs and transformers for medium-voltage load up to two days ahead; first model a 29M-parameter transformer trained on LianderPower (1,459 locations, 2013–2024, weather covariates), Gaussian-mixture output per 15-minute step; one operator's locations, validation scores only, weights documented but not yet on the Hub; planned move into LF Energy OpenSTEF.
+- **Appendix D:** `s4casting` entry (family Energy, developer Alliander).
+- **Appendix E:** Alliander added (Company, Netherlands), from the model card's named developer; publication count 140 → 141.
+- **Bib:** `alliander2026s4casting` added (323 → 324).

@@ -4,7 +4,7 @@ parent: "2.4 Existing FMs Relevant to Energy"
 grand_parent: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 2
 status: draft
-last_reviewed: 2026-10-20
+last_reviewed: 2026-10-29
 ---
 
 # 2.4.2 Power-Grid Foundation Models (First Released Models, Moving Fast)
@@ -36,6 +36,16 @@ During 2026 the idea became working, released software. Several pretrained model
 
 One caution carries over from earlier learning-to-optimise work: on two years of real operating data from Uruguay's grid, learned dispatch models showed a significant increase in prediction error compared with synthetic inputs.[^boero2025orpd] Results on benchmark grids do not yet show performance in real operation.
 
+## Trained on a real national grid: RTE and EnerGNN
+
+The models above are trained on benchmark or synthetic grids. RTE (Réseau de Transport d'Électricité), the French transmission system operator, works from the other end: its R&D department, with the University of Liège, trains graph networks on the operating record of its own grid. The code is open source as **EnerGNN**, a JAX library under the MPL-2.0 licence, which became an LF Energy Sandbox project in September 2026.[^energnn2026]
+
+- **Representation.** Every component of the grid is a hyper-edge attached to one, two or three connection points, and several components can share the same points. In the voltage-control work there are 17 classes, from buses, lines and transformers to shunts and the controllers that act on them. RTE calls this a hyper heterogeneous multi graph (H2MG). It was introduced with a companion graph network on a 60-bus Nordic test case. There, a voltage-control policy trained on a reduced variant of the grid transferred badly to the standard one (35% of operating conditions left with a violation, against 5.2% for a policy trained on the standard grid), while one policy trained on all variants together matched each specialist.[^donon2024h2mgnode]
+- **The full French grid.** The same architecture was trained without labels, by trial and error against RTE's power-flow simulator, on 149,249 day-ahead forecasts of the 63–400 kV grid (up to 7,643 buses) from September to November 2024. On forecasts from the second half of December it cut the mean number of voltage violations per forecast from 38.8 to 26.6, with no change in branch overflows or losses. The baseline is a tuned uniform setpoint offset, because no other method runs at this scale. The simulator failed to converge on 3.5% of forecasts after the network's actions (1.3% for the baseline), and training took five days on one GPU without covering the whole training set. The abstract describes the training data as one year of forecasts; the dataset section gives three months.[^donon2026tvc]
+- **Switching decisions.** On a 12-substation test case, the approach raises exchange capacity between two areas by 10.2% in about 100 ms per batch of eight cases, against 15.2% for a [MILP](../appendices/a-glossary.html#milp) solver that regularly hits its 10-minute limit.[^martinez2026osr] A contingency-screening model trained on one year of French snapshots is reported to flag 99% of risky outages and 86% of non-risky ones correctly, in a presentation rather than a paper.[^donon2026energnnlfe]
+
+**How it bears on these notes.** This is the closest of the work cited here to what the Uruguay caution above asks for: graph networks trained and tested on a national grid's real operating record, with outages, split buses and renamed equipment as they actually occur. It is not a [foundation model](../appendices/a-glossary.html#foundation-model). Each use case trains its own network from scratch, no trained weights are released, and no model is tested on a grid other than the one it was trained on. Whether one H2MG encoder pretrained across RTE's tasks would beat per-task training has not been reported. Two points still carry over. The H2MG makes the [basic element](../appendices/a-glossary.html#basic-element) ([§2.3](2-3-choosing-a-basic-element.html)) the device rather than the bus, which is the form a multi-carrier network needs, since a CHP unit takes gas and delivers both electricity and heat ([§4.7.2](../chapter-4-directions/4-7-2-methods-tier2.html#architecture-family-graph-neural-networks)). And RTE has released the topology of its grid as data (RTE7000, under [Related tooling](#related-tooling) below).
+
 ## The demand side has moved too — and shows the gap precisely
 
 The same domain-specific turn is visible on the metering side. **[EnergyFM](../appendices/d-model-index.html#energyfm)** is a family of energy-domain time-series foundation models pretrained on 1.26 billion hourly smart-meter readings from 76,217 buildings, and evaluated across forecasting, anomaly detection and appliance classification.[^arjunan2026energyfm] It is surveyed with the other demand-side models in [§2.4.5](2-4-5-load-forecasting-fms.html). That combination — large-scale pretraining on real energy data, then transfer to several distinct downstream tasks — is the foundation-model pattern proper ([§2.1](2-1-what-defines-an-fm.html)), not a surrogate with an FM label ([§2.1](2-1-what-defines-an-fm.html#surrogates-vs-fms)).
@@ -47,6 +57,7 @@ The same domain-specific turn is visible on the metering side. **[EnergyFM](../a
 - **gridfm-datakit** — a Python library for scalable and realistic power flow and OPF data generation, supporting FM pretraining at scale.[^puech2025gridfmdatakit]
 - **PowerGraph** — a power grid benchmark dataset for graph neural network classification and cascading-failure tasks.[^varbella2024powergraph]
 - **PGLib-OPF** — the curated AC-OPF test-case library that GridFM-style benchmarks build on.[^babaeinejadsarookolaee2019pglib]
+- **RTE7000** — RTE's French transmission grid (63–400 kV) in full substation detail, one snapshot every five minutes from 2021 to 2023, with element identifiers kept consistent over time. It has no power flows or injections, so it records how a real grid's topology varies, not its operating states.[^rte2025rte7000]
 
 [^hamann2024foundation]: Hamann, H. F., Gjorgiev, B., Brunschwiler, T. et al. (2024). [Foundation models for the electric power grid](https://doi.org/10.1016/j.joule.2024.11.002). *Joule*, 8(12), 3245–3258.
 [^puech2025gridfmdatakit]: Puech, A., Mazzonelli, M., Cintas, C. et al. (2025). [gridfm-datakit-v1: A Python library for scalable and realistic power flow and OPF data generation](https://arxiv.org/abs/2512.14658). arXiv:2512.14658.
@@ -61,6 +72,12 @@ The same domain-specific turn is visible on the metering side. **[EnergyFM](../a
 [^lupopasini2026heterogfm]: Lupo Pasini, M., Li, Y., Kim, K. et al. (2026). [Scalable Heterogeneous Graph Foundation Models for Data-Driven Optimal Power Flow in Smart Grids](https://arxiv.org/abs/2605.23194). arXiv:2605.23194.
 [^sanduleac2026gridfmdistil]: Sănduleac, V. A., Puthanpurayil, S. R. R., Khan, N. et al. (2026). [Physics-Aware Distillation of a Grid Foundation Model for Real-Time Edge Inference](https://arxiv.org/abs/2610.21833). arXiv:2610.21833.
 [^boero2025orpd]: Boero, I., Diaz, S., Vázquez, T. et al. (2025). [Learning to Optimally Dispatch Power: Performance on a Nation-Wide Real-World Dataset](https://doi.org/10.1109/ICPRS66293.2025.11302858). *ICPRS 2025*, 1–7. arXiv:2505.24505.
+[^energnn2026]: Committers of EnerGNN (2026). [EnerGNN: A Graph Neural Network library for real-life energy networks](https://github.com/energnn/energnn). Open-source software, MPL-2.0. Listed as a Sandbox-stage project on the [LF Energy project page](https://lfenergy.org/projects/energnn/).
+[^donon2024h2mgnode]: Donon, B., Cubélier, F., Karangelos, E. et al. (2024). [Topology-aware reinforcement learning for tertiary voltage control](https://doi.org/10.1016/j.epsr.2024.110658). *Electric Power Systems Research*, 234, 110658 (PSCC 2024). Transfer results in Table I.
+[^donon2026tvc]: Donon, B., Jamgotchian, G., Kulesza, H., Wehenkel, L. (2026). [Self-supervised graph neural networks for full-scale tertiary voltage control](https://arxiv.org/abs/2604.03087). arXiv:2604.03087. Datasets in Section III-A, results in Table III.
+[^martinez2026osr]: Martinez, A., Donon, B., Wehenkel, L., Karangelos, E. (2026). [Self-supervised graph neural networks for optimal substation reconfiguration](https://arxiv.org/abs/2603.23401). arXiv:2603.23401. Results in Table I.
+[^donon2026energnnlfe]: Donon, B. (2026). [EnerGNN: A graph neural network library for real-life complex energy systems](https://tac.lfenergy.org/meetings/2026/2026-04-14/EnerGNN_LFE_TAC.pdf). Presentation to the LF Energy Technical Advisory Council, 14 April 2026. Slide "Contingency Screening"; not peer-reviewed.
+[^rte2025rte7000]: RTE (2025). [D-GITT RTE7000 nodes dataset, 2021](https://huggingface.co/datasets/OpenSynth/D-GITT-RTE7000-2021). Hugging Face, with companion records for 2022 and 2023. Node-breaker snapshots in PowSyBl XIIDM format. The dataset page lists the licence as CDLA-Permissive-2.0; check it before reuse.
 
 ---
 [← Previous: 2.4.1 Time-Series FMs](2-4-1-time-series-fms.html) · [Back to Chapter 2](index.html) · [Next: 2.4.3 Weather, Geospatial & Generation FMs →](2-4-3-clean-energy-forecasting-fms.html)

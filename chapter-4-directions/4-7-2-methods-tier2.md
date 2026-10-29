@@ -4,7 +4,7 @@ parent: "4.7 A Proposed Development Path"
 grand_parent: Chapter 4 — Directions for FMs in UES
 nav_order: 2
 status: draft
-last_reviewed: 2026-09-11
+last_reviewed: 2026-10-29
 redirect_from:
   - /07-methods-tier2.html
   - /chapter-4-directions/4-9-2-methods-tier2.html
@@ -34,6 +34,8 @@ The learning problem becomes: *given a graph and boundary conditions, predict th
 The power-systems community has developed this thoroughly and the lessons transfer directly. See [§2.6](../chapter-2-fm-foundations/2-6-architectures.html) for what a graph neural network is, if you have not met one before.
 
 **Heterogeneous message passing is the right default.** Recent work proposes a hybrid heterogeneous graph neural network combined with a scalable [transformer](../appendices/a-glossary.html#transformer) for AC-OPF that explicitly models power system components as distinct node and edge types, specifically to address topology adaptability and scalability.[^arowolo2026gnnopf] In multi-carrier systems the heterogeneity is even more pronounced — a heat pipe and a power line are not the same edge type in any useful sense.
+
+**Devices with more than two ports.** An edge joins two nodes, but a CHP unit takes gas and delivers both electricity and heat. RTE's hyper heterogeneous multi graph treats every device as a hyper-edge with one, two or three ports, and has been run on the full French transmission grid with the open-source EnerGNN library ([§2.4.2](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html#trained-on-a-real-national-grid-rte-and-energnn)). It has not been tried on a multi-carrier network.
 
 **Local message passing plus global attention.** A representative design ([LG-HGNN](../appendices/d-model-index.html#lg-hgnn)) performs type-specific local message passing over heterogeneous graphs and applies a global Transformer only on bus nodes, capturing system-wide correlations efficiently.[^wen2026lghgnn] This hybrid pattern is worth copying: message passing handles local physics, attention handles system-wide coupling.
 

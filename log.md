@@ -1005,3 +1005,17 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 **References (bib 286 → 314).** 28 new: 15 papers and preprints, 8 legal and official texts, 5 dataset records.
 
 Verified: footnote integrity on every page, all keys in the bib, no duplicates, braces balanced, every internal link and anchor resolving (local check). Glossary and model linkers re-run. Version 3.3 recorded in Appendix C, `_config.yml` and the README.
+
+## 2026-10-29 (RTE and EnerGNN)
+
+**Why.** Barton asked whether EnerGNN and the French TSO RTE were covered. Neither was (only `donon2020gns` in §2.3, without naming RTE).
+
+**Sources, read in full.** Donon et al. 2026 (arXiv 2604.03087, full-scale tertiary voltage control), Martinez et al. 2026 (arXiv 2603.23401, substation reconfiguration), Donon et al. 2024 (EPSR 234, 110658, PSCC 2024, H2MG and H2MGNODE), the EnerGNN slides to the LF Energy TAC (14 April 2026), the EnerGNN repository and docs, the LF Energy project page (Sandbox), and the D-GITT RTE7000 dataset card on Hugging Face.
+
+**Changes.**
+- **§2.4.2:** new section "Trained on a real national grid: RTE and EnerGNN": H2MG representation and its transfer result on case60nordic, the full-scale French voltage-control result (38.8 → 26.6 violations per forecast, against a simple baseline; 3.5% non-convergence; three months of training data although the abstract says one year), substation switching (10.2% vs MILP 15.2%), contingency screening (slides only). Framed as real-grid evidence, not an FM: per-task training, no released weights, no cross-grid test. RTE7000 added under Related tooling (topology only, no injections).
+- **§2.3:** one sentence after `donon2020gns` pointing to the device-level element in §2.4.2.
+- **§4.7.2:** "Devices with more than two ports": the H2MG hyper-edge as the form a CHP unit needs; not yet tried on a multi-carrier network.
+- **Not changed:** Appendix D (EnerGNN is a library, not a pretrained model) and Appendix E (no RTE paper builds, adapts or evaluates a foundation model, so RTE and Liège do not meet its criterion).
+
+**References (bib 315 → 321).** `energnn2026`, `donon2024h2mgnode`, `donon2026tvc`, `martinez2026osr`, `donon2026energnnlfe`, `rte2025rte7000`.

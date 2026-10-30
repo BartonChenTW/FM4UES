@@ -1054,3 +1054,15 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 - **Appendix D:** `s4casting` entry (family Energy, developer Alliander).
 - **Appendix E:** Alliander added (Company, Netherlands), from the model card's named developer; publication count 140 → 141.
 - **Bib:** `alliander2026s4casting` added (323 → 324).
+
+## 2026-10-30 (PriceFM and PriceFM+)
+
+**Why.** Barton asked whether PriceFM+ is in the repo and to add it. Neither PriceFM nor PriceFM+ was; the repo had no electricity-price section.
+
+**Sources.** PriceFM paper (arXiv 2508.04875v3, read in full: author block, Tables II and III). PriceFM+ has no paper ("Manuscript in preparation" in the README citation); details from the GitHub README (v2 news 26 Oct 2026), the project page source (Project_page/index.html, contributor affiliations) and Project_page/data/results.csv (273 test days, 40 regions; Realistic/TSO/Oracle cases; feature-case mapping from src/PriceFM_Plus/_training.py and data.py).
+
+**Changes.**
+- **§2.4.5:** new section "Electricity prices": PriceFM (38 regions, 2022–2025, transmission-topology mask, non-crossing quantile head; −12.3% quantile loss vs best graph baseline; −14.7% vs Chronos-2 leave-one-region-out) and PriceFM+ (40 regions, cross-border flows, looped cross-attention; realistic case 6.71 vs 7.29 €/MWh for Chronos-2, MLP 7.44); link to §2.4.2 on the network prior.
+- **Appendix D:** `pricefm` entry covering both versions.
+- **Appendix E:** PriceFM institutions from the paper (Delft, AIT, Oxford, TUM, Rimac Technology, Squirrel AI); PriceFM+ contributors' institutions from the project page (adds London Business School, Wrocław University of Science and Technology, DTU, Imperial, Institute of Science Tokyo, University of Porto, INESC TEC). Six new institutions (195 → 201); publications 141 → 143; UK count 12 → 13. Entries re-sorted by paper count.
+- **Bib:** `yu2025pricefm`, `yu2026pricefmplus` (324 → 326).

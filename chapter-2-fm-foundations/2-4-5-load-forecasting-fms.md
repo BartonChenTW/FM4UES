@@ -4,7 +4,7 @@ parent: "2.4 Existing FMs Relevant to Energy"
 grand_parent: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 5
 status: draft
-last_reviewed: 2026-10-29
+last_reviewed: 2026-10-30
 redirect_from:
   - /chapter-2-fm-foundations/2-4-6-load-forecasting-fms.html
 ---
@@ -61,6 +61,16 @@ Most of the literature evaluates the general models of [§2.4.1](2-4-1-time-seri
 
 **Covariates are the open technical question.** Weather, calendar and occupancy should help a load forecast. Yet two evaluations find that adding them changes little, or helps only some architectures,[^mulayim2026bem] [^cheong2026exogenous] while a feeder study found weather information important.[^kaas2026lvpeak] Covariate handling is the place where current general models are weakest for this domain, and where a domain model has the most room to add something.
 
+## Electricity prices
+
+Day-ahead prices are the other forecast that dispatch takes as an input. In Europe they are set region by region but coupled through cross-border lines, so a price forecast is a network problem as well as a time-series one.
+
+**[PriceFM](../appendices/d-model-index.html#pricefm)**, from Delft University of Technology and the Austrian Institute of Technology with co-authors at Oxford, TU Munich, Rimac Technology and Squirrel AI, is pretrained on four years (2022–2025) of day-ahead prices for 38 regions in 24 European countries, with load, solar and wind forecasts as inputs. A sparse mask built from the transmission network limits which neighbouring regions each region's forecast may draw on, and a quantile head that builds the other quantiles outward from the median stops them crossing. Over a year of rolling tests its quantile loss is 12.3% lower than that of the best graph network without the mask. With each region held out of training in turn and forecast unseen, it is 14.7% lower than Chronos-2's, which the authors take to mean that general models do not pick up the coupling between markets on their own.[^yu2025pricefm]
+
+**PriceFM+**, released on 26 October 2026, extends this to 40 regions and adds cross-border flows (imports and exports) as inputs. [Cross-attention](../appendices/a-glossary.html#cross-attention) replaces the neighbour cut-off that PriceFM tuned separately for each region. On 273 test days in the authors' "realistic" input case (an "oracle" case instead gives every model the delivery day's actual values), its quantile loss is 6.71 €/MWh against 7.29 for Chronos-2, the best of four general models (with TimesFM-3, [TiRex-2](../appendices/d-model-index.html#tirex-2) and TabPFN-TS 3). A plain multilayer perceptron trained on the same data scores 7.44, close to the general models. The code, data, weights and forecasts are released, but the paper describing it was still in preparation on 30 October 2026, so these figures come from the project page only.[^yu2026pricefmplus]
+
+The pattern matches load: a model built for the domain beats the general models, but a simple network trained on the same data comes close to them. What prices add is a network. PriceFM uses the transmission links between bidding zones as its prior, the same idea as the grid models of [§2.4.2](2-4-2-power-grid-fms.html), at the scale of a market rather than a feeder.
+
 ## What this family does not settle
 
 **It forecasts consumption, not the building.** None of the models above can answer a what-if question: what the load becomes after a heat pump is installed or the envelope is insulated. They extrapolate a series rather than represent the object, so they do not replace demand modelling (T1) or retrofit analysis (T10, [§3.5](../chapter-3-sim-opt/3-5-retrofit-and-whole-life-carbon.html)). Conditioning a load model on building attributes is the candidate direction in [§4.6](../chapter-4-directions/4-6-reading-the-screen.html#candidate-sub-fields), and it is the step that would turn this family into a building model.
@@ -91,6 +101,8 @@ Most of the literature evaluates the general models of [§2.4.1](2-4-1-time-seri
 [^park2025probforecasting]: Park, Y.-J., Germain, F., Liu, J. et al. (2025). [Probabilistic forecasting for building energy systems using time-series foundation models](https://doi.org/10.1016/j.enbuild.2025.116446). *Energy and Buildings*, 348, 116446. arXiv:2506.00630.
 [^mulayim2026bem]: Mulayim, O. B., Quan, P., Han, L. et al. (2026). [Can time-series foundation models perform building energy management tasks?](https://doi.org/10.1017/dce.2026.10040) *Data-Centric Engineering*, 7, e9. arXiv:2506.11250.
 [^yanespulido2026tsfmtransport]: Yanes-Pulido, J., Rodrigues, F. (2026). [Time Series Foundation Models as Strong Baselines in Transportation Forecasting: A Large-Scale Benchmark Analysis](https://arxiv.org/abs/2602.24238). arXiv:2602.24238.
+[^yu2025pricefm]: Yu, R., Gu, C., Stiasny, J. et al. (2025). [PriceFM: Foundation model for probabilistic electricity price forecasting](https://arxiv.org/abs/2508.04875). arXiv:2508.04875 (v3, 2026). Results in Tables II and III.
+[^yu2026pricefmplus]: Yu, R., Bunn, D. W., Weron, R. et al. (2026). *Training paradigms and foundation models for European electricity price forecasting*. Manuscript in preparation. Code, data and results: [github.com/runyao-yu/PriceFM](https://github.com/runyao-yu/PriceFM) and the [project page](https://runyao-yu.github.io/PriceFM/), accessed 30 October 2026.
 
 ---
 [← Previous: 2.4.4 Tabular FMs](2-4-4-tabular-fms.html) · [Back to Chapter 2](index.html) · [Next: 2.5 Self-Supervision, Fine-Tuning, Scaling Laws →](2-5-scaling-laws.html)

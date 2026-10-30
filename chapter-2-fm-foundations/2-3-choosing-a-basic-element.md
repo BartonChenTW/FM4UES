@@ -3,7 +3,7 @@ title: "2.3 Choosing a Basic Element"
 parent: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 3
 status: draft
-last_reviewed: 2026-09-24
+last_reviewed: 2026-10-29
 redirect_from: /03-basic-elements.html
 ---
 
@@ -24,7 +24,7 @@ If you read only one page in these notes, read this one. It gives the criterion 
 
 D1 — [Unit of observation](../appendices/a-glossary.html#unit-of-observation) (what is one training example?) and D2 — [Tokenisation](../appendices/a-glossary.html#tokenisation)/encoding (how is a training example turned into something the architecture consumes?), see [§2.2](2-2-five-design-decisions.html), are usually treated as implementation detail. They are not. The choice of [basic element](../appendices/a-glossary.html#basic-element) determines what transfers, and no amount of architecture or compute compensates for a bad one.
 
-**Why grid foundation models work.** Power networks supply their own basic element. A bus is a bus in Switzerland and in Texas, at 20 kV and at 380 kV. Two engineers decomposing the same network produce the same buses and lines. Networks are assembled from these elements by known rules. The model therefore learns *the element* and its interactions, and an unseen network is a new arrangement of familiar parts.[^donon2020gns] Tokenisation is essentially given by the domain — which is why the proposed grid foundation model is a graph neural network meant to learn across diverse grid data and topologies.[^hamann2024foundation]
+**Why grid foundation models work.** Power networks supply their own basic element. A bus is a bus in Switzerland and in Texas, at 20 kV and at 380 kV. Two engineers decomposing the same network produce the same buses and lines. Networks are assembled from these elements by known rules. The model therefore learns *the element* and its interactions, and an unseen network is a new arrangement of familiar parts.[^donon2020gns] On the real French grid, where outages, split buses and renamed equipment change the network from one hour to the next, Donon and colleagues at RTE later made the element the individual device rather than the bus ([§2.4.2](2-4-2-power-grid-fms.html#trained-on-a-real-national-grid-rte-and-energnn)). Tokenisation is essentially given by the domain — which is why the proposed grid foundation model is a graph neural network meant to learn across diverse grid data and topologies.[^hamann2024foundation]
 
 **Four requirements**, derived from that case. These are the criterion; they are stated in ordinary modelling language and can be applied to any proposed representation, including ones this document does not consider.
 

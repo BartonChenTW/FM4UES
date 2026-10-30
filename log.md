@@ -1005,3 +1005,77 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 **References (bib 286 → 314).** 28 new: 15 papers and preprints, 8 legal and official texts, 5 dataset records.
 
 Verified: footnote integrity on every page, all keys in the bib, no duplicates, braces balanced, every internal link and anchor resolving (local check). Glossary and model linkers re-run. Version 3.3 recorded in Appendix C, `_config.yml` and the README.
+
+## 2026-10-29 (RTE and EnerGNN)
+
+**Why.** Barton asked whether EnerGNN and the French TSO RTE were covered. Neither was (only `donon2020gns` in §2.3, without naming RTE).
+
+**Sources, read in full.** Donon et al. 2026 (arXiv 2604.03087, full-scale tertiary voltage control), Martinez et al. 2026 (arXiv 2603.23401, substation reconfiguration), Donon et al. 2024 (EPSR 234, 110658, PSCC 2024, H2MG and H2MGNODE), the EnerGNN slides to the LF Energy TAC (14 April 2026), the EnerGNN repository and docs, the LF Energy project page (Sandbox), and the D-GITT RTE7000 dataset card on Hugging Face.
+
+**Changes.**
+- **§2.4.2:** new section "Trained on a real national grid: RTE and EnerGNN": H2MG representation and its transfer result on case60nordic, the full-scale French voltage-control result (38.8 → 26.6 violations per forecast, against a simple baseline; 3.5% non-convergence; three months of training data although the abstract says one year), substation switching (10.2% vs MILP 15.2%), contingency screening (slides only). Framed as real-grid evidence, not an FM: per-task training, no released weights, no cross-grid test. RTE7000 added under Related tooling (topology only, no injections).
+- **§2.3:** one sentence after `donon2020gns` pointing to the device-level element in §2.4.2.
+- **§4.7.2:** "Devices with more than two ports": the H2MG hyper-edge as the form a CHP unit needs; not yet tried on a multi-carrier network.
+- **Not changed:** Appendix D (EnerGNN is a library, not a pretrained model) and Appendix E (no RTE paper builds, adapts or evaluates a foundation model, so RTE and Liège do not meet its criterion).
+
+**References (bib 315 → 321).** `energnn2026`, `donon2024h2mgnode`, `donon2026tvc`, `martinez2026osr`, `donon2026energnnlfe`, `rte2025rte7000`.
+
+## 2026-10-29 (LUMINA and related work)
+
+**Why.** Barton asked who made LUMINA and to make sure related information is in the repo. LUMINA was cited only as a one-line bullet from the arXiv preprint.
+
+**Sources, read in full.** LUMINA (arXiv 2603.04300v2; venue from OpenReview: ICLR 2026 Workshop FM4Science, poster), Lupo Pasini et al. (arXiv 2605.23194v2, author block), OPFData (arXiv 2406.07234). GitHub searched for a LUMINA code release: none found.
+
+**Changes.**
+- **§2.4.2:** LUMINA bullet rewritten with the team (Argonne, with Emory and Sogang), what it tests and its results (multi-topology pretraining transfers better; heterogeneous over homogeneous GNNs; fine-tuning 48.8% / 83.6% fewer steps on case118 / case500; augmented-Lagrangian loss 3–80× fewer violations on unseen grids; errors at high load and high-degree buses) and limits (≤500-bus adaptation, no feasibility guarantee, narrow FM definition, no code link). Heterogeneous-GFM bullet now names Oak Ridge and the two shared Argonne authors. OPFData added under Related tooling.
+- **Appendix D:** LUMINA description and notes (venue, all authors checked, no code link).
+- **Bib:** `li2026lumina` changed to `@inproceedings` (workshop); `lovett2024opfdata` added (321 → 322).
+- **Appendix E:** unchanged; Argonne, Emory and Sogang were already listed for LUMINA, and Oak Ridge and Argonne for Lupo Pasini et al.
+
+## 2026-10-29 (DynaGridFM)
+
+**Why.** Barton asked whether DynaGridFM is in the repo and to add it. It was not.
+
+**Sources.** GE Vernova news article, 19 October 2026 (the only public source; no paper, data, architecture or results yet).
+
+**Changes.**
+- **§2.4.2:** short dated paragraph "Announced, not yet published: DynaGridFM" before the Uruguay caution: GE Vernova Advanced Research lead, with GE Vernova Grid Software, PNNL and Georgia Tech; ARPA-E Vision OPEN 2024, US$3.43M, two years; multi-task, multi-interval look-ahead for AC/DC grids with many inverter-based resources, with recommendations checked by GPU grid optimisers.
+- **Bib:** `gevernova2026dynagridfm` added (322 → 323).
+- **Appendix D and E:** unchanged until a paper appears.
+
+## 2026-10-29 (s4casting)
+
+**Why.** Barton asked whether Alliander's s4casting is in the repo and to add it. It was not.
+
+**Sources.** GitHub repository alliander-opensource/s4casting (README, docs/DATA_SOURCES.md, docs/EVALUATION.md, docs/WEIGHTS_RELEASE.md) and the model card model_cards/transformer-lianderpower-v1/MODEL_CARD.md. No paper; docs/CITATION.md returns 404. Hugging Face searched for s4casting, Alliander and LianderPower: no model found.
+
+**Changes.**
+- **§2.4.5:** paragraph under "Models pretrained on load data": Alliander (Dutch DSO Liander's parent), MPL-2.0 toolkit of S4/Mamba-style SSMs and transformers for medium-voltage load up to two days ahead; first model a 29M-parameter transformer trained on LianderPower (1,459 locations, 2013–2024, weather covariates), Gaussian-mixture output per 15-minute step; one operator's locations, validation scores only, weights documented but not yet on the Hub; planned move into LF Energy OpenSTEF.
+- **Appendix D:** `s4casting` entry (family Energy, developer Alliander).
+- **Appendix E:** Alliander added (Company, Netherlands), from the model card's named developer; publication count 140 → 141.
+- **Bib:** `alliander2026s4casting` added (323 → 324).
+
+## 2026-10-30 (PriceFM and PriceFM+)
+
+**Why.** Barton asked whether PriceFM+ is in the repo and to add it. Neither PriceFM nor PriceFM+ was; the repo had no electricity-price section.
+
+**Sources.** PriceFM paper (arXiv 2508.04875v3, read in full: author block, Tables II and III). PriceFM+ has no paper ("Manuscript in preparation" in the README citation); details from the GitHub README (v2 news 26 Oct 2026), the project page source (Project_page/index.html, contributor affiliations) and Project_page/data/results.csv (273 test days, 40 regions; Realistic/TSO/Oracle cases; feature-case mapping from src/PriceFM_Plus/_training.py and data.py).
+
+**Changes.**
+- **§2.4.5:** new section "Electricity prices": PriceFM (38 regions, 2022–2025, transmission-topology mask, non-crossing quantile head; −12.3% quantile loss vs best graph baseline; −14.7% vs Chronos-2 leave-one-region-out) and PriceFM+ (40 regions, cross-border flows, looped cross-attention; realistic case 6.71 vs 7.29 €/MWh for Chronos-2, MLP 7.44); link to §2.4.2 on the network prior.
+- **Appendix D:** `pricefm` entry covering both versions.
+- **Appendix E:** PriceFM institutions from the paper (Delft, AIT, Oxford, TUM, Rimac Technology, Squirrel AI); PriceFM+ contributors' institutions from the project page (adds London Business School, Wrocław University of Science and Technology, DTU, Imperial, Institute of Science Tokyo, University of Porto, INESC TEC). Six new institutions (195 → 201); publications 141 → 143; UK count 12 → 13. Entries re-sorted by paper count.
+- **Bib:** `yu2025pricefm`, `yu2026pricefmplus` (324 → 326).
+
+## 2026-10-30 (Timestral)
+
+**Why.** Barton asked whether Mistral's Timestral is in the repo and to add it. It was not.
+
+**Sources.** Mistral blog post "Introducing Timestral" (15 Oct 2026, read in full), Timestral-209M model card and LICENSE on Hugging Face, GitHub repository. No technical report yet.
+
+**Changes.**
+- **§2.4.1:** Timestral added to the current-generation list; new bullet (four sizes 5M–209M, open weights; patch transformer with time and variate attention; covariate roles with one-way flow from covariates to targets; synthetic-only pretraining then mixed real/synthetic post-training, context up to 32,768; Mistral-reported first place on GIFT-Eval, TIME and fev-bench by small margins; 113 ms CPU inference; no report, undisclosed real data, licence revenue clause); covariate paragraph notes it accepts past-only and known-future covariates, categorical included.
+- **§4.1:** row in the covariate table (past-only yes, known-future yes, categorical yes, static not stated, several targets yes).
+- **Appendix D:** `timestral` entry (General time series, Mistral AI).
+- **Appendix E:** Mistral AI added (Company, France) from the named developer; 201 → 202 institutions, 143 → 144 publications.
+- **Bib:** `mistral2026timestral` (326 → 327).

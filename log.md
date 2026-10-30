@@ -1066,3 +1066,16 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 - **Appendix D:** `pricefm` entry covering both versions.
 - **Appendix E:** PriceFM institutions from the paper (Delft, AIT, Oxford, TUM, Rimac Technology, Squirrel AI); PriceFM+ contributors' institutions from the project page (adds London Business School, Wrocław University of Science and Technology, DTU, Imperial, Institute of Science Tokyo, University of Porto, INESC TEC). Six new institutions (195 → 201); publications 141 → 143; UK count 12 → 13. Entries re-sorted by paper count.
 - **Bib:** `yu2025pricefm`, `yu2026pricefmplus` (324 → 326).
+
+## 2026-10-30 (Timestral)
+
+**Why.** Barton asked whether Mistral's Timestral is in the repo and to add it. It was not.
+
+**Sources.** Mistral blog post "Introducing Timestral" (15 Oct 2026, read in full), Timestral-209M model card and LICENSE on Hugging Face, GitHub repository. No technical report yet.
+
+**Changes.**
+- **§2.4.1:** Timestral added to the current-generation list; new bullet (four sizes 5M–209M, open weights; patch transformer with time and variate attention; covariate roles with one-way flow from covariates to targets; synthetic-only pretraining then mixed real/synthetic post-training, context up to 32,768; Mistral-reported first place on GIFT-Eval, TIME and fev-bench by small margins; 113 ms CPU inference; no report, undisclosed real data, licence revenue clause); covariate paragraph notes it accepts past-only and known-future covariates, categorical included.
+- **§4.1:** row in the covariate table (past-only yes, known-future yes, categorical yes, static not stated, several targets yes).
+- **Appendix D:** `timestral` entry (General time series, Mistral AI).
+- **Appendix E:** Mistral AI added (Company, France) from the named developer; 201 → 202 institutions, 143 → 144 publications.
+- **Bib:** `mistral2026timestral` (326 → 327).

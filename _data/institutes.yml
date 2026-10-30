@@ -3,7 +3,7 @@
 #
 # Compiled on 2026-10-27, starting from the authors of every publication in
 # references/fm-for-ues.bib that builds, pretrains, adapts or evaluates a
-# foundation model, LLMs and LLM agents included (143 entries). Affiliations come
+# foundation model, LLMs and LLM agents included (144 entries). Affiliations come
 # from each paper's OpenAlex record (author institutions, checked against the
 # raw affiliation strings), or from the paper's own title page where OpenAlex
 # had none; for a model card or README with no author list, the developer it
@@ -787,6 +787,11 @@
   countries: "Canada"
   papers:
     - {key: "rasul2023laglama", label: "Lag-Llama", title: "Lag-Llama: Towards foundation models for probabilistic time series forecasting", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+- name: "Mistral AI"
+  sector: "Company"
+  countries: "France"
+  papers:
+    - {key: "mistral2026timestral", label: "Timestral", title: "Introducing Timestral", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
 - name: "Mitsubishi Electric Research Laboratories"
   sector: "Company"
   countries: "United States"

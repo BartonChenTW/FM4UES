@@ -1079,3 +1079,9 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 - **Appendix D:** `timestral` entry (General time series, Mistral AI).
 - **Appendix E:** Mistral AI added (Company, France) from the named developer; 201 → 202 institutions, 143 → 144 publications.
 - **Bib:** `mistral2026timestral` (326 → 327).
+
+## 2026-10-31 (GitHub link in the sidebar)
+
+**Why.** Barton asked for a link to the GitHub repository at the bottom of the sidebar.
+
+**Change.** `_includes/nav_footer_custom.html`: a "Source on GitHub" link with the GitHub mark, under the dark-mode button, using `site.gh_edit_repository` from `_config.yml`. It also appears in the mobile footer, where the theme renders the same include.

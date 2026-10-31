@@ -56,3 +56,4 @@ The **[proposed development path](chapter-4-directions/4-7-methods-landing.html)
 | — | [Pre-Project Checklist](appendices/b-checklist.html) | Thirteen questions to ask before starting |
 | — | [Version History](appendices/c-version-history.html) | What changed in each version; how to trace changes to a page |
 | — | [Model Index](appendices/d-model-index.html) | Every named model in the notes, with developer and links |
+| — | [Research Institutes](appendices/e-research-institutes.html) | The institutions behind the foundation-model papers the notes cite |

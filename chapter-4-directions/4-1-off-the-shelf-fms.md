@@ -3,7 +3,7 @@ title: "4.1 Using Existing FMs Off the Shelf"
 parent: Chapter 4 — Directions for FMs in UES
 nav_order: 1
 status: draft
-last_reviewed: 2026-10-20
+last_reviewed: 2026-10-30
 ---
 
 # 4.1 Using Existing Foundation Models Off the Shelf
@@ -56,6 +56,7 @@ The table is read from each model's paper or official documentation on 20 Octobe
 | [TabPFN-TS](../appendices/d-model-index.html#tabpfn-ts) | No: dropped | Yes, supplied for the horizon | Yes | No: currently dropped | No: split into separate single-series forecasts | Library documentation;[^priorlabs2026tabpfntsreadme] categorical from the Chronos-2 paper[^ansari2025chronos2] |
 | [TimesFM 2.5](../appendices/d-model-index.html#timesfm-2-5) | No: covariates must cover the context and the horizon | Yes, through an added regression model (XReg) | Yes | Yes | No | Repository documentation[^google2026timesfm3] |
 | [TimesFM 3.0](../appendices/d-model-index.html#timesfm-3-0) (August 2026) | Yes | Yes | Not stated | Not stated | Yes | Repository documentation only; no paper[^google2026timesfm3] |
+| [Timestral](../appendices/d-model-index.html#timestral) (October 2026) | Yes | Yes | Yes | Not stated | Yes | Model card and blog post only; no paper[^mistral2026timestral] |
 | [Moirai 2.0](../appendices/d-model-index.html#moirai-2-0) | No | No | No | No | No | Paper: support for covariates and several target series was dropped from version 2.0[^liu2025moirai2] |
 | [TiRex](../appendices/d-model-index.html#tirex) | No | No | No | No | No | Chronos-2 paper's comparison table[^ansari2025chronos2] |
 | [TiRex-2](../appendices/d-model-index.html#tirex-2) (July 2026) | Yes | Yes | Not stated | Not stated | Yes | Preprint[^podest2026tirex2] |
@@ -87,6 +88,7 @@ Accepting a covariate is not the same as using it well. On synthetic series with
 [^datadog2026totoreadme]: Datadog (2026). [Toto: GitHub repository README](https://github.com/DataDog/toto). *GitHub*. Read 20 October 2026.
 [^berthelier2026covariate]: Berthelier, G., Baranova, M., Pantea, A.-T. et al. (2026). [Investigating simple target-covariate relationships for Chronos-2 and TabPFN-TS](https://arxiv.org/abs/2605.12200). arXiv:2605.12200.
 [^cheong2026exogenous]: Cheong, W. S., Jiang, L. L., Ling, J. N. S. (2026). [Assessing electricity demand forecasting with exogenous data in time series foundation models](https://arxiv.org/abs/2602.05390). AI4TS Workshop at AAAI 2026. arXiv:2602.05390.
+[^mistral2026timestral]: Mistral AI (2026). [Introducing Timestral](https://mistral.ai/news/timestral/). Blog post, 15 October 2026; [model card](https://huggingface.co/mistralai/Timestral-209M) and [code](https://github.com/mistralai/timestral). Technical report not yet released.
 
 ---
 [← Previous: Chapter 4 — Directions for FMs in UES](index.html) · [Back to Chapter 4](index.html) · [Next: 4.2 FMs for Whole Building Stocks →](4-2-fms-for-building-stocks.html)

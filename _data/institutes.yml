@@ -3,7 +3,7 @@
 #
 # Compiled on 2026-10-27, starting from the authors of every publication in
 # references/fm-for-ues.bib that builds, pretrains, adapts or evaluates a
-# foundation model, LLMs and LLM agents included (140 entries). Affiliations come
+# foundation model, LLMs and LLM agents included (144 entries). Affiliations come
 # from each paper's OpenAlex record (author institutions, checked against the
 # raw affiliation strings), or from the paper's own title page where OpenAlex
 # had none; for a model card or README with no author list, the developer it
@@ -123,6 +123,14 @@
     - {key: "jiang2025buildingscibench", label: "Jiang et al. 2025", title: "Benchmarking knowledge and capability of large language models in building science domain", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
     - {key: "zhang2025tsfmrobust", label: "Zhang et al. 2025", title: "Are Time-Series Foundation Models Deployment-Ready? A Systematic Study of Adversarial Robustness Across Domains", page: "chapter-2-fm-foundations/2-8-ues-fm-evaluation-criteria.html"}
     - {key: "mulayim2026bem", label: "Mulayim et al. 2026", title: "Can time-series foundation models perform building energy management tasks?", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "Imperial College London"
+  sector: "University"
+  countries: "United Kingdom"
+  papers:
+    - {key: "dwivedi2024unistruct", label: "Dwivedi et al. 2024", title: "Representation Learning of Structured Data for Medical Foundation Models", page: "chapter-2-fm-foundations/2-2-five-design-decisions.html"}
+    - {key: "liao2025timegpt", label: "Liao et al. 2025", title: "TimeGPT in load forecasting: A large time series model perspective", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+    - {key: "wang2025llmstatedpref", label: "Wang et al. 2025", title: "Can Large Language Models Simulate Human Responses? A Case Study of Stated Preference Experiments in the Context of Heating-related Choices", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+    - {key: "yu2026pricefmplus", label: "PriceFM+", title: "Training Paradigms and Foundation Models for European Electricity Price Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
 - name: "Johannes Kepler University Linz"
   sector: "University"
   countries: "Austria"
@@ -201,6 +209,13 @@
     - {key: "szwarcman2024prithvieo2", label: "Prithvi-EO-2.0", title: "Prithvi-EO-2.0: A versatile multi-temporal foundation model for Earth observation applications", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
     - {key: "emami2025syscaps", label: "Emami et al. 2025", title: "SysCaps: Language interfaces for simulation surrogates of complex systems", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
     - {key: "jadhav2026eqgrid", label: "Jadhav et al. 2026", title: "Grounded, Compute-Efficient LLM Policy Agents for Energy-Poverty Equity in Physically-Constrained Peer-to-Peer Energy Markets", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "Delft University of Technology"
+  sector: "University"
+  countries: "Netherlands"
+  papers:
+    - {key: "xia2026tenantllm", label: "Xia et al. 2026", title: "Simulating Tenant Responses to Energy Policy Interventions with Transaction-Cost-Aware LLM Agent", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+    - {key: "yu2025pricefm", label: "PriceFM", title: "PriceFM: Foundation Model for Probabilistic Electricity Price Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+    - {key: "yu2026pricefmplus", label: "PriceFM+", title: "Training Paradigms and Foundation Models for European Electricity Price Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
 - name: "ETH Zurich"
   sector: "University"
   countries: "Switzerland"
@@ -222,13 +237,6 @@
     - {key: "hamann2024foundation", label: "GridFM", title: "Foundation models for the electric power grid", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
     - {key: "puech2025gridfmdatakit", label: "Puech et al. 2025", title: "gridfm-datakit-v1: A Python library for scalable and realistic power flow and OPF data generation", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
     - {key: "puech2026genco", label: "GENCO", title: "GENCO - A Unified Neural Solver Embedded in a Development Framework for Steady-State Grid Analysis", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
-- name: "Imperial College London"
-  sector: "University"
-  countries: "United Kingdom"
-  papers:
-    - {key: "dwivedi2024unistruct", label: "Dwivedi et al. 2024", title: "Representation Learning of Structured Data for Medical Foundation Models", page: "chapter-2-fm-foundations/2-2-five-design-decisions.html"}
-    - {key: "liao2025timegpt", label: "Liao et al. 2025", title: "TimeGPT in load forecasting: A large time series model perspective", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
-    - {key: "wang2025llmstatedpref", label: "Wang et al. 2025", title: "Can Large Language Models Simulate Human Responses? A Case Study of Stated Preference Experiments in the Context of Heating-related Choices", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
 - name: "Inria"
   sector: "Research institute"
   countries: "France"
@@ -264,6 +272,20 @@
     - {key: "zhou2023pfmsurvey", label: "Zhou et al. 2023", title: "A Comprehensive Survey on Pretrained Foundation Models: A History from BERT to ChatGPT", page: "chapter-2-fm-foundations/2-1-what-defines-an-fm.html"}
     - {key: "woo2024moirai", label: "Moirai", title: "Unified training of universal time series forecasting transformers", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
     - {key: "liu2025moirai2", label: "Moirai 2.0", title: "Moirai 2.0: When less is more for time series forecasting", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "Squirrel AI"
+  sector: "Company"
+  countries: "China"
+  papers:
+    - {key: "liu2024timemmd", label: "Liu et al. 2024", title: "Time-MMD: Multi-domain multimodal dataset for time series analysis", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+    - {key: "yu2025pricefm", label: "PriceFM", title: "PriceFM: Foundation Model for Probabilistic Electricity Price Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+    - {key: "yu2026pricefmplus", label: "PriceFM+", title: "Training Paradigms and Foundation Models for European Electricity Price Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "Technical University of Munich"
+  sector: "University"
+  countries: "Germany"
+  papers:
+    - {key: "raisch2025gentl", label: "Raisch et al. 2025", title: "GenTL: A General Transfer Learning Model for Building Thermal Dynamics", page: "chapter-4-directions/4-2-fms-for-building-stocks.html"}
+    - {key: "xia2026tenantllm", label: "Xia et al. 2026", title: "Simulating Tenant Responses to Energy Policy Interventions with Transaction-Cost-Aware LLM Agent", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+    - {key: "yu2025pricefm", label: "PriceFM", title: "PriceFM: Foundation Model for Probabilistic Electricity Price Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
 - name: "Tongji University"
   sector: "University"
   countries: "China"
@@ -292,6 +314,13 @@
     - {key: "chang2025timeimm", label: "Chang et al. 2025", title: "Time-IMM: A dataset and benchmark for irregular multimodal multivariate time series", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
     - {key: "cohen2025toto", label: "Toto", title: "This time is different: An observability perspective on time series foundation models", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
     - {key: "maji2026carbonx", label: "Maji et al. 2026", title: "CarbonX: An Open-Source Tool for Computational Decarbonization Using Time Series Foundation Models", page: "chapter-3-sim-opt/3-7-flexible-loads.html"}
+- name: "University of Oxford"
+  sector: "University"
+  countries: "United Kingdom"
+  papers:
+    - {key: "kutzner2026syntheticvalidity", label: "Kutzner et al. 2026", title: "Consequential Behaviour and Representational Fairness in the Validation of Synthetic Research", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+    - {key: "yu2025pricefm", label: "PriceFM", title: "PriceFM: Foundation Model for Probabilistic Electricity Price Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+    - {key: "yu2026pricefmplus", label: "PriceFM+", title: "Training Paradigms and Foundation Models for European Electricity Price Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
 - name: "University of Pennsylvania"
   sector: "University"
   countries: "United States"
@@ -312,6 +341,12 @@
   papers:
     - {key: "jin2024timellm", label: "Jin et al. 2024", title: "Time-LLM: Time series forecasting by reprogramming large language models", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
     - {key: "ma2026baguansolar", label: "Ma et al. 2026", title: "Integrating weather foundation model and satellite to enable fine-grained solar irradiance forecasting", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
+- name: "Austrian Institute of Technology"
+  sector: "Research institute"
+  countries: "Austria"
+  papers:
+    - {key: "yu2025pricefm", label: "PriceFM", title: "PriceFM: Foundation Model for Probabilistic Electricity Price Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+    - {key: "yu2026pricefmplus", label: "PriceFM+", title: "Training Paradigms and Foundation Models for European Electricity Price Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
 - name: "Bosch"
   sector: "Company"
   countries: "China, India, Taiwan, United States"
@@ -360,6 +395,12 @@
   papers:
     - {key: "chen2025ffts", label: "Chen et al. 2025", title: "Federated Foundation Models on Heterogeneous Time Series", page: "chapter-4-directions/4-8-building-it.html"}
     - {key: "zhang2026llmmarlev", label: "Zhang et al. 2026", title: "LLM-Enhanced Multi-Agent Reinforcement Learning for Unified Electric Vehicles-Charging Station-Grid Optimization in Public Charging Systems", page: "chapter-3-sim-opt/3-7-flexible-loads.html"}
+- name: "INESC TEC"
+  sector: "Research institute"
+  countries: "Portugal"
+  papers:
+    - {key: "hamann2024foundation", label: "GridFM", title: "Foundation models for the electric power grid", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "yu2026pricefmplus", label: "PriceFM+", title: "Training Paradigms and Foundation Models for European Electricity Price Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
 - name: "NXAI"
   sector: "Company"
   countries: "Austria"
@@ -426,12 +467,12 @@
   papers:
     - {key: "puech2025gridfmdatakit", label: "Puech et al. 2025", title: "gridfm-datakit-v1: A Python library for scalable and realistic power flow and OPF data generation", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
     - {key: "puech2026genco", label: "GENCO", title: "GENCO - A Unified Neural Solver Embedded in a Development Framework for Steady-State Grid Analysis", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
-- name: "Technical University of Munich"
+- name: "Technical University of Denmark"
   sector: "University"
-  countries: "Germany"
+  countries: "Denmark"
   papers:
-    - {key: "raisch2025gentl", label: "Raisch et al. 2025", title: "GenTL: A General Transfer Learning Model for Building Thermal Dynamics", page: "chapter-4-directions/4-2-fms-for-building-stocks.html"}
-    - {key: "xia2026tenantllm", label: "Xia et al. 2026", title: "Simulating Tenant Responses to Energy Policy Interventions with Transaction-Cost-Aware LLM Agent", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+    - {key: "yanespulido2026tsfmtransport", label: "Yanes-Pulido et al. 2026", title: "Time Series Foundation Models as Strong Baselines in Transportation Forecasting: A Large-Scale Benchmark Analysis", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+    - {key: "yu2026pricefmplus", label: "PriceFM+", title: "Training Paradigms and Foundation Models for European Electricity Price Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
 - name: "The Alan Turing Institute"
   sector: "Research institute"
   countries: "United Kingdom"
@@ -491,6 +532,11 @@
   countries: "Denmark"
   papers:
     - {key: "sanduleac2026gridfmdistil", label: "Sănduleac et al. 2026", title: "Physics-Aware Distillation of a Grid Foundation Model for Real-Time Edge Inference", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "Alliander"
+  sector: "Company"
+  countries: "Netherlands"
+  papers:
+    - {key: "alliander2026s4casting", label: "s4casting", title: "s4casting: Time series foundation models for energy forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
 - name: "Anusandhan National Research Foundation"
   sector: "Research institute"
   countries: "India"
@@ -611,11 +657,6 @@
   countries: "China"
   papers:
     - {key: "wu2024janus", label: "Janus", title: "Janus: Decoupling Visual Encoding for Unified Multimodal Understanding and Generation", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
-- name: "Delft University of Technology"
-  sector: "University"
-  countries: "Netherlands"
-  papers:
-    - {key: "xia2026tenantllm", label: "Xia et al. 2026", title: "Simulating Tenant Responses to Energy Policy Interventions with Transaction-Cost-Aware LLM Agent", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
 - name: "Drexel University"
   sector: "University"
   countries: "United States"
@@ -666,11 +707,6 @@
   countries: "China"
   papers:
     - {key: "chen2026horai", label: "Chen et al. 2026", title: "Empowering time series analysis with large-scale multimodal pretraining", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
-- name: "INESC TEC"
-  sector: "Research institute"
-  countries: "Portugal"
-  papers:
-    - {key: "hamann2024foundation", label: "GridFM", title: "Foundation models for the electric power grid", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
 - name: "Illinois Institute of Technology"
   sector: "University"
   countries: "United States"
@@ -691,6 +727,11 @@
   countries: "Singapore"
   papers:
     - {key: "cheong2026exogenous", label: "Cheong et al. 2026", title: "Assessing Electricity Demand Forecasting with Exogenous Data in Time Series Foundation Models", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "Institute of Science Tokyo"
+  sector: "University"
+  countries: "Japan"
+  papers:
+    - {key: "yu2026pricefmplus", label: "PriceFM+", title: "Training Paradigms and Foundation Models for European Electricity Price Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
 - name: "International Institute of Information Technology, Hyderabad"
   sector: "University"
   countries: "India"
@@ -721,6 +762,11 @@
   countries: "United States"
   papers:
     - {key: "zhou2023pfmsurvey", label: "Zhou et al. 2023", title: "A Comprehensive Survey on Pretrained Foundation Models: A History from BERT to ChatGPT", page: "chapter-2-fm-foundations/2-1-what-defines-an-fm.html"}
+- name: "London Business School"
+  sector: "University"
+  countries: "United Kingdom"
+  papers:
+    - {key: "yu2026pricefmplus", label: "PriceFM+", title: "Training Paradigms and Foundation Models for European Electricity Price Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
 - name: "Macquarie University"
   sector: "University"
   countries: "Australia"
@@ -741,6 +787,11 @@
   countries: "Canada"
   papers:
     - {key: "rasul2023laglama", label: "Lag-Llama", title: "Lag-Llama: Towards foundation models for probabilistic time series forecasting", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+- name: "Mistral AI"
+  sector: "Company"
+  countries: "France"
+  papers:
+    - {key: "mistral2026timestral", label: "Timestral", title: "Introducing Timestral", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
 - name: "Mitsubishi Electric Research Laboratories"
   sector: "Company"
   countries: "United States"
@@ -856,6 +907,11 @@
   countries: "Italy"
   papers:
     - {key: "puech2025gridfmdatakit", label: "Puech et al. 2025", title: "gridfm-datakit-v1: A Python library for scalable and realistic power flow and OPF data generation", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
+- name: "Rimac Technology"
+  sector: "Company"
+  countries: "Croatia"
+  papers:
+    - {key: "yu2025pricefm", label: "PriceFM", title: "PriceFM: Foundation Model for Probabilistic Electricity Price Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
 - name: "Rosenheim Technical University of Applied Sciences"
   sector: "University"
   countries: "Germany"
@@ -911,11 +967,6 @@
   countries: "South Korea"
   papers:
     - {key: "li2026lumina", label: "LUMINA", title: "LUMINA: Foundation Models for Topology Transferable ACOPF", page: "chapter-2-fm-foundations/2-4-2-power-grid-fms.html"}
-- name: "Squirrel AI"
-  sector: "Company"
-  countries: "China"
-  papers:
-    - {key: "liu2024timemmd", label: "Liu et al. 2024", title: "Time-MMD: Multi-domain multimodal dataset for time series analysis", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
 - name: "Sri Lanka Institute of Information Technology"
   sector: "University"
   countries: "Sri Lanka"
@@ -926,11 +977,6 @@
   countries: "Germany"
   papers:
     - {key: "liao2025timegpt", label: "Liao et al. 2025", title: "TimeGPT in load forecasting: A large time series model perspective", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
-- name: "Technical University of Denmark"
-  sector: "University"
-  countries: "Denmark"
-  papers:
-    - {key: "yanespulido2026tsfmtransport", label: "Yanes-Pulido et al. 2026", title: "Time Series Foundation Models as Strong Baselines in Transportation Forecasting: A Large-Scale Benchmark Analysis", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
 - name: "Texas A&M University"
   sector: "University"
   countries: "United States"
@@ -1041,16 +1087,16 @@
   countries: "United States"
   papers:
     - {key: "ferdaus2025cleanenergy", label: "Ferdaus et al. 2026", title: "Foundation models for clean energy forecasting: A comprehensive review", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
-- name: "University of Oxford"
-  sector: "University"
-  countries: "United Kingdom"
-  papers:
-    - {key: "kutzner2026syntheticvalidity", label: "Kutzner et al. 2026", title: "Consequential Behaviour and Representational Fairness in the Validation of Synthetic Research", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
 - name: "University of Palermo"
   sector: "University"
   countries: "Italy"
   papers:
     - {key: "naeem2026llmpower", label: "Naeem et al. 2026", title: "Large language models in power systems: From grid operations to home energy management", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+- name: "University of Porto"
+  sector: "University"
+  countries: "Portugal"
+  papers:
+    - {key: "yu2026pricefmplus", label: "PriceFM+", title: "Training Paradigms and Foundation Models for European Electricity Price Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
 - name: "University of Sydney"
   sector: "University"
   countries: "Australia"
@@ -1106,6 +1152,11 @@
   countries: "Germany"
   papers:
     - {key: "obermeier2026fets", label: "Obermeier et al. 2026", title: "FETS Benchmark: Foundation Models Enable Scalable and Generalizable Energy Time Series Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
+- name: "Wrocław University of Science and Technology"
+  sector: "University"
+  countries: "Poland"
+  papers:
+    - {key: "yu2026pricefmplus", label: "PriceFM+", title: "Training Paradigms and Foundation Models for European Electricity Price Forecasting", page: "chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html"}
 - name: "Yale University"
   sector: "University"
   countries: "United States"

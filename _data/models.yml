@@ -322,7 +322,7 @@
   name: "TiRex-2"
   full_name: "TiRex-2"
   family: "General time series"
-  developer: ""
+  developer: "NXAI, JKU Linz"
   year: 2026
   description: "Extends the univariate TiRex to several target series and to past and future covariates, and to streaming use."
   url: "https://arxiv.org/abs/2607.01204"
@@ -330,7 +330,7 @@
   bib_key: "podest2026tirex2"
   sources:
     - "https://export.arxiv.org/api/query?id_list=2607.01204"
-  notes: "Preprint (July 2026). Several authors are also TiRex authors; affiliations were not checked in the full text, so developer is left empty."
+  notes: "Preprint (July 2026). Affiliations from the paper's author block (checked 2026-11-02): ELLIS Unit Linz, LIT AI Lab and Institute for Machine Learning at JKU Linz; NXAI Lab and NXAI GmbH, Linz; Interdisciplinary Transformation University Austria."
 - id: "timestral"
   name: "Timestral"
   full_name: "Timestral"

@@ -66,7 +66,7 @@ This sub-section is intentionally brief: geospatial/weather FMs are adjacent rat
 [^longarini2026coldstart]: Longarini, L., Rongoni, A., Silenzi, S. et al. (2026). [Time series foundation models based on physics-informed synthetic histories for cold-start photovoltaic forecasting](https://arxiv.org/abs/2606.07457). 2nd ICML Workshop on Foundation Models for Structured Data. arXiv:2606.07457.
 [^lam2023graphcast]: Lam, R., Sanchez-Gonzalez, A., Willson, M. et al. (2023). [Learning skillful medium-range global weather forecasting](https://doi.org/10.1126/science.adi2336). *Science*, 382(6677), 1416–1421.
 [^jakubik2023prithvi]: Jakubik, J., Roy, S., Phillips, C. E. et al. (2023). [Foundation models for generalist geospatial artificial intelligence](https://arxiv.org/abs/2310.18660). arXiv:2310.18660.
-[^szwarcman2024prithvieo2]: Szwarcman, D., Roy, S., Fraccaro, P. et al. (2024). [Prithvi-EO-2.0: A versatile multi-temporal foundation model for Earth observation applications](https://arxiv.org/abs/2412.02732). arXiv:2412.02732.
+[^szwarcman2024prithvieo2]: Szwarcman, D., Roy, S., Fraccaro, P. et al. (2024). [Prithvi-EO-2.0: A versatile multi-temporal foundation model for Earth observation applications](https://doi.org/10.1109/TGRS.2025.3642610). *IEEE Transactions on Geoscience and Remote Sensing*, 64, 1–20 (2026). arXiv:2412.02732.
 [^bhamjee2024granitelst]: Bhamjee, M., Gaffoor, Z., Govindasamy, T. et al. (2024). [granite-geospatial-land-surface-temperature](https://huggingface.co/ibm-granite/granite-geospatial-land-surface-temperature). IBM Research, Hugging Face model card, Apache-2.0.
 
 ---

@@ -142,7 +142,7 @@ Two findings change how such a chain should be built:
 
 [^alfalouji2023cosimulation]: Alfalouji, Q., Schranz, T., Falay, B. et al. (2023). [Co-simulation for buildings and smart energy systems — A taxonomic review](https://doi.org/10.1016/j.simpat.2023.102770). *Simulation Modelling Practice and Theory*, 126, 102770.
 [^bodnar2025aurora]: Bodnar, C., Bruinsma, W. P., Lucic, A. et al. (2025). [A foundation model for the Earth system](https://doi.org/10.1038/s41586-025-09005-y). *Nature*, 641, 1180–1187.
-[^pham2025chemgraph]: Pham, T. D., Tanikanti, A., Keçeli, M. (2025). [ChemGraph: An agentic framework for computational chemistry workflows](https://arxiv.org/abs/2506.06363). arXiv:2506.06363.
+[^pham2025chemgraph]: Pham, T. D., Tanikanti, A., Keçeli, M. (2025). [ChemGraph: An agentic framework for computational chemistry workflows](https://doi.org/10.1038/s42004-025-01776-9). *Communications Chemistry*, 9, 33 (2026). arXiv:2506.06363.
 [^blochwitz2011fmi]: Blochwitz, T., Otter, M., Arnold, M. et al. (2011). [The Functional Mockup Interface for tool independent exchange of simulation models](https://doi.org/10.3384/ecp11063105). *Proceedings of the 8th International Modelica Conference*, 63, 105–114.
 [^fmi2026standard]: Modelica Association Project FMI (2026). [Functional Mock-up Interface](https://fmi-standard.org/). *Website*. Accessed 20 October 2026; latest specification 3.0.2.
 [^junghanns2021fmi3]: Junghanns, A., Gomes, C., Schulze, C. et al. (2021). [The Functional Mock-up Interface 3.0 – New features enabling new applications](https://doi.org/10.3384/ecp2118117). *Proceedings of the 14th Modelica Conference 2021*, 181.

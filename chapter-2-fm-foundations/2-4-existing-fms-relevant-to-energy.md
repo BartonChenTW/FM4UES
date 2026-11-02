@@ -58,11 +58,11 @@ Six negative claims. A negative claim is only as good as the search behind it, s
 
 This is the gap the rest of these notes are written into: [Chapter 4](../chapter-4-directions/index.html) surveys plausible directions broadly, and [Chapter 5](../chapter-5-case-study/index.html) works through one specific proposal — a foundation model for multi-carrier [energy hubs](../appendices/a-glossary.html#energy-hub) — in depth.
 
-[^spoek2026tabpfndh]: Spoek, B., Ben Hicham, K. K., Derzsi, K. et al. (2026). [Systematic evaluation of TabPFN-TS for zero-shot probabilistic heat load forecasting in district heating networks](https://arxiv.org/abs/2608.20024). arXiv:2608.20024.
+[^spoek2026tabpfndh]: Spoek, B., Ben Hicham, K. K., Derzsi, K. et al. (2026). [Systematic evaluation of TabPFN-TS and Chronos-2 for zero-shot heat load forecasting in district heating networks](https://doi.org/10.1016/j.egyai.2026.100942). *Energy and AI*, 26, 100942. arXiv:2608.20024.
 [^perera2019mlsurrogate]: Perera, A. T. D., Wickramasinghe, P. U., Nik, V. M., Scartezzini, J.-L. (2019). [Machine learning methods to assist energy system optimization](https://doi.org/10.1016/j.apenergy.2019.03.202). *Applied Energy*, 243, 191–205.
 [^prina2024energyplan]: Prina, M. G., Dallapiccola, M., Moser, D., Sparber, W. (2024). [Machine learning as a surrogate model for EnergyPLAN: Speeding up energy system optimization at the country level](https://doi.org/10.1016/j.energy.2024.132735). *Energy*, 307, 132735.
 [^lin2024tsfmbuilding]: Lin, X., Prabowo, A., Razzak, I. et al. (2024). [Exploring capabilities of time series foundation models in building analytics](https://arxiv.org/abs/2411.08888). arXiv:2411.08888.
-[^vallee2026standardizing]: Vallee, M., Schischke, E., Widl, E. et al. (2026). [Standardizing case study descriptions for multi-energy systems and networks modeling](https://arxiv.org/abs/2606.31343). arXiv:2606.31343.
+[^vallee2026standardizing]: Vallee, M., Schischke, E., Widl, E. et al. (2026). [Standardizing case study descriptions for multi-energy systems and networks modeling](https://arxiv.org/abs/2606.31343). *ECOS 2026*. arXiv:2606.31343.
 
 ---
 [← Previous: 2.3 Choosing a Basic Element](2-3-choosing-a-basic-element.html) · [Back to Chapter 2](index.html) · [Next: 2.4.1 Time-Series FMs →](2-4-1-time-series-fms.html)

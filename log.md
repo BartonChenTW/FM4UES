@@ -1103,3 +1103,8 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 **Appendix D.** TiRex-2 developer filled in (NXAI, JKU Linz) from the paper's author block.
 
 **Not changed.** LoRA (ICLR 2022) and ViT (ICLR 2021): venues are well known but could not be confirmed from here (OpenReview pages blocked scripted access), so left as they were.
+
+## 2026-11-02 (Optimisation learning in §4.7.3)
+
+- §4.7.3, Family 2: added Van Hentenryck (2025), *Optimization learning* (`vanhentenryck2025optlearning`), as the answer to "no feasibility guarantees": repair layers make every output feasible, dual proxies give a valid lower bound. Figures quoted from §5.4 of the paper (economic dispatch, self-supervised E2ELR: gaps under 0.5%, under an hour of training, about 25,000 instances per second on one GPU). Added the caveat that repair layers are problem-specific.
+- Not an FM paper, so not added to Appendix E.

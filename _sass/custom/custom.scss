@@ -20,6 +20,23 @@
   min-height: 6rem;
 }
 
+// On wide screens the theme also caps the header with max-height, and the
+// sidebar is a flex column that shrinks the header to make room for the
+// navigation. Either one keeps the header shorter than the wrapped title,
+// which then overflows upward and runs into the navigation (found with a
+// headless browser on 2026-10-21). Lift the cap, stop the shrinking, and
+// use a slightly smaller title so it wraps to three lines rather than four.
+@media (min-width: 50rem) {
+  .site-header {
+    max-height: none;
+    flex-shrink: 0;
+  }
+
+  .side-bar .site-title {
+    font-size: 1.25rem !important;
+  }
+}
+
 .site-title {
   display: block;
   height: auto;

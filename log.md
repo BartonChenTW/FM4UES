@@ -1103,3 +1103,7 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 **Appendix D.** TiRex-2 developer filled in (NXAI, JKU Linz) from the paper's author block.
 
 **Not changed.** LoRA (ICLR 2022) and ViT (ICLR 2021): venues are well known but could not be confirmed from here (OpenReview pages blocked scripted access), so left as they were.
+
+## 2026-11-02 (EV2Gym in §3.7)
+
+- §3.7, EV charging, Control: added EV2Gym (`orfanoudakis2025ev2gym`, IEEE T-ITS 2025), an open-source V2G smart-charging simulator with RL, optimisation and heuristic baselines, as the EV counterpart of OpenG2G. A simulator, not an FM, so not in Appendix D or E.

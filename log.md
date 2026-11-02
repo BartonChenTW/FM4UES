@@ -1085,3 +1085,21 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 **Why.** Barton asked for a link to the GitHub repository at the bottom of the sidebar.
 
 **Change.** `_includes/nav_footer_custom.html`: a "Source on GitHub" link with the GitHub mark, under the dark-mode button, using `site.gh_edit_repository` from `_config.yml`. It also appears in the mobile footer, where the theme renders the same include.
+
+## 2026-11-02 (Preprint sweep: published versions and venues)
+
+**Why.** Barton asked me to find something useful to do for 30 minutes. Picked the open TODO items that can be checked mechanically: re-check preprints for published versions (v3.1 follow-up), confirm venues taken from arXiv comments (§2.7 follow-up), TiRex-2 affiliations (v3.2 follow-up).
+
+**Method.** All 96 bib entries citing arXiv with no journal, booktitle or DOI were checked against the arXiv API (journal_ref, DOI), Semantic Scholar (venue, DOI) and a Crossref title search for 2025–2026 entries. Every DOI was confirmed in Crossref (title, first authors, volume and pages); venues without a DOI were confirmed on OpenReview or PMLR. Semantic Scholar and DBLP rate-limited parts of the run, so the sweep may have missed a few.
+
+**Updated (bib and every footnote that cites them), with DOI:** `chen2023fengwu` (Commun. Earth Environ. 6, 518, 2025, under a new title), `spoek2026tabpfndh` (Energy and AI 26, 100942; matches preprint v2, so §4.1's figures stand and its note now says "published version"), `szwarcman2024prithvieo2` (IEEE TGRS 64, 2026), `liu2026scalingopf` (IEEE PESGM 2026), `wu2024janus` (CVPR 2025), `thota2026buildingage` (IEEE SusTech 2026), `he2025powergrow` (KDD 2026), `johansson2025tsmia` (IEEE SaTML 2026), `jadhav2026eqgrid` (NLP4PI 2026 workshop), `pham2025chemgraph` (Commun. Chem. 9, 33, 2026), `donon2026tvc` (EPSR 262, 113605), `martinez2026osr` (EPSR 262, 113609).
+
+**Updated, venue without DOI:** `cohen2025toto` (NeurIPS 2025), `hoo2025tabpfnts` (TMLR), `regenwetter2023ndgm` (TMLR 2024), `sridhar2026textsensitivity` and `vallee2026standardizing` (venue added to footnotes), `dwivedi2024unistruct`, `amos2017optnet`, `donti2017taskbased` (bib type only; footnotes already gave the venue).
+
+**Venue checks.** Time-LLM (ICLR 2024) and SysCaps (ICLR 2025) confirmed. `wu2024missingmodality` is TMLR **2026**, not 2024: bib year and footnote corrected (key unchanged).
+
+**Text.** "(preprint)" labels removed for Regenwetter et al. (§4.4) and Johansson et al. (§4.8); §4.1's Spoek note now refers to the published version.
+
+**Appendix D.** TiRex-2 developer filled in (NXAI, JKU Linz) from the paper's author block.
+
+**Not changed.** LoRA (ICLR 2022) and ViT (ICLR 2021): venues are well known but could not be confirmed from here (OpenReview pages blocked scripted access), so left as they were.

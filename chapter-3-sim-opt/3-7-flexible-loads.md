@@ -58,6 +58,7 @@ Research on data-centre flexibility has grown very quickly: a dated search (belo
 **Control.** Coordinating many chargers is mainly reinforcement-learning territory.
 - HetGPS coordinates 200–3,218 EVs on distribution networks with a graph-based multi-agent policy and a physics-based safety filter. The filter cut voltage violations from 3.9–7.7% of bus-steps to 0.5–3.4%, while 99–100% of vehicles were charged by departure.[^wang2026hetgps]
 - Another framework uses a language model inside multi-agent reinforcement learning to choose features and weigh the competing goals of the grid, the stations and the drivers.[^zhang2026llmmarlev]
+- EV2Gym is an open-source simulator for testing charging controllers, including vehicle-to-grid (parked cars feeding power back), on shared scenarios. Its models of vehicles, charge points, transformers and driver behaviour are checked against real data, and it ships reinforcement-learning, mathematical-programming and rule-based controllers as baselines.[^orfanoudakis2025ev2gym] It plays the part for EV charging that OpenG2G plays for data centres: a common testbed where different controllers are compared on the same cases.
 
 ## What learned models offer so far
 
@@ -72,6 +73,7 @@ These notes read the literature as follows:
 [^yanespulido2026tsfmtransport]: Yanes-Pulido, J., Rodrigues, F. (2026). [Time Series Foundation Models as Strong Baselines in Transportation Forecasting: A Large-Scale Benchmark Analysis](https://arxiv.org/abs/2602.24238). arXiv:2602.24238.
 [^fan2026evstllm]: Fan, H., Chai, Y., Liu, C. et al. (2026). [EV-STLLM: Electric vehicle charging forecasting based on spatio-temporal large language models with multi-frequency and multi-scale information fusion](https://doi.org/10.1016/j.eswa.2026.131620). *Expert Systems with Applications*, 313, 131620. arXiv:2507.09527.
 [^zhang2026llmmarlev]: Zhang, Y., Xie, L., Wang, C. et al. (2026). [LLM-Enhanced Multi-Agent Reinforcement Learning for Unified Electric Vehicles-Charging Station-Grid Optimization in Public Charging Systems](https://arxiv.org/abs/2609.13805). arXiv:2609.13805.
+[^orfanoudakis2025ev2gym]: Orfanoudakis, S., Diaz-Londono, C., Yılmaz, Y. E., Palensky, P., Vergara, P. P. (2025). [EV2Gym: A flexible V2G simulator for EV smart charging research and benchmarking](https://doi.org/10.1109/TITS.2024.3510945). *IEEE Transactions on Intelligent Transportation Systems*, 26(2), 2410–2421.
 [^wang2026hetgps]: Wang, X., Nimalsiri, N., Xia, Y. et al. (2026). [HetGPS: Scalable Graph Multi-Agent Reinforcement Learning with Physics-Anchored Adaptive Safety for EV Charging](https://arxiv.org/abs/2608.00679). arXiv:2608.00679.
 [^principato2026evhierarchy]: Principato, G., Amara-Ouali, Y., Goude, Y. et al. (2026). [Probabilistic Forecasting of Electric Vehicle Charging in a Time-varying Hierarchical Infrastructure](https://arxiv.org/abs/2610.13588). arXiv:2610.13588.
 [^chung2026openg2g]: Chung, J. W., Liang, Z., Mao, Y. et al. (2026). [OpenG2G: A Simulation Platform for AI Datacenter-Grid Runtime Coordination](https://arxiv.org/abs/2605.05519). arXiv:2605.05519.

@@ -1103,3 +1103,7 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 **Appendix D.** TiRex-2 developer filled in (NXAI, JKU Linz) from the paper's author block.
 
 **Not changed.** LoRA (ICLR 2022) and ViT (ICLR 2021): venues are well known but could not be confirmed from here (OpenReview pages blocked scripted access), so left as they were.
+
+## 2026-11-03 (MOMENT is an encoder, not GPT-style)
+
+- §2.4.1: the bullet called MOMENT and Timer "both GPT-style". MOMENT is a T5-style transformer encoder pretrained by masked patch reconstruction (paper §3.2); only Timer is a GPT-style decoder trained by next-token prediction. The same bullet credited both with classification; Timer's paper says classification is not yet covered by its generative formulation. Rewrote the bullet to describe each model separately. Appendix D entries were already correct.

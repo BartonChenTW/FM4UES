@@ -1104,6 +1104,15 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 
 **Not changed.** LoRA (ICLR 2022) and ViT (ICLR 2021): venues are well known but could not be confirmed from here (OpenReview pages blocked scripted access), so left as they were.
 
+## 2026-11-02 (Optimisation learning in §4.7.3)
+
+- §4.7.3, Family 2: added Van Hentenryck (2025), *Optimization learning* (`vanhentenryck2025optlearning`), as the answer to "no feasibility guarantees": repair layers make every output feasible, dual proxies give a valid lower bound. Figures quoted from §5.4 of the paper (economic dispatch, self-supervised E2ELR: gaps under 0.5%, under an hour of training, about 25,000 instances per second on one GPU). Added the caveat that repair layers are problem-specific.
+- Not an FM paper, so not added to Appendix E.
+
 ## 2026-11-02 (EV2Gym in §3.7)
 
 - §3.7, EV charging, Control: added EV2Gym (`orfanoudakis2025ev2gym`, IEEE T-ITS 2025), an open-source V2G smart-charging simulator with RL, optimisation and heuristic baselines, as the EV counterpart of OpenG2G. A simulator, not an FM, so not in Appendix D or E.
+
+## 2026-11-03 (MOMENT is an encoder, not GPT-style)
+
+- §2.4.1: the bullet called MOMENT and Timer "both GPT-style". MOMENT is a T5-style transformer encoder pretrained by masked patch reconstruction (paper §3.2); only Timer is a GPT-style decoder trained by next-token prediction. The same bullet credited both with classification; Timer's paper says classification is not yet covered by its generative formulation. Rewrote the bullet to describe each model separately. Appendix D entries were already correct.

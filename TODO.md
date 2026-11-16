@@ -15,7 +15,7 @@ Items tagged **[Claude]** are suggestions from Claude (2026-09-11), not yet agre
 
 ## Next
 
-- [ ] **Van Hentenryck, *Optimization learning* (§4.7.3): check the published version.** Crossref lists a likely match, "Trustworthy optimization learning: a brief overview", in *Mathematical Optimization for Machine Learning* (De Gruyter, 2025), pp. 121–136, [doi:10.1515/9783111376776-009](https://doi.org/10.1515/9783111376776-009). The publisher page blocked scripted access, so the notes cite arXiv:2501.03443 until the text is confirmed to match.
+- [x] ~~**Van Hentenryck, *Optimization learning* (§4.7.3): check the published version.**~~ **Done 2026-11-16.** The published chapter (De Gruyter 2025, pp. 121–136, doi:10.1515/9783111376776-009) is the same work retitled: its abstract matches the preprint's word for word apart from "trustworthy" in the first sentence (Crossref and OpenAlex). The publisher page and full text were not readable, so the footnote cites the chapter but says the figures were read in the preprint.
 - [x] **Improve the three weakest Chapter 4 sections** (review of 2026-10-02). **Done 2026-10-03**; see log.md.
   1. **§4.7.1 Tier 1.** The oldest page in the chapter, with one footnote in about 1,080 words.
      - Model facts now contradict Appendix D: "Chronos-2 ships in five sizes from 9M to 710M" describes the original Chronos.

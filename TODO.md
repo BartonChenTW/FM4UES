@@ -43,6 +43,10 @@ Items tagged **[Claude]** are suggestions from Claude (2026-09-11), not yet agre
   - ~~Confirm venues that come only from arXiv comments (Time-LLM ICLR 2024, SysCaps ICLR 2025, Wu et al. TMLR).~~ Done 2026-11-02 on OpenReview: Time-LLM and SysCaps confirmed; Wu et al. is TMLR 2026, not 2024 (corrected).
   - Check that the journal version of the clean-energy review (`ferdaus2025cleanenergy`) keeps its section 5.2 on fusion.
   - Watch for a multimodal load model conditioned on real building-register attributes. None existed at the dated search (2026-10-20).
+- [ ] **Follow-ups from §2.7.1 Fusion strategies (2026-11-16).**
+  - Look for energy studies that compare early, intermediate and late fusion (e.g. sky-image solar forecasting), to replace the audio-visual MBT result as the main evidence on where to fuse.
+  - Look for FiLM-style or gated conditioning of a load model on building attributes; the attributes → load row of the pairing table is currently a proposal.
+  - Decide whether "multimodal fusion" deserves a glossary entry (needs a linker change, see log).
 - [ ] **Follow-ups from v3.1 (flexible loads).**
   - ~~Rank G10 against G1–G9.~~ Done 2026-10-20 (v3.2): between G4 and G5, label kept.
   - ~~Re-check the 2026 preprints in §2.4.2 and §3.7 for published versions.~~ Done 2026-11-02 for the whole bibliography: 96 arXiv-only entries checked against arXiv, Semantic Scholar and Crossref; 20 updated (see log). Repeat every few months.

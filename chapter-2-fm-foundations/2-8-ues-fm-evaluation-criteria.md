@@ -76,4 +76,4 @@ Treat this as a checklist for reading and writing UES-FM claims, not as a valida
 [^zhang2025tsfmrobust]: Zhang, J., Zhang, Z., Zheng, S. et al. (2025). [Are time-series foundation models deployment-ready? A systematic study of adversarial robustness across domains](https://arxiv.org/abs/2505.19397). arXiv:2505.19397.
 
 ---
-[← Previous: 2.7 Multimodal Models](2-7-multimodal-models.html) · [Back to Chapter 2](index.html) · [Next: Chapter 3 — Simulation and Optimisation in UES →](../chapter-3-sim-opt/index.html)
+[← Previous: 2.7.1 Fusion Strategies](2-7-1-fusion-strategies.html) · [Back to Chapter 2](index.html) · [Next: Chapter 3 — Simulation and Optimisation in UES →](../chapter-3-sim-opt/index.html)

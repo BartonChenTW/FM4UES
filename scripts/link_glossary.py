@@ -62,7 +62,7 @@ BLOCK_BEFORE = {
                          'ues', 'multimodal', 'domain', 'district', 'stock', 'earth-system', 'observation',
                          'clean-energy', 'thermal', 'meter', 'smart-meter', 'general-purpose', 'pde', 'brain',
                          'ecg', 'federated', 'eo', 'demand', 'generation', 'renewable', 'foundational', 'on'},
-    'transformer': {'swin', 'vision', 'fusion', 'time-series', 'series', 'standard', 'temporal'},
+    'transformer': {'swin', 'vision', 'fusion', 'time-series', 'series', 'standard', 'temporal', 'multimodal'},
 }
 # Electrical transformers, not the ML architecture: skip a match on a line containing one of these
 SKIP_IF_LINE = {'transformer': ('lines and transformers', 'transformer is overloaded', '| Transformer |')}

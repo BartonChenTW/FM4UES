@@ -1116,3 +1116,20 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 ## 2026-11-03 (MOMENT is an encoder, not GPT-style)
 
 - §2.4.1: the bullet called MOMENT and Timer "both GPT-style". MOMENT is a T5-style transformer encoder pretrained by masked patch reconstruction (paper §3.2); only Timer is a GPT-style decoder trained by next-token prediction. The same bullet credited both with classification; Timer's paper says classification is not yet covered by its generative formulation. Rewrote the bullet to describe each model separately. Appendix D entries were already correct.
+
+## 2026-11-16 (§2.7.1 Fusion strategies)
+
+**Why.** §2.7 covered fusion in one paragraph (shared space, cross-attention, one token stream), but §4.6 proposes "cross-attend X with Y" three times and §5.1/§5.4 say "fuse the encoders" without saying how. Barton chose a new child page over expanding §2.7 (already ~160 lines) or putting it in §5.4 (general material tied to one case study).
+
+**New page.** `chapter-2-fm-foundations/2-7-1-fusion-strategies.md`, child of §2.7 (which now has `has_children: true`, like §2.4). Sections: fusion vs alignment; early/intermediate/late fusion; mechanisms (concatenation, gating, FiLM, cross-attention, bottleneck, one stream); fusing into a pretrained model (from scratch / frozen FM + adapter / joint pretraining); different rates and missing modalities; three checks that a fusion does anything (beat the best single-modality model, shuffle the second modality, report by availability); a table matching patterns to UES pairings, labelled as these notes' starting choices with only the solar rows backed by published energy results.
+
+**New references (8), each checked on arXiv and, where a DOI exists, Crossref:** `baltrusaitis2019mmlsurvey` (TPAMI 41(2)), `nagrani2021mbt` (NeurIPS 2021), `arevalo2017gmu` (arXiv), `perez2018film` (AAAI 32(1)), `tsai2019mult` (ACL 2019), `jaegle2021perceiver` (ICML 2021), `shukla2021mtan` (ICLR 2021), `neverova2016moddrop` (TPAMI 38(8)). Claims from the paper body rather than the abstract, read on ar5iv: the survey's early/late fusion trade-offs (§VI-A), TFT's static covariate encoders (§4), MBT's mid-fusion result and "fusion layer may need to be tuned" limitation, ModDrop's robustness to missing channels. Reused from §2.7: TFT, SysCaps, UniCA, HORAI, missing-modality survey, Tan et al., Sridhar et al., TRACE, SolCloudLLM, Baguan-solar.
+
+**Links added.** §2.7 (pointer after the three fusion bullets; footer Next), §2.8 (footer Previous), Chapter 2 index table, README structure row, §4.6 (metadata-conditioned load FM and grid-load bridge), §5.1 Phase 2, §5.4 (paragraph after the encoder table).
+
+**`scripts/link_glossary.py`.** Added `multimodal` to the words that block linking `transformer`, so "Multimodal Transformer" (MulT, a model name) is not linked to the glossary's transformer entry, as was already done for "Temporal Fusion Transformer".
+
+**Considered and not done.**
+- A glossary term "Multimodal fusion": the linker's `multimodal` → Multimodality rule would win the tie at the same position, so it would need linker changes; left for later.
+- Appendix D entries for TFT, MulT, Perceiver: they are architectures rather than pretrained models, like most of §2.6's examples.
+- No version bump in Appendix C; left to the next release.

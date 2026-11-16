@@ -42,6 +42,7 @@ flowchart TD
 | 2.5 | [Self-supervised pretraining, fine-tuning, scaling laws](2-5-scaling-laws.html) | ML basics for readers without an ML background |
 | 2.6 | [Architectures: transformers, GNNs, neural operators](2-6-architectures.html) | ML basics, continued |
 | 2.7 | [Multimodal models](2-7-multimodal-models.html) | Combining time series with building attributes, images, graphs and text; why it may matter most for UES |
+| 2.7.1 | [— Fusion strategies](2-7-1-fusion-strategies.html) | Early, intermediate and late fusion; gating, FiLM, [cross-attention](../appendices/a-glossary.html#cross-attention) and bottlenecks; different rates, missing modalities, and which pattern suits which UES pairing |
 | 2.8 | [Evaluation criteria for UES foundation models](2-8-ues-fm-evaluation-criteria.html) | Eight dimensions for judging a UES-FM proposal beyond the generic three-property test |
 
 ---

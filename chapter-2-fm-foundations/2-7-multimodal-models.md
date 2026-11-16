@@ -1,6 +1,7 @@
 ---
 title: "2.7 Multimodal Models"
 parent: Chapter 2 — Foundation Knowledge of FMs
+has_children: true
 nav_order: 7
 status: draft
 last_reviewed: 2026-10-20
@@ -44,6 +45,8 @@ No single architecture suits every modality, so a multimodal model usually gives
 - **A shared space.** Separate encoders are trained so that matching inputs land close together. [CLIP](../appendices/d-model-index.html#clip) trains an image encoder and a text encoder to predict which caption goes with which image, on 400 million pairs, and can then classify images it was never trained on by comparing them with text descriptions.[^radford2021clip]
 - **[Cross-attention](../appendices/a-glossary.html#cross-attention).** One modality's tokens attend to another's, so the second changes how the first is read ([§2.6](2-6-architectures.html)). This is the pattern these notes propose most often. The same review calls its use in energy foundation models "still in its infancy".[^ferdaus2025cleanenergy]
 - **One token stream.** All modalities are turned into tokens and processed together by a single transformer. [Janus](../appendices/d-model-index.html#janus) does this for images and text, with separate visual encoders for understanding an image and for generating one, both feeding one shared transformer.[^wu2024janus]
+
+Where in the network to combine them, the mechanisms between these three, how to cope with different sampling rates and missing modalities, and which pattern suits which UES pairing are in [§2.7.1 Fusion strategies](2-7-1-fusion-strategies.html).
 
 ## A worked example from this domain
 
@@ -156,4 +159,4 @@ These notes read three points from this literature:
 [^chen2026horai]: Chen, P., Wang, S., Hu, S. et al. (2026). [Empowering time series analysis with large-scale multimodal pretraining](https://arxiv.org/abs/2602.05646). arXiv:2602.05646.
 
 ---
-[← Previous: 2.6 Architectures: Transformers, GNNs, Neural Operators](2-6-architectures.html) · [Back to Chapter 2](index.html) · [Next: 2.8 Evaluation Criteria for UES Foundation Models →](2-8-ues-fm-evaluation-criteria.html)
+[← Previous: 2.6 Architectures: Transformers, GNNs, Neural Operators](2-6-architectures.html) · [Back to Chapter 2](index.html) · [Next: 2.7.1 Fusion Strategies →](2-7-1-fusion-strategies.html)

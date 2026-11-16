@@ -39,7 +39,7 @@ Pretrain the masking task suite (see [§5.4](5-4-data-modules-and-tasks.html#mod
 
 ## Phase 2 (Year 2–4) — Multimodal conditioning
 
-Fuse demand, weather, technology, and market encoders (see [§5.4](5-4-data-modules-and-tasks.html#modules-and-tasks)). [Zero-shot](../appendices/a-glossary.html#zero-shot) transfer to unseen hub topologies becomes the headline metric, mirroring how grid foundation models evaluate on unseen grids ([§2.4.2](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html), [§4.7.2](../chapter-4-directions/4-7-2-methods-tier2.html)). This is where a load FM (candidate sub-field in [§4.6](../chapter-4-directions/4-6-reading-the-screen.html#candidate-sub-fields)) stops being a separate project and becomes a component.
+Fuse demand, weather, technology, and market encoders (see [§5.4](5-4-data-modules-and-tasks.html#modules-and-tasks); fusion options in [§2.7.1](../chapter-2-fm-foundations/2-7-1-fusion-strategies.html)). [Zero-shot](../appendices/a-glossary.html#zero-shot) transfer to unseen hub topologies becomes the headline metric, mirroring how grid foundation models evaluate on unseen grids ([§2.4.2](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html), [§4.7.2](../chapter-4-directions/4-7-2-methods-tier2.html)). This is where a load FM (candidate sub-field in [§4.6](../chapter-4-directions/4-6-reading-the-screen.html#candidate-sub-fields)) stops being a separate project and becomes a component.
 
 ## Phase 3 (Year 3–6) — Amortised optimisation
 

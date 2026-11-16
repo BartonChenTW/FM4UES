@@ -58,6 +58,8 @@ Do not build one model. Build an encoder stack, a pretraining task suite, and a 
 | Topology encoder | The bipartite hub graph | Heterogeneous graph [transformer](../appendices/a-glossary.html#transformer), GridFM-adjacent (see [§2.6](../chapter-2-fm-foundations/2-6-architectures.html), [§4.7.2](../chapter-4-directions/4-7-2-methods-tier2.html)) |
 | Market and policy encoder | Tariffs, carbon price, regulatory constraints | Needs building |
 
+How the five encoders' outputs are combined is a design decision of its own. With five modalities, full pairwise [cross-attention](../appendices/a-glossary.html#cross-attention) gets expensive, and not every hub will have every modality, so bottleneck fusion with modality dropout is a reasonable first choice. The options and their trade-offs are in [§2.7.1](../chapter-2-fm-foundations/2-7-1-fusion-strategies.html).
+
 ### Pretraining tasks (self-supervised, no solver labels)
 
 - **P1 — Masked carrier-flow reconstruction.** The direct [GridFM](../appendices/d-model-index.html#gridfm) analogue and workhorse objective. Corresponds to M1 in [§5.3.6](5-3-concrete-representation.html#536-masking-tasks-mapped-onto-the-tokens).

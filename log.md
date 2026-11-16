@@ -1116,3 +1116,8 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 ## 2026-11-03 (MOMENT is an encoder, not GPT-style)
 
 - §2.4.1: the bullet called MOMENT and Timer "both GPT-style". MOMENT is a T5-style transformer encoder pretrained by masked patch reconstruction (paper §3.2); only Timer is a GPT-style decoder trained by next-token prediction. The same bullet credited both with classification; Timer's paper says classification is not yet covered by its generative formulation. Rewrote the bullet to describe each model separately. Appendix D entries were already correct.
+
+## 2026-11-16 (s4casting model card removed upstream)
+
+- The weekly link check (and PR #67's) failed on §2.4.5's s4casting model-card link: Alliander removed `model_cards/transformer-lianderpower-v1/` on 9 November 2026 (commit `59be67c`, "added template model card and addressed open-source weights comments"), replacing it with a template. The card is now meant to be published only on Hugging Face, where no model was found on 16 November.
+- Footnote and `_data/models.yml` source now link to the last commit with the card (`86dedc1`). §2.4.5's sentences about the card are in the past tense and say when it was removed; the figures quoted from it are unchanged.

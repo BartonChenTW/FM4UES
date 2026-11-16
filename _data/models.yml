@@ -439,8 +439,8 @@
   bib_key: "alliander2026s4casting"
   sources:
     - "https://github.com/alliander-opensource/s4casting"
-    - "https://github.com/alliander-opensource/s4casting/blob/main/model_cards/transformer-lianderpower-v1/MODEL_CARD.md"
-  notes: "No paper; README has no citation file yet (docs/CITATION.md returns 404). Model card transformer-lianderpower-v1 documents a Hugging Face release, but no s4casting or Alliander model was found on the Hub (searched 2026-10-29), and the code tag is still marked TBD. Liander is Alliander's distribution network company."
+    - "https://github.com/alliander-opensource/s4casting/blob/86dedc185c857c33099196c619c8c72e721512ef/model_cards/transformer-lianderpower-v1/MODEL_CARD.md"
+  notes: "No paper; README has no citation file yet (docs/CITATION.md returns 404). Model card transformer-lianderpower-v1 documents a Hugging Face release, but no s4casting or Alliander model was found on the Hub (searched 2026-10-29), and the code tag is still marked TBD. Liander is Alliander's distribution network company. The model card was removed from the repository on 9 November 2026 (commit 59be67c, replaced by a template); the source link points to the last commit that has it. Still no model on the Hub on 2026-11-16."
 - id: "powerpm"
   name: "PowerPM"
   full_name: "PowerPM"

@@ -2,6 +2,8 @@
 
 **📖 Read online: https://bartonchentw.github.io/FM4UES/**
 
+**🧪 Hands-on playground: https://bartonchentw.github.io/FM4UES-playground/** — companion runnable notebooks trying pretrained time-series, tabular, and multimodal foundation models on real energy data.
+
 Working notes on what gets simulated in urban energy systems, what could plausibly be
 learned by a foundation model, and how to build it. Written for someone who knows urban
 energy systems well and machine learning less well.

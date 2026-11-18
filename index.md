@@ -37,6 +37,8 @@ These notes are written for someone who knows urban energy systems well and mach
 
 The **[proposed development path](chapter-4-directions/4-7-methods-landing.html)** (§4.7) is the notes' own proposal, set apart from the surrounding survey: three tiers of increasing difficulty (single-hub dispatch → multi-hub multi-carrier dispatch → design and sizing optimisation), each with a concrete build path.
 
+**Prefer hands-on notebooks first?** Try the companion **[FM4UES Playground](https://bartonchentw.github.io/FM4UES-playground/)** — three short notebooks running pretrained time-series, tabular, and multimodal foundation models on real energy data against simple baselines.
+
 {: .warning }
 **The field moves fast.** Publication counts on LLM-and-energy alone went from roughly 1 (2022) to 13 (2023) to 128 (2024) to 464 (2025), with 348 already indexed in the first half of 2026 (a Scopus search run 11 July 2026 — query and source in [§1.3](chapter-1-background/1-3-fm-landscape-by-domain.html)). Re-check anything that reads as a landscape or novelty claim before it is used to justify a proposal or paper.
 

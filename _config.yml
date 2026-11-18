@@ -58,6 +58,10 @@ gh_edit_repository: "https://github.com/BartonChenTW/FM4UES"
 gh_edit_branch: "main"
 gh_edit_view_mode: "edit"
 
+# Companion hands-on playground site, linked from the sidebar footer
+# (_includes/nav_footer_custom.html).
+playground_url: "https://bartonchentw.github.io/FM4UES-playground/"
+
 callouts:
   note:
     title: Note

@@ -163,14 +163,15 @@ exclude = [
   #     authors and the volume/issue/article-number in the redirect URL
   #     itself all match what the text cites.
   '^https://doi\.org/10\.1115/',
-  # This book's own GitHub Pages URL. Checked from README.md and
-  # CONTRIBUTING.md. GitHub's runners sometimes get "Connection reset
-  # by peer" (os error 104) against bartonchentw.github.io even though
-  # the site is up in a browser -- same class of flake as the PyPSA
-  # publisher host above (not a timeout, so accept_timeouts does not
-  # forgive it). Verified the URL is live before excluding. Do not
-  # treat this as a licence to skip other github.io links.
+  # This book's own GitHub Pages URL (and its companion playground on the
+  # same host). Checked from README.md, CONTRIBUTING.md, and index.md.
+  # GitHub's runners sometimes get "Connection reset by peer" (os error 104)
+  # against bartonchentw.github.io even though the site is up in a browser --
+  # same class of flake as the PyPSA publisher host above (not a timeout, so
+  # accept_timeouts does not forgive it). Verified both URLs are live before
+  # excluding. Do not treat this as a licence to skip other github.io links.
   '^https://bartonchentw\.github\.io/FM4UES/?$',
+  '^https://bartonchentw\.github\.io/FM4UES-playground/?$',
   # OTexts (otexts.com, publisher of Forecasting: Principles and
   # Practice) returns 403 Forbidden to lychee's user agent but 200 to a
   # browser one -- reproduced locally on 2026-09-23 with both UAs, so it

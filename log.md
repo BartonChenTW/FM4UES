@@ -1138,3 +1138,13 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 - A glossary term "Multimodal fusion": the linker's `multimodal` → Multimodality rule would win the tie at the same position, so it would need linker changes; left for later.
 - Appendix D entries for TFT, MulT, Perceiver: they are architectures rather than pretrained models, like most of §2.6's examples.
 - No version bump in Appendix C; left to the next release.
+
+## 2026-11-18 (Playground link)
+
+**Why.** Barton asked to add a link to the companion playground (`https://bartonchentw.github.io/FM4UES-playground/`) in the repo and on the web page.
+
+**Changes.**
+- `_config.yml` & `_includes/nav_footer_custom.html`: added `playground_url` and an "FM4UES Playground" link with a play-circle icon under the dark-mode button (above "Source on GitHub"), so it appears in the desktop sidebar and mobile footer on every page.
+- `index.md`: added a pointer to the playground under "How to use this document".
+- `README.md`: added a "Hands-on playground" link right under the "Read online" link.
+- `.github/lychee.toml`: excluded `https://bartonchentw.github.io/FM4UES-playground/` alongside `/FM4UES/` after verifying it responds 200 OK, avoiding `bartonchentw.github.io` connection-reset flakes on GitHub Actions runners.

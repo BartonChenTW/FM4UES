@@ -1139,6 +1139,11 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 - Appendix D entries for TFT, MulT, Perceiver: they are architectures rather than pretrained models, like most of §2.6's examples.
 - No version bump in Appendix C; left to the next release.
 
+## 2026-11-16 (SolCloudLLM wording; Van Hentenryck published version)
+
+- §2.7, SolCloudLLM bullet: the text said a simple physical method "often beat the deep models" in few-shot settings. The paper's abstract says SolCloudLLM itself was best in nearly all few-shot settings, and that it was the *other* deep-learning baselines that degraded and were often outperformed by the physical method. Reworded to match. Found while writing §2.7.1.
+- §4.7.3 and `vanhentenryck2025optlearning`: *Optimization learning* is published as "Trustworthy optimization learning: a brief overview", *Mathematical Optimization for Machine Learning* (De Gruyter, 2025), pp. 121–136. Matched on author, year and abstract (identical to the arXiv abstract except the added word "trustworthy"). The chapter's full text was not readable, so the figures in §4.7.3 (gaps under 0.5%, under an hour, about 25,000 instances per second) are still from the preprint, and the footnote says so. Bib entry changed from `@misc` to `@incollection`, arXiv ID kept.
+
 ## 2026-11-18 (Playground link)
 
 **Why.** Barton asked to add a link to the companion playground (`https://bartonchentw.github.io/FM4UES-playground/`) in the repo and on the web page.

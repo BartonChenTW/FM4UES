@@ -75,7 +75,7 @@ For buildings, the evidence is thin:
 Solar forecasting is where this is furthest along, because a camera or satellite sees the clouds that drive the output:
 
 - **CrossViViT** forecasts day-ahead irradiance at ground stations from satellite imagery plus the station series, released a paired satellite-and-series dataset, and was tested zero-shot at stations it had not seen.[^boussif2023crossvivit]
-- **SolCloudLLM** fuses sky-image patches with time-series patches. It reports up to 25.4% lower error, with the gains concentrated in cloudy conditions, and in few-shot settings a simple physical method often beat the deep models.[^chen2026solcloudllm]
+- **SolCloudLLM** fuses sky-image patches with time-series patches. It reports up to 25.4% lower error, with the gains concentrated in cloudy conditions, and in few-shot settings it was best in nearly all cases, while the other deep-learning baselines degraded and were often outperformed by a non-learning physical method.[^chen2026solcloudllm]
 - **Baguan-solar** fuses a global weather foundation model's forecasts with high-resolution satellite imagery for kilometre-scale, 24-hour irradiance forecasts. It reports 16% lower error than baselines including the ECMWF forecast, and has been in operational use since July 2025.[^ma2026baguansolar]
 - Paired data is the bottleneck: the authors of one sky-image dataset note that "there are few publicly available standardized benchmark datasets for image-based solar forecasting".[^nie2023skippd]
 

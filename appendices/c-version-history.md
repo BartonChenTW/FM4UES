@@ -3,7 +3,7 @@ title: Appendix C — Version History
 parent: Appendices
 nav_order: 3
 status: draft
-last_reviewed: 2026-10-21
+last_reviewed: 2026-11-19
 ---
 
 # Appendix C — Version History
@@ -21,6 +21,29 @@ These notes are revised continuously, so there are two ways to trace what change
 "Last reviewed" on each page is a separate signal. It is set by hand when someone has checked the page's content, so it can be older than the page's most recent edit.
 
 ---
+
+## 3.4 — 19 November 2026
+
+44 section pages, 351 references, 55 models in the model index, 202 institutions in the research-institutes index.
+
+**New**
+- [§2.7.1](../chapter-2-fm-foundations/2-7-1-fusion-strategies.html) Fusion strategies: early, intermediate and late fusion; concatenation, gating, FiLM, cross-attention, bottlenecks and one-stream transformers; fusing into a frozen pretrained model; handling different sampling rates and missing modalities; three checks that a fusion does anything; energy studies comparing fusion stages; and a table matching patterns to UES pairings
+- [§3.7](../chapter-3-sim-opt/3-7-flexible-loads.html#heat-pumps-and-building-thermal-mass) Heat pumps and building thermal mass alongside data centres and EV charging: temperature-aware European system optimisation, wholesale auction aggregation in Switzerland, low-voltage feeder peak synchronisation under price response, virtual-battery air-mixing losses, physics-constrained grey-box learning (VB-NET), and time-series foundation models tested inside residential heat-pump model predictive control (also linked in §4.6 and G10), plus EV2Gym for EV charging control
+- [§2.4.5](../chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html#electricity-prices) Electricity-price foundation models (PriceFM and PriceFM+) and Alliander's s4casting medium-voltage load forecaster
+- [§2.4.2](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html#trained-on-a-real-national-grid-rte-and-energnn) RTE and EnerGNN on the French transmission grid, expanded LUMINA results and OPFData, and the DynaGridFM announcement
+- [Appendix E](e-research-institutes.html) Research institutes: the 202 universities, research institutes and companies behind the 145 foundation-model publications cited in the notes
+
+**Revised**
+- Replaced the four remaining table-of-contents flowcharts on the Chapter 1, 2, 3 and 5 landing pages with domain diagrams (bespoke vs amortised cost structure, the five design decisions pipeline, the twelve UES tasks and their cost loops, and the 50-building district bipartite graph, also added to §5.3.3) and annotated §4.7's three-tier diagram
+- §2.4.1 and §4.1 cover Mistral's Timestral; §4.7.3 covers optimisation learning with feasibility repair layers; §4.8.3 covers the European federated testing facility EnerTEF; §3.3 and gap G9 (§6.1) cite multi-energy design-surrogate and combinatorial-graph work; §3.2, §3.4 and §4.5 cite primary sources for EnergyPlus, OpenModelica, SpineOpt, OSeMOSYS, PowerModels and Sentinel-2; §5.3.4 links `embodied_emissions` on the device token to §3.5
+- Preprint sweep: 20 arXiv references updated to their published journal or conference versions. Model index: s4casting, PriceFM and Timestral added, and TiRex-2's developer filled in
+
+**Corrections**
+- §2.4.1 separates MOMENT (a T5-style masked-patch encoder) from Timer (a GPT-style next-patch decoder, which does not cover classification)
+- §4.7.1 no longer says TabPFN-TS accepts static metadata (aligned with §2.4.1 and §4.1); stale pre-v3.0 section numbers in §2.4 and §4.7 fixed
+
+**Site**
+- Sidebar and home-page links to the companion [FM4UES Playground](https://bartonchentw.github.io/FM4UES-playground/) and the GitHub repository
 
 ## 3.3 — 21 October 2026
 

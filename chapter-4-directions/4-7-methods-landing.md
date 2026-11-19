@@ -4,7 +4,7 @@ parent: Chapter 4 — Directions for FMs in UES
 has_children: true
 nav_order: 7
 status: draft
-last_reviewed: 2026-09-11
+last_reviewed: 2026-11-19
 redirect_from:
   - /06-methods-tier1.html
   - /chapter-4-directions/4-9-methods-landing.html
@@ -28,13 +28,16 @@ The notes' own proposal for how a [foundation model](../appendices/a-glossary.ht
 
 ```mermaid
 flowchart LR
-    A["Tier 1<br/>Single hub, dispatch"] --> B["Tier 2<br/>Multi-hub, multi-carrier"]
-    B --> C["Tier 3<br/>Design & sizing"]
+    A["Tier 1 · Single hub, dispatch<br/>Fixed topology · Multivariate series + covariates<br/>Open: storage state & energy balance (§4.7.1)"]
+    B["Tier 2 · Multi-hub, multi-carrier<br/>Variable graph topology · GNNs & neural operators<br/>Open: transfer to unseen networks (§4.7.2)"]
+    C["Tier 3 · Design & sizing<br/>Bilevel outer loop · Discrete decision space (G9)<br/>Default: hybrid solver warm-start (§4.7.3)"]
+    A -->|"add network topology"| B
+    B -->|"add discrete capacity decisions"| C
 ```
 
-- [4.9.1 — Tier 1: single hub, dispatch only](4-7-1-methods-tier1.html)
-- [4.9.2 — Tier 2: multi-hub, multi-carrier, dispatch only](4-7-2-methods-tier2.html)
-- [4.9.3 — Tier 3: design and sizing optimisation](4-7-3-methods-tier3.html)
+- [4.7.1 — Tier 1: single hub, dispatch only](4-7-1-methods-tier1.html)
+- [4.7.2 — Tier 2: multi-hub, multi-carrier, dispatch only](4-7-2-methods-tier2.html)
+- [4.7.3 — Tier 3: design and sizing optimisation](4-7-3-methods-tier3.html)
 
 
 ---

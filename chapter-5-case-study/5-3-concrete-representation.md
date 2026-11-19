@@ -3,7 +3,7 @@ title: "5.3 A Concrete Representation and Token Schema"
 parent: Chapter 5 — Case Study
 nav_order: 3
 status: draft
-last_reviewed: 2026-09-11
+last_reviewed: 2026-11-19
 redirect_from:
   - /chapter-5-case-study/5-4-concrete-representation.html
   - /chapter-5-case-study/5-5-token-schema.html
@@ -59,6 +59,44 @@ An edge has exactly two endpoints, so a CHP (gas in → electricity *and* heat o
 
 **Quality edges:** B3 → B4 permitted (downgrade via load and mixing); B4 → B3 forbidden without a device. This one-way relation has no analogue in GridFM and is the clearest illustration of why multi-carrier systems need a different token from a grid bus (see [§2.4.2](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html)).
 
+```mermaid
+flowchart LR
+    subgraph BUS["Carrier-bus tokens (carrier + quality level)"]
+        B2["B2: Electricity · MV<br/>Grid import"]
+        B1["B1: Electricity · 0.4 kV<br/>Internal LV"]
+        B5["B5: Natural gas<br/>Import"]
+        B3["B3: Heat · 75 °C<br/>DH supply"]
+        B4["B4: Heat · 45 °C<br/>DH return / LT loop"]
+        B6["B6: Ambient · ~12 °C<br/>Ground source"]
+    end
+    subgraph DEV["Device tokens (multi-port conversion & storage)"]
+        D8["D8: Transformer"]
+        D4["D4: Rooftop PV"]
+        D5["D5: Battery (state)"]
+        D1["D1: CHP unit"]
+        D3["D3: Gas boiler"]
+        D6["D6: Hot water tank (state)"]
+        D2["D2: Heat pump"]
+        D7["D7: Borehole seasonal storage (state)"]
+    end
+    B2 <-->|"in / out"| D8
+    D8 <-->|"in / out"| B1
+    D4 -->|"out"| B1
+    B1 <-->|"charge / discharge"| D5
+    B5 -->|"gas in"| D1
+    D1 -->|"elec out"| B1
+    D1 -->|"75 °C heat out"| B3
+    B5 -->|"gas in"| D3
+    D3 -->|"75 °C heat out"| B3
+    B3 <-->|"charge / discharge"| D6
+    B1 -->|"elec in"| D2
+    B6 -->|"source in"| D2
+    D2 -->|"45 °C heat out"| B4
+    B4 <-->|"seasonal state"| D7
+    D7 <-->|"ground coupling"| B6
+    B3 -.->|"quality downgrade permitted (upgrade forbidden)"| B4
+```
+
 **The numbers work.** A 50-building district with ~30 carrier-buses and ~40 devices is 70 node tokens. Per year that is 365 × 70 ≈ 25,000 tokens — within reach given [TimesFM 2.5](../appendices/d-model-index.html#timesfm-2-5) already runs 16 k context at 200 M parameters,[^das2024timesfm] and cross-day attention only needs to be dense for the handful of storage nodes (see the temporal hierarchy in [§5.3](5-3-concrete-representation.html)). The flat alternative is 8760 × 70 ≈ 613,000 tokens, which is not tractable.
 
 ## 5.3.4 Token schema
@@ -100,10 +138,11 @@ EDGE TYPES
   quality_order   carrier-bus -> carrier-bus, same site, directed downward only
 ```
 
-**Two choices worth defending explicitly:**
+**Three choices worth defending explicitly:**
 
 - **Storage is a device subtype, not a fourth node type.** Keeps the vocabulary at two, and `state_active` tells the attention mechanism which nodes need cross-day routing.
 - **Two-channel normalisation** — normalised profile plus explicit log-magnitude. This is the direct fix for the information-deletion problem in [§5.2.1(f)](5-2-representation-problem.html#521-the-causal-chain-representation--data--capability). Carry both from the start; magnitude cannot be recovered later by [fine-tuning](../appendices/a-glossary.html#fine-tuning).
+- **[Embodied emissions](../appendices/a-glossary.html#embodied-emissions) on the device token (`embodied_emissions`).** Operational simulation and dispatch only see module B6 of a building's or district's life cycle; carrying embodied emissions per device connects the token schema to [whole-life carbon](../appendices/a-glossary.html#whole-life-carbon) and retrofit trade-offs in [§3.5](../chapter-3-sim-opt/3-5-retrofit-and-whole-life-carbon.html).
 
 ## 5.3.5 Temporal hierarchy
 

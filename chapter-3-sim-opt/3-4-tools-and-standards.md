@@ -3,7 +3,7 @@ title: "3.4 Tools and Data Standards"
 parent: "Chapter 3 — Simulation and Optimisation in UES"
 nav_order: 4
 status: draft
-last_reviewed: 2026-09-11
+last_reviewed: 2026-11-19
 redirect_from:
   - /chapter-3-sim-opt/3-6-tool-landscape.html
   - /chapter-3-sim-opt/3-7-schemas-and-standards.html
@@ -26,13 +26,13 @@ Not exhaustive, but covering the families you will meet. The point of this table
 
 | Family | Representative tools | Task coverage | Output structure |
 | :--- | :--- | :--- | :--- |
-| **Building simulation** | EnergyPlus, TRNSYS, IDA-ICE, ESP-r | T1, T7 | time series per zone/building |
+| **Building simulation** | EnergyPlus,[^crawley2001energyplus] TRNSYS, IDA-ICE, ESP-r | T1, T7 | time series per zone/building |
 | **UBEM** | CitySim, UMI, SimStadt, TEASER, CityBES, City Energy Analyst, CESAR-P | T1, T2 | building-resolved time series + geometry |
-| **Equation-based dynamic** | Modelica (Buildings, IBPSA, DisHeatLib), Dymola, OpenModelica | T1, T6, T7 | [DAE](../appendices/a-glossary.html#dae) trajectories, high resolution |
+| **Equation-based dynamic** | Modelica (Buildings, IBPSA, DisHeatLib), Dymola, OpenModelica[^fritzson2020openmodelica] | T1, T6, T7 | [DAE](../appendices/a-glossary.html#dae) trajectories, high resolution |
 | **District/urban platforms** | PyCity, City Energy Analyst, eNeuron | T1, T4, T6 | multi-building energy flows |
-| **Energy-system optimisation** | oemof, Calliope, PyPSA, SpineOpt, TIMES/MARKAL, EnergyPLAN, OSeMOSYS | T4, T5, T8 | dispatch + capacity decisions |
+| **Energy-system optimisation** | oemof, Calliope, PyPSA,[^brown2018pypsa] SpineOpt,[^ihlemann2022spineopt] TIMES/MARKAL, EnergyPLAN, OSeMOSYS[^howells2011osemosys] | T4, T5, T8 | dispatch + capacity decisions |
 | **Energy-hub / multi-carrier** | ehubX, eNeuron, hub formulations in Calliope/oemof | T4, T5 | carrier-resolved dispatch |
-| **Power system** | pandapower, PowerModels, MATPOWER,[^zimmerman2011matpower] PyPSA[^brown2018pypsa] | T4, T6 | bus/line-resolved states |
+| **Power system** | pandapower, PowerModels,[^coffrin2018powermodels] MATPOWER,[^zimmerman2011matpower] PyPSA[^brown2018pypsa] | T4, T6 | bus/line-resolved states |
 | **[Co-simulation](../appendices/a-glossary.html#co-simulation)** | FMI/FMU, mosaik, HELICS | cross-task | coupled trajectories |
 
 A taxonomic review of co-simulation practice for buildings and smart energy systems surveys exactly this landscape of coupled, tool-spanning approaches.[^alfalouji2023cosimulation] The distinction that matters for foundation models: **integrated** approaches (one solver, one formulation) produce coherent single-object outputs, while **co-simulation** approaches (separate sub-models exchanging data at a coupling interface) produce multiple loosely-coupled streams.
@@ -68,6 +68,11 @@ This is the schema-level version of the "MATPOWER moment" gap: power systems had
 [^alfalouji2023cosimulation]: Alfalouji, Q., Schranz, T., Falay, B. et al. (2023). [Co-simulation for buildings and smart energy systems — A taxonomic review](https://doi.org/10.1016/j.simpat.2023.102770). *Simulation Modelling Practice and Theory*, 126, 102770.
 [^tno2026esdl]: TNO. [ESDL — Energy System Description Language](https://www.esdl.nl/en/).
 [^iec61970]: International Electrotechnical Commission. [IEC 61970 — Energy management system application program interface (EMS-API)](https://webstore.iec.ch/en/publication/6208).
+[^crawley2001energyplus]: Crawley, D. B., Lawrie, L. K., Winkelmann, F. C. et al. (2001). [EnergyPlus: creating a new-generation building energy simulation program](https://doi.org/10.1016/S0378-7788(00)00114-6). *Energy and Buildings*, 33(4), 319–331.
+[^fritzson2020openmodelica]: Fritzson, P., Pop, A., Abdelhak, K. et al. (2020). [The OpenModelica integrated environment for modeling, simulation, and model-based development](https://doi.org/10.4173/mic.2020.4.1). *Modeling, Identification and Control*, 41(4), 241–295.
+[^ihlemann2022spineopt]: Ihlemann, M., Kouveliotis-Lysikatos, I., Huang, J. et al. (2022). [SpineOpt: A flexible open-source energy system modelling framework](https://doi.org/10.1016/j.esr.2022.100902). *Energy Strategy Reviews*, 43, 100902.
+[^howells2011osemosys]: Howells, M., Rogner, H., Strachan, N. et al. (2011). [OSeMOSYS: The Open Source Energy Modeling System: An introduction to its ethos, structure and development](https://doi.org/10.1016/j.enpol.2011.06.033). *Energy Policy*, 39(10), 5850–5870.
+[^coffrin2018powermodels]: Coffrin, C., Bent, R., Sundar, K., Ng, Y., Lubin, M. (2018). [PowerModels.jl: An open-source framework for exploring power flow formulations](https://doi.org/10.23919/PSCC.2018.8442948). *2018 Power Systems Computation Conference (PSCC)*, 1–8.
 
 ---
 [← Previous: 3.3 The Energy Hub: Formalism, Dispatch, Design](3-3-energy-hub-formalism.html) · [Back to Chapter 3](index.html) · [Next: 3.5 Building Retrofit and Whole-Life Carbon →](3-5-retrofit-and-whole-life-carbon.html)

@@ -4,7 +4,7 @@ parent: Chapter 2 — Foundation Knowledge of FMs
 has_children: true
 nav_order: 4
 status: draft
-last_reviewed: 2026-09-11
+last_reviewed: 2026-11-19
 redirect_from:
   - /04-fm-landscape.html
   - /chapter-2-fm-foundations/2-5-what-does-not-exist-yet.html
@@ -28,11 +28,10 @@ redirect_from:
 This section surveys [foundation models](../appendices/a-glossary.html#foundation-model) that already exist and bear directly on urban energy systems, organised by family:
 
 - [2.4.1 — Time-series foundation models](2-4-1-time-series-fms.html) (mature)
-- [2.4.2 — Power-grid foundation models](2-4-2-power-grid-fms.html) (emerging, moving fast)
-- [2.4.3 — Clean-energy forecasting foundation models](2-4-3-clean-energy-forecasting-fms.html) (mature)
+- [2.4.2 — Power-grid foundation models](2-4-2-power-grid-fms.html) (first released models, moving fast)
+- [2.4.3 — Weather, geospatial & generation foundation models](2-4-3-clean-energy-forecasting-fms.html) (mature)
 - [2.4.4 — Tabular foundation models](2-4-4-tabular-fms.html) — the cell as a [basic element](../appendices/a-glossary.html#basic-element)
-- [2.4.5 — Geospatial & weather foundation models](2-4-3-clean-energy-forecasting-fms.html#weather-and-geospatial)
-- [2.4.6 — Load & smart-meter forecasting foundation models](2-4-5-load-forecasting-fms.html) (mature for aggregated load)
+- [2.4.5 — Load, smart-meter & electricity-price forecasting foundation models](2-4-5-load-forecasting-fms.html) (mature for aggregated load; open for a single building)
 
 Read together with [§2.4](2-4-existing-fms-relevant-to-energy.html#what-does-not-exist-yet), which states what does **not** exist yet among these families — the gap these notes are written into.
 

@@ -3,7 +3,7 @@
 #
 # Compiled on 2026-10-27, starting from the authors of every publication in
 # references/fm-for-ues.bib that builds, pretrains, adapts or evaluates a
-# foundation model, LLMs and LLM agents included (144 entries). Affiliations come
+# foundation model, LLMs and LLM agents included (145 entries). Affiliations come
 # from each paper's OpenAlex record (author institutions, checked against the
 # raw affiliation strings), or from the paper's own title page where OpenAlex
 # had none; for a model card or README with no author list, the developer it
@@ -72,6 +72,16 @@
     - {key: "emami2025syscaps", label: "Emami et al. 2025", title: "SysCaps: Language interfaces for simulation surrogates of complex systems", page: "chapter-2-fm-foundations/2-7-multimodal-models.html"}
     - {key: "zhang2025bemagentic", label: "Zhang et al. 2025", title: "Automatic building energy model development and debugging using large language models agentic workflow", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
     - {key: "jia2026bemeval", label: "Jia et al. 2026", title: "BEMEval-Doc2Schema: Benchmarking large language models for structured data extraction in building energy modeling", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+- name: "University of Freiburg"
+  sector: "University"
+  countries: "Germany"
+  papers:
+    - {key: "hollmann2022tabpfn", label: "Hollmann et al. 2023", title: "TabPFN: A transformer that solves small tabular classification problems in a second", page: "chapter-2-fm-foundations/2-4-4-tabular-fms.html"}
+    - {key: "ansari2024chronos", label: "Chronos", title: "Chronos: Learning the language of time series", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "ansari2025chronos2", label: "Chronos-2", title: "Chronos-2: From univariate to universal forecasting", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
+    - {key: "hollmann2025tabpfnv2", label: "TabPFN v2", title: "Accurate predictions on small data with a tabular foundation model", page: "chapter-2-fm-foundations/2-3-choosing-a-basic-element.html"}
+    - {key: "hoo2025tabpfnts", label: "TabPFN-TS", title: "From tables to time: Extending TabPFN-v2 to time series forecasting", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
+    - {key: "amria2026tsfmmpc", label: "Amria et al. 2026", title: "Time-series Foundation Models for Predictive Control: The Role of Excitation", page: "chapter-3-sim-opt/3-7-flexible-loads.html"}
 - name: "Carnegie Mellon University"
   sector: "University"
   countries: "United States"
@@ -90,15 +100,6 @@
     - {key: "google2025timesfm25", label: "Google Research 2025", title: "TimesFM 2.5 (timesfm-2.5-200m)", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
     - {key: "ashok2026whatifbench", label: "Ashok et al. 2026", title: "WhatIf-Bench: Benchmarking Intervention-Aware Time Series Forecasting", page: "chapter-3-sim-opt/3-7-flexible-loads.html"}
     - {key: "google2026timesfm3", label: "TimesFM 3.0", title: "TimesFM: GitHub repository README (TimesFM 2.5 covariates via XReg; TimesFM 3.0 release)", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
-- name: "University of Freiburg"
-  sector: "University"
-  countries: "Germany"
-  papers:
-    - {key: "hollmann2022tabpfn", label: "Hollmann et al. 2023", title: "TabPFN: A transformer that solves small tabular classification problems in a second", page: "chapter-2-fm-foundations/2-4-4-tabular-fms.html"}
-    - {key: "ansari2024chronos", label: "Chronos", title: "Chronos: Learning the language of time series", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
-    - {key: "ansari2025chronos2", label: "Chronos-2", title: "Chronos-2: From univariate to universal forecasting", page: "chapter-1-background/1-3-fm-landscape-by-domain.html"}
-    - {key: "hollmann2025tabpfnv2", label: "TabPFN v2", title: "Accurate predictions on small data with a tabular foundation model", page: "chapter-2-fm-foundations/2-3-choosing-a-basic-element.html"}
-    - {key: "hoo2025tabpfnts", label: "TabPFN-TS", title: "From tables to time: Extending TabPFN-v2 to time series forecasting", page: "chapter-2-fm-foundations/2-4-1-time-series-fms.html"}
 - name: "Amazon"
   sector: "Company"
   countries: "United States"
@@ -425,6 +426,12 @@
   papers:
     - {key: "fan2025windfm", label: "WindFM", title: "WindFM: An open-source foundation model for zero-shot wind power forecasting", page: "chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html"}
     - {key: "fan2026evstllm", label: "Fan et al. 2026", title: "EV-STLLM: Electric vehicle charging forecasting based on spatio-temporal large language models with multi-frequency and multi-scale information fusion", page: "chapter-3-sim-opt/3-7-flexible-loads.html"}
+- name: "Norwegian University of Science and Technology"
+  sector: "University"
+  countries: "Norway"
+  papers:
+    - {key: "lie2026jutulgpt", label: "Lie et al. 2026", title: "Agentic Scientific Simulation: Execution-Grounded Model Construction and Reconstruction", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
+    - {key: "amria2026tsfmmpc", label: "Amria et al. 2026", title: "Time-series Foundation Models for Predictive Control: The Role of Excitation", page: "chapter-3-sim-opt/3-7-flexible-loads.html"}
 - name: "OpenAI"
   sector: "Company"
   countries: "United States"
@@ -867,11 +874,6 @@
   countries: "United Kingdom"
   papers:
     - {key: "nihalchandani2026fedtsfm", label: "Nihalchandani et al. 2026", title: "Personalized Federated Sparse Adaptation of Time-Series Foundation Models", page: "chapter-2-fm-foundations/2-8-ues-fm-evaluation-criteria.html"}
-- name: "Norwegian University of Science and Technology"
-  sector: "University"
-  countries: "Norway"
-  papers:
-    - {key: "lie2026jutulgpt", label: "Lie et al. 2026", title: "Agentic Scientific Simulation: Execution-Grounded Model Construction and Reconstruction", page: "chapter-4-directions/4-3-llm-agents-for-simulation.html"}
 - name: "Oak Ridge National Laboratory"
   sector: "Research institute"
   countries: "United States"

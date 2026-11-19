@@ -22,7 +22,7 @@ SKIP_FILES = {'appendices/a-glossary.md', 'appendices/c-version-history.md', 'ap
 def load_names(path):
     names = {}
     cur = None
-    for line in open(path):
+    for line in open(path, encoding='utf-8'):
         m = re.match(r'^- id:\s*(\S+)', line)
         if m:
             cur = m.group(1).strip('"\'')
@@ -56,7 +56,7 @@ def rel_prefix(path):
 
 
 def link_file(path, names, dry):
-    lines = open(path).read().split('\n')
+    lines = open(path, encoding='utf-8').read().split('\n')
     pattern = re.compile(
         r'(?<![\w.-])(' + '|'.join(re.escape(n) for n in sorted(names, key=len, reverse=True)) + r')(?![\w-]|\.\d)')
     # Models already linked on this page count as done, so re-running the
@@ -94,7 +94,7 @@ def link_file(path, names, dry):
             out.append(line[pos:])
             lines[i] = ''.join(out)
     if changes and not dry:
-        open(path, 'w').write('\n'.join(lines))
+        open(path, 'w', encoding='utf-8', newline='\n').write('\n'.join(lines))
     return changes
 
 
@@ -102,7 +102,7 @@ if __name__ == '__main__':
     names = load_names(sys.argv[1])
     dry = '--dry' in sys.argv
     total = 0
-    files = sorted(glob.glob('chapter-*/*.md') + glob.glob('appendices/*.md') + ['index.md'])
+    files = sorted(p.replace('\\', '/') for p in (glob.glob('chapter-*/*.md') + glob.glob('appendices/*.md') + ['index.md']))
     for f in files:
         if f in SKIP_FILES:
             continue

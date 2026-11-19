@@ -1,17 +1,17 @@
 ---
-title: "3.7 Flexible Loads: EV Charging and Data Centres"
+title: "3.7 Flexible Loads: EV Charging, Data Centres and Heat Pumps"
 parent: Chapter 3 — Simulation and Optimisation in UES
 nav_order: 7
 status: draft
-last_reviewed: 2026-10-20
+last_reviewed: 2026-11-19
 ---
 
-# 3.7 Flexible Loads: EV Charging and Data Centres
+# 3.7 Flexible Loads: EV Charging, Data Centres and Heat Pumps
 {: .no_toc }
 
 {% include page-status.html %}
 
-Two fast-growing loads that can move in time, move between sites, or shed demand, and what learned models do and do not yet offer for them.
+Three loads that can move in time, move between sites, or shed demand — data centres, EV charging, and heat pumps backed by building thermal mass — and what learned models do and do not yet offer for them.
 {: .fs-6 .fw-300 }
 
 1. TOC
@@ -27,7 +27,7 @@ A load is **flexible** when it can change its electricity use in response to a s
 - **Shift in space:** move the work to another site, which only some loads can do.
 - **Curtail:** reduce demand for a while and accept a cost in lost service.
 
-Electric-vehicle charging and data centres are the two loads where this has grown fastest. To the energy system they are inputs to dispatch and design ([§3.3](3-3-energy-hub-formalism.html)): loads whose size and timing can be chosen within limits. How much a given load can move, when and at what cost is a task of its own, **T12 [flexibility](../appendices/a-glossary.html#flexibility) assessment** in [§3.1](3-1-taxonomy-of-tasks.html).
+Electric-vehicle charging, data centres, and heat pumps backed by building thermal mass are the three main sources of demand-side flexibility in urban energy systems. To the energy system they are inputs to dispatch and design ([§3.3](3-3-energy-hub-formalism.html)): loads whose size and timing can be chosen within limits. How much a given load can move, when and at what cost is a task of its own, **T12 [flexibility](../appendices/a-glossary.html#flexibility) assessment** in [§3.1](3-1-taxonomy-of-tasks.html).
 
 What flexibility is worth depends on the grid it serves. A capacity-expansion study of data-centre load found the value spatial in the US PJM market, where shifting work between zones cut system cost by 6% in 2028 and 19% in 2038, and temporal in Korea, where shifting load into midday solar hours made extra solar worth building. In both, realistic limits on curtailment events reduced its value.[^khanal2026shiftcurtail]
 
@@ -60,15 +60,29 @@ Research on data-centre flexibility has grown very quickly: a dated search (belo
 - Another framework uses a language model inside multi-agent reinforcement learning to choose features and weigh the competing goals of the grid, the stations and the drivers.[^zhang2026llmmarlev]
 - EV2Gym is an open-source simulator for testing charging controllers, including vehicle-to-grid (parked cars feeding power back), on shared scenarios. Its models of vehicles, charge points, transformers and driver behaviour are checked against real data, and it ships reinforcement-learning, mathematical-programming and rule-based controllers as baselines.[^orfanoudakis2025ev2gym] It plays the part for EV charging that OpenG2G plays for data centres: a common testbed where different controllers are compared on the same cases.
 
+## Heat pumps and building thermal mass
+
+Unlike data centres and electric vehicles, which are purely electrical loads, a heat pump couples the electricity grid to a building's thermal mass or a thermal store. That makes it the bridge between demand-side [flexibility](../appendices/a-glossary.html#flexibility) and the multi-carrier [energy hub](../appendices/a-glossary.html#energy-hub) of [§3.3](3-3-energy-hub-formalism.html): pre-heating a building before a price peak shifts electricity use in time by storing energy as heat.
+
+**What thermal flexibility is worth, and what happens when it synchronises.**
+- Because a heat pump's efficiency depends on the supply and ambient temperatures, its flexibility is state-dependent. A conic temperature-aware heat-pump formulation integrated with building thermal inertia in a European energy-system optimisation study captured short-term heating flexibility while remaining tractable at large scale, reducing heating-related electricity costs by up to 22%.[^malacek2026temphp]
+- Individual heat pumps are too small to participate in wholesale electricity auctions directly. An aggregation method that selects only economically relevant power profiles using price forecasts and bids them as exclusive groups of block bids was tested for the utility serving Losone, Switzerland, achieving 98% of the theoretical cost savings in the Swiss day-ahead auction with computation time growing linearly in the number of heat pumps.[^ellemund2026biddingflex]
+- Uncoordinated price response creates a distribution-grid risk. Across 913 simulation runs on a 97-bus rural low-voltage feeder (250 kVA transformer), when households independently minimised their own costs against the same electricity price, flexible EV and heat-pump loads piled into the cheapest hours: at 30% penetration of each device, decentralised cost minimisation drove the transformer to 253% of rated capacity (more than three times uncoordinated operation), and each 30 percentage points of heat-pump penetration raised the peak by about 110 percentage points, twelve times as much as without optimisation. Adding a time-variable grid fee merely moved the weekly peak into the reduced-fee window in 99 of 104 fee-active weeks while keeping at least 89.8% of its height; centralised peak minimisation removed all demand-driven violations.[^hein2026pricepeaks]
+
+**Virtual-battery and learned models.**
+- Grid planners often represent building HVAC flexibility as a "virtual battery" whose state of charge tracks indoor temperature within comfort bounds. An analytical study of commercial building HVAC load shifting showed that using average room temperature alone as the state of charge misses inefficiencies from incomplete indoor air mixing; closing the control loop around fan-power measurements raised virtual-battery round-trip efficiency from 0.75 to 0.99 in one case.[^lin2025airmixing]
+- VB-NET is a physics-constrained grey-box deep-learning framework that maps air-conditioning thermodynamics onto a standardised virtual-battery model by separating shared weather drivers from private building thermal fingerprints and embedding a differentiable physics layer. It outperformed black-box models on state-of-charge tracking and adapted to new air-conditioning units using 2–6% of historical data.[^qi2026vbnet]
+- When time-series foundation models were tested as the predictive model inside model predictive control (MPC) of a residential heat pump, low forecast error did not guarantee that the model captured how the system responds to the alternative control actions the controller evaluates. The foundation models recovered the input–response relationship only when the inference context contained enough independent control excitation; standard [fine-tuning](../appendices/a-glossary.html#fine-tuning) and feature smoothing reduced, but did not eliminate, that requirement.[^amria2026tsfmmpc]
+
 ## What learned models offer so far
 
 These notes read the literature as follows:
 - **Forecasting the load is close to solved where it is aggregated.** General time-series models work zero-shot for charging stations, and forecasting tools for data-centre load and carbon intensity exist.
 - **Control uses task-specific learning,** usually reinforcement learning with a physics-based safety layer, trained per system rather than pretrained across many.
-- **Flexibility itself is measured and optimised, not learned.** No study found here learns how much a fleet or a data centre can move in response to a new signal. That is a counterfactual question: what would the load do under an intervention it has not seen? Current forecasters do well when an intervention repeats one they have seen, and much worse when it is new.[^ashok2026whatifbench] This is logged as [gap G10](../chapter-6-outlook/6-1-open-gaps.html#g10), and the task is screened in [§4.5](../chapter-4-directions/4-5-screening-fields.html#screening-the-tasks).
+- **Flexibility itself is measured and optimised, not learned.** No study found here learns how much a fleet or a data centre can move in response to a new signal. That is a counterfactual question: what would the load do under an intervention it has not seen? Current forecasters do well when an intervention repeats one they have seen, and much worse when it is new.[^ashok2026whatifbench] On residential heat-pump model predictive control, even time-series foundation models with low forecast error only recovered the system's response to alternative control actions when the inference context contained enough independent control excitation; standard fine-tuning and feature smoothing reduced, but did not eliminate, that requirement.[^amria2026tsfmmpc] This is logged as [gap G10](../chapter-6-outlook/6-1-open-gaps.html#g10), and the task is screened in [§4.5](../chapter-4-directions/4-5-screening-fields.html#screening-the-tasks).
 
 {: .note }
-**Dated search** (arXiv, 20 October 2026). Abstracts with "foundation model" and electric vehicle, EV charging, charging station or charging demand: 4 results, none an EV [foundation model](../appendices/a-glossary.html#foundation-model). "Foundation model" with data centre and energy, power, flexibility or grid: 21 results, none a model of data-centre flexibility. Data centre with flexibility or demand response and grid or power system: 117 results. Learned models of aggregate EV flexibility (EV with flexibility, aggregation and learning, neural or forecasting terms): 0 results.
+**Dated search.** *Data centres and EVs (arXiv, 20 October 2026):* abstracts with "foundation model" and electric vehicle, EV charging, charging station or charging demand: 4 results, none an EV [foundation model](../appendices/a-glossary.html#foundation-model); "foundation model" with data centre and energy, power, flexibility or grid: 21 results, none a model of data-centre flexibility; data centre with flexibility or demand response and grid or power system: 117 results; learned models of aggregate EV flexibility (EV with flexibility, aggregation and learning, neural or forecasting terms): 0 results. *Heat pumps and thermal flexibility (arXiv, 19 November 2026):* abstracts with "foundation model" and heat pump, thermal mass, building flexibility or thermal flexibility: 2 results, one testing time-series foundation models for residential heat-pump predictive control; heat pump with flexibility or demand response and building, thermal or grid: 51 results; heat pump or building thermal with flexibility, aggregation and learning, neural, [surrogate](../appendices/a-glossary.html#surrogate) or forecasting terms: 4 results (virtual-battery grey-box learning and market aggregation; no pretrained foundation model of thermal flexibility).
 
 [^yanespulido2026tsfmtransport]: Yanes-Pulido, J., Rodrigues, F. (2026). [Time Series Foundation Models as Strong Baselines in Transportation Forecasting: A Large-Scale Benchmark Analysis](https://arxiv.org/abs/2602.24238). arXiv:2602.24238.
 [^fan2026evstllm]: Fan, H., Chai, Y., Liu, C. et al. (2026). [EV-STLLM: Electric vehicle charging forecasting based on spatio-temporal large language models with multi-frequency and multi-scale information fusion](https://doi.org/10.1016/j.eswa.2026.131620). *Expert Systems with Applications*, 313, 131620. arXiv:2507.09527.
@@ -86,6 +100,12 @@ These notes read the literature as follows:
 [^wang2026dcloadensemble]: Wang, Z., Zhang, Y., Wang, L. et al. (2026). [Regime-Adaptive Weighted Ensemble Learning for Computing-Driven Dynamic Load Forecasting in AI Data Centers](https://arxiv.org/abs/2604.27207). arXiv:2604.27207.
 [^maji2026carbonx]: Maji, D., Yang, K., Shenoy, P. et al. (2026). [CarbonX: An Open-Source Tool for Computational Decarbonization Using Time Series Foundation Models](https://doi.org/10.1145/3744255.3798120). *e-Energy '26*, 569–583. arXiv:2510.01521.
 [^ashok2026whatifbench]: Ashok, A., Parmar, M., Goyal, P. et al. (2026). [WhatIf-Bench: Benchmarking Intervention-Aware Time Series Forecasting](https://arxiv.org/abs/2610.26582). arXiv:2610.26582.
+[^malacek2026temphp]: Malacek, S., Wogrin, S., Werner, Y. (2026). [Temperature-aware heat pump modeling for large-scale energy system optimization](https://doi.org/10.1109/EEM68581.2026.11589688). *2026 22nd International Conference on the European Energy Market (EEM)*, 1–6. arXiv:2606.10883.
+[^ellemund2026biddingflex]: Ellemund, G., Hübner, T., Lété, Q., Bracco, S., Fresia, M., Hug, G. (2026). [Bidding aggregated flexibility in European electricity auctions](https://doi.org/10.1109/TEMPR.2026.3714683). *IEEE Transactions on Energy Markets, Policy and Regulation*, 4(3), 461–471. arXiv:2512.13557.
+[^hein2026pricepeaks]: Hein, T., Wagner, L. P., Bernhard, A., Ocker, F. (2026). [Price-optimized EV and heat-pump scheduling can exceed uncoordinated feeder peaks](https://arxiv.org/abs/2610.05916). arXiv:2610.05916.
+[^lin2025airmixing]: Lin, A. J., de Chalendar, J. A., Mathieu, J. L. (2025). [Incomplete air mixing reduces the efficiency of commercial buildings behaving as virtual batteries](https://arxiv.org/abs/2510.02933). arXiv:2510.02933.
+[^qi2026vbnet]: Qi, Y., Guo, Y., Xu, Y. (2026). [VB-NET: A physics-constrained gray-box deep learning framework for modeling air conditioning systems as virtual batteries](https://arxiv.org/abs/2603.07601). arXiv:2603.07601.
+[^amria2026tsfmmpc]: Amria, M., Hoffmann, J., Bordne, P. et al. (2026). [Time-series foundation models for predictive control: The role of excitation](https://arxiv.org/abs/2610.06447). arXiv:2610.06447.
 
 ---
 [← Previous: 3.6 Social Dimensions](3-6-social-dimensions.html) · [Back to Chapter 3](index.html) · [Next: Chapter 4 — Directions for FMs in UES →](../chapter-4-directions/index.html)

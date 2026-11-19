@@ -4,7 +4,7 @@ parent: "2.7 Multimodal Models"
 grand_parent: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 1
 status: draft
-last_reviewed: 2026-11-16
+last_reviewed: 2026-11-19
 ---
 
 # 2.7.1 Fusion Strategies: Where and How Modalities Are Combined
@@ -44,6 +44,8 @@ The classic split is by the stage at which modalities meet:[^baltrusaitis2019mml
 | **Late** | Each modality's own prediction, by averaging, weighting or a learned model | A different model per modality; easier when a modality is missing; can even be trained without paired data | Ignores interactions between the modalities |
 
 Which stage works best is an empirical question. In audio-visual classification, Nagrani et al. varied the layer at which the modalities first exchange information and found that mid fusion beat both early and late fusion. They also note that this layer "may need to be tuned specifically for different tasks and datasets".[^nagrani2021mbt] It is an audio-visual result: for load and weather data the fusion layer is something to tune, not to copy.
+
+In energy forecasting, the best stage depends on how quickly the second modality's signal decays and how reliable each sensor is. For very-short-term solar irradiance forecasting from sky images and meteorological records, an early feature-level transformer with gating improved the balanced accuracy of ramp events over a late-fusion CNN baseline by 9.43% at a 2-minute horizon and 3.91% at 6 minutes, because cloud edges and irradiance drops interact directly; beyond 10 minutes, however, the spatial information in a single sky image stopped adding value.[^zhang2023skyfusion] On a building energy monitoring dataset with nine heterogeneous sensors, comparing early fusion, late fusion and attention-weighted fusion across chronological splits found that all three beat single-model baselines: late fusion gave stable performance across strongly correlated loads, while attention-weighted fusion was more robust when sensors differed in predictive reliability.[^hasan2026multisensor]
 
 **Reading for urban energy systems.** Late fusion is the natural fallback. A series-only forecaster and an attribute-based estimate can be combined even when they were trained on different datasets, which matters because measured load rarely comes paired with building attributes ([§2.7](2-7-multimodal-models.html#why-it-is-hard)). Its cost is that the attributes can no longer change *how* the series is read. The cold-morning example in [§2.7](2-7-multimodal-models.html#a-worked-example-from-this-domain), where insulation and heating system change the response to weather, needs that interaction, so it needs early or intermediate fusion.
 
@@ -133,6 +135,8 @@ The first pattern these notes would try for each pairing. Only the solar rows re
 [^yi2026traceepf]: Yi, X., Yuan, Z., Lestas, I. (2026). [TRACE: A reproducible benchmark for electricity price forecasting with official operational text](https://arxiv.org/abs/2610.02256). arXiv:2610.02256.
 [^chen2026solcloudllm]: Chen, K., Perera, M., Wang, W. et al. (2026). [Bidirectional multimodal fusion of sky images and time-series for solar forecasting with large language models](https://arxiv.org/abs/2609.11135). arXiv:2609.11135.
 [^ma2026baguansolar]: Ma, Z., Ying, K., Gu, X. et al. (2026). [Integrating weather foundation model and satellite to enable fine-grained solar irradiance forecasting](https://doi.org/10.1145/3770855.3818436). *Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2*, 7785–7796. arXiv:2603.14845.
+[^zhang2023skyfusion]: Zhang, L., Wilson, R., Sumner, M., Wu, Y. (2023). [Advanced multimodal fusion method for very short-term solar irradiance forecasting using sky images and meteorological data: A gate and transformer mechanism approach](https://doi.org/10.1016/j.renene.2023.118952). *Renewable Energy*, 216, 118952.
+[^hasan2026multisensor]: Hasan, R., Mansouri, M., Arkhangelski, J., Abdou Tankari, M. (2026). [Interpretable multi-sensor fusion for short-term energy consumption forecasting](https://doi.org/10.3390/en19092230). *Energies*, 19(9), 2230.
 
 ---
 [← Previous: 2.7 Multimodal Models](2-7-multimodal-models.html) · [Back to Chapter 2](index.html) · [Next: 2.8 Evaluation Criteria for UES Foundation Models →](2-8-ues-fm-evaluation-criteria.html)

@@ -3,7 +3,7 @@ title: "3.3 The Energy Hub: Formalism, Dispatch, Design"
 parent: Chapter 3 — Simulation and Optimisation in UES
 nav_order: 3
 status: draft
-last_reviewed: 2026-09-11
+last_reviewed: 2026-11-19
 redirect_from:
   - /chapter-3-sim-opt/3-4-dispatch-optimisation.html
   - /chapter-3-sim-opt/3-5-design-sizing-optimisation.html
@@ -93,7 +93,7 @@ The inner problem — dispatch, from [above](#dispatch) — is called once per c
 
 **This is the argument that justifies foundation-model framing over bespoke surrogates, and it must be made explicitly whenever it is invoked.**
 
-Building a training set costs *N* simulator runs. If *N* = 10,000 and each run takes a minute, that is roughly a week of compute before anything is returned. A surrogate for **one** system used within **one** study rarely repays this — which is precisely why the existing multi-energy surrogate literature is bespoke, small-data and discarded at project end (see [§2.1](../chapter-2-fm-foundations/2-1-what-defines-an-fm.html#surrogates-vs-fms)).
+Building a training set costs *N* simulator runs. If *N* = 10,000 and each run takes a minute, that is roughly a week of compute before anything is returned. A surrogate for **one** system used within **one** study rarely repays this — which is precisely why the existing multi-energy surrogate literature is bespoke, small-data and discarded at project end (see [§2.1](../chapter-2-fm-foundations/2-1-what-defines-an-fm.html#surrogates-vs-fms)). Even within a single system form, predicting optimal design variables directly rather than operating cost has required tailored sampling, output rescaling and mixture-of-experts architectures because design variables change irregularly and abruptly across scenarios.[^ledee2025messurrogate]
 
 A foundation model changes the arithmetic: the cost is paid once, across a distribution of systems, and amortised over every subsequent study. Formally, it pays back when
 
@@ -138,6 +138,7 @@ Order-of-magnitude brackets, as these notes' own estimates rather than measured 
 [^wakui2021decomposition]: Wakui, T., Hashiguchi, M., Yokoyama, R. (2021). [Structural design of distributed energy networks by a hierarchical combination of variable- and constraint-based decomposition methods](https://doi.org/10.1016/j.energy.2021.120099). *Energy*, 224, 120099.
 [^kotzur2018impact]: Kotzur, L., Markewitz, P., Robinius, M. et al. (2018). [Impact of different time series aggregation methods on optimal energy system design](https://doi.org/10.1016/j.renene.2017.10.017). *Renewable Energy*, 117, 474–487. arXiv:1708.00420.
 [^hoffmann2022pareto]: Hoffmann, M., Kotzur, L., Stolten, D. (2022). [The Pareto-optimal temporal aggregation of energy system models](https://doi.org/10.1016/j.apenergy.2022.119029). *Applied Energy*, 315, 119029. arXiv:2111.12072.
+[^ledee2025messurrogate]: Lédée, F., Crawford, C., Evins, R. (2025). [Improved surrogate modeling for multi-energy system design: Model architecture, sampling and scaling choices](https://doi.org/10.1016/j.apenergy.2025.125812). *Applied Energy*, 390, 125812.
 
 ---
 [← Previous: 3.2 Building Simulation: Loads, Datasets, Benchmarks](3-2-building-simulation-data.html) · [Back to Chapter 3](index.html) · [Next: 3.4 Tools and Data Standards →](3-4-tools-and-standards.html)

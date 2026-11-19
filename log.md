@@ -1148,3 +1148,34 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 - `index.md`: added a pointer to the playground under "How to use this document".
 - `README.md`: added a "Hands-on playground" link right under the "Read online" link.
 - `.github/lychee.toml`: excluded `https://bartonchentw.github.io/FM4UES-playground/` alongside `/FM4UES/` after verifying it responds 200 OK, avoiding `bartonchentw.github.io` connection-reset flakes on GitHub Actions runners.
+
+## 2026-11-19 (Heat pumps in §3.7; energy fusion comparisons in §2.7.1; chapter diagrams; tool & G9 citations; consistency fixes)
+
+**Why.** Barton asked to pick up improvements from the to-do list, structure, and information gaps in a 30–60 minute batch.
+
+**1. Consistency & script fixes.**
+- **§2.4:** updated the sub-page list from pre-v3.0 numbering (`2.4.5` geospatial / `2.4.6` load) to the actual five sub-pages (`2.4.1`–`2.4.5`) and updated §2.4.2's status to "first released models, moving fast".
+- **§4.7:** fixed the stale `4.9.1`–`4.9.3` link labels to `4.7.1`–`4.7.3`.
+- **§4.7.1:** fixed the pre-v3.2 contradiction in Step 2 claiming `TabPFN-TS` takes static metadata (aligned with §2.4.1 and §4.1: `Chronos-2`, `TimesFM 3.0`, `TiRex-2` and `Timestral` model covariates jointly, `TabPFN-TS` drops static covariates, and `TimesFM 2.5` accepts static covariates via XReg).
+- **`scripts/link_glossary.py` & `scripts/link_models.py`:** normalized `glob` paths with `.replace('\\', '/')` and opened/wrote files in UTF-8 with `\n` line endings so `SKIP_FILES` and `ONLY_IN` work on Windows as on POSIX; added `'charge points, transformers'` and `'250 kVA transformer'` to `SKIP_IF_LINE['transformer']` so electrical transformers in §3.7 are not linked to the ML Transformer entry.
+
+**2. Heat pumps and building thermal mass in §3.7 (+ §4.6, G10, Appendix E).**
+- Added a new subsection **Heat pumps and building thermal mass** to **§3.7** (title and intro updated, along with `chapter-3-sim-opt/index.md`, `index.md`, `README.md` and `chapter-4-directions/index.md`'s Previous link), covering: conic temperature-aware European optimisation (`malacek2026temphp`, up to 22% cost cut), Swiss wholesale aggregation (`ellemund2026biddingflex`, Losone, 98% savings), distribution-grid peak synchronisation (`hein2026pricepeaks`, 97-bus feeder, 253% transformer load at 30% penetration), HVAC virtual-battery mixing inefficiency (`lin2025airmixing`), `VB-NET` physics-constrained grey-box virtual-battery learning (`qi2026vbnet`, 2–6% adaptation data), and `amria2026tsfmmpc` testing TSFMs inside residential heat-pump MPC (input–response recovery needs independent control excitation in context even after fine-tuning).
+- Updated §3.7's dated search (arXiv, 19 November 2026: 2 FM hits, 51 HP flexibility hits, 4 aggregate-learning hits, no pretrained thermal-flexibility FM) and linked `amria2026tsfmmpc` in **§4.6** (T12) and **§6.1** (G10).
+- Added `amria2026tsfmmpc` (verified from OpenAlex and arXiv HTML affiliations) to `_data/institutes.yml` under **University of Freiburg** (5 → 6 papers) and **Norwegian University of Science and Technology** (1 → 2 papers), keeping descending count / alphabetical order; updated `appendices/e-research-institutes.md` from 144 to 145 publications.
+
+**3. Information gaps (`TODO.md` & `refs-to-add.md`).**
+- **§2.7.1:** added two in-domain energy studies comparing fusion stages under "Where to fuse": sky-image solar ramp forecasting (`zhang2023skyfusion`, early gated transformer vs late CNN) and 9-sensor building energy forecasting (`hasan2026multisensor`, early vs late vs attention-weighted).
+- **Tool & mission citations:** cited `crawley2001energyplus` (§3.2, §3.4), `fritzson2020openmodelica`, `ihlemann2022spineopt`, `howells2011osemosys`, `coffrin2018powermodels` (§3.4), and `drusch2012sentinel2` (§4.5).
+- **§3.3 & §6.1 G9:** cited `ledee2025messurrogate` in §3.3's amortisation argument, and cited `ledee2025messurrogate`, `sharif2021renovationvae` and `gasse2019learn2branch` in G9 (closing the last uncited gap in §6.1).
+- **§5.3.4:** added an explicit defence of `embodied_emissions` on the device token, linking to whole-life carbon in §3.5.
+
+**4. Diagram redesigns (`diagram-ideas.md`).**
+- Replaced the four remaining TOC flowcharts on chapter landings with substantive domain diagrams: **Chapter 1** (bespoke-per-study vs amortised FM cost structure), **Chapter 2** (the five design decisions D1–D5 anchored by D2 basic element and D5 UES evaluation), **Chapter 3** (the twelve tasks T1–T12 arranged as inputs → building → inner solvers → expensive outer loops → outcomes), and **Chapter 5** (bipartite carrier-bus and device graph of the 50-building district, including the one-way quality edge `B3 → B4`).
+- Also inserted the bipartite graph diagram in **§5.3.3** and annotated **§4.7**'s Tier 1 → Tier 2 → Tier 3 diagram with what changes at each tier.
+
+**References (bib 337 → 351).** 14 new BibTeX entries (`crawley2001energyplus`, `howells2011osemosys`, `ihlemann2022spineopt`, `fritzson2020openmodelica`, `coffrin2018powermodels`, `drusch2012sentinel2`, `zhang2023skyfusion`, `hasan2026multisensor`, `malacek2026temphp`, `ellemund2026biddingflex`, `hein2026pricepeaks`, `lin2025airmixing`, `qi2026vbnet`, `amria2026tsfmmpc`), all verified via Crossref, arXiv API and OpenAlex.
+
+**Version:** Version 3.4 is recorded in Appendix C, `_config.yml` and the README.
+
+**Verified:** local script checks pass with 0 missing/unused bib keys (351/351), 0 footnote mismatches across all public pages, balanced `{}` in `.bib`, 0 broken internal `.html` links or `#anchors`, `link_glossary.py` and `link_models.py` re-run cleanly without touching `SKIP_FILES`, and `_data/institutes.yml` ordering and publication counts verified. Note: a full Jekyll build was not run locally (no Ruby/Jekyll in this environment); GitHub Actions `site-check.yml` and `link-check.yml` cover the live build and external links.

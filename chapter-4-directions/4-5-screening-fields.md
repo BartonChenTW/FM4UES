@@ -3,7 +3,7 @@ title: "4.5 Screening Sub-Fields and Tasks"
 parent: Chapter 4 — Directions for FMs in UES
 nav_order: 5
 status: draft
-last_reviewed: 2026-09-29
+last_reviewed: 2026-11-19
 redirect_from:
   - /05-screening.html
   - /chapter-4-directions/4-6-screening-tasks.html
@@ -46,7 +46,7 @@ Before applying this screen task-by-task (done in [§4.5](4-5-screening-fields.h
 | **Load / smart-meter FM** | Windowed [patch](../appendices/a-glossary.html#patch) of a meter time series | Masked / next-value reconstruction | EnergyBench, [BuildingsBench](../appendices/d-model-index.html#buildingsbench) (see [§3.2](../chapter-3-sim-opt/3-2-building-simulation-data.html)) | Mature — several such models already exist ([§2.4.5](../chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html)) |
 | **Grid FM** ([GridFM-v0](../appendices/d-model-index.html#gridfm)) | A bus carrying (p, q, v, δ) as a graph node; lines and transformers as edges | Masked node-feature reconstruction + AC power-flow physics loss | PGLIB-OPF, IEEE cases, gridfm-datakit | Emerging: first released pretrained models in 2026, see [§2.4.2](../chapter-2-fm-foundations/2-4-2-power-grid-fms.html) |
 | **UBEM / simulator-grounded FM** | A building (envelope, geometry, HVAC, occupancy) paired with its simulated load | Conditional generation, attribute-to-profile mapping | Privately generable only | Not a found-data FM — simulator-grounded generative model |
-| **Urban microclimate / geospatial-energy FM** | Satellite pixel/patch over space-time | Masked spatiotemporal reconstruction | HLS, Sentinel-2, ERA5 | Emerging, adjacent, not yet fused with load or grid data — see [§2.4.3](../chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html#weather-and-geospatial) |
+| **Urban microclimate / geospatial-energy FM** | Satellite pixel/patch over space-time | Masked spatiotemporal reconstruction | HLS, Sentinel-2,[^drusch2012sentinel2] ERA5 | Emerging, adjacent, not yet fused with load or grid data — see [§2.4.3](../chapter-2-fm-foundations/2-4-3-clean-energy-forecasting-fms.html#weather-and-geospatial) |
 | **District multi-energy hub** | Not yet defined | Not yet defined | Essentially none public | Immature — the subject of [Chapter 5](../chapter-5-case-study/index.html) |
 | **Retrofit / [whole-life carbon](../appendices/a-glossary.html#whole-life-carbon)** | Not yet defined — a building *plus* the set of measures feasible on it ([G9](../chapter-6-outlook/6-1-open-gaps.html#g9)) | Not yet defined | Impact factors per material are published (e.g. KBOB); paired building–measure–outcome corpora privately generable only | Immature — domain side in [§3.5](../chapter-3-sim-opt/3-5-retrofit-and-whole-life-carbon.html) |
 | **Behaviour, adoption and social outcomes** | For people, not settled — a household or owner as an agent; for text sources, the language model's own tokens | For agents, none (no simulator of people); for text, existing LLM pretraining | Surveys (small, periodic), observed adoption (one history), meter data (privacy-constrained), text (abundant, unstructured) | Off-the-shelf LLMs usable as bounded tools; validity unresolved — see [§3.6](../chapter-3-sim-opt/3-6-social-dimensions.html), [§4.3](4-3-llm-agents-for-simulation.html) |
@@ -82,6 +82,8 @@ This section applies the five screening criteria above to each of the twelve mod
 | T11 Behaviour/adoption | ✘ no simulator of people; observational only | ◐ | ✔ many households | ◐ Monte Carlo over seeds and scenarios | ◐ one observed history; equity is normative | **Weak as an FM target** — LLMs as bounded tools instead (see [§4.6](4-6-reading-the-screen.html)) |
 | T12 [Flexibility](../appendices/a-glossary.html#flexibility) assessment | ◐ simulators of workloads and charging exist; the response to a new signal is counterfactual | ◐ fleets and facilities differ | ✔ many sites | ✔ assessed inside dispatch and market loops | ◐ checkable in simulation; real response observed once | **Open** — forecasting the load works; forecasting its response to new signals does not (see [§4.6](4-6-reading-the-screen.html)) |
 
+
+[^drusch2012sentinel2]: Drusch, M., Del Bello, U., Carlier, S. et al. (2012). [Sentinel-2: ESA's optical high-resolution mission for GMES operational services](https://doi.org/10.1016/j.rse.2011.11.026). *Remote Sensing of Environment*, 120, 25–36.
 
 ---
 [← Previous: 4.4 Generative Design](4-4-generative-design.html) · [Back to Chapter 4](index.html) · [Next: 4.6 Reading the Screen: Where to Aim →](4-6-reading-the-screen.html)

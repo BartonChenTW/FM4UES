@@ -65,7 +65,7 @@ BLOCK_BEFORE = {
     'transformer': {'swin', 'vision', 'fusion', 'time-series', 'series', 'standard', 'temporal', 'multimodal'},
 }
 # Electrical transformers, not the ML architecture: skip a match on a line containing one of these
-SKIP_IF_LINE = {'transformer': ('lines and transformers', 'transformer is overloaded', '| Transformer |')}
+SKIP_IF_LINE = {'transformer': ('lines and transformers', 'transformer is overloaded', '| Transformer |', 'charge points, transformers', '250 kVA transformer')}
 # Terms linked only on pages that use them in the glossary's sense
 ONLY_IN = {'flexibility': {'chapter-3-sim-opt/3-7-flexible-loads.md', 'chapter-3-sim-opt/3-3-energy-hub-formalism.md', 'chapter-3-sim-opt/3-1-taxonomy-of-tasks.md', 'chapter-4-directions/4-5-screening-fields.md', 'chapter-4-directions/4-6-reading-the-screen.md', 'chapter-6-outlook/6-1-open-gaps.md'},
            'cell': {'chapter-2-fm-foundations/2-3-choosing-a-basic-element.md', 'chapter-2-fm-foundations/2-4-4-tabular-fms.md'}}
@@ -93,7 +93,7 @@ def rel(path):
 
 
 def link_file(path, dry):
-    lines = open(path).read().split('\n')
+    lines = open(path, encoding='utf-8').read().split('\n')
     done = set(re.findall(r'a-glossary\.html#([a-z0-9-]+)', '\n'.join(lines)))
     compiled = [(re.compile(r'(?<![\w.-])(' + rx + r')(?![\w-])', 0 if cs else re.I), gid) for rx, gid, cs in TERMS]
     in_front = in_fence = False
@@ -140,14 +140,14 @@ def link_file(path, dry):
             out.append(line[pos:])
             lines[i] = ''.join(out)
     if changes and not dry:
-        open(path, 'w').write('\n'.join(lines))
+        open(path, 'w', encoding='utf-8', newline='\n').write('\n'.join(lines))
     return changes
 
 
 if __name__ == '__main__':
     dry = '--dry' in sys.argv
     total = 0
-    for f in sorted(glob.glob('chapter-*/*.md') + glob.glob('appendices/*.md') + ['index.md']):
+    for f in sorted(p.replace('\\', '/') for p in (glob.glob('chapter-*/*.md') + glob.glob('appendices/*.md') + ['index.md'])):
         if f in SKIP_FILES:
             continue
         ch = link_file(f, dry)

@@ -3,7 +3,7 @@ title: "4.6 Reading the Screen: Where to Aim"
 parent: "Chapter 4 — Directions for FMs in UES"
 nav_order: 6
 status: draft
-last_reviewed: 2026-09-29
+last_reviewed: 2026-11-19
 redirect_from:
   - /chapter-4-directions/4-7-reading-the-screen.html
   - /chapter-4-directions/4-8-candidate-subfields.html
@@ -41,7 +41,7 @@ This page explains each row of the screen in [§4.5](4-5-screening-fields.html#s
 
 **T7 (control) is moderate.** A simulator can generate training experience, and control is time-critical, so there is a real bottleneck. But a review of reinforcement learning for building control found it still largely at the research stage, with 11% of studies tested in real buildings. It named poor generalisation between buildings as one of three main barriers, alongside slow, data-hungry training and robustness.[^wang2020rlcontrol] Those barriers are why S2 and S5 are only partly met: controllers transfer poorly, and a good result in simulation is not a check of real performance.
 
-**T12 ([flexibility](../appendices/a-glossary.html#flexibility) assessment) is open, for a reason the forecasting results make clear.** Forecasting a flexible load is close to solved where it is aggregated ([§2.4.5](../chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html), [§3.7](../chapter-3-sim-opt/3-7-flexible-loads.html)). Flexibility asks something different: how the load would respond to a price or grid signal it has not received before. A benchmark built on simulators of data centres, power grids, traffic and water networks found every forecaster skilful when an intervention repeated one seen before (48–85% skill over a naive baseline), but only −7% to 50% when it was new.[^ashok2026whatifbench] Simulators supply ground truth for the response, so the task is not blocked the way T8 is, but it needs models judged on new interventions. This is [gap G10](../chapter-6-outlook/6-1-open-gaps.html#g10).
+**T12 ([flexibility](../appendices/a-glossary.html#flexibility) assessment) is open, for a reason the forecasting results make clear.** Forecasting a flexible load is close to solved where it is aggregated ([§2.4.5](../chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html), [§3.7](../chapter-3-sim-opt/3-7-flexible-loads.html)). Flexibility asks something different: how the load would respond to a price or grid signal it has not received before. A benchmark built on simulators of data centres, power grids, traffic and water networks found every forecaster skilful when an intervention repeated one seen before (48–85% skill over a naive baseline), but only −7% to 50% when it was new.[^ashok2026whatifbench] Similarly, on residential heat-pump model predictive control, time-series foundation models with low forecast error failed to capture the effect of alternative control actions unless the inference context contained enough independent control excitation; fine-tuning reduced, but did not eliminate, that requirement.[^amria2026tsfmmpc] Simulators supply ground truth for the response, so the task is not blocked the way T8 is, but it needs models judged on new interventions. This is [gap G10](../chapter-6-outlook/6-1-open-gaps.html#g10).
 
 ## Fail the screen
 
@@ -76,6 +76,7 @@ This page explains each row of the screen in [§4.5](4-5-screening-fields.html#s
 [^energybench]: AI-IoT Lab, IISc Bangalore. [EnergyBench](https://huggingface.co/datasets/ai-iot/EnergyBench). Hugging Face dataset, CC-BY-SA-4.0.
 [^orehounig2022cesarp]: Orehounig, K., Fierz, L., Allan, J. et al. (2022). [CESAR-P: A dynamic urban building energy simulation tool](https://doi.org/10.21105/joss.04261). *Journal of Open Source Software*, 7(78), 4261.
 [^hamann2024foundation]: Hamann, H. F., Gjorgiev, B., Brunschwiler, T. et al. (2024). [Foundation models for the electric power grid](https://doi.org/10.1016/j.joule.2024.11.002). *Joule*, 8(12), 3245–3258.
+[^amria2026tsfmmpc]: Amria, M., Hoffmann, J., Bordne, P. et al. (2026). [Time-series foundation models for predictive control: The role of excitation](https://arxiv.org/abs/2610.06447). arXiv:2610.06447.
 
 ---
 [← Previous: 4.5 Screening Sub-Fields and Tasks](4-5-screening-fields.html) · [Back to Chapter 4](index.html) · [Next: 4.7 A Proposed Development Path →](4-7-methods-landing.html)

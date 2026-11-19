@@ -55,4 +55,4 @@ The chapter's argument is this screen, not the reading order. **Load** and **gri
 | 4.9 | [Putting it together: a future ecosystem of UES FMs](4-9-ecosystem.html) | Which models, on which basic elements, passing what to each other; three shapes the ecosystem could take |
 
 ---
-[← Previous: 3.7 Flexible Loads: EV Charging and Data Centres](../chapter-3-sim-opt/3-7-flexible-loads.html) · [Next: 4.1 Using Existing FMs Off the Shelf →](4-1-off-the-shelf-fms.html)
+[← Previous: 3.7 Flexible Loads: EV Charging, Data Centres and Heat Pumps](../chapter-3-sim-opt/3-7-flexible-loads.html) · [Next: 4.1 Using Existing FMs Off the Shelf →](4-1-off-the-shelf-fms.html)

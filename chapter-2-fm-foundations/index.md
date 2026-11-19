@@ -3,7 +3,7 @@ title: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 3
 has_children: true
 status: draft
-last_reviewed: 2026-09-11
+last_reviewed: 2026-11-19
 ---
 
 # Chapter 2 — Foundation Knowledge of Foundation Models
@@ -15,16 +15,18 @@ The conceptual toolkit to judge any foundation-model proposal, including basic m
 {: .fs-6 .fw-300 }
 
 ```mermaid
-flowchart TD
-    A["2.1 What defines a foundation model"] --> B["2.2 The five design decisions"]
-    B --> C["2.3 Choosing a basic element"]
-    C --> D["2.4 Existing FMs relevant to energy"]
-    F["2.5 Self-supervision, fine-tuning, scaling laws"] --> B
-    G["2.6 Architectures"] --> B
-    G --> H["2.7 Multimodal models"]
-    H --> C
-    A --> I["2.8 Evaluation criteria for UES FMs"]
+flowchart LR
+    D1["D1 · Unit of observation<br/>What is one training example?<br/>(§2.1–§2.2)"]
+    D2["D2 · Tokenisation & basic element<br/>Unambiguous · Stable · Composable · Scale-free<br/>(§2.3 core criterion)"]
+    D3["D3 · Architecture & fusion<br/>Transformer · GNN · Neural operator<br/>Early / mid / late fusion (§2.6–§2.7.1)"]
+    D4["D4 · Pretraining objective<br/>Self-supervised masking or next-token<br/>+ scaling laws (§2.5)"]
+    D5["D5 · UES evaluation<br/>8 dimensions: transfer, physics,<br/>data, uncertainty, cost, risk (§2.8)"]
+    D1 --> D2 --> D3 --> D4 --> D5
+    S["Existing energy FMs (§2.4.1–§2.4.5)<br/>Time series · Grid · Weather · Tabular · Load"] -.->|"judged against"| D2
+    S -.->|"scored on"| D5
 ```
+
+*The five design decisions ([§2.2](2-2-five-design-decisions.html)) that structure every FM proposal in Chapters 4 and 5.* D2 ([§2.3](2-3-choosing-a-basic-element.html)) is the gate where transfer is won or lost before architecture or compute enter.
 
 ## In this chapter
 

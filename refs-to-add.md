@@ -19,7 +19,7 @@ that matters for UES, from the source itself.
 
 ### A1. Lédée, Crawford & Evins (2025): surrogates for multi-energy system design ★ high value
 
-> **Partly done 2026-09-24:** added to the `.bib` as `ledee2025messurrogate` and cited in §2.1 (the surrogate-literature paragraph). Not yet cited in §3.3 or §4.7.3 (below).
+> **Partly done 2026-09-24; completed 2026-11-19:** added to the `.bib` as `ledee2025messurrogate` and cited in §2.1 (the surrogate-literature paragraph), §4.7.3, §3.3 (amortisation argument), and §6.1 (G9).
 
 - **Ref:** Lédée, F., Crawford, C. and Evins, R. (2025). Improved surrogate modeling for multi-energy system design: Model architecture, sampling and scaling choices. *Applied Energy*, 390, 125812. <https://doi.org/10.1016/j.apenergy.2025.125812>. Verified via Crossref; abstract read via OpenAlex.
 - **Suggested key:** `ledee2025messurrogate`
@@ -61,7 +61,7 @@ that matters for UES, from the source itself.
 
 ## B. Tools and models named in the notes without any citation
 
-Found by a sweep for named tools, models and datasets in body text that no footnote anywhere in the notes mentions. All DOIs below were verified via Crossref on 2026-09-23.
+Found by a sweep for named tools, models and datasets in body text that no footnote anywhere in the notes mentions. All DOIs below were verified via Crossref on 2026-09-23. **Done 2026-11-19** for EnergyPlus (`crawley2001energyplus`), OSeMOSYS (`howells2011osemosys`), SpineOpt (`ihlemann2022spineopt`), OpenModelica (`fritzson2020openmodelica`), PowerModels (`coffrin2018powermodels`), and Sentinel-2 (`drusch2012sentinel2`), added to `.bib` and cited in §3.2, §3.4 and §4.5 (DLinear, XGBoost and LightGBM were already cited in §4.7.1 and `.bib`). Only **PyCity** (still needing confirmation of the right paper) remains open in this table.
 
 | Named in | Where | Candidate reference | DOI / link |
 | :--- | :--- | :--- | :--- |
@@ -97,4 +97,4 @@ named on the tool's own site) before citing.
 
 ## E. Previously logged, still open
 
-- **[G9](chapter-6-outlook/6-1-open-gaps.md#g9)** is uncited on its own page ([log.md](log.md), 2026-09-19 entry). Needs a nearest-miss citation for representing a decision space alongside a state space, e.g. from the design-surrogate literature; A1 is a candidate.
+- ~~**[G9](chapter-6-outlook/6-1-open-gaps.md#g9)** is uncited on its own page ([log.md](log.md), 2026-09-19 entry).~~ **Done 2026-11-19:** G9 now cites `ledee2025messurrogate`, `sharif2021renovationvae` and `gasse2019learn2branch` as nearest-miss work on multi-energy design surrogates, renovation scenario generation and MILP variable–constraint graphs.

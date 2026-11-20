@@ -3,7 +3,7 @@ title: Appendix C — Version History
 parent: Appendices
 nav_order: 3
 status: draft
-last_reviewed: 2026-11-19
+last_reviewed: 2026-11-20
 ---
 
 # Appendix C — Version History
@@ -21,6 +21,21 @@ These notes are revised continuously, so there are two ways to trace what change
 "Last reviewed" on each page is a separate signal. It is set by hand when someone has checked the page's content, so it can be older than the page's most recent edit.
 
 ---
+
+## 3.5 — 20 November 2026
+
+44 section pages, 357 references, 55 models in the model index, 202 institutions in the research-institutes index.
+
+**New**
+- [§2.7](../chapter-2-fm-foundations/2-7-multimodal-models.html#do-unimodal-models-converge-the-platonic-representation-hypothesis) The Platonic Representation Hypothesis: whether separately trained models converge on shared representations; what that would allow for connecting unimodal UES foundation models after training (relative representations, unsupervised embedding translation); and why alignment cannot be expected when modalities carry largely unique information, as UES modalities do, which motivates the fusion strategies in §2.7.1
+- Glossary: Platonic Representation Hypothesis
+
+**Revised**
+- §2.8 dimension 3 adds representation-similarity checks (centred kernel alignment) beyond task accuracy; §4.9 links shared learned representations to §2.7; §5.5 risk 4 notes that models trained on the same simulators may align on the simulators' simplifications, and that closeness in a learned space does not make an output physically feasible
+
+**Corrections**
+- §2.7 no longer says a physical method often beat SolCloudLLM in few-shot settings: SolCloudLLM was best in nearly all of them, and the physical method beat the other deep-learning baselines
+- §4.7.3 cites the published version of Van Hentenryck's optimisation-learning chapter (De Gruyter, 2025)
 
 ## 3.4 — 19 November 2026
 

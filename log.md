@@ -1184,3 +1184,22 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 **Version:** Version 3.4 is recorded in Appendix C, `_config.yml` and the README.
 
 **Verified:** local script checks pass with 0 missing/unused bib keys (351/351), 0 footnote mismatches across all public pages, balanced `{}` in `.bib`, 0 broken internal `.html` links or `#anchors`, `link_glossary.py` and `link_models.py` re-run cleanly without touching `SKIP_FILES`, and `_data/institutes.yml` ordering and publication counts verified. Note: a full Jekyll build was not run locally (no Ruby/Jekyll in this environment); GitHub Actions `site-check.yml` and `link-check.yml` cover the live build and external links.
+
+## 2026-11-20 (Platonic Representation Hypothesis in §2.7)
+
+**Why.** Barton asked to add the Platonic Representation Hypothesis (PRH) and its limits for UES as a focused subsection of §2.7, with light cross-references, not a new page.
+
+**Changes.**
+- **§2.7:** new subsection "Do unimodal models converge? The Platonic Representation Hypothesis" under "How models combine modalities", just before the pointer to §2.7.1. It gives the hypothesis (`huh2024platonic`, with the survey `lu2025reppotentials` for the follow-up work). It then covers what would follow for the unimodal FMs of §2.4: post-hoc connection through relative representations (`moschella2022relrep`) or unsupervised embedding translation (`jha2025universalgeometry`), each with its limit (shared anchors; text only; attribute leakage, linked to §2.8 dimension 8). Last comes the UES caveat (`tjandrasuwita2025alignment`): alignment and its value depend on how much unique versus redundant information the modalities carry, which motivates designed fusion (§2.7.1).
+- **§2.8 dimension 3:** CKA (`kornblith2019cka`) as a representation-similarity check beyond task accuracy, noting it needs paired inputs across modalities.
+- **§4.9:** one sentence after the discussion of shared learned representations, linking to the new §2.7 subsection.
+- **§5.5 risk 4:** models trained on the same simulators may align on shared simulator simplifications; latent similarity does not imply feasibility (conservation, capacity bounds; §5.4 physics loss). This is the notes' own reasoning, uncited.
+- **Appendix A:** glossary entry "Platonic Representation Hypothesis"; matching line in `TERMS` of `scripts/link_glossary.py`.
+
+**References (bib 351 → 357).** All six checked on DataCite (arXiv DOI, title, authors) and Semantic Scholar (venue, abstract); venues confirmed by arXiv comments or journal refs where present (ICML 2025, ICLR 2023, ICML 2019, EMNLP 2025), and Crossref for the EMNLP DOI and pages. Claims are taken from the abstracts. dblp was not used (it now serves an anti-bot challenge to scripts). Pages for the PMLR and NeurIPS entries were left out rather than guessed.
+
+**Considered and not done.** A §5.2 callback (§5.5 risk 4, on synthetic-first data, is the closer fit). Adding the six papers' institutions to Appendix E: none of them builds, pretrains, adapts or evaluates an energy foundation model in the sense Appendix E uses, and two (relative representations, CKA) are not about foundation models at all.
+
+**Version:** released as 3.5 (Barton's call), recorded in Appendix C, `_config.yml` and the README. The 3.5 entry also lists the two corrections from PR #69 (SolCloudLLM wording; published Van Hentenryck chapter), which merged after the 3.4 text was written.
+
+**Verified:** footnote refs and definitions match on all changed pages; all six keys in the bib and cited; no duplicate keys; balanced `{}`; the new `#do-unimodal-models-converge-the-platonic-representation-hypothesis` anchor resolves from §2.8, §4.9, §5.5 and Appendix A; `link_glossary.py --dry` and `link_models.py --dry` report 0 changes.

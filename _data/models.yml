@@ -94,7 +94,8 @@
   bib_key: "google2026timesfm3"
   sources:
     - "https://github.com/google-research/timesfm"
-  notes: "No paper; capabilities from the repository README (read 2026-10-20), released August 2026. Cite it for capabilities only, not for performance."
+    - "https://huggingface.co/google/timesfm-3.0-pytorch"
+  notes: "No paper (checked 2026-11-22); capabilities from the repository README, released August 2026. Downloaded weights carry a non-commercial, non-production licence (commercial use via Google Cloud / BigQuery ML). Cite it for capabilities only, not for performance."
 - id: "moirai"
   name: "Moirai"
   full_name: "Masked Encoder-based Universal Time Series Forecasting Transformer"

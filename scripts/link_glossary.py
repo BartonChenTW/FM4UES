@@ -40,6 +40,7 @@ TERMS = [
     (r'patches|patch', 'patch', False),
     (r'prior-data fitted networks?', 'pfn-prior-data-fitted-network', False),
     (r'PFNs?', 'pfn-prior-data-fitted-network', True),
+    (r'platonic representation hypothesis', 'platonic-representation-hypothesis', False),
     (r'retrofit measures?', 'retrofit-measure', False),
     (r'reduced-order models?', 'rom', False),
     (r'ROMs?', 'rom', True),

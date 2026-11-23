@@ -35,6 +35,7 @@ TERMS = [
     (r'LCA', 'lca', True),
     (r'MILPs?', 'milp', True),
     (r'membership inference', 'membership-inference', False),
+    (r'multimodal fusion', 'multimodal-fusion', False),
     (r'multimodality|multimodal', 'multimodality', False),
     (r'neural operators?', 'neural-operator', False),
     (r'patches|patch', 'patch', False),
@@ -120,7 +121,7 @@ def link_file(path, dry):
                 continue
             for m in rx.finditer(line):
                 cands.append((m.start(), m.end(), gid))
-        cands.sort()
+        cands.sort(key=lambda x: (x[0], -(x[1] - x[0])))
         masked = [(m.start(), m.end()) for m in MASK.finditer(line)]
         taken, out, pos = [], [], 0
         for a, b, gid in cands:

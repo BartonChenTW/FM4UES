@@ -2,7 +2,7 @@
 title: "6.1 Open Gaps"
 parent: Chapter 6 — Outlook
 nav_order: 1
-status: draft
+status: reviewed
 last_reviewed: 2026-11-19
 redirect_from: /10-open-gaps.html
 ---

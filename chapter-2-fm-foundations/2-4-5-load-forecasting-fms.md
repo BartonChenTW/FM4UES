@@ -3,7 +3,7 @@ title: "2.4.5 Load & Smart-Meter Forecasting FMs"
 parent: "2.4 Existing FMs Relevant to Energy"
 grand_parent: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 5
-status: draft
+status: reviewed
 last_reviewed: 2026-10-30
 redirect_from:
   - /chapter-2-fm-foundations/2-4-6-load-forecasting-fms.html

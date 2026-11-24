@@ -2,7 +2,7 @@
 title: "5.4 Data, Modules and Training Tasks"
 parent: "Chapter 5 — Case Study"
 nav_order: 4
-status: draft
+status: reviewed
 last_reviewed: 2026-09-11
 redirect_from:
   - /chapter-5-case-study/5-3-data-generation.html

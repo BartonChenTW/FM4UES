@@ -2,7 +2,7 @@
 title: Appendix E — Research Institutes
 parent: Appendices
 nav_order: 5
-status: draft
+status: reviewed
 last_reviewed: 2026-11-19
 ---
 

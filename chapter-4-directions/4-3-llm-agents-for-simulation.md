@@ -3,7 +3,7 @@ title: "4.3 LLMs and Agents That Build or Run Simulation Models"
 parent: Chapter 4 — Directions for FMs in UES
 nav_order: 3
 status: draft
-last_reviewed: 2026-10-20
+last_reviewed: 2026-11-24
 ---
 
 # 4.3 LLMs and Agents That Build or Run Simulation Models
@@ -96,7 +96,7 @@ The occupant agent above is one instance of a wider idea from social science: co
 
 A few studies now test [silicon samples](../appendices/a-glossary.html#silicon-sample) on energy or climate questions against real respondents:
 
-- **Heating and retrofit choices.** Four language models were asked to reproduce the answers of real respondents in a stated-preference experiment on heating systems and retrofit options, at both individual and aggregate level. The best reached 77% average accuracy. All showed systematic bias against the gas boiler and against not retrofitting, preferring more efficient options than the respondents did, and the most useful input was each respondent's own earlier choices.[^wang2025llmstatedpref] The abstract does not report variance or subgroup results.
+- **Heating and retrofit choices.** Four language models were asked to reproduce the answers of real respondents in a stated-preference experiment on heating systems and retrofit options, at both individual and aggregate level. The best reached 77% average accuracy. All showed systematic bias against the gas boiler and against not retrofitting, preferring more efficient options than the respondents did, and the most useful input was each respondent's own earlier choices.[^wang2025llmstatedpref] In the full paper, aggregate choice distributions (scored by Jensen–Shannon distance) and run-to-run standard deviations separate reasoning from non-reasoning models: the reasoning model (DeepSeek-R1, 77% accuracy, at about five times the runtime) aligned closest with observed choice shares, whereas the non-reasoning models ([LLaMA](../appendices/d-model-index.html#llama) 3.1, Mistral, GPT-3.5) produced skewed distributions, ignored factors in longer prompts, and fell behind a classical mixed-logit choice model on aggregate distribution alignment. Adding socio-demographic attributes to the prompt did not significantly change accuracy, and stratified evaluation across six household subgroups found no broad demographic bias, with variation mainly in households with seniors or children (where DeepSeek-R1's accuracy ranged from 0.72 ± 0.06 to 0.89 ± 0.05 across subgroups on the second experiment, against 0.81 ± 0.03 overall).
 - **Tenants and energy renovation.** Agents built from survey data on 1,068 Dutch citizens, about 40,548 question-and-answer pairs on energy-efficient renovation, predicted responses better when their personas included transaction costs (the effort and hassle of renovating). The abstract gives no figures for the improvement.[^xia2026tenantllm]
 - **A reporting standard.** One framework asks every validity claim for synthetic respondents to say which of four properties it checks (the average, the spread, how answers are reached, and the relationships between variables) and to report validity for subgroups, not only overall. It is applied to electric-vehicle charging tariffs.[^kutzner2026syntheticvalidity]
 - **Climate opinion, with a subgroup failure.** On two nationally representative US climate surveys, GPT-4, conditioned on demographics and other respondent characteristics, reached accuracies from 53% to 91%, and it systematically underestimated the global-warming concern of Black Americans.[^lee2024climateopinion]

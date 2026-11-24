@@ -32,20 +32,19 @@ that matters for UES, from the source itself.
 
 ### A2. *Forecasting: Principles and Practice, the Pythonic Way*, ch. 15 "Foundation forecasting models"
 
-- **Ref:** Hyndman, R. J., Athanasopoulos, G., Garza, A., Challu, C., Mergenthaler Canseco, M. and Olivares, K. G. *Forecasting: Principles and Practice, the Pythonic Way*. OTexts. Chapter 15, <https://otexts.com/fpppy/15-foundation-models.html>. Authors and chapter title verified from the site; **edition year to confirm** from the book's citation page before adding.
+> **Done 2026-11-24:** verified online edition (`https://otexts.com/fpppy/`, last updated 20 November 2026), added to `.bib` as `hyndman2026fpppy`, and cited in [§4.1](chapter-4-directions/4-1-off-the-shelf-fms.md) (Nord Pool electricity-price forecasting example with TimeGPT and Moirai using load and wind forecasts as known-future covariates).
+
+- **Ref:** Hyndman, R. J., Athanasopoulos, G., Garza, A., Challu, C., Mergenthaler Canseco, M. and Olivares, K. G. (2026). *Forecasting: Principles and Practice, the Pythonic Way*. OTexts. Chapter 15, <https://otexts.com/fpppy/15-foundation-models.html>.
 - **Barton's note:** "not the fan really, but we should not disregard it completely."
-- **Where it could fit:** as the mainstream forecasting textbook's framing of TSFMs, for readers who know classical forecasting. Candidate homes: [§2.4.1](chapter-2-fm-foundations/2-4-1-time-series-fms.md) (time-series FMs) or [§4.1](chapter-4-directions/4-1-off-the-shelf-fms.md) (off-the-shelf FMs). Given the reservation, cite it for a specific point (e.g. how it recommends benchmarking FMs against simple baselines) rather than as an endorsement.
-- **To do before citing:** read the chapter and pick the claim it supports.
+- **Where it fits:** [§4.1](chapter-4-directions/4-1-off-the-shelf-fms.md) ("Why try existing models before building your own"), cited neutrally for how mainstream textbooks introduce zero-shot and covariate-conditioned foundation forecasters.
 
 ### A3. bnlearn: Bayesian networks in R
 
-- **Ref:** Scutari, M. (2010). Learning Bayesian Networks with the bnlearn R Package. *Journal of Statistical Software*, 35(3). <https://doi.org/10.18637/jss.v035.i03>. Verified via Crossref. Examples page: <https://www.bnlearn.com/examples/>.
+> **Done 2026-11-24:** added to `.bib` as `scutari2010bnlearn` and cited in [§2.8](chapter-2-fm-foundations/2-8-ues-fm-evaluation-criteria.md) under Dimension 6 (uncertainty awareness) as a classical probabilistic graphical-model baseline noting super-exponential worst-case structure learning.
+
+- **Ref:** Scutari, M. (2010). Learning Bayesian Networks with the bnlearn R Package. *Journal of Statistical Software*, 35(3), 1–22. <https://doi.org/10.18637/jss.v035.i03>. Verified via Crossref. Examples page: <https://www.bnlearn.com/examples/>.
 - **Suggested key:** `scutari2010bnlearn`
 - **Barton's note:** used in practice. Worked, but slow, probably because it's R (although much of it is written in C).
-- **Blocker, needs a decision:** the notes currently say nothing about Bayesian networks (0 mentions). This reference needs a home first. Options:
-  1. A short paragraph on probabilistic and causal graphical models as a non-FM baseline, e.g. in [§2.1](chapter-2-fm-foundations/2-1-what-defines-an-fm.md#surrogates-vs-fms) or next to the uncertainty dimension in [§2.8](chapter-2-fm-foundations/2-8-ues-fm-evaluation-criteria.md);
-  2. A "further reading / tools" entry only.
-- The speed observation is first-hand experience, not a published result. If it goes in the text, phrase it as practitioner experience, or find a benchmark to cite.
 
 ### A4. Bayes Server documentation (further reading only, not a citation)
 
@@ -61,7 +60,7 @@ that matters for UES, from the source itself.
 
 ## B. Tools and models named in the notes without any citation
 
-Found by a sweep for named tools, models and datasets in body text that no footnote anywhere in the notes mentions. All DOIs below were verified via Crossref on 2026-09-23. **Done 2026-11-19** for EnergyPlus (`crawley2001energyplus`), OSeMOSYS (`howells2011osemosys`), SpineOpt (`ihlemann2022spineopt`), OpenModelica (`fritzson2020openmodelica`), PowerModels (`coffrin2018powermodels`), and Sentinel-2 (`drusch2012sentinel2`), added to `.bib` and cited in §3.2, §3.4 and §4.5 (DLinear, XGBoost and LightGBM were already cited in §4.7.1 and `.bib`). Only **PyCity** (still needing confirmation of the right paper) remains open in this table.
+Found by a sweep for named tools, models and datasets in body text that no footnote anywhere in the notes mentions. All DOIs below were verified via Crossref on 2026-09-23. **Done 2026-11-19** for EnergyPlus (`crawley2001energyplus`), OSeMOSYS (`howells2011osemosys`), SpineOpt (`ihlemann2022spineopt`), OpenModelica (`fritzson2020openmodelica`), PowerModels (`coffrin2018powermodels`), and Sentinel-2 (`drusch2012sentinel2`), added to `.bib` and cited in §3.2, §3.4 and §4.5 (DLinear, XGBoost and LightGBM were already cited in §4.7.1 and `.bib`). **Done 2026-11-24** for **PyCity** (`schiefelbein2019pycity`, confirmed via RWTH-EBC `pyCity` README citation list), added to `.bib` and cited in §3.4. This table is now complete.
 
 | Named in | Where | Candidate reference | DOI / link |
 | :--- | :--- | :--- | :--- |
@@ -81,14 +80,12 @@ Note: 10.1145 (ACM) and 10.1609 (AAAI) DOIs are already excluded in
 
 ## C. Uncited tools still needing a primary source identified
 
-A Crossref title search found no DOI for these. They are probably
-conference papers or software releases. Find the canonical paper (usually
-named on the tool's own site) before citing.
+> **Done 2026-11-24:** verified and added canonical references for all four tools below to `.bib` and §3.2 / §3.4 (`robinson2009citysim`, `nouvel2015simstadt`, `chen2017citybes`, `ait2026disheatlib`).
 
-- **CitySim** ([§3.2](chapter-3-sim-opt/3-2-building-simulation-data.md) l.29, [§3.4](chapter-3-sim-opt/3-4-tools-and-standards.md#tool-landscape)): probably Robinson et al., *CitySim: Comprehensive micro-simulation of resource flows for sustainable urban planning*, Building Simulation 2009 (IBPSA). Not yet verified.
-- **SimStadt** (§3.4 l.24): probably Nouvel et al., CISBAT 2015. Not yet verified.
-- **CityBES** (§3.4 l.24): the platform paper (Hong et al., 2016) was not found. A verified fallback is Chen, Y. et al. (2017), *City-Scale Building Retrofit Analysis: A Case Study using CityBES*, Building Simulation 2017, `10.26868/25222708.2017.071`. That is a case study, though, so prefer the platform paper if it can be found.
-- **DisHeatLib** (§3.4 l.25): Modelica district-heating library from AIT. No paper identified.
+- **CitySim** ([§3.2](chapter-3-sim-opt/3-2-building-simulation-data.md) l.29, [§3.4](chapter-3-sim-opt/3-4-tools-and-standards.md#tool-landscape)): Robinson et al. (2009), *CITYSIM: Comprehensive Micro-Simulation of Resource Flows for Sustainable Urban Planning*, Building Simulation 2009 (IBPSA), `10.26868/25222708.2009.1083-1090`.
+- **SimStadt** (§3.4 l.30): Nouvel et al. (2015), *SimStadt, a new workflow-driven urban energy simulation platform for CityGML city models*, CISBAT 2015, `10.5075/epfl-cisbat2015-889-894`.
+- **CityBES** (§3.4 l.30): Chen, Hong & Piette (2017), *Automatic generation and simulation of urban building energy models based on city datasets for city-scale building retrofit analysis*, *Applied Energy*, 205, 323–335, `10.1016/j.apenergy.2017.07.128`.
+- **DisHeatLib** (§3.4 l.31): AIT Austrian Institute of Technology, `https://github.com/AIT-IES/DisHeatLib` (open-source Modelica library repository; no canonical paper found).
 
 ## D. Existing citation to double-check
 

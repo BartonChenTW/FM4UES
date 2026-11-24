@@ -66,7 +66,7 @@ This file goes through each existing diagram, says concretely what's weak about 
 
 **What it shows now:** six boxes, Phase 0 through Phase 5, each with a year range and a one-line label. This is a genuinely reasonable use of a diagram — it's a timeline, timelines are diagrams, and the labels are specific rather than generic ("Phase 3: Amortised optimisation" is real content, not a section title).
 
-**Verdict: keep, probably improve rather than replace.** Possible upgrade: add a second row showing what's *validated* vs. *aspirational* at each phase (per the risks in §5.5), so the diagram also communicates confidence, not just sequence.
+**Verdict: keep, probably improve rather than replace.** Possible upgrade: add a second row showing what's *validated* vs. *aspirational* at each phase (per the risks in §5.5), so the diagram also communicates confidence, not just sequence. **Done 2026-11-24:** upgraded §5.1's roadmap diagram into three validation tiers (grounded in precedent, partial precedent, open scientific bets), and added mechanism diagrams to §2.3 (four basic-element requirements filter) and §2.7.1 (early, intermediate and late fusion stages).
 
 ### `chapter-5-case-study/5-5-token-schema.md` (L0/L1/L2 temporal hierarchy)
 

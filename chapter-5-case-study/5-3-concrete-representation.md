@@ -2,7 +2,7 @@
 title: "5.3 A Concrete Representation and Token Schema"
 parent: Chapter 5 — Case Study
 nav_order: 3
-status: draft
+status: reviewed
 last_reviewed: 2026-11-19
 redirect_from:
   - /chapter-5-case-study/5-4-concrete-representation.html

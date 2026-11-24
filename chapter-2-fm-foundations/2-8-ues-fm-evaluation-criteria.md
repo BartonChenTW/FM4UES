@@ -2,8 +2,8 @@
 title: "2.8 Evaluation Criteria for UES Foundation Models"
 parent: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 8
-status: draft
-last_reviewed: 2026-09-13
+status: reviewed
+last_reviewed: 2026-11-24
 redirect_from:
   - /chapter-2-fm-foundations/2-9-ues-fm-evaluation-criteria.html
 ---
@@ -40,7 +40,7 @@ This framework does not replace the [surrogate](../appendices/a-glossary.html#su
 
 **5. Data efficiency.** Energy data in this domain is often heterogeneous, incomplete, proprietary, or expensive to collect — see [§3.2](../chapter-3-sim-opt/3-2-building-simulation-data.html). The relevant measurement is how much local data is needed to adapt a pretrained model to a new building, neighbourhood, technology, climate, or task — compared against a task-specific baseline trained from scratch, not assumed from model size alone.
 
-**6. Uncertainty awareness.** Energy-system decisions are made under uncertainty from weather, occupancy, technology performance, prices, and behaviour. A systematic review of uncertainty quantification in ML-based building energy modelling identifies three primary uncertainty sources — building operations, simulation tools, and the ML model itself — and categorises their contributing factors into aleatoric and epistemic uncertainty.[^xu2025uq_bem] A model producing accurate point predictions with no indication of when they are unreliable is insufficient for decision-critical use here; probabilistic predictions, ensembles, Bayesian methods, or calibrated confidence estimates are the usual routes to closing this gap. That this is achievable with [foundation models](../appendices/a-glossary.html#foundation-model) specifically, rather than only with purpose-built probabilistic models, is shown for building energy systems by the same study cited under dimension 2, which treats probabilistic forecasting alongside zero-shot and fine-tuned prediction as part of one evaluation.[^park2025probforecasting]
+**6. Uncertainty awareness.** Energy-system decisions are made under uncertainty from weather, occupancy, technology performance, prices, and behaviour. A systematic review of uncertainty quantification in ML-based building energy modelling identifies three primary uncertainty sources — building operations, simulation tools, and the ML model itself — and categorises their contributing factors into aleatoric and epistemic uncertainty.[^xu2025uq_bem] A model producing accurate point predictions with no indication of when they are unreliable is insufficient for decision-critical use here; probabilistic predictions, ensembles, Bayesian methods, or calibrated confidence estimates are the usual routes to closing this gap. Among classical baselines, Bayesian networks (`bnlearn` in R implements constraint-based, score-based and hybrid structure and parameter learning for discrete, Gaussian and conditional-Gaussian variables) represent joint conditional dependencies explicitly, though worst-case structure learning scales super-exponentially in the number of variables.[^scutari2010bnlearn] That this is achievable with [foundation models](../appendices/a-glossary.html#foundation-model) specifically, rather than only with purpose-built probabilistic models, is shown for building energy systems by the same study cited under dimension 2, which treats probabilistic forecasting alongside zero-shot and fine-tuned prediction as part of one evaluation.[^park2025probforecasting]
 
 **7. Computational benefit.** Foundation models for the electric power grid have been proposed partly to replace or accelerate expensive repeated calculations while staying adaptable across applications.[^hamann2024foundation] The equivalent case here: replacing expensive simulation calls with a surrogate, accelerating optimisation, enabling scenario exploration, supporting real-time control. But speed is not a standalone virtue — a faster model whose errors lead to materially different energy-system decisions is not a better model. See the amortisation argument in [§2.1](2-1-what-defines-an-fm.html#surrogates-vs-fms) and [§3.3](../chapter-3-sim-opt/3-3-energy-hub-formalism.html#dispatch) for when the trade actually pays off.
 
@@ -75,6 +75,7 @@ Treat this as a checklist for reading and writing UES-FM claims, not as a valida
 [^luo2018integrity]: Luo, J., Hong, T., Fang, S.-C. (2018). [Benchmarking robustness of load forecasting models under data integrity attacks](https://doi.org/10.1016/j.ijforecast.2017.08.004). *International Journal of Forecasting*, 34(1), 89–104.
 [^zhang2025tsfmrobust]: Zhang, J., Zhang, Z., Zheng, S. et al. (2025). [Are time-series foundation models deployment-ready? A systematic study of adversarial robustness across domains](https://arxiv.org/abs/2505.19397). arXiv:2505.19397.
 [^kornblith2019cka]: Kornblith, S., Norouzi, M., Lee, H., Hinton, G. (2019). [Similarity of neural network representations revisited](https://arxiv.org/abs/1905.00414). *ICML 2019*, PMLR 97. arXiv:1905.00414.
+[^scutari2010bnlearn]: Scutari, M. (2010). [Learning Bayesian networks with the bnlearn R package](https://doi.org/10.18637/jss.v035.i03). *Journal of Statistical Software*, 35(3), 1–22.
 
 ---
 [← Previous: 2.7.1 Fusion Strategies](2-7-1-fusion-strategies.html) · [Back to Chapter 2](index.html) · [Next: Chapter 3 — Simulation and Optimisation in UES →](../chapter-3-sim-opt/index.html)

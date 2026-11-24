@@ -2,7 +2,7 @@
 title: "1.3 The FM Landscape and Where It Is Heading"
 parent: "Chapter 1 — Background"
 nav_order: 3
-status: draft
+status: reviewed
 last_reviewed: 2026-09-11
 redirect_from:
   - /chapter-1-background/1-4-fm-field-directions.html

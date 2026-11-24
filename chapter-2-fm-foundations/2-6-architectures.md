@@ -2,7 +2,7 @@
 title: "2.6 Architectures: Transformers, GNNs, Neural Operators"
 parent: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 6
-status: draft
+status: reviewed
 last_reviewed: 2026-10-01
 redirect_from:
   - /chapter-2-fm-foundations/2-7-architectures.html

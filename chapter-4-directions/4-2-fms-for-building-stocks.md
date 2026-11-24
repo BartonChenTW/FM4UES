@@ -3,7 +3,7 @@ title: "4.2 FMs for Whole Building Stocks"
 parent: Chapter 4 — Directions for FMs in UES
 nav_order: 2
 status: draft
-last_reviewed: 2026-10-20
+last_reviewed: 2026-11-24
 ---
 
 # 4.2 Foundation Models for Whole Building Stocks
@@ -52,7 +52,7 @@ No European equivalent of ResStock or ComStock was found: a simulated stock with
 
 Using a stock-level model as a prior that each building's model then adjusts to that building's data is an established practice, mostly outside the foundation-model literature. Three patterns appear.
 
-**1. Hierarchical calibration.** The stock model and the building models are fitted together. Information from all the buildings is partially pooled: each building gets its own parameters, pulled towards the archetype's values, and more strongly when its own data says little. On the Danish residential stock, fitted on 50 buildings and tested on 100 others, the archetype model reached a normalised mean bias error of 2.9% and a [CV(RMSE)](../appendices/a-glossary.html#cv-rmse) of 7.8%.[^kristensen2018hierarchical] For 193 monitored dwellings in Leicester, England, a Bayesian calibration with data-driven priors for each group of similar dwellings cut the error in summer indoor temperature from 2.5 °C to 0.6 °C.[^petrou2024bayesianstock]
+**1. Hierarchical calibration.** The stock model and the building models are fitted together. Information from all the buildings is partially pooled: each building gets its own parameters, pulled towards the archetype's values, and more strongly when its own data says little. An early residential archetype formulation represented uncertain building parameters as probability distributions calibrated against utility billing data rather than fixed deterministic inputs.[^sokol2017bayesianarchetypes] On the Danish residential stock, fitted on 50 buildings and tested on 100 others, the archetype model reached a normalised mean bias error of 2.9% and a [CV(RMSE)](../appendices/a-glossary.html#cv-rmse) of 7.8%.[^kristensen2018hierarchical] For 193 monitored dwellings in Leicester, England, a Bayesian calibration with data-driven priors for each group of similar dwellings cut the error in summer indoor temperature from 2.5 °C to 0.6 °C.[^petrou2024bayesianstock]
 
 **2. Pretrain on the stock, then check coverage.** A model is pretrained on the simulated stock and fine-tuned or applied to real buildings, with an explicit test of whether each real building is covered by the stock. In one study, a variational autoencoder trained on 8,856 hourly load profiles from the New York State part of ComStock first screens which real buildings the simulated stock represents; a forecaster pretrained on the same profiles then forecasts those buildings. On 101 real buildings from BDG2, about 82–84% passed the screen, and the forecaster reached a mean CV(RMSE) of 12.07% in summer and 11.44% in winter on them.[^quan2025stars] This is the archetype-coverage concern of [§3.2](../chapter-3-sim-opt/3-2-building-simulation-data.html) turned into a test applied before forecasting.
 
@@ -92,6 +92,7 @@ The two representations fail in different places, which is the argument for comb
 [^quan2025stars]: Quan, H., Ergan, S. (2025). [Sim-to-real transfer learning for large-scale short-term building energy forecasting in sustainable cities](https://doi.org/10.1145/3736425.3772006). *Proceedings of the 12th ACM International Conference on Systems for Energy-Efficient Buildings, Cities, and Transportation (BuildSys '25)*, 86–95.
 [^sinha2026buildingdiffusion]: Sinha, S., Cortiella, A., El Kontar, R. et al. (2026). [Conditional distribution estimation of building characteristics with diffusion models for urban energy modeling](https://doi.org/10.1016/j.enbuild.2026.117392). *Energy and Buildings*, 361, 117392. arXiv:2511.02930.
 [^elkontar2026urbanai]: El Kontar, R., Almaian, M., Vaidhynathan, D. et al. (2026). [AI-based analytics and energy modeling framework for characterizing urban energy systems](https://doi.org/10.1016/j.enbuild.2026.118027). *Energy and Buildings*, 369, 118027.
+[^sokol2017bayesianarchetypes]: Sokol, J., Cerezo Davila, C., Reinhart, C. F. (2017). [Validation of a Bayesian-based method for defining residential archetypes in urban building energy models](https://doi.org/10.1016/j.enbuild.2016.10.050). *Energy and Buildings*, 134, 11–24.
 
 ---
 [← Previous: 4.1 Using Existing FMs Off the Shelf](4-1-off-the-shelf-fms.html) · [Back to Chapter 4](index.html) · [Next: 4.3 LLMs and Agents That Build or Run Simulation Models →](4-3-llm-agents-for-simulation.html)

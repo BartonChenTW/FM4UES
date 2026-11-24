@@ -2,7 +2,7 @@
 title: Appendix C — Version History
 parent: Appendices
 nav_order: 3
-status: draft
+status: reviewed
 last_reviewed: 2026-11-20
 ---
 

@@ -2,7 +2,7 @@
 title: "4.6 Reading the Screen: Where to Aim"
 parent: "Chapter 4 — Directions for FMs in UES"
 nav_order: 6
-status: draft
+status: reviewed
 last_reviewed: 2026-11-19
 redirect_from:
   - /chapter-4-directions/4-7-reading-the-screen.html

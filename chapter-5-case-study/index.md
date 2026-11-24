@@ -2,7 +2,7 @@
 title: Chapter 5 — Case Study
 nav_order: 6
 has_children: true
-status: draft
+status: reviewed
 last_reviewed: 2026-11-19
 ---
 

@@ -2,7 +2,7 @@
 title: "2.2 The Five Design Decisions"
 parent: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 2
-status: draft
+status: reviewed
 last_reviewed: 2026-09-11
 ---
 

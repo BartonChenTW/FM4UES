@@ -2,7 +2,7 @@
 title: Appendix D — Model Index
 parent: Appendices
 nav_order: 4
-status: draft
+status: reviewed
 last_reviewed: 2026-10-01
 ---
 

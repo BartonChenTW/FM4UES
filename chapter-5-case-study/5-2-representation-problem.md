@@ -2,7 +2,7 @@
 title: "5.2 The Representation Problem"
 parent: Chapter 5 — Case Study
 nav_order: 2
-status: draft
+status: reviewed
 last_reviewed: 2026-09-11
 ---
 

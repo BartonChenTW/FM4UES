@@ -3,7 +3,7 @@ title: "4.7 A Proposed Development Path"
 parent: Chapter 4 — Directions for FMs in UES
 has_children: true
 nav_order: 7
-status: draft
+status: reviewed
 last_reviewed: 2026-11-19
 redirect_from:
   - /06-methods-tier1.html

@@ -2,7 +2,7 @@
 title: Chapter 6 — Outlook
 nav_order: 7
 has_children: true
-status: draft
+status: reviewed
 last_reviewed: 2026-09-11
 ---
 

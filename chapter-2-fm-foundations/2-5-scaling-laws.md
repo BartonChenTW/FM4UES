@@ -2,7 +2,7 @@
 title: "2.5 Self-Supervision, Fine-Tuning, Scaling Laws"
 parent: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 5
-status: draft
+status: reviewed
 last_reviewed: 2026-09-11
 redirect_from:
   - /chapter-2-fm-foundations/2-6-scaling-laws.html

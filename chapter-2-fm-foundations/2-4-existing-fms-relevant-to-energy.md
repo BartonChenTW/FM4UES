@@ -3,7 +3,7 @@ title: "2.4 Existing FMs Relevant to Energy"
 parent: Chapter 2 — Foundation Knowledge of FMs
 has_children: true
 nav_order: 4
-status: draft
+status: reviewed
 last_reviewed: 2026-11-19
 redirect_from:
   - /04-fm-landscape.html

@@ -3,7 +3,7 @@ title: "4.1 Using Existing FMs Off the Shelf"
 parent: Chapter 4 — Directions for FMs in UES
 nav_order: 1
 status: draft
-last_reviewed: 2026-11-22
+last_reviewed: 2026-11-24
 ---
 
 # 4.1 Using Existing Foundation Models Off the Shelf
@@ -15,7 +15,7 @@ The most useful direction to a practitioner today, and the one requiring the lea
 {: .fs-6 .fw-300 }
 
 {: .note }
-**Partial.** A worked example with reported numbers is below, from a published evaluation rather than a run of these notes' own, together with a table of which inputs each model accepts. What is still missing is these notes' own benchmark run: the numbers below are one group's result on their networks, not a reproduction.
+**Partial.** Two worked examples with reported numbers are below — a published evaluation on district heating and the companion [FM4UES Playground](https://bartonchentw.github.io/FM4UES-playground/)'s reproducible full-year benchmark on Swiss electricity load and German solar PV — together with a table of which inputs each model accepts. What is still missing is extending the companion playground benchmark to a single-building electricity series.
 
 1. TOC
 {:toc}
@@ -30,7 +30,7 @@ This is directly applicable to **load forecasting** — predicting building or d
 
 ## Why try existing models before building your own
 
-Building and training a model of your own is a large project. Testing an existing one zero-shot needs no training at all, and the result tells you whether the larger project is worth starting. If a pretrained model already forecasts your load well enough, you can stop there.
+Building and training a model of your own is a large project. Testing an existing one zero-shot needs no training at all, and the result tells you whether the larger project is worth starting. If a pretrained model already forecasts your load well enough, you can stop there. Mainstream forecasting textbooks now introduce pretrained time-series models in this role: the Python edition of *Forecasting: Principles and Practice* devotes a chapter to zero-shot and covariate-conditioned foundation forecasters, illustrating [TimeGPT](../appendices/d-model-index.html#timegpt) and [Moirai](../appendices/d-model-index.html#moirai) on Nord Pool day-ahead electricity prices with day-ahead load and wind forecasts as known-future covariates, evaluated by rolling cross-validation.[^hyndman2026fpppy]
 
 The notes' proposed development path puts this test second in its first tier, predicting how a single [energy hub](../appendices/a-glossary.html#energy-hub) operates ([§4.7.1](4-7-1-methods-tier1.html), "Step 2"), right after setting up simple baselines. For a hub, the test is only a starting point: a hub model must also keep energy in balance and track how full the storage is, which a forecaster does not do. For load forecasting alone, the zero-shot test is often the whole job.
 
@@ -43,6 +43,27 @@ A published evaluation carries out exactly this exercise for one UES carrier. Ta
 - **Transferability actually tested, not assumed:** the configuration was validated on a second, different network — precisely what [§2.8](../chapter-2-fm-foundations/2-8-ues-fm-evaluation-criteria.html) (dimension 2) asks for and what a single-network evaluation cannot show.
 
 One caveat worth carrying forward: TabPFN-TS is pretrained on **synthetic** data rather than real time series, which sidesteps train/test leakage but leaves open whether its learned prior actually captures district-heating dynamics specifically, or transfers on general time-series structure alone — the same synthetic-vs-real question these notes raise for their own corpus in [§4.8.1](4-8-building-it.html#481-data-generation-and-sampling-design).
+
+## Companion playground benchmark: Swiss electricity load and German solar PV
+
+To ground these notes in a reproducible run of our own, Module 1 of the companion [FM4UES Playground](https://bartonchentw.github.io/FM4UES-playground/) evaluates four zero-shot time-series FMs alongside simple persistence and trained `Ridge` and `LightGBM` baselines (with weather and lag features) across all 365 days of 2019 (day-ahead, 24-hour horizon, 2,048-hour context, run on an NVIDIA Quadro RTX 6000) on two contrasting OPSD series paired with Open-Meteo weather: **Swiss national electricity load** and **German solar PV generation**.
+
+| Model | Load MAE (MW) | Load Peak-5% MAE (MW) | Load CRPS (MW) | Solar MAE (MW) | Solar nMAE (%) | Load GPU energy (J) / time (s) |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Last week (persistence) | 401.9 | 328.1 | — | 1,694.0 | 35.4 | — |
+| Ridge (+ weather & lags) | 303.4 | 262.7 | — | 781.6 | 16.3 | — |
+| LightGBM (+ weather & lags) | 268.0 | 179.3 | 183.8 | 681.1 | 14.2 | — |
+| TimesFM 2.5 (200M) | 264.1 | 191.8 | 170.6 | 1,318.6 | 27.6 | 749.9 / 3.5 |
+| TiRex (35M xLSTM) | 254.6 | 198.4 | 164.0 | 1,091.5 | 22.8 | 462.7 / 3.4 |
+| [Chronos-Bolt](../appendices/d-model-index.html#chronos-bolt) (base) | 254.5 | 171.9 | 165.4 | 1,061.6 | 22.2 | 216.3 / 1.5 |
+| Chronos-2 (univariate) | 247.3 | 185.7 | 159.6 | 1,085.0 | 22.7 | 356.6 / 2.1 |
+| **Chronos-2 + weather** | **242.0** | **170.5** | **157.2** | **545.5** | **11.4** | 1,150.7 / 5.2 |
+
+Three empirical takeaways follow from the run:
+
+1. **Smooth national load favours zero-shot FMs.** All four univariate FMs (`MAE 247.3–264.1 MW`, `3.9–4.2%` MAPE, `1.5–3.5 s` for 365 days on GPU) beat trained `LightGBM` (`268.0 MW`, `4.3%`) without any training on Swiss load.
+2. **Weather covariates sharpen peaks more than averages.** Supplying measured Open-Meteo temperature and shortwave radiation to `Chronos-2` trims overall load MAPE modestly (`3.9% → 3.8%`, `242.0 MW`), but cuts **Peak-5% MAE** during the highest-demand hours from `185.7` to `170.5 MW` (an upper bound, since measured rather than forecast weather is used).
+3. **Irradiance-driven PV fails without exogenous weather.** On German solar PV, every univariate zero-shot FM (`MAE 1,061.6–1,318.6 MW`, `nMAE 22.2–27.6%`) loses to trained `LightGBM` (`681.1 MW`, `14.2%`) and `Ridge` (`781.6 MW`, `16.3%`) by 26–48%, and unclipped outputs go negative on 26.0% of hours for `TiRex` and 9.4% for `Chronos-Bolt`. Conditioning **`Chronos-2 + weather`** halves solar MAE to `545.5 MW` (`11.4%` nMAE), beating `LightGBM`. On inference cost, `fp16` precision halves `Chronos-Bolt` peak VRAM (`4.92 → 2.59 GB`) and cuts GPU energy from `197.6` to `80.3 J` at identical `254.5 MW` load MAE on the Turing GPU.
 
 ## Which covariates each model accepts
 
@@ -75,7 +96,7 @@ Accepting a covariate is not the same as using it well. On synthetic series with
 
 ## What would still need to be added here
 
-- These notes' own benchmark run, rather than a citation of someone else's — see the caveat in the note above. A useful first version is one single-building electricity series, each model run with and without a weather forecast as covariate.
+- Extending the companion [FM4UES Playground](https://bartonchentw.github.io/FM4UES-playground/) benchmark from national load and solar PV to a single-building electricity series, comparing each model with and without a real (rather than measured) weather forecast as covariate.
 - The comparison above is for one carrier (heat) on two networks. Published numbers for electricity, from single households to whole grids, are collected in [§2.4.5](../chapter-2-fm-foundations/2-4-5-load-forecasting-fms.html). They show zero-shot models doing well on aggregated load and less reliably for a single building.
 - A test of whether building metadata helps when passed as a constant series to a model that does not document static covariates.
 
@@ -89,6 +110,7 @@ Accepting a covariate is not the same as using it well. On synthetic series with
 [^berthelier2026covariate]: Berthelier, G., Baranova, M., Pantea, A.-T. et al. (2026). [Investigating simple target-covariate relationships for Chronos-2 and TabPFN-TS](https://arxiv.org/abs/2605.12200). arXiv:2605.12200.
 [^cheong2026exogenous]: Cheong, W. S., Jiang, L. L., Ling, J. N. S. (2026). [Assessing electricity demand forecasting with exogenous data in time series foundation models](https://arxiv.org/abs/2602.05390). AI4TS Workshop at AAAI 2026. arXiv:2602.05390.
 [^mistral2026timestral]: Mistral AI (2026). [Introducing Timestral](https://mistral.ai/news/timestral/). Blog post, 15 October 2026; [model card](https://huggingface.co/mistralai/Timestral-209M) and [code](https://github.com/mistralai/timestral). Technical report not yet released.
+[^hyndman2026fpppy]: Hyndman, R. J., Athanasopoulos, G., Garza, A. et al. (2026). [Foundation forecasting models](https://otexts.com/fpppy/15-foundation-models.html). Chapter 15 in *Forecasting: Principles and Practice, the Pythonic Way*. OTexts.
 
 ---
 [← Previous: Chapter 4 — Directions for FMs in UES](index.html) · [Back to Chapter 4](index.html) · [Next: 4.2 FMs for Whole Building Stocks →](4-2-fms-for-building-stocks.html)

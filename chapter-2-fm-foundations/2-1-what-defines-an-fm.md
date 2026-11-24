@@ -2,7 +2,7 @@
 title: "2.1 What Defines a Foundation Model"
 parent: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 1
-status: draft
+status: reviewed
 last_reviewed: 2026-09-11
 redirect_from:
   - /02-fm-fundamentals.html

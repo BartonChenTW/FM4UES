@@ -2,7 +2,7 @@
 title: "1.2 FMs in One Page"
 parent: Chapter 1 — Background
 nav_order: 2
-status: draft
+status: reviewed
 last_reviewed: 2026-09-11
 ---
 

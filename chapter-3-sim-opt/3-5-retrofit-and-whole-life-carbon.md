@@ -2,7 +2,7 @@
 title: "3.5 Building Retrofit and Whole-Life Carbon"
 parent: Chapter 3 — Simulation and Optimisation in UES
 nav_order: 5
-status: draft
+status: reviewed
 last_reviewed: 2026-09-29
 redirect_from:
   - /chapter-3-sim-opt/3-9-retrofit-and-whole-life-carbon.html

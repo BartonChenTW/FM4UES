@@ -2,7 +2,7 @@
 title: "3.3 The Energy Hub: Formalism, Dispatch, Design"
 parent: Chapter 3 — Simulation and Optimisation in UES
 nav_order: 3
-status: draft
+status: reviewed
 last_reviewed: 2026-11-19
 redirect_from:
   - /chapter-3-sim-opt/3-4-dispatch-optimisation.html

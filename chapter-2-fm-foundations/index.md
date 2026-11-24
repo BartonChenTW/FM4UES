@@ -2,7 +2,7 @@
 title: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 3
 has_children: true
-status: draft
+status: reviewed
 last_reviewed: 2026-11-19
 ---
 

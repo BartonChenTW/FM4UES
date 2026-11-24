@@ -2,7 +2,7 @@
 title: "1.1 What an Urban Energy System Contains"
 parent: Chapter 1 — Background
 nav_order: 1
-status: draft
+status: reviewed
 last_reviewed: 2026-09-11
 redirect_from: /01-the-domain.html
 ---

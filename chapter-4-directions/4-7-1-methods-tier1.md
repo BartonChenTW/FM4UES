@@ -3,7 +3,7 @@ title: "4.7.1 Tier 1 — Single Hub Dispatch"
 parent: "4.7 A Proposed Development Path"
 grand_parent: Chapter 4 — Directions for FMs in UES
 nav_order: 1
-status: draft
+status: reviewed
 last_reviewed: 2026-11-19
 redirect_from:
   - /chapter-4-directions/4-9-1-methods-tier1.html

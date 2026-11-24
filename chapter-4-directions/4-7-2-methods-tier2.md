@@ -3,7 +3,7 @@ title: "4.7.2 Tier 2 — Multi-Hub, Multi-Carrier"
 parent: "4.7 A Proposed Development Path"
 grand_parent: Chapter 4 — Directions for FMs in UES
 nav_order: 2
-status: draft
+status: reviewed
 last_reviewed: 2026-10-29
 redirect_from:
   - /07-methods-tier2.html

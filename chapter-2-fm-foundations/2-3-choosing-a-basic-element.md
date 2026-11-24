@@ -2,8 +2,8 @@
 title: "2.3 Choosing a Basic Element"
 parent: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 3
-status: draft
-last_reviewed: 2026-10-29
+status: reviewed
+last_reviewed: 2026-11-24
 redirect_from: /03-basic-elements.html
 ---
 
@@ -43,6 +43,19 @@ Applying the criterion to buildings gives a negative result worth stating plainl
 
 {: .important }
 **No candidate satisfies all four requirements.**
+
+```mermaid
+flowchart TD
+    R1["R1: Unambiguous (same decomposition across modellers)"] --> R2["R2: Stable in meaning (across systems & scales)"]
+    R2 --> R3["R3: Composable (whole systems assemble from parts)"]
+    R3 --> R4["R4: Scale-independent (single case to portfolio)"]
+    R4 --> PASS["Transfer follows from element learning — e.g. Power-grid bus (passes R1–R4)"]
+    R1 -.->|"fails R1: zoning ambiguity"| ZN["(b) Thermal zone"]
+    R2 -.->|"fails R2 & time trajectories"| CL["(e) Table cell (TabPFN)"]
+    R3 -.->|"fails R3: memorises archetypes"| WB["(a) Whole building"]
+    R3 -.->|"fails R3: non-local couplings dominate"| CP["(c) Building component"]
+    R4 -.->|"describes output, not object"| PT["(d) Time-series patch (TSFM)"]
+```
 
 **(a) The whole building.** Each building as one indivisible item described by its attributes. Unambiguous — every dataset already does this — but not composable: the model learns nothing smaller than a complete building, so a typology absent from training has no parts it recognises. In practice it memorises archetypes and interpolates between them.
 

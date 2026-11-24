@@ -2,7 +2,7 @@
 title: Chapter 1 — Background
 nav_order: 2
 has_children: true
-status: draft
+status: reviewed
 last_reviewed: 2026-11-19
 ---
 

@@ -2,8 +2,8 @@
 title: "5.1 A Roadmap for a Multi-Carrier Energy Hub FM"
 parent: Chapter 5 — Case Study
 nav_order: 1
-status: draft
-last_reviewed: 2026-09-11
+status: reviewed
+last_reviewed: 2026-11-24
 ---
 
 # 5.1 A Roadmap for a Multi-Carrier Energy Hub Foundation Model
@@ -18,11 +18,17 @@ last_reviewed: 2026-09-11
 
 ```mermaid
 flowchart LR
-    P0["Phase 0<br/>Year 0-1<br/>Representation & data engine"] --> P1["Phase 1<br/>Year 1-3<br/>Simulation surrogate"]
-    P1 --> P2["Phase 2<br/>Year 2-4<br/>Multimodal conditioning"]
-    P2 --> P3["Phase 3<br/>Year 3-6<br/>Amortised optimisation"]
-    P3 --> P4["Phase 4<br/>Year 4-7<br/>What MILP cannot do"]
-    P4 --> P5["Phase 5<br/>Year 6-10<br/>Multi-scale coupling"]
+    subgraph TA["Tier A — Grounded in existing precedent"]
+        P0["Phase 0 (Yr 0-1): Schema, benchmark & data engine"] --> P1["Phase 1 (Yr 1-3): Masking surrogate on perturbed dispatch"]
+    end
+    subgraph TB["Tier B — Partial precedent, untested on multi-carrier hubs"]
+        P2["Phase 2 (Yr 2-4): Multimodal conditioning & topology transfer"] --> P3["Phase 3 (Yr 3-6): Solver warm-starts & active-set pruning"]
+    end
+    subgraph TC["Tier C — Open scientific bets (see §5.5 risks)"]
+        P4["Phase 4 (Yr 4-7): Policy-lever & stochastic design search"] --> P5["Phase 5 (Yr 6-10): Shared hub-grid representation"]
+    end
+    P1 --> P2
+    P3 --> P4
 ```
 
 ## Phase 0 (Year 0–1) — Representation and the data engine

@@ -3,7 +3,7 @@ title: "2.7 Multimodal Models"
 parent: Chapter 2 — Foundation Knowledge of FMs
 has_children: true
 nav_order: 7
-status: draft
+status: reviewed
 last_reviewed: 2026-10-20
 ---
 

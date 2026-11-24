@@ -2,7 +2,7 @@
 title: "3.6 Social Dimensions"
 parent: Chapter 3 — Simulation and Optimisation in UES
 nav_order: 6
-status: draft
+status: reviewed
 last_reviewed: 2026-09-29
 redirect_from:
   - /chapter-3-sim-opt/3-10-social-dimensions.html

@@ -1220,3 +1220,28 @@ Verified: footnote integrity on every page, all keys in the bib, no duplicates, 
 **Checked and left open.** `ferdaus2025cleanenergy` journal §5.2 (Elsevier/ScienceDirect behind scripted block), Geo2UBEM and DBE-Fed (SSRN blocked), SCAle-BEM and Sketch-to-Energy (Elsevier blocked), `zaman2025bloomllm` (ACM DL blocked; title/abstract confirmed on OpenAlex `10.1145/3736425.3770103`), `wang2025llmstatedpref` (`arXiv:2503.10652` has no HTML/ar5iv text and needs PDF inspection), Swiss national data platform operational status (StromVG Art. 17g / UVEK 2025 constitution process confirmed, live research-access status not yet verified), and §4.9's own measured chained example.
 
 **Verified:** local verification script confirms 359 bib entries, 0 duplicate keys, balanced `{}`, matching footnotes on all changed pages, valid `_data/models.yml` entries, resolving `#multimodal-fusion` / `2-7-1-fusion-strategies.html` links, and `link_glossary.py --dry` / `link_models.py --dry` reporting `links 0`.
+
+## 2026-11-24 (Tool & textbook citations, §2.3/§2.7.1/§5.1 diagrams, playground benchmarks in §4.1/§4.9, Wang 2025 full text, and status review pass)
+
+**Why.** Barton asked to execute all five recommended next-step tracks after PR #73 merged (`9063dbd`).
+
+**Changes.**
+- **Track 1 — Uncited tools, textbook & Bayesian baselines (`refs-to-add.md`, §3.2, §3.4, §2.8, §4.1, §4.2):**
+  - Verified and cited canonical primary sources for **CitySim** (`robinson2009citysim`, Building Simulation 2009, §3.2 and §3.4), **SimStadt** (`nouvel2015simstadt`, CISBAT 2015, §3.4), **CityBES** (`chen2017citybes`, *Applied Energy* 205, §3.4), **DisHeatLib** (`ait2026disheatlib`, `AIT-IES/DisHeatLib` GitHub repository, §3.4), and **PyCity** (`schiefelbein2019pycity`, *Building and Environment* 149, confirmed via `RWTH-EBC/pyCity` README, §3.4).
+  - Added **Hyndman et al. (2026)** Chapter 15 ("Foundation forecasting models", `hyndman2026fpppy`) in §4.1, **Scutari (2010)** (`bnlearn`, `scutari2010bnlearn`) in §2.8 Dimension 6 as a classical Bayesian-network baseline, and **Sokol, Cerezo Davila & Reinhart (2017)** (`sokol2017bayesianarchetypes`) in §4.2's hierarchical calibration section. Marked §A2, §A3, §B and §C complete in `refs-to-add.md`.
+- **Track 2 — Mechanism diagrams (`§2.3`, `§2.7.1`, `§5.1`, `diagram-ideas.md`):**
+  - Added a four-requirements filter diagram (`flowchart TD`) to §2.3.2 showing why the power-grid bus passes R1–R4 while all five building candidates fail or trade off.
+  - Added an Early / Intermediate / Late fusion mechanism diagram (`flowchart LR`) to §2.7.1.
+  - Upgraded §5.1's roadmap flowchart into three validation tiers (grounded in precedent, partial precedent, open scientific bets) and updated `diagram-ideas.md`.
+- **Track 3 — Companion Playground benchmarks (`§4.1`, `§4.9`):**
+  - Added Module 1 of the companion [FM4UES Playground](https://bartonchentw.github.io/FM4UES-playground/)'s full-year 2019 day-ahead benchmark (Swiss electricity load & German solar PV, NVIDIA Quadro RTX 6000) to §4.1 (`Chronos-Bolt`, `Chronos-2`, `Chronos-2 + weather`, `TimesFM 2.5`, `TiRex` vs `Last week`, `Ridge`, `LightGBM`), including runtime, GPU energy, `fp16` precision trade-offs, and peak/daytime/negative-output regimes.
+  - Added Module 1's forecast-to-balancing-cost chain (`80 EUR/MWh` upward shortfall, `40 EUR/MWh` downward surplus) to §4.9 (`Chronos-Bolt` lower MAE than `LightGBM` yet higher annual balancing cost, `136.8` vs `132.3 MEUR/yr`; `Chronos-2 + weather` cutting balancing cost to `127.2 MEUR/yr` on Swiss load and from `547.5` to `270.3 MEUR/yr` on German solar PV).
+- **Track 4 — Wang, Pawlak & Sivakumar (2025) full text (`§4.3`, `arXiv:2503.10652`):**
+  - Decoded the `arXiv:2503.10652` PDF and replaced the "abstract does not report" note in §4.3 with verified full-text results on choice-distribution alignment (Jensen–Shannon distance, DeepSeek-R1 vs mixed-logit and non-reasoning LLMs) and stratified household subgroup variation (`With-Seniors` / `With-Children`).
+- **Track 5 — Status review pass & linkers:**
+  - Promoted 51 complete pages (39 section pages, 5 appendices, 7 landing/index pages) from `status: draft` to `status: reviewed`, kept the five partial Chapter 4 pages (`4-1`–`4-4`, `4-9`) as `draft`, and set `last_reviewed: 2026-11-24` on all modified pages (`2-3`, `2-7-1`, `2-8`, `3-2`, `3-4`, `4-1`, `4-2`, `4-3`, `4-9`, `5-1`).
+  - Re-ran `scripts/link_glossary.py` and `scripts/link_models.py _data/models.yml` (linked `MILP` in §4.9, `TimeGPT`, `Moirai` and `Chronos-Bolt` in §4.1, and `LLaMA` in §4.3); updated `TODO.md`.
+
+**References (bib 359 → 367).** Added 8 verified entries (`robinson2009citysim`, `nouvel2015simstadt`, `chen2017citybes`, `ait2026disheatlib`, `schiefelbein2019pycity`, `scutari2010bnlearn`, `hyndman2026fpppy`, `sokol2017bayesianarchetypes`).
+
+**Verified:** local verification script confirms 367 bib entries, 0 duplicate keys, balanced `{}`, 0 footnote mismatches across all 56 chapter/appendix pages, all 8 new keys cited, resolving internal links/anchors on all modified pages, valid `flowchart` Mermaid blocks without HTML tags in node labels, and `link_glossary.py --dry` / `link_models.py --dry` reporting `links 0`.

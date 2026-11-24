@@ -2,7 +2,7 @@
 title: "5.5 Risks and Unsettled Design Questions"
 parent: Chapter 5 — Case Study
 nav_order: 5
-status: draft
+status: reviewed
 last_reviewed: 2026-09-11
 redirect_from:
   - /chapter-5-case-study/5-8-risks.html

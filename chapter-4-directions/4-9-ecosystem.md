@@ -3,7 +3,7 @@ title: "4.9 A Future Ecosystem of UES FMs"
 parent: Chapter 4 — Directions for FMs in UES
 nav_order: 9
 status: draft
-last_reviewed: 2026-09-29
+last_reviewed: 2026-11-24
 redirect_from:
   - /chapter-4-directions/4-11-ecosystem.html
 ---
@@ -117,6 +117,8 @@ Two findings change how such a chain should be built:
 - **The most accurate forecast is not always the best input.** In a forecasting-and-scheduling competition, stochastic optimisation over forecast ensembles cut energy costs by at least 2% compared with deterministic approaches, showing that the most accurate point forecast does not necessarily give the best result downstream.[^bergmeir2025predictoptimize] This is why the interface table above asks for distributions, not points.
 - **A foundation model in the chain can be tuned for the decision.** [Fine-tuning](../appendices/a-glossary.html#fine-tuning) the [Moirai](../appendices/d-model-index.html#moirai) time-series foundation model for the downstream dispatch cost rather than for forecast accuracy lowered average daily cost by 9.45% in a building dispatch problem.[^beichter2025decisionfocused] This is the closest published precedent for coupling a foundation model to a decision; extending it to a multi-carrier hub, where errors in several carriers' forecasts interact through conversion and storage, has not been done.
 
+Module 1 of the companion [FM4UES Playground](https://bartonchentw.github.io/FM4UES-playground/) illustrates the same accuracy–cost split directly on 365 days of 2019 day-ahead forecasts ([§4.1](4-1-off-the-shelf-fms.html#companion-playground-benchmark-swiss-electricity-load-and-german-solar-pv)), scoring each forecast against a stylised asymmetric balancing penalty (`80 EUR/MWh` for upward shortfall and `40 EUR/MWh` for downward surplus). On Swiss electricity load, `Chronos-Bolt` achieves lower point MAE than trained `LightGBM (+ weather & lags)` (`254.5` vs `268.0 MW`) yet incurs a *higher* annual balancing penalty (`136.8` vs `132.3 MEUR/yr`) because of asymmetric under-forecast errors. Conditioning `Chronos-2` on weather lowers the annual penalty to `127.2 MEUR/yr` on Swiss load, and from `547.5` to `270.3 MEUR/yr` on German solar PV (against `412.7 MEUR/yr` for `LightGBM`).
+
 ## Three shapes it could take
 
 **1. One [multimodal](../appendices/a-glossary.html#multimodality) UES foundation model.** A single model with an encoder per modality — demand, weather, technology, topology, market — trained jointly: the case study's encoder stack ([§5.4](../chapter-5-case-study/5-4-data-modules-and-tasks.html#modules-and-tasks)) extended to everything. The precedent is Earth-system modelling, where one foundation model trained on more than a million hours of diverse geophysical data outperforms operational forecasts in air quality, ocean waves, tropical-cyclone tracks and high-resolution weather, and can be fine-tuned for new applications at modest cost.[^bodnar2025aurora] What makes that possible is exactly what UES lacks: every one of those tasks is posed on the same kind of element, a cell of a physical field on a shared grid. UES layers do not share an element (bus, meter series, building, hub). This shape is therefore conditional on the central open problem of these notes being solved, not an alternative to solving it. How multimodal models combine data, and the evidence so far, are in [§2.7](../chapter-2-fm-foundations/2-7-multimodal-models.html).
@@ -137,7 +139,7 @@ Two findings change how such a chain should be built:
 
 ## What would still need to be added here
 
-- A worked example of these notes' own, chaining a zero-shot time-series FM forecast into a multi-carrier dispatch and measuring how forecast error propagates into the decision. The published single-building precedent is above.
+- Extending the companion [FM4UES Playground](https://bartonchentw.github.io/FM4UES-playground/)'s single-carrier balancing-cost chain (above) to a multi-carrier hub dispatch LP/[MILP](../appendices/a-glossary.html#milp), measuring how forecast errors in heat and electricity interact across conversion and storage. The published single-building precedent is above.
 - Whether the interface problem should be logged as an open gap of its own in [Chapter 6](../chapter-6-outlook/6-1-open-gaps.html).
 
 [^alfalouji2023cosimulation]: Alfalouji, Q., Schranz, T., Falay, B. et al. (2023). [Co-simulation for buildings and smart energy systems — A taxonomic review](https://doi.org/10.1016/j.simpat.2023.102770). *Simulation Modelling Practice and Theory*, 126, 102770.

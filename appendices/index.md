@@ -2,7 +2,7 @@
 title: Appendices
 nav_order: 8
 has_children: true
-status: draft
+status: reviewed
 last_reviewed: 2026-09-11
 ---
 

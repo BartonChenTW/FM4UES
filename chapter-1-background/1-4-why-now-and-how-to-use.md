@@ -2,7 +2,7 @@
 title: "1.4 Why Now, and How to Use These Notes"
 parent: "Chapter 1 — Background"
 nav_order: 4
-status: draft
+status: reviewed
 last_reviewed: 2026-09-11
 redirect_from:
   - /chapter-1-background/1-5-why-ues-why-now.html

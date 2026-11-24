@@ -2,7 +2,7 @@
 title: Chapter 3 — Simulation and Optimisation in UES
 nav_order: 4
 has_children: true
-status: draft
+status: reviewed
 last_reviewed: 2026-11-19
 ---
 

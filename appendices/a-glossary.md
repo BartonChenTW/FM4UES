@@ -2,7 +2,7 @@
 title: Appendix A — Glossary
 parent: Appendices
 nav_order: 1
-status: draft
+status: reviewed
 last_reviewed: 2026-09-29
 redirect_from: /appendix-a-glossary.html
 ---

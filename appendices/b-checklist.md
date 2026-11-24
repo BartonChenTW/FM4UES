@@ -2,7 +2,7 @@
 title: Appendix B — Pre-Project Checklist
 parent: Appendices
 nav_order: 2
-status: draft
+status: reviewed
 last_reviewed: 2026-09-11
 redirect_from: /appendix-b-checklist.html
 ---

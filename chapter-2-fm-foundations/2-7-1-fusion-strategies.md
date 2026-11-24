@@ -3,8 +3,8 @@ title: "2.7.1 Fusion Strategies"
 parent: "2.7 Multimodal Models"
 grand_parent: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 1
-status: draft
-last_reviewed: 2026-11-22
+status: reviewed
+last_reviewed: 2026-11-24
 ---
 
 # 2.7.1 Fusion Strategies: Where and How Modalities Are Combined
@@ -42,6 +42,23 @@ The classic split is by the stage at which modalities meet:[^baltrusaitis2019mml
 | **Early** | Features just after extraction, often by concatenation | Can learn interactions between low-level features; one model to train | Harder to use when a modality is missing |
 | **Intermediate** ("mid") | The hidden tokens of separate encoders, from a chosen layer onwards | Each encoder first learns its own modality's patterns, then they exchange information | The layer at which they meet has to be tuned |
 | **Late** | Each modality's own prediction, by averaging, weighting or a learned model | A different model per modality; easier when a modality is missing; can even be trained without paired data | Ignores interactions between the modalities |
+
+```mermaid
+flowchart LR
+    subgraph E["Early fusion (raw / low-level)"]
+        E1["Series + attributes / image features"] --> E2["Concatenate early"] --> E3["Single joint encoder"] --> E4["Prediction (captures low-level interactions; fragile if a modality is missing)"]
+    end
+    subgraph M["Intermediate / mid fusion (representation exchange)"]
+        M1["Modality A encoder"] --> M3["Cross-attention, FiLM/gating, or latent bottleneck"]
+        M2["Modality B encoder"] --> M3
+        M3 --> M4["Modulated hidden tokens to prediction (layer choice must be tuned)"]
+    end
+    subgraph L["Late fusion (prediction-level fallback)"]
+        L1["Modality A model -> forecast A"] --> L3["Weighted average / meta-learner"]
+        L2["Modality B model -> estimate B"] --> L3
+        L3 --> L4["Prediction (works with missing / unpaired data; attributes cannot modulate series)"]
+    end
+```
 
 Which stage works best is an empirical question. In audio-visual classification, Nagrani et al. varied the layer at which the modalities first exchange information and found that mid fusion beat both early and late fusion. They also note that this layer "may need to be tuned specifically for different tasks and datasets".[^nagrani2021mbt] It is an audio-visual result: for load and weather data the fusion layer is something to tune, not to copy.
 

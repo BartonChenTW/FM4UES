@@ -2,8 +2,8 @@
 title: "3.4 Tools and Data Standards"
 parent: "Chapter 3 — Simulation and Optimisation in UES"
 nav_order: 4
-status: draft
-last_reviewed: 2026-11-19
+status: reviewed
+last_reviewed: 2026-11-24
 redirect_from:
   - /chapter-3-sim-opt/3-6-tool-landscape.html
   - /chapter-3-sim-opt/3-7-schemas-and-standards.html
@@ -27,9 +27,9 @@ Not exhaustive, but covering the families you will meet. The point of this table
 | Family | Representative tools | Task coverage | Output structure |
 | :--- | :--- | :--- | :--- |
 | **Building simulation** | EnergyPlus,[^crawley2001energyplus] TRNSYS, IDA-ICE, ESP-r | T1, T7 | time series per zone/building |
-| **UBEM** | CitySim, UMI, SimStadt, TEASER, CityBES, City Energy Analyst, CESAR-P | T1, T2 | building-resolved time series + geometry |
-| **Equation-based dynamic** | Modelica (Buildings, IBPSA, DisHeatLib), Dymola, OpenModelica[^fritzson2020openmodelica] | T1, T6, T7 | [DAE](../appendices/a-glossary.html#dae) trajectories, high resolution |
-| **District/urban platforms** | PyCity, City Energy Analyst, eNeuron | T1, T4, T6 | multi-building energy flows |
+| **UBEM** | CitySim,[^robinson2009citysim] UMI, SimStadt,[^nouvel2015simstadt] TEASER, CityBES,[^chen2017citybes] City Energy Analyst, CESAR-P | T1, T2 | building-resolved time series + geometry |
+| **Equation-based dynamic** | Modelica (Buildings, IBPSA, DisHeatLib[^ait2026disheatlib]), Dymola, OpenModelica[^fritzson2020openmodelica] | T1, T6, T7 | [DAE](../appendices/a-glossary.html#dae) trajectories, high resolution |
+| **District/urban platforms** | PyCity,[^schiefelbein2019pycity] City Energy Analyst, eNeuron | T1, T4, T6 | multi-building energy flows |
 | **Energy-system optimisation** | oemof, Calliope, PyPSA,[^brown2018pypsa] SpineOpt,[^ihlemann2022spineopt] TIMES/MARKAL, EnergyPLAN, OSeMOSYS[^howells2011osemosys] | T4, T5, T8 | dispatch + capacity decisions |
 | **Energy-hub / multi-carrier** | ehubX, eNeuron, hub formulations in Calliope/oemof | T4, T5 | carrier-resolved dispatch |
 | **Power system** | pandapower, PowerModels,[^coffrin2018powermodels] MATPOWER,[^zimmerman2011matpower] PyPSA[^brown2018pypsa] | T4, T6 | bus/line-resolved states |
@@ -73,6 +73,11 @@ This is the schema-level version of the "MATPOWER moment" gap: power systems had
 [^ihlemann2022spineopt]: Ihlemann, M., Kouveliotis-Lysikatos, I., Huang, J. et al. (2022). [SpineOpt: A flexible open-source energy system modelling framework](https://doi.org/10.1016/j.esr.2022.100902). *Energy Strategy Reviews*, 43, 100902.
 [^howells2011osemosys]: Howells, M., Rogner, H., Strachan, N. et al. (2011). [OSeMOSYS: The Open Source Energy Modeling System: An introduction to its ethos, structure and development](https://doi.org/10.1016/j.enpol.2011.06.033). *Energy Policy*, 39(10), 5850–5870.
 [^coffrin2018powermodels]: Coffrin, C., Bent, R., Sundar, K., Ng, Y., Lubin, M. (2018). [PowerModels.jl: An open-source framework for exploring power flow formulations](https://doi.org/10.23919/PSCC.2018.8442948). *2018 Power Systems Computation Conference (PSCC)*, 1–8.
+[^robinson2009citysim]: Robinson, D., Haldi, F., Leroux, P. et al. (2009). [CITYSIM: Comprehensive micro-simulation of resource flows for sustainable urban planning](https://doi.org/10.26868/25222708.2009.1083-1090). *Proceedings of Building Simulation 2009: 11th Conference of IBPSA*, 1083–1090.
+[^nouvel2015simstadt]: Nouvel, R., Brassel, K.-H., Bruse, M. et al. (2015). [SimStadt, a new workflow-driven urban energy simulation platform for CityGML city models](https://doi.org/10.5075/epfl-cisbat2015-889-894). *Proceedings of International Conference CISBAT 2015*, EPFL, 889–894.
+[^chen2017citybes]: Chen, Y., Hong, T., Piette, M. A. (2017). [Automatic generation and simulation of urban building energy models based on city datasets for city-scale building retrofit analysis](https://doi.org/10.1016/j.apenergy.2017.07.128). *Applied Energy*, 205, 323–335.
+[^ait2026disheatlib]: AIT Austrian Institute of Technology (2026). [DisHeatLib: Modelica library for dynamic modelling of district heating networks](https://github.com/AIT-IES/DisHeatLib). *GitHub repository*. 3-clause BSD licence.
+[^schiefelbein2019pycity]: Schiefelbein, J., Rudnick, J., Scholl, A. et al. (2019). [Automated urban energy system modeling and thermal building simulation based on OpenStreetMap data sets](https://doi.org/10.1016/j.buildenv.2018.12.025). *Building and Environment*, 149, 630–639.
 
 ---
 [← Previous: 3.3 The Energy Hub: Formalism, Dispatch, Design](3-3-energy-hub-formalism.html) · [Back to Chapter 3](index.html) · [Next: 3.5 Building Retrofit and Whole-Life Carbon →](3-5-retrofit-and-whole-life-carbon.html)

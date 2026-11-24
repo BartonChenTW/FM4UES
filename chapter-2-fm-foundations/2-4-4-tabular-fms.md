@@ -3,7 +3,7 @@ title: "2.4.4 Tabular FMs"
 parent: "2.4 Existing FMs Relevant to Energy"
 grand_parent: Chapter 2 — Foundation Knowledge of FMs
 nav_order: 4
-status: draft
+status: reviewed
 last_reviewed: 2026-09-24
 ---
 

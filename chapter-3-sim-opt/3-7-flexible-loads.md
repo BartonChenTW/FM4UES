@@ -2,7 +2,7 @@
 title: "3.7 Flexible Loads: EV Charging, Data Centres and Heat Pumps"
 parent: Chapter 3 — Simulation and Optimisation in UES
 nav_order: 7
-status: draft
+status: reviewed
 last_reviewed: 2026-11-19
 ---
 

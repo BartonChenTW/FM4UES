@@ -2,7 +2,7 @@
 title: Chapter 4 — Directions for FMs in UES
 nav_order: 5
 has_children: true
-status: draft
+status: reviewed
 last_reviewed: 2026-09-29
 ---
 

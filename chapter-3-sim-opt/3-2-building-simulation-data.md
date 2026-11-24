@@ -2,8 +2,8 @@
 title: "3.2 Building Simulation: Loads, Datasets, Benchmarks"
 parent: Chapter 3 — Simulation and Optimisation in UES
 nav_order: 2
-status: draft
-last_reviewed: 2026-11-19
+status: reviewed
+last_reviewed: 2026-11-24
 ---
 
 # 3.2 Building Energy Simulation: Loads, Datasets, Benchmarks
@@ -26,7 +26,7 @@ Building energy simulation (T1 in [§3.1](3-1-taxonomy-of-tasks.html)) produces,
 ## Data shapes
 
 - **Real measured data** — smart meter or utility billing records. Abundant for electricity, sparser for heat. Carries real heterogeneity but almost never comes paired with the building attributes that would explain it (construction year, envelope, systems) — see the limitation below.
-- **Simulator-generated data** — output of a physics-based tool (EnergyPlus,[^crawley2001energyplus] CitySim, TRNSYS; see [§3.4](3-4-tools-and-standards.html#tool-landscape)) run over a sampled set of building descriptions. Fully labelled by construction, since the input description is known exactly. This is the basis for any controlled study of representation — see [§5.4](../chapter-5-case-study/5-4-data-modules-and-tasks.html#data-generation) for sampling design.
+- **Simulator-generated data** — output of a physics-based tool (EnergyPlus,[^crawley2001energyplus] CitySim,[^robinson2009citysim] TRNSYS; see [§3.4](3-4-tools-and-standards.html#tool-landscape)) run over a sampled set of building descriptions. Fully labelled by construction, since the input description is known exactly. This is the basis for any controlled study of representation — see [§5.4](../chapter-5-case-study/5-4-data-modules-and-tasks.html#data-generation) for sampling design.
 
 ## Datasets and benchmarks
 
@@ -48,6 +48,7 @@ Public building load collections mostly provide profiles without ground-truth at
 [^orehounig2022cesarp]: Orehounig, K., Fierz, L., Allan, J. et al. (2022). [CESAR-P: A dynamic urban building energy simulation tool](https://doi.org/10.21105/joss.04261). *Journal of Open Source Software*, 7(78), 4261.
 [^energybench]: AI-IoT Lab, IISc Bangalore. [EnergyBench](https://huggingface.co/datasets/ai-iot/EnergyBench). Hugging Face dataset, CC-BY-SA-4.0.
 [^crawley2001energyplus]: Crawley, D. B., Lawrie, L. K., Winkelmann, F. C. et al. (2001). [EnergyPlus: creating a new-generation building energy simulation program](https://doi.org/10.1016/S0378-7788(00)00114-6). *Energy and Buildings*, 33(4), 319–331.
+[^robinson2009citysim]: Robinson, D., Haldi, F., Leroux, P. et al. (2009). [CITYSIM: Comprehensive micro-simulation of resource flows for sustainable urban planning](https://doi.org/10.26868/25222708.2009.1083-1090). *Proceedings of Building Simulation 2009: 11th Conference of IBPSA*, 1083–1090.
 
 ---
 [← Previous: 3.1 Modelling Tasks](3-1-taxonomy-of-tasks.html) · [Back to Chapter 3](index.html) · [Next: 3.3 The Energy Hub: Formalism, Dispatch, Design →](3-3-energy-hub-formalism.html)

@@ -2,7 +2,7 @@
 title: "6.2 How to Contribute"
 parent: Chapter 6 — Outlook
 nav_order: 2
-status: draft
+status: reviewed
 last_reviewed: 2026-09-11
 ---
 

@@ -3,7 +3,7 @@ title: "4.7.3 Tier 3 — Design & Sizing"
 parent: "4.7 A Proposed Development Path"
 grand_parent: Chapter 4 — Directions for FMs in UES
 nav_order: 3
-status: draft
+status: reviewed
 last_reviewed: 2026-09-11
 redirect_from:
   - /08-methods-tier3.html

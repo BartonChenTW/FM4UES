@@ -2,7 +2,7 @@
 title: "4.5 Screening Sub-Fields and Tasks"
 parent: Chapter 4 — Directions for FMs in UES
 nav_order: 5
-status: draft
+status: reviewed
 last_reviewed: 2026-11-19
 redirect_from:
   - /05-screening.html
